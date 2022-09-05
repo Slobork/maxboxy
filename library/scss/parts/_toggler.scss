@@ -1,0 +1,268 @@
+/*
+ * Toggler
+ */
+
+ .mboxy-wrap {
+
+	> .mboxy {
+
+		.shuter {
+			cursor: pointer;
+			color: #ffffff;
+			background: #333333;
+			transition: all .3s linear;
+			//height: 2.5em;
+			height: 52px;
+			//width: 52px;
+			//width: auto;
+			width: fit-content;
+			padding: 0 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1; // should make sure it stacks over the other elms, eg. cover img
+				
+		&:hover { opacity: .8; }
+
+
+			.shut-inner {
+				position: relative;
+				top: auto;
+				height: 1px; // must be set to reflect the middle line, e.g. with ham
+				width: 20px; // suits the most togglers
+				margin: auto;
+
+				&:not(.minus) {
+
+					&:before {
+						content: "";
+						height: 1px;
+						width: 20px;
+						box-shadow: 0 -10px 0 0;
+						position: absolute;
+						transition: all 0.3s ease-in-out;
+					}
+
+					&:after {
+						content: "";
+						height: 1px;
+						width: 20px;
+						box-shadow: 0 10px 0 0;
+						position: absolute;
+						transition: all 0.3s ease-in-out;
+					}
+
+				}
+
+				&[class*="iks"] {
+					width: 22px;
+
+					&:before {
+						top: 1px;
+						left: 8px;
+						transform: translateY(6px) rotate(-45deg);
+					}
+
+					&:after {
+						top: 1px;
+						left: 8px;
+						transform: translateY(-8px) rotate(45deg);
+					}
+
+				}
+
+				&.iks-plus { 
+					transform: rotate(45deg); 
+
+					&:after { top: 0; } // without this correction, it's somehow blurry
+				}
+
+				&.minus {
+					// background-color: #fff; |----> cannot inherit color here, so use the box-shadow beneath
+					box-shadow:  0 1px 0 0;
+				}
+
+				&[class*="ham"] {
+					//left: 0;
+					transition: all 0.3s ease-in-out;
+					//background-color: #fff; |----> cannot inherit color here, so use the box-shadow beneath
+					box-shadow:  0 1px 0 0;
+
+					&:before {
+						top: 2px;
+						left: 0;
+					}
+
+					&:after {
+						top: 0;
+						left: 0;
+					}
+
+				}
+
+				&.ham-f1 {
+					width: 13px;
+					// .ham-f1, .ham-f2 need a bit corection to get centralized with transform translate:
+					transform: translateX(-3px); 
+					
+					&:before { width: 7px; }
+					
+				}
+				&.ham-f2 {
+					width: 13px;
+					// .ham-f1, .ham-f2 need a bit corection to get centralized with transform translate:
+					transform: translateX(-3px); 
+
+					&:after { width: 7px; }
+
+				}
+				&.ham-f3 {
+					&:before { width: 10px; }
+
+					&:after {
+						width: 10px;
+						//box-shadow: 10px 10px 0 0 #fff;
+						box-shadow: 10px 10px 0 0;
+					}
+				}
+				&.ham-f4 {
+					&:before {
+						width: 10px;
+						left: auto;
+						right: 0;
+					}
+
+					&:after {
+						width: 10px;
+						//box-shadow: 0 10px 0 0 #fff;
+						box-shadow: 0 10px 0 0;
+					}
+				}
+
+				&[class*="point"] {
+					//left: 0;
+					transition: all 0.3s ease-in-out;
+					//background: transparent;
+
+					&:before {
+						top: 1px;
+						left: 5px;
+						transform: translateY(0) rotate(-40deg);
+					}
+
+					&:after {
+						top: -1px;
+						left: 5px;
+						transform: translateY(0) rotate(40deg);
+					}
+
+				}
+
+				// have to tilt it with translateX for default and large sizes
+				&.point-up      { transform: rotate(90deg) translateY(1px); }
+				&.point-down    { transform: rotate(-90deg) translateY(-2px); }
+				&.point-right   { transform: rotate(180deg); }
+
+			} // end shut-inner
+
+			// toggler/closer sizes
+			&.size-m { 
+				transform: scale(.55); margin: -4px; 
+
+				.shut-inner {
+
+					// since it's scaled down, to be viewable, have to set larger height
+					&[class*="iks"],
+					&.minus {
+						height: 3px;
+						
+						&:before, &:after {height: 2px;}
+						
+					}
+
+					// all hams except .ham needs a bit corection to get centralized
+					&[class*="ham"]:not(.ham) {
+						height: 0; // ...eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
+					}
+
+					&[class*="point"] {
+
+						&:before, &:after {height: 2px;}
+
+					}
+
+					// change translateX applied by defalt
+					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
+					&.point-down { transform: rotate(-90deg) translateY(0px); }
+
+				} // end shut-inner
+
+			}
+
+			&.size-s {
+				transform: scale(.75); 
+
+				.shut-inner { 
+
+					// since it's scaled down, to be viewable, have to set larger height
+					&[class*="iks"],
+					&[class*="point"],
+					&.minus {
+						height: 2px;
+
+						&:before, &:after {height: 2px;}
+
+					}
+
+					// change translateX applied by defalt
+					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
+					&.point-down { transform: rotate(-90deg) translateY(1px); }
+
+				} // end shut-inner
+
+			}
+
+			&.size-l { transform: scale(1.25); margin: 6px;  padding: 0 20px; }
+			&.size-h { transform: scale(1.55); margin: 14px; padding: 0 20px; }
+
+
+			&.bordered { border: 2px solid; }
+
+			&.inside { position: absolute; }
+
+			&.rounded {
+				border-radius: 50px;
+				margin: 8px;
+
+				&.size-m { margin: -4px; }
+				&.size-s { margin: 4px; }
+				&.size-l { margin: 16px; }
+				&.size-h { margin: 26px; }
+
+				&.squared { border-radius: 5px; }
+
+			}
+
+			// rotate icon animation
+			&.trigger-rotator {
+				transform: rotate(180deg) !important;
+				transition: transform 750ms ease !important;
+			}
+
+		} // end .shuter
+
+	} // end .mboxy
+
+	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos 
+	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-m { transform: scale(.55) }
+	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-s { transform: scale(.75) }
+	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-h { transform: scale(1.55) }
+
+	// ...and in the case its pos is left/right, but centered
+	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-m { transform: scale(.55) }
+	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-s { transform: scale(.75) }
+	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-h { transform: scale(1.55) }
+
+} // end .mboxy-wrap

@@ -1,0 +1,12 @@
+/*
+ * Base - General css
+ */
+
+// disable panel or element on certain screens (set in JS)
+.is-screen-disabled { display: none !important; }
+
+// force no margin to the wp-block elements (eliminate the spacing addition)
+.mboxy-mt0 { margin-top:     0 !important; }
+.mboxy-mb0 { margin-bottom:  0 !important; }
+.mboxy-ml0 { margin-left:    0 !important; }
+.mboxy-mr0 { margin-right:   0 !important; }

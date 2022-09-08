@@ -41,8 +41,8 @@ jQuery(document).ready(function($) {
 	/**
 	 * For the panel_type change unset_toggler's leftover.
 	 */
-	var selected_panel_type = $("input[type='radio'][name='_mb_floatany[box_options][panel_type]']:checked").val(),
-		unset_toggler_close = $('.floatany-unset-toggling-default .csf--button-group > .csf--button:nth-child(2)'); // unset toggler options (2nd option i.e. Closer)
+	var selected_panel_type = $("input[type='radio'][name='_mb_floatany[box_options][panel_type]']:checked, input[type='radio'][name='_mb_injectany[box_options][panel_type]']:checked").val(),
+		unset_toggler_close = $('.mb-unset-toggling-default .csf--button-group > .csf--button:nth-child(2)'); // unset toggler options (2nd option i.e. Closer)
 
 
 	// ...When Panel type is changed to "Closer", unset_togler may be left with its "Out Closer" option which is surplus
@@ -52,12 +52,12 @@ jQuery(document).ready(function($) {
 
 		// if the value of the "unset_toggler" is Closer, i.e. it's selected while the Toggler was the panel_type option and it's leftover now for the Closer selection
 		if (unset_toggler_value === 'closer' ) {
-			$('.floatany-unset-toggling-default')
+			$('.mb-unset-toggling-default')
 				.addClass('force-closer-hide')
 				.nextAll().css('display', 'none');
 
 			// for the "Remove" button, set it as active
-			$('.floatany-unset-toggling-default .csf--button-group > .csf--button:last-child').addClass('csf--active');
+			$('.mb-unset-toggling-default .csf--button-group > .csf--button:last-child').addClass('csf--active');
 		}
 
 	}
@@ -65,9 +65,9 @@ jQuery(document).ready(function($) {
 	// reset the above's function - used when returned to panel_tape's Toggler and on unset_toggler's buttons click
 	function leftoverUnsetTogglerReset() {
 
-		if ( $('.floatany-unset-toggling-default').prop('class').match(/force-closer-hide/) ) {
+		if ( $('.mb-unset-toggling-default').prop('class').match(/force-closer-hide/) ) {
 
-			$('.floatany-unset-toggling-default')
+			$('.mb-unset-toggling-default')
 				.removeClass('force-closer-hide')
 				.nextAll().css('display', '');
 		}
@@ -108,7 +108,7 @@ jQuery(document).ready(function($) {
 		var unset_toggler_value = $("input[type='radio'][name='_mb_floatany[box_options][unset_toggler]']:checked").val();
 		if (unset_toggler_value === 'closer' ) {
 			// remove the class applied to the "Remove" button, i.e. reset the added class in the leftoverUnsetToggler()
-			$('.floatany-unset-toggling-default .csf--button-group > .csf--button:last-child').removeClass('csf--active');
+			$('.mb-unset-toggling-default .csf--button-group > .csf--button:last-child').removeClass('csf--active');
 		}
 
 	});
@@ -126,7 +126,7 @@ jQuery(document).ready(function($) {
 	});
 
 	// if some of the unset_toggler' s buttons are clicked, reset the leftover and actually apply csf default options
-	$('.floatany-unset-toggling-default .csf--button-group > .csf--button').click( function() {
+	$('.mb-unset-toggling-default .csf--button-group > .csf--button').click( function() {
 		leftoverUnsetTogglerReset();
 	});
 

@@ -392,7 +392,7 @@
 					'toggler'    => esc_html__('Toggler',	'maxboxy'),
 					'closer'     => esc_html__('Closer',	'maxboxy'),
 				),
-				'default'       => 'toggler',
+				'default'       => 'closer',
 				'class'         => 'maxboxy-panel-type',
 			),
 			array(
@@ -826,7 +826,7 @@
 				'all'       => esc_html__('Remove',		'maxboxy'),
 			),
 			'default'		=> 'no',
-			'class'			=> 'floatany-unset-toggling-default',
+			'class'			=> 'mb-unset-toggling-default',
 		),
 		array(
 			'id'            => 'button_open',

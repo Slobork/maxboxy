@@ -375,7 +375,7 @@
 				'id'            => 'box_align',
 				'type'          => 'button_set',
 				'title'         => esc_html__( 'Alignment', 'maxboxy' ),
-				'desc'          => esc_html__( 'If the panel\'s size isn\'t set with 100% width, you can align its postion.', 'maxboxy' ),
+				'desc'          => esc_html__( 'If the panel\'s size is set but not with 100% width, you can align its postion.', 'maxboxy' ),
 				'options'       => array(
 										'start'  => esc_html__('Start',     'maxboxy'),
 										'center' => esc_html__('Center',    'maxboxy'),

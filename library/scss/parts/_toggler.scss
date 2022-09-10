@@ -214,16 +214,12 @@
 					&.minus {
 						height: 3px;
 						
-						//&:before, &:after { height: 2px; }
-						
 					}
 					
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="ham"] {
 						height: 2px;
 						box-shadow: 0 2px 0 0;
-
-						//&:before, &:after { height: 2px; }
 					}
 
 					// change translateX applied by defalt

@@ -734,19 +734,9 @@
 
 					$stats_enabled			=	Max__Boxy__Track::enabled() === true		?	' stats-on'	:	'';
 
-					$injectany_preload		=	$basics[ 'style' ] === ' style-onload'		?	' on'	: ''; // reveal on page load, i.e. no waiting to add 'on'
-					$panel_strain			=	get_post_type( $get_id ) === 'float_any'	?	' floatany'	:	'';
-					$panel_strain			=	get_post_type( $get_id ) === 'wp_block' && class_exists( 'Max__Boxy__Reusable_blocks' ) && Max__Boxy__Reusable_blocks::enabled() === true
-											?	' is-reusable-block injectany' .$injectany_preload	:	$panel_strain;
-					$panel_strain			=	get_post_type( $get_id ) === 'inject_any'	?	' injectany' .$injectany_preload	:	$panel_strain;
-
 					//  $loading[ 'location' ] is null for 'wp_block' and browser would throw a warning notice, so make this check
 					$location				=	! empty( $loading[ 'location' ] )		?	$loading[ 'location' ]	:	'';
 					$shorty_class			=	$is_shorty === true	?	' shortcode-made'	:	'';
-
-					// Sets wheather to fully or partially unset the toggler/closer button.
-					$unset_toggler_class	=   $basics[ 'unset_toggler' ] === 'all'	?   ' default-toggler-closer-unset' : '';
-					$unset_toggler_class	=   $basics[ 'unset_toggler' ] === 'closer' ?   ' default-closer-unset' : $unset_toggler_class;
 
 					/**
 					 * Output the "head" location.
@@ -760,7 +750,7 @@
 					 */
 					$_escaped_out .= '<div id="' .esc_attr( $name )
 									.'" class="mboxy-wrap'
-										.esc_attr( $panel_strain )
+										.esc_attr( $basics[ 'strain' ] )
 										.esc_attr( $basics[ 'injectany_align' ] )
 										.esc_attr( $shorty_class )
 										.esc_attr( $location )
@@ -769,7 +759,7 @@
 										.esc_attr( $basics[ 'rotator_repeat' ] )
 										.esc_attr( $basics[ 'mark_hoverout_closing' ] )
 										.esc_attr( $basics[ 'shut_class' ] )
-										.esc_attr( $unset_toggler_class )
+										.esc_attr( $basics[ 'unset_toggler_class' ] )
 										.esc_attr( $basics[ 'sticky' ] )
 										//.esc_attr( $basics[ 'trigger_anim' ] )
 										.esc_attr( $basics[ 'add_classes' ] )

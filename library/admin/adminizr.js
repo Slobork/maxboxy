@@ -191,31 +191,48 @@ jQuery(document).ready(function($) {
 	/**
 	 * With InjectAny location "Head", hide options that cannot be used.
 	 */
-	 if ( $('[name="_mb_injectany_loading[location]"]').length ) {
+	var injectany_location	=	$('[name="_mb_injectany_loading[location]"]');
 
-		var injectany_location	=	$('[name="_mb_injectany_loading[location]"]'),
-			head_surplus_fields =	$('.hide-on-injecany-head-location').hide(); // class added to the CSF
+	if ( injectany_location.length ) {
+
+		var loading_metabox		=	$('#_mb_injectany_loading'),
+			global_loading_op	=	$("input[type='radio'][name='_mb_injectany_loading[auto_loading]']:checked").val(),
+			head_surplus_fields =	$('.hide-on-injectany-head-location'); // class added to the CSF
 
 		// on page's load
-		if (injectany_location.val() === 'head' ) {
+		if ( global_loading_op === 'enabled' && injectany_location.val() === 'head' ) {
 			// hide all metaboxes except the Conditionals
-			injectany_location.parents('#_mb_injectany_loading').siblings().not('#_mb_maxboxy_conditionals').hide();
+			loading_metabox.siblings().not('#_mb_maxboxy_conditionals').hide();
 			// hide surplus fields
 			head_surplus_fields.hide();
 		} 
 
 		// ...and on options change
-		$('[name="_mb_injectany_loading[location]"]').change(function() {
+		injectany_location.change(function() {
 			
-			if ($(this).val() === 'head' ) {
-				$(this).parents('#_mb_injectany_loading').siblings().not('#_mb_maxboxy_conditionals').hide();
+			if ($(this).val() === 'head') {
+				loading_metabox.siblings().not('#_mb_maxboxy_conditionals').hide();
 				head_surplus_fields.hide();
 			} else {
-				$(this).parents('#_mb_injectany_loading').siblings().not('#_mb_maxboxy_conditionals').show();
+				loading_metabox.siblings().not('#_mb_maxboxy_conditionals').show();
 				head_surplus_fields.show();
 			}
-
+			
 		});
+		
+		// ...and on global loading option change
+		loading_metabox.find('.csf--button-group > .csf--button:first-child').click( function() {
+			if ( injectany_location.val() === 'head' ) {
+				loading_metabox.siblings().not('#_mb_maxboxy_conditionals').hide();
+				head_surplus_fields.hide();
+			}
+		});
+
+		loading_metabox.find('.csf--button-group > .csf--button:last-child').click( function() {
+				loading_metabox.siblings().not('#_mb_maxboxy_conditionals').show();
+				head_surplus_fields.show();
+		});
+
 	}
 
 	/**

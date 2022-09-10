@@ -166,7 +166,7 @@
 			} // end shut-inner
 
 			// toggler/closer sizes
-			&.size-m { 
+			&.size-m {
 				transform: scale(.55); margin: -4px; 
 
 				.shut-inner {
@@ -174,26 +174,30 @@
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="iks"],
 					&.minus {
-						height: 3px;
-						
-						&:before, &:after {height: 2px;}
+						height: 4px;
+						box-shadow: 0 2px 0 0;						
+					}
+					
+					&[class*="iks"] {
+						box-shadow: none;
+					}
+					
+					&[class*="ham"] {
+						// eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
+						height: 0;
 						
 					}
 
-					// all hams except .ham needs a bit corection to get centralized
-					&[class*="ham"]:not(.ham) {
-						height: 0; // ...eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
-					}
-
-					&[class*="point"] {
-
-						&:before, &:after {height: 2px;}
-
+					.ham-f3, .ham-f4 {
+						&:before, &:after {  width: 12px; }
 					}
 
 					// change translateX applied by defalt
 					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
 					&.point-down { transform: rotate(-90deg) translateY(0px); }
+					
+					// since it's scaled down, to be viewable, have to set larger height
+					&:before, &:after { height: 2px; }
 
 				} // end shut-inner
 
@@ -208,15 +212,26 @@
 					&[class*="iks"],
 					&[class*="point"],
 					&.minus {
+						height: 3px;
+						
+						//&:before, &:after { height: 2px; }
+						
+					}
+					
+					// since it's scaled down, to be viewable, have to set larger height
+					&[class*="ham"] {
 						height: 2px;
+						box-shadow: 0 2px 0 0;
 
-						&:before, &:after {height: 2px;}
-
+						//&:before, &:after { height: 2px; }
 					}
 
 					// change translateX applied by defalt
 					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
 					&.point-down { transform: rotate(-90deg) translateY(1px); }
+
+					// since it's scaled down, to be viewable, have to set larger height
+					&:before, &:after { height: 2px; }
 
 				} // end shut-inner
 

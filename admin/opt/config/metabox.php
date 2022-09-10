@@ -16,8 +16,8 @@
 	$reusable_blocks_enabled	=	isset( get_option( '_maxboxy_options' )[ 'enable_wp_block' ] )
 								?		 ( get_option( '_maxboxy_options' )[ 'enable_wp_block' ] ) : '';
 
-	$add_reusable_blocks		=	! empty( $reusable_blocks_enabled )	?	array( 'wp_block' )	:	array();
-
+	$add_reusable_blocks				=	! empty( $reusable_blocks_enabled )	?	array( 'wp_block' )	:	array();
+	$colors_tab_injectany_or_reusable	=	! empty( $reusable_blocks_enabled )	&& get_post_type( $get_id ) === 'wp_block'	?	$colors_tab_reusable	:	$colors_tab_injectany;
 
 	/**
 	 * Loading - Inject Any.
@@ -145,7 +145,7 @@
 				  'class'	=> 'major-maxboxy-options',
 				  'tabs' 	=> array(
 						$starter_tab_injectany,
-						$colors_tab_injectany,
+						$colors_tab_injectany_or_reusable,
 						$set_sizes_tab_injectany,
 						$set_toggler_tab,
 				),

@@ -177,7 +177,9 @@
 				$zindex					=   isset( get_option( '_maxboxy_options' )[ 'zindex' ] )
 										?		   get_option( '_maxboxy_options' )[ 'zindex' ] : '';
 
-				/* FloatAny colors */
+				/**
+				 * FloatAny colors
+				 */ 
 				$floatany_bg        	=   isset( get_option( '_maxboxy_options' )[ 'floatany_bg' ] )
 										?		   get_option( '_maxboxy_options' )[ 'floatany_bg' ] : '';
 
@@ -206,13 +208,14 @@
 				$floatany_panel_shut         =   $floatany_shut_bg !== '#333333'      ?   'background:' .$floatany_shut_bg .';' : '';
 				$floatany_panel_shut        .=   $floatany_shut_color !== '#ffffff'   ?   'color:' .$floatany_shut_color   .';' : '';
 
-
-				/* Output FloatAny */
+				// Output FloatAny
 				$out     =   ! empty( $floatany_panel_wrap )     ?   '.mboxy-wrap.floatany {' .esc_attr( $floatany_panel_wrap ) .'}' : '';
 				$out    .=   ! empty( $floatany_panel_content )  ?   '.mboxy-wrap.floatany .mboxy .mboxy-content {' .esc_attr( $floatany_panel_content ) .'}' : '';
 				$out    .=   ! empty( $floatany_panel_shut )     ?   '.mboxy-wrap.floatany .mboxy .shuter, .mboxy-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr( $floatany_panel_shut ) .'}' : '';
 
-				/* InjectAny colors */
+				/**
+				 * InjectAny colors
+				 */
 				$injectany_bg        	=   isset( get_option( '_maxboxy_options' )[ 'injectany_bg' ] )
 										?		   get_option( '_maxboxy_options' )[ 'injectany_bg' ] : '';
 
@@ -243,10 +246,49 @@
 				$injectany_panel_shut         =   $injectany_shut_bg !== '#333333'      ?   'background:' .$injectany_shut_bg .';' : '';
 				$injectany_panel_shut        .=   $injectany_shut_color !== '#ffffff'   ?   'color:' .$injectany_shut_color   .';' : '';
 
-				/* Output InjectAny */
-				$out    .=   ! empty( $injectany_panel_wrap )     ?   '.mboxy-wrap.injectany {' .esc_attr( $injectany_panel_wrap ) .'}' : '';
-				$out    .=   ! empty( $injectany_panel_content )  ?   '.mboxy-wrap.injectany .mboxy .mboxy-content {' .esc_attr( $injectany_panel_content ) .'}' : '';
-				$out    .=   ! empty( $injectany_panel_shut )     ?   '.mboxy-wrap.injectany .mboxy .shuter, .iany-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr( $injectany_panel_shut ) .'}' : '';
+				// Output InjectAny
+				$out    .=   ! empty( $injectany_panel_wrap )     ?   '.mboxy-wrap.injectany:not(.is-reusable-block) {' .esc_attr( $injectany_panel_wrap ) .'}' : '';
+				$out    .=   ! empty( $injectany_panel_content )  ?   '.mboxy-wrap.injectany:not(.is-reusable-block) .mboxy .mboxy-content {' .esc_attr( $injectany_panel_content ) .'}' : '';
+				$out    .=   ! empty( $injectany_panel_shut )     ?   '.mboxy-wrap.injectany:not(.is-reusable-block) .mboxy .shuter, .iany-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr( $injectany_panel_shut ) .'}' : '';
+
+
+				/**
+				 * Reusable blocks colors
+				 */
+				$reusable_bg        	=   isset( get_option( '_maxboxy_options' )[ 'reusable_bg' ] )
+										?		   get_option( '_maxboxy_options' )[ 'reusable_bg' ] : '';
+
+				$reusable_color		=   isset( get_option( '_maxboxy_options' )[ 'reusable_color' ] )
+										?		   get_option( '_maxboxy_options' )[ 'reusable_color' ] : '';
+
+				$reusable_shut_bg		=   isset( get_option( '_maxboxy_options' )[ 'reusable_shut_bg' ] )
+										?		   get_option( '_maxboxy_options' )[ 'reusable_shut_bg' ] : '';
+
+				$reusable_shut_color	=   isset( get_option( '_maxboxy_options' )[ 'reusable_shut_color' ] )
+										?		   get_option( '_maxboxy_options' )[ 'reusable_shut_color' ] : '';
+
+
+				$reusable_panel_wrap	=   is_numeric( $zindex )   ?   'z-index:' .intval( $zindex ) .';'  :   '';
+
+
+				$reusable_panel_content      =   ! empty($reusable_bg[ 'background-image' ][ 'url' ]) ? 'background-image:url('  .$reusable_bg[ 'background-image' ][ 'url' ] .');': '';
+				$reusable_panel_content     .=   ! empty( $reusable_bg[ 'background-repeat' ] )       ? 'background-repeat:'     .$reusable_bg[ 'background-repeat' ]         .';' : '';
+				$reusable_panel_content     .=   ! empty( $reusable_bg[ 'background-position' ] )     ? 'background-position:'   .$reusable_bg[ 'background-position' ]       .';' : '';
+				$reusable_panel_content     .=   ! empty( $reusable_bg[ 'background-attachment' ] )   ? 'background-attachment:' .$reusable_bg[ 'background-attachment' ]     .';' : '';
+				$reusable_panel_content     .=   ! empty( $reusable_bg[ 'background-size' ] )         ? 'background-size:'       .$reusable_bg[ 'background-size' ]           .';' : '';
+				$reusable_panel_content     .=   isset( $reusable_bg[ 'background-color' ] ) && $reusable_bg[ 'background-color' ] !== '#e8e2b7'
+											  ?   'background-color:' .sanitize_text_field( $reusable_bg[ 'background-color' ] ) .';'   : '';
+
+				$reusable_panel_content     .=   $reusable_color !== '#4b4b4b' ? 'color:' .$reusable_color .';' : '';
+
+
+				$reusable_panel_shut         =   $reusable_shut_bg !== '#333333'      ?   'background:' .$reusable_shut_bg .';' : '';
+				$reusable_panel_shut        .=   $reusable_shut_color !== '#ffffff'   ?   'color:' .$reusable_shut_color   .';' : '';
+
+				// Output Reusable blocks
+				$out    .=   ! empty( $reusable_panel_wrap )     ?   '.mboxy-wrap.injectany.is-reusable-block {' .esc_attr( $reusable_panel_wrap ) .'}' : '';
+				$out    .=   ! empty( $reusable_panel_content )  ?   '.mboxy-wrap.injectany.is-reusable-block .mboxy .mboxy-content {' .esc_attr( $reusable_panel_content ) .'}' : '';
+				$out    .=   ! empty( $reusable_panel_shut )     ?   '.mboxy-wrap.injectany.is-reusable-block .mboxy .shuter, .iany-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr( $reusable_panel_shut ) .'}' : '';
 
 				/**
 				 * To return $out, in order to skip printing empty floatany-inline-css you could use one of the following:
@@ -695,7 +737,7 @@
 					$injectany_preload		=	$basics[ 'style' ] === ' style-onload'		?	' on'	: ''; // reveal on page load, i.e. no waiting to add 'on'
 					$panel_strain			=	get_post_type( $get_id ) === 'float_any'	?	' floatany'	:	'';
 					$panel_strain			=	get_post_type( $get_id ) === 'wp_block' && class_exists( 'Max__Boxy__Reusable_blocks' ) && Max__Boxy__Reusable_blocks::enabled() === true
-											?	' injectany' .$injectany_preload	:	$panel_strain;
+											?	' is-reusable-block injectany' .$injectany_preload	:	$panel_strain;
 					$panel_strain			=	get_post_type( $get_id ) === 'inject_any'	?	' injectany' .$injectany_preload	:	$panel_strain;
 
 					//  $loading[ 'location' ] is null for 'wp_block' and browser would throw a warning notice, so make this check
@@ -714,7 +756,7 @@
 					}
 
 					/**
-					 * Output the panel i.e. "top" and "bottom" <body> location.
+					 * Output the panel i.e. all other locations than injectany's head.
 					 */
 					$_escaped_out .= '<div id="' .esc_attr( $name )
 									.'" class="mboxy-wrap'

@@ -609,6 +609,76 @@
 	);
 
 
+	/* Reusable blocks */
+	// get default values from the settings
+	$reusable_bg_bc         		= 	isset( get_option( '_maxboxy_options' )[ 'reusable_bg' ][ 'background-color' ] )
+									?          get_option( '_maxboxy_options' )[ 'reusable_bg' ][ 'background-color' ] : '';
+
+	$reusable_bg_bc_default 		=   ! empty( $reusable_bg_bc )  ?   $reusable_bg_bc : '#e8e2b7';
+
+	$reusable_panel_color   		=	isset( get_option( '_maxboxy_options' )[ 'reusable_color' ] )
+									?          get_option( '_maxboxy_options' )[ 'reusable_color' ] : '';
+
+	$reusable_color_default   		=   ! empty( $reusable_panel_color )  ?   $reusable_panel_color : '#4b4b4b';
+
+	$reusable_shut_bg				=   isset( get_option( '_maxboxy_options' )[ 'reusable_shut_bg' ] )
+									?          get_option( '_maxboxy_options' )[ 'reusable_shut_bg' ] : '';
+
+	$reusable_shut_bg_default   	=   ! empty( $reusable_shut_bg )  ?   $reusable_shut_bg : '#333333';
+
+
+	$reusable_shut_color        	=   isset( get_option( '_maxboxy_options' )[ 'reusable_shut_color' ] )
+									?          get_option( '_maxboxy_options' )[ 'reusable_shut_color' ] : '';
+
+	$reusable_shut_color_default	=   ! empty( $reusable_shut_color )  ?   $reusable_shut_color : '#ffffff';
+
+
+	// set colors tab
+	$colors_tab_reusable = array(
+
+		'title'     => esc_html__( 'Colors', 'maxboxy' ),
+		'icon'      => 'fas fa-paint-brush',
+		'fields'    => array(
+
+			array(
+				'id'            => 'panel_popup_bg',
+				'type'          => 'background',
+				'title'         => $panel_bg_title, // var determined at framework.config
+				'default'       => array(
+								'background-color' => $reusable_bg_bc_default,
+				),
+			),
+			array(
+				'id'            => 'panel_popup_color',
+				'type'          => 'color',
+				'title'         => $panel_col_title,
+				'default'       => $reusable_color_default,
+			),
+			array(
+				'type'          => 'subheading',
+				'content'       => $closer_subheading,
+				'dependency'    => array('unset_toggler','!=','true', true),
+			),
+			array(
+				'id'            => 'panel_shut_bg',
+				'type'          => 'color',
+				'title'         => $closer_bg_title,
+				'default'       => $reusable_shut_bg_default,
+				'dependency'    => array('unset_toggler','!=','true', true),
+			),
+			array(
+				'id'            => 'panel_shut_color',
+				'type'          => 'color',
+				'title'         => $closer_col_title,
+				'default'       => $reusable_shut_color_default,
+				'dependency'    => array('unset_toggler','!=','true', true),
+			),
+
+		)
+
+	);
+
+
 	/**
 	 * Sizes tab.
 	 */

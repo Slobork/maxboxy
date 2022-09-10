@@ -212,18 +212,23 @@
 				$set_panel_bg  .= ! empty( $panel_bg[ 'background-size' ] )           ?    'background-size:'       .$panel_bg[ 'background-size' ]                      .';'  :'';
 
 				// get default value from the settings
-				$floatany_bg_bc                 =	isset( get_option( '_maxboxy_options' )[ 'floatany_bg' ][ 'background-color' ] )
+				$floatany_bg_bc					=	isset( get_option( '_maxboxy_options' )[ 'floatany_bg' ][ 'background-color' ] )
 												?	       get_option( '_maxboxy_options' )[ 'floatany_bg' ][ 'background-color' ] : '';
 
-				$injectany_bg_bc                =	isset( get_option( '_maxboxy_options' )[ 'injectany_bg' ][ 'background-color' ] )
+				$injectany_bg_bc				=	isset( get_option( '_maxboxy_options' )[ 'injectany_bg' ][ 'background-color' ] )
 												?	       get_option( '_maxboxy_options' )[ 'injectany_bg' ][ 'background-color' ] : '';
 
-				$floatany_bg_bc_default         =   ! empty( $floatany_bg_bc )	?   $floatany_bg_bc : '#e8e2b7'; // plugin's default, from css file, is '#e8e2b7'
-				$injectany_bg_bc_default        =   ! empty( $injectany_bg_bc ) ?   $floatany_bg_bc : '#e8e2b7'; // plugin's default, from css file, is '#e8e2b7'
+				$reusable_bg_bc					=	isset( get_option( '_maxboxy_options' )[ 'reusable_bg' ][ 'background-color' ] )
+												?	       get_option( '_maxboxy_options' )[ 'reusable_bg' ][ 'background-color' ] : '';
+
+				$floatany_bg_bc_default         =   ! empty( $floatany_bg_bc )	?   $floatany_bg_bc  : '#e8e2b7'; // plugin's default, from css file, is '#e8e2b7'
+				$injectany_bg_bc_default        =   ! empty( $injectany_bg_bc ) ?   $injectany_bg_bc : '#e8e2b7'; // plugin's default, from css file, is '#e8e2b7'
+				$reusable_bg_bc_default         =   ! empty( $reusable_bg_bc )	?   $reusable_bg_bc  : '#e8e2b7'; // plugin's default, from css file, is '#e8e2b7'
 
 				// print if bg doesn't equals to the default value
-				$set_panel_bg  .= get_post_type( $get_id ) === 'float_any'  && $panel_bg[ 'background-color' ] !== $floatany_bg_bc_default   ?   'background-color:' .$panel_bg[ 'background-color' ]                     .';'  :'';
-				$set_panel_bg  .= get_post_type( $get_id ) === 'inject_any' && $panel_bg[ 'background-color' ] !== $injectany_bg_bc_default  ?   'background-color:' .$panel_bg[ 'background-color' ]                     .';'  :'';
+				$set_panel_bg  .= get_post_type( $get_id ) === 'float_any'  && $panel_bg[ 'background-color' ] !== $floatany_bg_bc_default   ?   'background-color:' .$panel_bg[ 'background-color' ] .';'  :'';
+				$set_panel_bg  .= get_post_type( $get_id ) === 'inject_any' && $panel_bg[ 'background-color' ] !== $injectany_bg_bc_default  ?   'background-color:' .$panel_bg[ 'background-color' ] .';'  :'';
+				$set_panel_bg  .= get_post_type( $get_id ) === 'wp_block'   && $panel_bg[ 'background-color' ] !== $reusable_bg_bc_default   ?   'background-color:' .$panel_bg[ 'background-color' ] .';'  :'';
 
 
 
@@ -234,12 +239,17 @@
 				$injectany_panel_color       	=	isset( get_option( '_maxboxy_options' )[ 'injectany_color' ] )
 												?	       get_option( '_maxboxy_options' )[ 'injectany_color' ] : '';
 
-				$floatany_panel_color_default	=   ! empty( $floatany_panel_color )  	?   $floatany_panel_color : '#e8e2b7';
-				$injectany_panel_color_default	=   ! empty( $injectany_panel_color )	?   $injectany_panel_color : '#e8e2b7';
+				$reusable_panel_color       	=	isset( get_option( '_maxboxy_options' )[ 'reusable_color' ] )
+												?	       get_option( '_maxboxy_options' )[ 'reusable_color' ] : '';
+
+				$floatany_panel_color_default	=   ! empty( $floatany_panel_color )  	?   $floatany_panel_color  : '#4b4b4b'; // plugin's default, from the css file
+				$injectany_panel_color_default	=   ! empty( $injectany_panel_color )	?   $injectany_panel_color : '#4b4b4b'; // plugin's default, from the css file
+				$reusable_panel_color_default	=   ! empty( $reusable_panel_color )	?   $reusable_panel_color  : '#4b4b4b'; // plugin's default, from the css file
 
 				// panel color (if !== default)
 				$panel_color                    =   get_post_type( $get_id ) === 'float_any'  && $basics['panel_popup_color'] !== $floatany_panel_color_default   ?   'color:'    .$basics['panel_popup_color'] .';'    : '';
 				$panel_color                   .=   get_post_type( $get_id ) === 'inject_any' && $basics['panel_popup_color'] !== $injectany_panel_color_default  ?   'color:'    .$basics['panel_popup_color'] .';'    : '';
+				$panel_color                   .=   get_post_type( $get_id ) === 'wp_block'   && $basics['panel_popup_color'] !== $reusable_panel_color_default   ?   'color:'    .$basics['panel_popup_color'] .';'    : '';
 
 				// shut bg & color - get default value from the settings
 				$floatany_shut_bg           	=   isset( get_option( '_maxboxy_options' )[ 'floatany_shut_bg' ] )
@@ -248,11 +258,16 @@
 				$injectany_shut_bg           	=   isset( get_option( '_maxboxy_options' )[ 'injectany_shut_bg' ] )
 												?          get_option( '_maxboxy_options' )[ 'injectany_shut_bg' ] : '';
 
+				$reusable_shut_bg           	=   isset( get_option( '_maxboxy_options' )[ 'reusable_shut_bg' ] )
+												?          get_option( '_maxboxy_options' )[ 'reusable_shut_bg' ] : '';
+
 				$floatany_shut_bg_default       =   ! empty( $floatany_shut_bg )	?   $floatany_shut_bg	: '#333333';
 				$injectany_shut_bg_default      =   ! empty( $injectany_shut_bg )	?   $injectany_shut_bg	: '#333333';
+				$reuable_shut_bg_default        =   ! empty( $reusable_shut_bg )	?   $reusable_shut_bg	: '#333333';
 
-				$shut_bg                        =   get_post_type( $get_id ) === 'float_any'  && $basics['panel_shut_bg'] !== $floatany_shut_bg_default	?	'background:'   .$basics['panel_shut_bg']   .';'   : '';
-				$shut_bg                       .=   get_post_type( $get_id ) === 'inject_any' && $basics['panel_shut_bg'] !== $floatany_shut_bg_default	?	'background:'   .$basics['panel_shut_bg']   .';'   : '';
+				$shut_bg                        =   get_post_type( $get_id ) === 'float_any'  && $basics['panel_shut_bg'] !== $floatany_shut_bg_default		?	'background:'   .$basics['panel_shut_bg']   .';'   : '';
+				$shut_bg                       .=   get_post_type( $get_id ) === 'inject_any' && $basics['panel_shut_bg'] !== $injectany_shut_bg_default	?	'background:'   .$basics['panel_shut_bg']   .';'   : '';
+				$shut_bg                       .=   get_post_type( $get_id ) === 'wp_block'   && $basics['panel_shut_bg'] !== $reuable_shut_bg_default		?	'background:'   .$basics['panel_shut_bg']   .';'   : '';
 
 				$floatany_shut_color            =   isset( get_option( '_maxboxy_options' )[ 'floatany_shut_color' ] )
 												?          get_option( '_maxboxy_options' )[ 'floatany_shut_color' ] : '';
@@ -260,11 +275,16 @@
 				$injectany_shut_color           =   isset( get_option( '_maxboxy_options' )[ 'injectany_shut_color' ] )
 												?          get_option( '_maxboxy_options' )[ 'injectany_shut_color' ] : '';
 
-				$injectany_shut_color_default   =   ! empty( $injectany_shut_color ) ?   $injectany_shut_color : '#ffffff';
+				$reusable_shut_color            =   isset( get_option( '_maxboxy_options' )[ 'reusable_shut_color' ] )
+												?          get_option( '_maxboxy_options' )[ 'reusable_shut_color' ] : '';
+
 				$floatany_shut_color_default    =   ! empty( $floatany_shut_color )  ?   $floatany_shut_color  : '#ffffff';
+				$injectany_shut_color_default   =   ! empty( $injectany_shut_color ) ?   $injectany_shut_color : '#ffffff';
+				$reusable_shut_color_default    =   ! empty( $reusable_shut_color )  ?   $reusable_shut_color  : '#ffffff';
 
 				$shut_color                     =   get_post_type( $get_id ) === 'float_any'  && $basics['panel_shut_color'] !== $floatany_shut_color_default   ?   'color:' .$basics['panel_shut_color'] .';'  : '';
 				$shut_color                    .=   get_post_type( $get_id ) === 'inject_any' && $basics['panel_shut_color'] !== $injectany_shut_color_default	?   'color:' .$basics['panel_shut_color'] .';'  : '';
+				$shut_color                    .=   get_post_type( $get_id ) === 'wp_block'   && $basics['panel_shut_color'] !== $reusable_shut_color_default	?   'color:' .$basics['panel_shut_color'] .';'  : '';
 
 				$_escaped_panel_shut_style      =   ! empty( $shut_bg ) || ! empty( $shut_color )
 												?    ' style="' .esc_attr( $shut_bg ) .esc_attr( $shut_color ) .'"'     : '';

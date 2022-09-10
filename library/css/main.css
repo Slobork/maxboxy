@@ -56,6 +56,8 @@
         -ms-flex-align: end;
             align-items: flex-end; }
   .mboxy-wrap > .mboxy > .mboxy-content {
+    background: #e8e2b7;
+    color: #4b4b4b;
     padding: 1.5em;
     width: -webkit-fill-available;
     width: -moz-available;
@@ -96,9 +98,7 @@
     max-width: 100%; }
     .floatany > .mboxy > .mboxy-content {
       height: inherit;
-      overflow: auto;
-      background: #e8e2b7;
-      color: #4b4b4b; }
+      overflow: auto; }
   .floatany.on[class*="topped"] .mboxy {
     top: 0;
     bottom: auto; }

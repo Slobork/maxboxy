@@ -213,7 +213,7 @@
 
 			array(
 				'type'      => 'heading',
-				'content'   => esc_html__( 'FloatAny' ),
+				'content'   => 'FloatAny',
 			),
 			array(
 				'type'      => 'content',
@@ -253,11 +253,11 @@
 
 			array(
 				'type'      => 'heading',
-				'content'   => esc_html__( 'InjectAny and Reusable blocks' ),
+				'content'   => 'InjectAny',
 			),
 			array(
 				'type'      => 'content',
-				'content'   => esc_html__('Colors applied here act as default for InjectAny  panels and Reusable blocks. Further, you can override that for each panel from its settings.', 'maxboxy'),
+				'content'   => esc_html__('Colors applied here act as default for InjectAny panels. Further, you can override that for each panel from its settings.', 'maxboxy'),
 			),
 			array(
 				'id'        => 'injectany_bg',
@@ -290,6 +290,54 @@
 				'title'     => $closer_col_title,
 				'default'   => '#ffffff',
 			),
+
+			array(
+				'type'      => 'heading',
+				'content'   => esc_html__( 'Reusable blocks', 'maxboxy' ),
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+			array(
+				'type'      => 'content',
+				'content'   => esc_html__('Colors applied here act as default for Reusable block. Further, you can override that for each panel from its settings.', 'maxboxy'),
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+			array(
+				'id'        => 'reusable_bg',
+				'type'      => 'background',
+				'title'     => $panel_bg_title,
+				'default'   => array(
+					'background-color' => '#e8e2b7',
+				),
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+			array(
+				'id'        => 'reusable_color',
+				'type'      => 'color',
+				'title'     => $panel_col_title,
+				'default'   => '#4b4b4b',
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+			
+			array(
+				'type'      => 'subheading',
+				'content'   => $closer_subheading,
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+			array(
+				'id'        => 'reusable_shut_bg',
+				'type'      => 'color',
+				'title'     => $closer_bg_title,
+				'default'   => '#333333',
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+			array(
+				'id'        => 'reusable_shut_color',
+				'type'      => 'color',
+				'title'     => $closer_col_title,
+				'default'   => '#ffffff',
+				'dependency'=> array('enable_wp_block','==','true', true),
+			),
+
 		)
 
 	) );

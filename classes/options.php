@@ -133,19 +133,18 @@
 
 				// panel roles
 				$get_roles                      =   ! empty( $basics[ 'panel_roles' ] ) ? $basics[ 'panel_roles' ] : '';
-				// convert the array to a string
 
 				// if the type is 'closer' but 'role-igniter' is leftover from the previos toggler type selection, remove 'role-igniter'
 				if ( $panel_type === 'closer' && is_array($get_roles) && in_array('role-igniter', $get_roles) ) {
 					array_pop($get_roles);
 				}
 
-				// if the Conversion tracking isn't enabled, prevent output of the 'role-banish' coz in JS localStorage is used to hanle banished panels
+				// if the Conversion tracking isn't enabled, prevent output of the 'role-banish' coz in JS localStorage is used to handle banished panels
 				if ( Max__Boxy__Track::enabled() !== true && $panel_type === 'closer' && is_array($get_roles) && ($key = array_search('role-banish', $get_roles)) !== false ) {
 					unset($get_roles[$key]);
 				}
 
-				// convert array to string
+				// convert array to a string
 				$roles                          =   is_array( $get_roles )   ?   implode( ' ', $get_roles ) : '';
 				// prepend a space before the output, so it adds correctly to the existing classes
 				$panel_roles                    =   $panel_type === 'closer' && ! empty( $roles )  ? ' ' .$roles :   ''; // if the 'closer' is selected
@@ -155,9 +154,17 @@
 				$rotator                   		=   is_array($get_roles) && in_array('role-rotator', $get_roles)    ?   true :   false;
 				$igniter                   		=   $panel_type === 'toggler' && is_array($get_roles) && in_array('role-igniter', $get_roles)    ?   true :   false;
 
+				$hidden                   		=   $panel_type === 'closer' && is_array($get_roles) && in_array('role-hidden', $get_roles)    ?   true :   false;
+				
 				// with toggler - role-rotator and role-igniter are the only options in UI, other options are hidden. So only check for them.
 				$panel_roles                   .=   $panel_type === 'toggler' && $rotator === true    ?   ' role-rotator' :   '';
 				$panel_roles                   .=   $igniter === true    ?   ' role-igniter' :   '';
+
+				$injectany_preload				=	$showing_style === ' style-onload' && $igniter === false && $hidden === false		?	' on'	: ''; // reveal on page load, i.e. no waiting to add 'on'
+				$panel_strain					=	get_post_type( $get_id ) === 'float_any'	?	' floatany'	:	'';
+				$panel_strain					=	get_post_type( $get_id ) === 'wp_block' && class_exists( 'Max__Boxy__Reusable_blocks' ) && Max__Boxy__Reusable_blocks::enabled() === true
+												?	' is-reusable-block injectany' .$injectany_preload	:	$panel_strain;
+				$panel_strain					=	get_post_type( $get_id ) === 'inject_any'	?	' injectany' .$injectany_preload	:	$panel_strain;
 
 				// for the toggler/igniter button
 				$open_button_data               =   $panel_type === 'toggler' && ! empty( $basics[ 'button_open' ] )
@@ -356,6 +363,10 @@
 				 */
 				$unset_toggler                  =   ! empty( $basics[ 'unset_toggler' ] )  ?   $basics[ 'unset_toggler' ] : 'no';
 
+				// Sets wheather to fully or partially unset the toggler/closer button.
+				$unset_toggler_class			=   $unset_toggler === 'all'	?   ' default-toggler-closer-unset' : '';
+				$unset_toggler_class			=   $unset_toggler === 'closer' ?   ' default-closer-unset' : $unset_toggler_class;
+
 				$reverse                        =   $unset_toggler !== true && ! empty( $basics[ 'reverse_direction' ] )  ?   '-rev' : '';
 				$direction                      =   $unset_toggler !== true && ! empty( $basics[ 'direction' ] ) && isset($basics['reverse_direction']) ? ' dir-' .$basics['direction'] .$reverse : '';
 				$closer_align                   =   $unset_toggler !== true && ! empty( $basics[ 'closer_align' ] )   ?   ' align-' .$basics[ 'closer_align' ]  : '';
@@ -387,6 +398,7 @@
 				$args = array(
 					'type' 					=> $panel_type,
 					// classes:
+					'strain' 				=> $panel_strain,
 					'style' 				=> $showing_style,
 					'roles' 				=> $panel_roles,
 					'rotator_repeat'		=> $rotator_repeat,
@@ -400,6 +412,7 @@
 					'closer_size'			=> $closer_size,
 					'toggler_styling'		=> $toggler_styling,
 					'toggler_start_class'	=> $toggler_start_class,
+					'unset_toggler_class'	=> $unset_toggler_class,
 					'injectany_align'		=> $injectany_align,
 					'sticky'				=> $sticky,
 					// data:

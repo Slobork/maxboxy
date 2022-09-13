@@ -99,7 +99,7 @@
 	 * Differentiate options availabe on the basic & the pro version - For Conditionals metabox.
 	 */
 	// if the pro license is active
-	if ( function_exists( 'maxboxy_metabox_settings_conditionals' ) && isset( maxboxy_metabox_settings_conditionals()[0][ 'id' ] ) ) {
+	if ( function_exists( 'maxboxy_metabox_settings_conditionals' ) ) {
 
 		$tabs_conditional = maxboxy_metabox_settings_conditionals();
 

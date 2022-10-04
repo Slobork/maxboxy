@@ -74,7 +74,7 @@ if (! class_exists('Max__Boxy__Track')) {
         {
 
             $enabled    =    isset(get_option('_maxboxy_options')[ 'enable_conversions' ])
-                        ?         (get_option('_maxboxy_options')[ 'enable_conversions' ]) : '';
+                        ?          get_option('_maxboxy_options')[ 'enable_conversions' ] : '';
 
             $enabled    =    ! empty($enabled) ? true : false;
 

@@ -46,7 +46,7 @@ if (! class_exists('Max__Boxy__Reusable_blocks')) {
         {
 
             $enabled = isset(get_option('_maxboxy_options')[ 'enable_wp_block' ])
-                     ?     ( get_option('_maxboxy_options')[ 'enable_wp_block' ]) : '';
+                     ?       get_option('_maxboxy_options')[ 'enable_wp_block' ] : '';
 
             $enabled = ! empty($enabled) ? true : false;
 
@@ -59,7 +59,7 @@ if (! class_exists('Max__Boxy__Reusable_blocks')) {
          * 
          * Output modified reusable block.
          * 
-         * @param string $block_content THe whole content of the reusable block.
+         * @param string $block_content The whole content of the reusable block.
          * @param string $block         Targeted block,
          *                              here it's core/block, i.e. reusable block.
          * 

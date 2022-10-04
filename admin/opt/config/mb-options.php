@@ -1,7 +1,19 @@
 <?php
+/**
+ * Description: Options for the Metabox. Referred here from the metabox.php.
+ *
+ * PHP version 7.3.5
+ *
+ * @category Conversion
+ * @package  MaxBoxy
+ * @author   MaxPressy <webmaster@maxpressy.com>
+ * @license  GPL v2 or later
+ * @link     maxpressy.com
+ */
 
-	if ( ! defined( 'ABSPATH' )  ) { die; }
-
+if (! defined('ABSPATH')) {
+    exit;
+}
 
 	/**
 	 * Options for a metabox.config file, seems better readable as placed in a separate file

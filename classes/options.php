@@ -18,7 +18,7 @@ if (! class_exists('Max__Boxy__Options')) {
 
 
     /**
-     * Gt options from the metaboxes
+     * Get options from the metaboxes.
      *
      * @category Conversion
      * @package  MaxBoxy

@@ -146,7 +146,7 @@ jQuery(document).ready(function($) {
 
 	/**
 	 *  ....however, to mark those items from the behind, we have unequal number of items with Basic and Pro plugin version,
-	 * so the fake item is added with PHP @see Max__Boxy::admin_menu.
+	 * so the fake item is added with PHP @see Max_Boxy::admin_menu.
 	 * Now, if the last item is empty, i.e. the Basic version, just hide it
 	 */
 	if ($('#toplevel_page_admin-page-maxboxy-settings .wp-submenu-wrap > li:last-child> a').html() === '') {

@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
 	 * Set a page view counter (if the conversion, i.e. tracking is allowed).
 	 *
 	 * It is different from the countLoads/countViews coz unlike those counts which count for each Panel, this counts Website's page views.
-	 * It is stored in localStorage. Later utilized by Appear trigger's "On page views" @see Pro's Max__Boxy__Conditionals::appear_triggers()
+	 * It is stored in localStorage. Later utilized by Appear trigger's "On page views" @see Pro's Max_Boxy_Conditionals::appear_triggers()
 	 */
 	function pageViewsCounter() {
 

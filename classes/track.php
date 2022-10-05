@@ -17,39 +17,39 @@ if (! defined('ABSPATH')) {
 
 
 
-if (! class_exists('Max__Boxy__Track')) {
+if (! class_exists('Max_Boxy_Track')) {
 
         add_action(
-            'body_class', array( 'Max__Boxy__Track', 'body_classes' )
+            'body_class', array( 'Max_Boxy_Track', 'body_classes' )
         );
 
         add_action(
-            'wp_ajax_maxboxy_update_load', array('Max__Boxy__Track', 'update_load_count')
+            'wp_ajax_maxboxy_update_load', array('Max_Boxy_Track', 'update_load_count')
         );
 
         add_action(
-            'wp_ajax_nopriv_maxboxy_update_load', array('Max__Boxy__Track', 'update_load_count')
+            'wp_ajax_nopriv_maxboxy_update_load', array('Max_Boxy_Track', 'update_load_count')
         );
 
         add_action(
-            'wp_ajax_maxboxy_update_views', array( 'Max__Boxy__Track', 'update_views_count')
+            'wp_ajax_maxboxy_update_views', array( 'Max_Boxy_Track', 'update_views_count')
         );
 
         add_action(
-            'wp_ajax_nopriv_maxboxy_update_views', array( 'Max__Boxy__Track', 'update_views_count')
+            'wp_ajax_nopriv_maxboxy_update_views', array( 'Max_Boxy_Track', 'update_views_count')
         );
 
         add_action(
-            'wp_ajax_maxboxy_update_goals', array( 'Max__Boxy__Track', 'update_goals_count')
+            'wp_ajax_maxboxy_update_goals', array( 'Max_Boxy_Track', 'update_goals_count')
         );
 
         add_action(
-            'wp_ajax_nopriv_maxboxy_update_goals', array( 'Max__Boxy__Track', 'update_goals_count')
+            'wp_ajax_nopriv_maxboxy_update_goals', array( 'Max_Boxy_Track', 'update_goals_count')
         );
 
 
         add_action(
-            'wp_ajax_maxboxy_reset_panel_stats', array( 'Max__Boxy__Track', 'reset_panel_stats')
+            'wp_ajax_maxboxy_reset_panel_stats', array( 'Max_Boxy_Track', 'reset_panel_stats')
         );
 
 
@@ -62,7 +62,7 @@ if (! class_exists('Max__Boxy__Track')) {
      * @license  GPL v2 or later
      * @link     maxpressy.com
      */
-    class Max__Boxy__Track
+    class Max_Boxy_Track
     {
 
         /**
@@ -122,7 +122,7 @@ if (! class_exists('Max__Boxy__Track')) {
 
             // get tracking data
             $get_id       = $panel_id;
-            $track        = Max__Boxy__Options::conversions($get_id);
+            $track        = Max_Boxy_Options::conversions($get_id);
 
                 // ...by default do not track logged in users
             if ($track[ 'track_loggedin' ] === false && is_user_logged_in()) {
@@ -175,7 +175,7 @@ if (! class_exists('Max__Boxy__Track')) {
 
              // get tracking data
              $get_id      = $panel_id;
-             $track       = Max__Boxy__Options::conversions($get_id);
+             $track       = Max_Boxy_Options::conversions($get_id);
 
             // ...by default do not track logged in users
             if ($track[ 'track_loggedin' ] === false && is_user_logged_in()) {
@@ -229,7 +229,7 @@ if (! class_exists('Max__Boxy__Track')) {
 
             // get tracking data
             $get_id      = $panel_id;
-            $track       = Max__Boxy__Options::conversions($get_id);
+            $track       = Max_Boxy_Options::conversions($get_id);
 
             // ...by default do not track logged in users
             if ($track[ 'track_loggedin' ] === false && is_user_logged_in()) {

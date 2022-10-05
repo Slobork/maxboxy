@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) {
     exit; 
 }
 
-if (! class_exists('Max__Boxy__Options')) {
+if (! class_exists('Max_Boxy_Options')) {
 
 
     /**
@@ -26,7 +26,7 @@ if (! class_exists('Max__Boxy__Options')) {
      * @license  GPL v2 or later
      * @link     maxpressy.com
      */
-    class Max__Boxy__Options
+    class Max_Boxy_Options
     {
 
         /**
@@ -117,8 +117,8 @@ if (! class_exists('Max__Boxy__Options')) {
             $asign_metabox = get_post_type($get_id) === 'float_any'  ? '_mb_floatany'  : false;
             $asign_metabox = get_post_type($get_id) === 'inject_any' ? '_mb_injectany' : $asign_metabox;
             $asign_metabox = get_post_type($get_id) === 'wp_block'
-                          && class_exists('Max__Boxy__Reusable_blocks')
-                          && Max__Boxy__Reusable_blocks::enabled() === true
+                          && class_exists('Max_Boxy_Reusable_Blocks')
+                          && Max_Boxy_Reusable_Blocks::enabled() === true
                           ? '_mb_injectany' : $asign_metabox;
 
             if ($asign_metabox === false) {
@@ -176,7 +176,7 @@ if (! class_exists('Max__Boxy__Options')) {
              * If the Conversion tracking isn't enabled, prevent output of the
              * 'role-banish' coz in JS localStorage is used to handle banished panels
              */
-            if (Max__Boxy__Track::enabled() !== true && $panel_type === 'closer' && is_array($get_roles) && ($key = array_search('role-banish', $get_roles)) !== false) {
+            if (Max_Boxy_Track::enabled() !== true && $panel_type === 'closer' && is_array($get_roles) && ($key = array_search('role-banish', $get_roles)) !== false) {
                 unset($get_roles[$key]);
             }
 
@@ -207,7 +207,7 @@ if (! class_exists('Max__Boxy__Options')) {
 
             $injectany_preload              = $showing_style === ' style-onload' && $igniter === false && $hidden === false ? ' on' : ''; // reveal on page load, i.e. no waiting to add 'on'
             $panel_strain                   = get_post_type($get_id) === 'float_any' ? ' floatany' : '';
-            $panel_strain                   = get_post_type($get_id) === 'wp_block' && class_exists('Max__Boxy__Reusable_blocks') && Max__Boxy__Reusable_blocks::enabled() === true
+            $panel_strain                   = get_post_type($get_id) === 'wp_block' && class_exists('Max_Boxy_Reusable_Blocks') && Max_Boxy_Reusable_Blocks::enabled() === true
                                             ? ' is-reusable-block injectany' .$injectany_preload : $panel_strain;
             $panel_strain                   = get_post_type($get_id) === 'inject_any' ? ' injectany' .$injectany_preload : $panel_strain;
 

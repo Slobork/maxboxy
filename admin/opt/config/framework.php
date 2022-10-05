@@ -29,16 +29,16 @@ if (! defined('ABSPATH')) {
              * to it, setting 'show_sub_menu' => false - won't work,
              * i.e. it only lists all Tabs of the Options panel as submenus.
              * ...So, that's why I have set 'admin_menu' for it,
-             * @see Max__Boxy::admin_menu(). It acts as a parent of this submenu.
+             * @see Max_Boxy::admin_menu(). It acts as a parent of this submenu.
              */
             'menu_type'         => 'submenu',
-            'menu_parent'       => 'maxboxy-settings', // created at @see Max__Boxy::admin_menu().
+            'menu_parent'       => 'maxboxy-settings', // created at @see Max_Boxy::admin_menu().
             /*
              * 'menu_title' => esc_html__( 'Settings', 'maxboxy' ), // this won't work,
              * instead it uses the title of the registered admin menu item
-             * from the Max__Boxy::admin_menu().
+             * from the Max_Boxy::admin_menu().
              */
-            'menu_slug'         => 'maxboxy-settings', // has to be the same as registered top menu item on the Max__Boxy::admin_menu()
+            'menu_slug'         => 'maxboxy-settings', // has to be the same as registered top menu item on the Max_Boxy::admin_menu()
             'framework_title'   => 'MaxBoxy',
             'footer_credit'     => 'MaxBoxy <small> v1.0.1</small>',
             'footer_text'       => ' ',
@@ -417,7 +417,7 @@ if (! defined('ABSPATH')) {
 
 
     // if the pro license isn't activated
-    $get_license = class_exists('Max__Boxy__Pro') && Max__Boxy__Pro::getLicense() !== '' ? true : false;
+    $get_license = class_exists('Max_Boxy_Pro') && Max_Boxy_Pro::getLicense() !== '' ? true : false;
     if ($get_license === false) {
 
         /*

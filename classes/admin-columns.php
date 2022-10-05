@@ -15,32 +15,35 @@ if (! defined('ABSPATH')) {
     exit; 
 }
 
-if (! class_exists('Max__Boxy__Admin_Columns')) {
+if (! class_exists('Max_Boxy_Admin_Columns')) {
 
     // float_any post type
     add_filter(
-        'manage_float_any_posts_columns', array ( 'Max__Boxy__Admin_Columns', 'add_admin_columns' )
+        'manage_float_any_posts_columns', array ( 'Max_Boxy_Admin_Columns', 'add_admin_columns' )
     );
+
     add_action(
-        'manage_float_any_posts_custom_column', array ( 'Max__Boxy__Admin_Columns', 'admin_custom_columns_data' )
+        'manage_float_any_posts_custom_column', array ( 'Max_Boxy_Admin_Columns', 'admin_custom_columns_data' )
     );
 
     // inject_any post type
     add_filter(
-        'manage_inject_any_posts_columns', array ( 'Max__Boxy__Admin_Columns', 'add_admin_columns' )
+        'manage_inject_any_posts_columns', array ( 'Max_Boxy_Admin_Columns', 'add_admin_columns' )
     );
+
     add_action(
-        'manage_inject_any_posts_custom_column', array ( 'Max__Boxy__Admin_Columns', 'admin_custom_columns_data' )
+        'manage_inject_any_posts_custom_column', array ( 'Max_Boxy_Admin_Columns', 'admin_custom_columns_data' )
     );
 
     // 'wp_block' i.e. reusable blocks post type (if enabled)
-    if (class_exists('Max__Boxy__Reusable_blocks') && Max__Boxy__Reusable_blocks::enabled() === true) {
+    if (class_exists('Max_Boxy_Reusable_Blocks') && Max_Boxy_Reusable_Blocks::enabled() === true) {
 
         add_filter(
-            'manage_wp_block_posts_columns', array ( 'Max__Boxy__Admin_Columns', 'add_admin_columns' )
+            'manage_wp_block_posts_columns', array ( 'Max_Boxy_Admin_Columns', 'add_admin_columns' )
         );
+
         add_action(
-            'manage_wp_block_posts_custom_column', array ( 'Max__Boxy__Admin_Columns', 'admin_custom_columns_data' )
+            'manage_wp_block_posts_custom_column', array ( 'Max_Boxy_Admin_Columns', 'admin_custom_columns_data' )
         );
 
     }
@@ -57,7 +60,7 @@ if (! class_exists('Max__Boxy__Admin_Columns')) {
      * @license  GPL v2 or later
      * @link     maxpressy.com
      */
-    class Max__Boxy__Admin_Columns
+    class Max_Boxy_Admin_Columns
     {
 
         /**
@@ -70,7 +73,7 @@ if (! class_exists('Max__Boxy__Admin_Columns')) {
         public static function add_admin_columns( $columns )
         {
 
-            if (Max__Boxy__Track::enabled() !== true) {
+            if (Max_Boxy_Track::enabled() !== true) {
                 return $columns;
             }
 
@@ -93,7 +96,7 @@ if (! class_exists('Max__Boxy__Admin_Columns')) {
         public static function admin_custom_columns_data( $column )
         {
 
-            if (Max__Boxy__Track::enabled() !== true) {
+            if (Max_Boxy_Track::enabled() !== true) {
                 return;
             }
 
@@ -102,8 +105,8 @@ if (! class_exists('Max__Boxy__Admin_Columns')) {
             // echo loaded count
             if ($column === 'post_loaded') {
 
-                $loaded_volume = Max__Boxy__Track::get_load_count($id)[ 'volume' ];
-                $loaded_unique = Max__Boxy__Track::get_load_count($id)[ 'unique' ];
+                $loaded_volume = Max_Boxy_Track::get_load_count($id)[ 'volume' ];
+                $loaded_unique = Max_Boxy_Track::get_load_count($id)[ 'unique' ];
 
                 echo esc_html($loaded_volume) .'/' .esc_html($loaded_unique);
 
@@ -112,8 +115,8 @@ if (! class_exists('Max__Boxy__Admin_Columns')) {
             // echo views count
             if ($column === 'post_views') {
 
-                $views_volume = Max__Boxy__Track::get_views_count($id)[ 'volume' ];
-                $views_unique = Max__Boxy__Track::get_views_count($id)[ 'unique' ];
+                $views_volume = Max_Boxy_Track::get_views_count($id)[ 'volume' ];
+                $views_unique = Max_Boxy_Track::get_views_count($id)[ 'unique' ];
 
                 echo esc_html($views_volume) .'/' .esc_html($views_unique);
 
@@ -122,8 +125,8 @@ if (! class_exists('Max__Boxy__Admin_Columns')) {
             // echo goals complete count
             if ($column === 'post_goals') {
 
-                $goals_volume = Max__Boxy__Track::get_goals_count($id)[ 'volume' ];
-                $goals_unique = Max__Boxy__Track::get_goals_count($id)[ 'unique' ];
+                $goals_volume = Max_Boxy_Track::get_goals_count($id)[ 'volume' ];
+                $goals_unique = Max_Boxy_Track::get_goals_count($id)[ 'unique' ];
 
                 echo esc_html($goals_volume) .'/' .esc_html($goals_unique);
 

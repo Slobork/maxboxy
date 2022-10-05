@@ -27,16 +27,16 @@ if (! function_exists('maxboxy_upgrade_call')) {
     function maxboxy_upgrade_call()
     {
 
-        $get_license = class_exists('Max__Boxy__Pro') && Max__Boxy__Pro::getLicense() !== '' ? true : false;
+        $get_license = class_exists('Max_Boxy_Pro') && Max_Boxy_Pro::getLicense() !== '' ? true : false;
 
         // if the Pro version is active but the license not actvated
-        if (class_exists('Max__Boxy__Pro') && $get_license === false) {
+        if (class_exists('Max_Boxy_Pro') && $get_license === false) {
 
             /*
              * @see _safe_license_notactive_notice()
-             * from Max__Boxy class - all esacped there.
+             * from Max_Boxy class - all esacped there.
              */
-            echo '<div style="padding: 0 10px; border-left: 4px solid red;">' .Max__Boxy::_safe_license_notactive_notice() .'</div>';
+            echo '<div style="padding: 0 10px; border-left: 4px solid red;">' .Max_Boxy::_safe_license_notactive_notice() .'</div>';
 
             // else would be called if the Pro version isn't active at all
         } else {
@@ -52,7 +52,7 @@ if (! function_exists('maxboxy_stats_call')) {
 
     /**
      * Tracking stats - callback for the "Conversion" metabox.
-     * Used in Max__Boxy__Track::reset_panel_stats() as well.
+     * Used in Max_Boxy_Track::reset_panel_stats() as well.
      *
      * @param int $id Get the id of the panel.
      * 
@@ -67,20 +67,20 @@ if (! function_exists('maxboxy_stats_call')) {
          */
         $id = ! empty($id) ? $id : get_the_ID();
 
-        $get_license = class_exists('Max__Boxy__Pro') && Max__Boxy__Pro::getLicense() !== '' ? true : false;
+        $get_license = class_exists('Max_Boxy_Pro') && Max_Boxy_Pro::getLicense() !== '' ? true : false;
 
         // if the Pro is active push the stats pro
         if ($get_license !== false && function_exists('maxboxy_stats_call_pro')) {
             maxboxy_stats_call_pro($id);
         } else {
-            $loaded_volume = Max__Boxy__Track::get_load_count($id)[ 'volume' ];
-            $loaded_unique = Max__Boxy__Track::get_load_count($id)[ 'unique' ];
+            $loaded_volume = Max_Boxy_Track::get_load_count($id)[ 'volume' ];
+            $loaded_unique = Max_Boxy_Track::get_load_count($id)[ 'unique' ];
 
-            $views_volume  = Max__Boxy__Track::get_views_count($id)[ 'volume' ];
-            $views_unique  = Max__Boxy__Track::get_views_count($id)[ 'unique' ];
+            $views_volume  = Max_Boxy_Track::get_views_count($id)[ 'volume' ];
+            $views_unique  = Max_Boxy_Track::get_views_count($id)[ 'unique' ];
 
-            $goals_volume  = Max__Boxy__Track::get_goals_count($id)[ 'volume' ];
-            $goals_unique  = Max__Boxy__Track::get_goals_count($id)[ 'unique' ];
+            $goals_volume  = Max_Boxy_Track::get_goals_count($id)[ 'volume' ];
+            $goals_unique  = Max_Boxy_Track::get_goals_count($id)[ 'unique' ];
 
             // Only for the 'post' page, i.e. omit for the listing (i.e. post type page)
             if (isset($_GET['post'])) {

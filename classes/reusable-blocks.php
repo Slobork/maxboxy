@@ -16,10 +16,10 @@ if (! defined('ABSPATH')) {
 }
 
 
-if (! class_exists('Max__Boxy__Reusable_blocks')) {
+if (! class_exists('Max_Boxy_Reusable_Blocks')) {
     
     add_filter(
-        'render_block', array ( 'Max__Boxy__Reusable_blocks', 'render' ), 10, 2
+        'render_block', array ( 'Max_Boxy_Reusable_Blocks', 'render' ), 10, 2
     );
 
 
@@ -32,7 +32,7 @@ if (! class_exists('Max__Boxy__Reusable_blocks')) {
      * @license  GPL v2 or later
      * @link     maxpressy.com
      */
-    class Max__Boxy__Reusable_blocks
+    class Max_Boxy_Reusable_Blocks
     {
 
 
@@ -82,27 +82,27 @@ if (! class_exists('Max__Boxy__Reusable_blocks')) {
                     $get_id         = $post->ID;
                     // no maxboxy's loading metabox options with reusable blocks:
                     $loading        = null;
-                    $basics         = class_exists('Max__Boxy__Options') ? Max__Boxy__Options::basics($get_id)      : '';
-                    $goals          = class_exists('Max__Boxy__Options') ? Max__Boxy__Options::conversions($get_id) : '';
+                    $basics         = class_exists('Max_Boxy_Options') ? Max_Boxy_Options::basics($get_id)      : '';
+                    $goals          = class_exists('Max_Boxy_Options') ? Max_Boxy_Options::conversions($get_id) : '';
 
-                    $conditionals_on = class_exists('Max__Boxy__Conditionals') ? true : false;
+                    $conditionals_on = class_exists('Max_Boxy_Conditionals') ? true : false;
                     $conditionals    = array(
-                        'page_pass'   => $conditionals_on === true ? Max__Boxy__Conditionals::pages($get_id)    : true,
-                        'schedule'    => $conditionals_on === true ? Max__Boxy__Conditionals::schedule($get_id) : '',
-                        // Max__Boxy__Conditionals::appear_triggers returns array:
-                        'appear_pass'    => $conditionals_on === true ? Max__Boxy__Conditionals::appear_triggers($get_id)[ 'appear_check' ]   : true,
-                        'appear_classes' => $conditionals_on === true ? Max__Boxy__Conditionals::appear_triggers($get_id)[ 'appear_classes' ] : '',
-                        'appear_data'    => $conditionals_on === true ? Max__Boxy__Conditionals::appear_triggers($get_id)[ 'appear_data' ]    : '',
+                        'page_pass'   => $conditionals_on === true ? Max_Boxy_Conditionals::pages($get_id)    : true,
+                        'schedule'    => $conditionals_on === true ? Max_Boxy_Conditionals::schedule($get_id) : '',
+                        // Max_Boxy_Conditionals::appear_triggers returns array:
+                        'appear_pass'    => $conditionals_on === true ? Max_Boxy_Conditionals::appear_triggers($get_id)[ 'appear_check' ]   : true,
+                        'appear_classes' => $conditionals_on === true ? Max_Boxy_Conditionals::appear_triggers($get_id)[ 'appear_classes' ] : '',
+                        'appear_data'    => $conditionals_on === true ? Max_Boxy_Conditionals::appear_triggers($get_id)[ 'appear_data' ]    : '',
                     );
 
-                    $splitter   = class_exists('Max__Boxy__Splitter') && Max__Boxy__Splitter::enabled() === true
-                                ? Max__Boxy__Splitter::panel_options($get_id)
+                    $splitter   = class_exists('Max_Boxy_Splitter') && Max_Boxy_Splitter::enabled() === true
+                                ? Max_Boxy_Splitter::panel_options($get_id)
                                 : array( 'on' => false, 'classes' => '', 'prerender' => false, 'id' => '' );
         
                     // if splitter isn't used
                     if (empty($splitter[ 'on' ])) {
 
-                        $panel = Max__Boxy::panel($get_id, $post, $is_shorty, $is_ajax_call, $name, $loading, $basics, $goals, $conditionals, $splitter);
+                        $panel = Max_Boxy::panel($get_id, $post, $is_shorty, $is_ajax_call, $name, $loading, $basics, $goals, $conditionals, $splitter);
 
                         // output
                         $block_content = $panel;
@@ -112,7 +112,7 @@ if (! class_exists('Max__Boxy__Reusable_blocks')) {
 
                         // get the splitter item associated with this panel
                         $get_id               = isset($splitter[ 'id' ]) ? $splitter[ 'id' ] : '';
-                        $splitter_item        = Max__Boxy__Splitter::splitter_item($get_id);
+                        $splitter_item        = Max_Boxy_Splitter::splitter_item($get_id);
                         $_safe_splitter_group = ! empty($splitter_item) ? $splitter_item : '';
         
                         // if splitters aren't prerendered
@@ -140,21 +140,21 @@ if (! class_exists('Max__Boxy__Reusable_blocks')) {
                                 // for the splitters name can be only post_title
                                 $name     = sanitize_title(get_post($get_id)->post_title);
         
-                                $loading = class_exists('Max__Boxy__Options') ? Max__Boxy__Options::loading($get_id)     : '';
-                                $basics  = class_exists('Max__Boxy__Options') ? Max__Boxy__Options::basics($get_id)      : '';
-                                $goals   = class_exists('Max__Boxy__Options') ? Max__Boxy__Options::conversions($get_id) : '';
+                                $loading = class_exists('Max_Boxy_Options') ? Max_Boxy_Options::loading($get_id)     : '';
+                                $basics  = class_exists('Max_Boxy_Options') ? Max_Boxy_Options::basics($get_id)      : '';
+                                $goals   = class_exists('Max_Boxy_Options') ? Max_Boxy_Options::conversions($get_id) : '';
         
-                                $conditionals_on = class_exists('Max__Boxy__Conditionals') ? true : false;
+                                $conditionals_on = class_exists('Max_Boxy_Conditionals') ? true : false;
                                 $conditionals    = array(
-                                     'page_pass'  => $conditionals_on === true ? Max__Boxy__Conditionals::pages($get_id)    : true,
-                                     'schedule'   => $conditionals_on === true ? Max__Boxy__Conditionals::schedule($get_id) : '',
-                                     // Max__Boxy__Conditionals::appear_triggers returns array:
-                                     'appear_pass'    => $conditionals_on === true ? Max__Boxy__Conditionals::appear_triggers($get_id)[ 'appear_check' ]    : true,
-                                     'appear_classes' => $conditionals_on === true ? Max__Boxy__Conditionals::appear_triggers($get_id)[ 'appear_classes' ]  : '',
-                                     'appear_data'    => $conditionals_on === true ? Max__Boxy__Conditionals::appear_triggers($get_id)[ 'appear_data' ]     : '',
+                                     'page_pass'  => $conditionals_on === true ? Max_Boxy_Conditionals::pages($get_id)    : true,
+                                     'schedule'   => $conditionals_on === true ? Max_Boxy_Conditionals::schedule($get_id) : '',
+                                     // Max_Boxy_Conditionals::appear_triggers returns array:
+                                     'appear_pass'    => $conditionals_on === true ? Max_Boxy_Conditionals::appear_triggers($get_id)[ 'appear_check' ]    : true,
+                                     'appear_classes' => $conditionals_on === true ? Max_Boxy_Conditionals::appear_triggers($get_id)[ 'appear_classes' ]  : '',
+                                     'appear_data'    => $conditionals_on === true ? Max_Boxy_Conditionals::appear_triggers($get_id)[ 'appear_data' ]     : '',
                                 );
 
-                                $panel[] = Max__Boxy::panel($get_id, $post, $is_shorty, $is_ajax_call, $name, $loading, $basics, $goals, $conditionals, $splitter);
+                                $panel[] = Max_Boxy::panel($get_id, $post, $is_shorty, $is_ajax_call, $name, $loading, $basics, $goals, $conditionals, $splitter);
 
                             }
 

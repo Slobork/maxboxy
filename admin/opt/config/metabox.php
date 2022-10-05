@@ -200,7 +200,7 @@ if (! defined('ABSPATH')) {
      * latter this condition should be omitted and plugin inactive mesages left 
      * to $mb_splitter_info.
      */
-    if (class_exists('Max__Boxy__Splitter')) {
+    if (class_exists('Max_Boxy_Splitter')) {
 
         /*
          * Splitter info.

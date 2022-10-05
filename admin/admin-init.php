@@ -27,7 +27,7 @@ if (class_exists('CSF')) {
     // Disable CSF welcome page
     add_filter('csf_welcome_page', '__return_false');
 
-    if (class_exists('Max__Boxy__Pro')) {
+    if (class_exists('Max_Boxy_Pro')) {
         include_once WP_PLUGIN_DIR .'/maxboxy-pro/admin/opt/config/callbacks.php';
         include_once WP_PLUGIN_DIR .'/maxboxy-pro/admin/opt/config/framework.php';
         include_once WP_PLUGIN_DIR .'/maxboxy-pro/admin/opt/config/metabox.php';
@@ -51,7 +51,7 @@ if (! function_exists('maxboxy_admin_scripts')) {
     function maxboxy_admin_scripts()
     {
 
-        $plugin_version = Max__Boxy::version();
+        $plugin_version = Max_Boxy::version();
 
         wp_enqueue_script('maxboxy-adminizr', plugin_dir_url(__DIR__) .'library/admin/min/adminizr.js', array('jquery'), $plugin_version, true);
 

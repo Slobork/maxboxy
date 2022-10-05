@@ -20,7 +20,7 @@ if (! defined('ABSPATH')) {
 
     /*
      * Here have to get the global option, because 
-     * checking Max__Boxy__Track::enabled() won't work here,
+     * checking Max_Boxy_Track::enabled() won't work here,
      * probably due order priority.
      */
     // Later this is checked in this file, but as well in premium plugin
@@ -29,16 +29,16 @@ if (! defined('ABSPATH')) {
 
 
     // the following options get outputted if the Pro plugin is active
-    $auto_loading_disabled_op   = class_exists('Max__Boxy__Pro') && Max__Boxy__Pro::getLicense() !== ''
+    $auto_loading_disabled_op   = class_exists('Max_Boxy_Pro') && Max_Boxy_Pro::getLicense() !== ''
                                 ? array( 'disabled'  =>  esc_html__('Disabled', 'maxboxy') )
                                 : array();
 
-    $auto_loading_desc          = ! class_exists('Max__Boxy__Pro') || class_exists('Max__Boxy__Pro') && Max__Boxy__Pro::getLicense() === ''
+    $auto_loading_desc          = ! class_exists('Max_Boxy_Pro') || class_exists('Max_Boxy_Pro') && Max_Boxy_Pro::getLicense() === ''
                                 ? array( 'desc'  =>  esc_html__('With the Pro version you can disable overall loading, then load the panel with shortcode on a particular page or a template.',    'maxboxy') )
                                 : array();
 
     $get_id                     = isset($_GET['post']) ? $_GET['post'] : get_the_ID();
-    $auto_loading_from_splitter = class_exists('Max__Boxy__Splitter') && Max__Boxy__Splitter::enabled() === true
+    $auto_loading_from_splitter = class_exists('Max_Boxy_Splitter') && Max_Boxy_Splitter::enabled() === true
                                 && ( get_post_type($get_id) === 'float_any' || get_post_type($get_id) === 'inject_any' ) // without the 'wp_block' since it doesnt have global loading option
                                     // Set 5th param as "visible" or "true" to set it as visible ony if the 'is_splitted_from' is empty.
                                 ? array( 'dependency'  =>  array( 'is_splitted_from', '==', '', 'true', 'visible' ) )
@@ -56,7 +56,7 @@ if (! defined('ABSPATH')) {
                                 ) +$auto_loading_desc +$auto_loading_from_splitter;
 
 
-    $auto_loading_splitter_info = class_exists('Max__Boxy__Splitter') && Max__Boxy__Splitter::enabled() === true && ( get_post_type($get_id) === 'float_any' || get_post_type($get_id) === 'inject_any')
+    $auto_loading_splitter_info = class_exists('Max_Boxy_Splitter') && Max_Boxy_Splitter::enabled() === true && ( get_post_type($get_id) === 'float_any' || get_post_type($get_id) === 'inject_any')
                                 ? array(
                                     'id'            => 'auto_loading_from_splitter_info',
                                     'type'          => 'notice',
@@ -72,7 +72,7 @@ if (! defined('ABSPATH')) {
      * Differentiate options availabe on the basic & the pro version,
      * For Splitter metabox
      */
-    // $get_license = class_exists( 'Max__Boxy__Pro' ) && Max__Boxy__Pro::getLicense() !== '' ? true : false;
+    // $get_license = class_exists( 'Max_Boxy_Pro' ) && Max_Boxy_Pro::getLicense() !== '' ? true : false;
     // if ( $get_license !== false && function_exists( 'maxboxy_metabox_settings_splitter' ) ) {
     if (function_exists('maxboxy_metabox_settings_splitter')) {
 
@@ -277,7 +277,7 @@ if (! defined('ABSPATH')) {
                     'role-hoverer'  =>  esc_html__('Hover out', 'maxboxy'),
                     'role-rotator'  =>  esc_html__('Rotator',   'maxboxy'), // Has to be set as 2nd from the behind, coz in adminizer.js it's showing/hidding based on the panel_type selection.
                     'role-igniter'  =>  esc_html__('Igniter',   'maxboxy'), // Has to be set as last, so that it's popped-out from the array if the closer is selected
-                                                                            // (done from the Max__Boxy__Options' basics() with array_pop ).
+                                                                            // (done from the Max_Boxy_Options' basics() with array_pop ).
                                                                             // Also in adminizer.js it's showing/hidding based on the panel_type selection.
                 ),
                 'multiple'      => true,
@@ -411,7 +411,7 @@ if (! defined('ABSPATH')) {
                     'role-hoverer'  =>  esc_html__('Hover out', 'maxboxy'),
                     'role-rotator'  =>  esc_html__('Rotator',   'maxboxy'), // Has to be set as 2nd from the behind, coz in adminizer.js it's showing/hidding based on the panel_type selection.
                     'role-igniter'  =>  esc_html__('Igniter',   'maxboxy'), // Has to be set as last, so that it's popped-out from the array if the closer is selected
-                                                                            // (done from the Max__Boxy__Options::basics() with array_pop ).
+                                                                            // (done from the Max_Boxy_Options::basics() with array_pop ).
                                                                             // Also in adminizer.js it's showing/hidding based on the panel_type selection.
                 ),
                 'multiple'      => true,

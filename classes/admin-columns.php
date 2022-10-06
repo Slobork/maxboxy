@@ -1,14 +1,7 @@
 <?php
+// phpcs:ignore
 /**
  * Description: Hook to Admin columns
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
 
 if (! defined('ABSPATH')) { 
@@ -48,18 +41,7 @@ if (! class_exists('Max_Boxy_Admin_Columns')) {
 
     }
 
-
-    /**
-     * Description: Add columns for specified post types listing.
-     *
-     * PHP version 7.3.5
-     * 
-     * @category Conversion
-     * @package  MaxBoxy
-     * @author   MaxPressy <webmaster@maxpressy.com>
-     * @license  GPL v2 or later
-     * @link     maxpressy.com
-     */
+    // phpcs:ignore
     class Max_Boxy_Admin_Columns
     {
 
@@ -70,6 +52,7 @@ if (! class_exists('Max_Boxy_Admin_Columns')) {
          * 
          * @return string Columns' heading.
          */
+        // phpcs:ignore
         public static function add_admin_columns( $columns )
         {
 
@@ -93,6 +76,7 @@ if (! class_exists('Max_Boxy_Admin_Columns')) {
          *
          * @return string Columns' data.
          */
+        // phpcs:ignore
         public static function admin_custom_columns_data( $column )
         {
 

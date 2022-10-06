@@ -1,31 +1,16 @@
 <?php
+// phpcs:ignore
 /**
  * Description: Getting Maxboxy options form the Mataboxes
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
+
 if (! defined('ABSPATH')) { 
     exit; 
 }
 
 if (! class_exists('Max_Boxy_Options')) {
 
-
-    /**
-     * Get options from the metaboxes.
-     *
-     * @category Conversion
-     * @package  MaxBoxy
-     * @author   MaxPressy <webmaster@maxpressy.com>
-     * @license  GPL v2 or later
-     * @link     maxpressy.com
-     */
+    // phpcs:ignore
     class Max_Boxy_Options
     {
 

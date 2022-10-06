@@ -1,16 +1,9 @@
 <?php
-
+// phpcs:ignore
 /**
  * Description: MaxBoxy options for the Reusable blocks
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
+
 if (! defined('ABSPATH')) { 
     exit; 
 }
@@ -22,19 +15,9 @@ if (! class_exists('Max_Boxy_Reusable_Blocks')) {
         'render_block', array ( 'Max_Boxy_Reusable_Blocks', 'render' ), 10, 2
     );
 
-
-    /**
-     * Description: Reusable blocks class.
-     *
-     * @category Conversion
-     * @package  MaxBoxy
-     * @author   MaxPressy <webmaster@maxpressy.com>
-     * @license  GPL v2 or later
-     * @link     maxpressy.com
-     */
+    // phpcs:ignore
     class Max_Boxy_Reusable_Blocks
     {
-
 
         /**
          * Check are the MaxBoxy options enabled for 'wp_block' 

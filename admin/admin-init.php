@@ -1,14 +1,7 @@
 <?php
+// phpcs:ignore
 /**
  * Description: Initializing admin
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
 
 if (! defined('ABSPATH')) {
@@ -48,6 +41,7 @@ if (! function_exists('maxboxy_admin_scripts')) {
      * 
      * @return none Hook to the enqueueing functions.
      */
+    // phpcs:ignore
     function maxboxy_admin_scripts()
     {
 

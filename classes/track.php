@@ -1,20 +1,12 @@
 <?php
-
+// phpcs:ignore
 /**
  * Description: Conversion Tracking for MaxBoxy
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
+
 if (! defined('ABSPATH')) { 
     exit; 
 }
-
 
 
 if (! class_exists('Max_Boxy_Track')) {
@@ -53,15 +45,7 @@ if (! class_exists('Max_Boxy_Track')) {
         );
 
 
-    /**
-     * Description: Tracking class.
-     *
-     * @category Conversion
-     * @package  MaxBoxy
-     * @author   MaxPressy <webmaster@maxpressy.com>
-     * @license  GPL v2 or later
-     * @link     maxpressy.com
-     */
+    // phpcs:ignore
     class Max_Boxy_Track
     {
 
@@ -90,6 +74,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return string 
          */
+        // phpcs:ignore
         public static function body_classes( $classes )
         {
 
@@ -105,6 +90,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return none It's updating the meta value.
          */
+        // phpcs:ignore
         public static function update_load_count()
         {
 
@@ -158,6 +144,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return none It's updating the meta value.
          */
+        // phpcs:ignore
         public static function update_views_count()
         {
 
@@ -212,6 +199,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return none It's updating the meta value.
          */
+        // phpcs:ignore
         public static function update_goals_count()
         {
 
@@ -268,6 +256,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return array.
          */
+        // phpcs:ignore
         public static function get_load_count( $id )
         {
 
@@ -293,6 +282,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return array.
          */
+        // phpcs:ignore
         public static function get_views_count( $id )
         {
 
@@ -318,6 +308,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return array.
          */
+        // phpcs:ignore
         public static function get_goals_count( $id )
         {
 
@@ -341,6 +332,7 @@ if (! class_exists('Max_Boxy_Track')) {
          * 
          * @return none It's deleteng the meta value.
          */
+        // phpcs:ignore
         public static function reset_panel_stats()
         {
 

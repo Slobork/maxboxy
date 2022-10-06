@@ -1,14 +1,7 @@
 <?php
+// phpcs:ignore
 /**
  * Description: Callbacks for Metabox options
- *
- * PHP version 7.3.5
- *
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
 
 if (! defined('ABSPATH')) {
@@ -24,6 +17,7 @@ if (! function_exists('maxboxy_upgrade_call')) {
      * 
      * @return string Print the upgrade call.
      */
+    // phpcs:ignore
     function maxboxy_upgrade_call()
     {
 
@@ -58,6 +52,7 @@ if (! function_exists('maxboxy_stats_call')) {
      * 
      * @return string Displays the stats.
      */
+    // phpcs:ignore
     function maxboxy_stats_call( $id )
     {
 

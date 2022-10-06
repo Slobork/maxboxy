@@ -1,20 +1,12 @@
 <?php
+// phpcs:ignore
 /**
  * Description: Plugin's initialization
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
 
 if (! defined('ABSPATH')) { 
     exit; 
 }
-
 
 if (! class_exists('Max_Boxy')) {
 
@@ -63,17 +55,7 @@ if (! class_exists('Max_Boxy')) {
         );
 
 
-    /**
-     * Description: Set a class.
-     *
-     * PHP version 7.3.5
-     * 
-     * @category Conversion
-     * @package  MaxBoxy
-     * @author   MaxPressy <webmaster@maxpressy.com>
-     * @license  GPL v2 or later
-     * @link     maxpressy.com
-     */
+    // phpcs:ignore
     class Max_Boxy 
     {
 
@@ -105,10 +87,12 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Enqueue place.
          *
-         * Get the place where the scripts and styles are loaded. Regular enqueue or on place with the panel.
+         * Get the place where the scripts and styles are loaded.
+         *  - Regular enqueue or on demand with the panel.
          *
-         * @return string. Default 'overall'. Accepts 'on_demand' (i.e. served on the place with the panel).
+         * @return string Default 'overall'. Accepts 'on_demand' 
          */
+        // phpcs:ignore
         public static function enqueue_place()
         {
 
@@ -125,6 +109,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return none Calling enqueueing functions.
          */
+        // phpcs:ignore
         public static function enqueue_place_on_demand()
         {
 
@@ -155,6 +140,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return none Registering and enqueueing assets.
          */
+        // phpcs:ignore
         public static function scripts_and_styles()
         {
 
@@ -232,6 +218,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return string Prepered css for inline output.
          */
+        // phpcs:ignore
         public static function _escaped_css()
         {
 
@@ -367,6 +354,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string.
          */
+        // phpcs:ignore
         public static function _safe_license_notactive_notice()
         {
 
@@ -381,10 +369,12 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Set admin notices.
          *
-         * Extends _safe_license_notactive_notice() based on the certain pages condtion.
+         * Extends _safe_license_notactive_notice() based on the
+         * certain pages condtion.
          *
          * @return string.
          */
+        // phpcs:ignore
         public static function admin_notices()
         {
 
@@ -416,6 +406,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return none Hooking to the add_menupage and add_submenu_page functions.
          */
+        // phpcs:ignore
         public static function admin_menu()
         {
 
@@ -458,6 +449,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return none Hooking to the register_post_type().
          */
+        // phpcs:ignore
         public static function set_post_type_inject_any()
         {
 
@@ -500,6 +492,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return none Hooking to the register_post_type().
          */
+        // phpcs:ignore
         public static function set_post_type_float_any()
         {
 
@@ -543,6 +536,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return none Hooking to the register_taxonomy().
          */
+        // phpcs:ignore
         public static function set_taxonomies()
         {
 
@@ -597,6 +591,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return string Requested posts.
          */
+        // phpcs:ignore
         private static function query_float_any()
         {
 
@@ -626,6 +621,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string Requested posts.
          */
+        // phpcs:ignore
         private static function query_inject_any_head()
         {
 
@@ -661,6 +657,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string Requested posts.
          */
+        // phpcs:ignore
         private static function query_inject_any_top()
         {
 
@@ -696,6 +693,7 @@ if (! class_exists('Max_Boxy')) {
          * 
          * @return string Requested posts.
          */
+        // phpcs:ignore
         private static function query_inject_any_bottom()
         {
 
@@ -737,14 +735,14 @@ if (! class_exists('Max_Boxy')) {
          * @param array   $conditionals Array of params from the funtions of Max_Boxy_Conditionals class.
          * @param array   $splitter     Array of params from the Max_Boxy_Splitter::panel_options().
          * 
-         *                              $loading see @param {
+         *                              $loading of @param {
          *
          * @type boolean 'global'       Whether a panel's global (auto) loading, i.e. over the whole site is enabled or disabled.
          * @type string  'location'     In which location the panel is loaded.
          *
          * }
          *
-         *                              $basics see @param {
+         *                              $basics of @param {
          * @type string  'type'                  The type of the panel e.g. closer|toggler.
          * @type string  'style'                 The appearance style of the panel e.g. bump|slide-vertical|etc.
          * @type string  'roles'                 The role of the panel e.g. role-hidden|role-exit|role-igniter|etc.
@@ -772,14 +770,14 @@ if (! class_exists('Max_Boxy')) {
          *
          * }
          *
-         *                                       $goals  see @param {
+         *                              $goals of @param {
          * @type string 'goalset'                If the goal is set, print its value
          * @type string 'banish'                 Set the class to prevent the panel appearing again if the goal is complete.
          * @type string 'goal_data'              Escaped data attribute with its values for the set goal.
          * 
          * }
          *
-         *                                       $conditionals  see @param {
+         *                              $conditionals of @param {
          * @type boolean 'page_pass'             Wheather the condition is affecting the current page. Default 'true', means print the panel. Accepts 'false', i.e. do not print the panel.
          * @type string 'schedule'               Whether the panel is under the schedule campaign. Default ''. Accepts values 'on' print the panel, 'stop' if the time span isn't met
          * @type boolean 'appear_pass'           Whether the panel is passing the appearance trigger check. Default 'true'. Accepts 'false', i.e. do not print the panel.
@@ -788,7 +786,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * }
          *
-         *                                       $splitter {
+         *                              $splitter of @param {
          * @type boolean 'on'                    Wheather the panel is under the splitter campaign. Default 'false'. Accepts 'true'.
          * @type string 'classes'                Set the split class.
          * @type boolean 'prerender'             Wheather the split panel is prerendered, sets the Ajax behavior @see Max_Boxy_Splitter::serve_splitter_panel_ajax(). Default 'false'. Accepts 'true'.
@@ -950,6 +948,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string.
          */
+        // phpcs:ignore
         public static function loop_injectany_head()
         {
 
@@ -1013,6 +1012,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string.
          */
+        // phpcs:ignore
         public static function loop_injectany_top()
         {
 
@@ -1078,6 +1078,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string.
          */
+        // phpcs:ignore
         public static function loop_injectany_bottom()
         {
 
@@ -1141,6 +1142,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @return string.
          */
+        // phpcs:ignore
         public static function loop_floatany()
         {
 

@@ -131,7 +131,7 @@ if (! defined('ABSPATH')) {
             // Contact 1
             register_block_pattern(
                 'maxboxy/contact-cfwsi', [
-                'title'         => esc_html__('Contact form with social icons', 'maxboxy'),
+                'title' => esc_html__('Contact form with social icons', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
                 'categories'    => ['maxboxy-contact'],
 

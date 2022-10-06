@@ -1,16 +1,8 @@
 <?php
-
+// phpcs:ignore
 /**
  * Description: Uninstalling option. Optionally, on user choise, 
  * get the plugin's options removed from a database on uninstall.
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
 if (! defined('ABSPATH')) { 
     exit; 

@@ -1,18 +1,10 @@
 <?php
-
+// phpcs:ignore
 /**
  * Description: Patterns for MaxBoxy
- * 
- * PHP version 7.3.5
- * 
- * @category Conversion
- * @package  MaxBoxy
- * @author   MaxPressy <webmaster@maxpressy.com>
- * @license  GPL v2 or later
- * @link     maxpressy.com
  */
-if (! defined('ABSPATH')) { 
-    exit; 
+if (! defined('ABSPATH')) {
+    exit;
 }
 
 
@@ -21,16 +13,16 @@ if (! defined('ABSPATH')) {
      */
     add_action(
         'init', function () {
-        
+
             if (! function_exists('register_block_pattern_category')) {
                 return;
             }
-            
+
             register_block_pattern_category(
                 'maxboxy-buttons',
                 array( 'label' => esc_html__('MaxBoxy: Buttons', 'maxboxy') )
             );
-        
+
             register_block_pattern_category(
                 'maxboxy-contact',
                 array( 'label' => esc_html__('MaxBoxy: Contact', 'maxboxy') )
@@ -40,34 +32,34 @@ if (! defined('ABSPATH')) {
                 'maxboxy-cookies',
                 array( 'label' => esc_html__('MaxBoxy: Cookies & GDPR', 'maxboxy') )
             );
-        
+
             register_block_pattern_category(
                 'maxboxy-cta',
                 array( 'label' => esc_html__('MaxBoxy: CTA', 'maxboxy') )
             );
-        
+
             /*
              * @todo gallery patterns:
              * register_block_pattern_category(
-             *     'maxboxy-gallery',  
+             *     'maxboxy-gallery',
              *     array( 'label' => esc_html__('MaxBoxy: Gallery', 'maxboxy') )
              * );
              */
-        
+
             register_block_pattern_category(
                 'maxboxy-media',
                 array( 'label' => esc_html__('MaxBoxy: Media', 'maxboxy') )
             );
 
-        
+
             // Options available only with pro version
             register_block_pattern_category(
-                'maxboxy-promo', 
+                'maxboxy-promo',
                 array( 'label' => esc_html__('MaxBoxy: Promo', 'maxboxy') )
             );
-        
+
             register_block_pattern_category(
-                'maxboxy-signups', 
+                'maxboxy-signups',
                 array( 'label' => esc_html__('MaxBoxy: Signups', 'maxboxy') )
             );
 
@@ -135,7 +127,7 @@ if (! defined('ABSPATH')) {
                 'keywords'      => ['contact', 'contact us'],
                 'categories'    => ['maxboxy-contact'],
 
-                /* 
+                /*
                  * @todo put in the modal on the page load:
                  * @link https://github.com/WordPress/gutenberg/pull/41791
                  * 'blockTypes' => array( 'core/post-content' ),
@@ -180,56 +172,56 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":20} -->
                                 <div style=\"height:20px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Contact form here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:shortcode /-->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Google map here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:html /-->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\",\"className\":\"is-style-default\"} -->
                                 <p class=\"has-text-align-center is-style-default\"><a href=\"tel:+555555555555\">+555 555 555 555</a></p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\"><a href=\"mailto:lorem@ipsum.dolor\">lorem@ipsum.dolor</a><br></p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\">Lorem ipsum 123 Dolor Sit, 45</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
                                 <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
                                 <!-- /wp:social-links --></div>
                                 <!-- /wp:group -->",
@@ -246,28 +238,28 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#7cc9f8\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:shortcode /-->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:html /-->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
                                 <h4 class=\"has-text-align-center\">Your title here...</h4>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
                                 <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
-                                
+
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
                                 <!-- /wp:social-links --></div></div>
                                 <!-- /wp:cover -->",
@@ -289,11 +281,11 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
                                 <h3 class=\"has-text-align-center\">Your title here...</h3>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\">We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
                                 <div class=\"wp-block-button mboxy-closer\"><a class=\"wp-block-button__link\">I agree</a></div>
@@ -302,7 +294,7 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:group -->",
                 ]
             );
-        
+
             // Cookies - 2
             register_block_pattern(
                 'maxboxy/cookies-2', [
@@ -315,7 +307,7 @@ if (! defined('ABSPATH')) {
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column -->
-                                
+
                                 <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
                                 <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
@@ -339,7 +331,7 @@ if (! defined('ABSPATH')) {
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column -->
-                                
+
                                 <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"18.75%\"} -->
                                 <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:18.75%\"><!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
@@ -347,7 +339,7 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:button --></div>
                                 <!-- /wp:buttons --></div>
                                 <!-- /wp:column -->
-                                
+
                                 <!-- wp:column {\"width\":\"25%\"} -->
                                 <div class=\"wp-block-column\" style=\"flex-basis:25%\"><!-- wp:paragraph -->
                                 <p>You can read more from our <a href=\"#\">Privacy Policy</a>.</p>
@@ -356,7 +348,7 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:columns -->",
                  ]
             );
-        
+
             // Cookies - 4
             register_block_pattern(
                 'maxboxy/cookies-4', [
@@ -370,7 +362,7 @@ if (! defined('ABSPATH')) {
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column -->
-                                
+
                                 <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
                                 <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
@@ -379,22 +371,22 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:buttons --></div>
                                 <!-- /wp:column --></div>
                                 <!-- /wp:columns -->
-                                
+
                                 <!-- wp:separator -->
                                 <hr class=\"wp-block-separator\"/>
                                 <!-- /wp:separator -->
-                                
+
                                 <!-- wp:spacer {\"height\":10} -->
                                 <div style=\"height:10px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\">You can read more from our <a href=\"#\">Privacy Policy</a>.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:group -->",
                 ]
             );
-        
+
             // Cookies - 5
             register_block_pattern(
                 'maxboxy/cookies-5', [
@@ -408,14 +400,14 @@ if (! defined('ABSPATH')) {
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column -->
-                                
+
                                 <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
                                 <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:paragraph -->
                                 <p>You can read more from our <a href=\"#\">Privacy Policy</a>.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column --></div>
                                 <!-- /wp:columns -->
-                                
+
                                 <!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"width\":75,\"className\":\"is-style-outline mboxy-closer\"} -->
                                 <div class=\"wp-block-button has-custom-width wp-block-button__width-75 is-style-outline mboxy-closer\"><a class=\"wp-block-button__link\">I agree</a></div>
@@ -440,19 +432,19 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":40} -->
                                 <div style=\"height:40px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"color\":{\"text\":\"#414446\"}}} -->
                                 <h2 class=\"has-text-align-center has-text-color\" style=\"color:#414446\">Major attention message!</h2>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"color\":{\"text\":\"#414446\"}}} -->
                                 <p class=\"has-text-align-center has-text-color\" style=\"color:#414446\">Write additional text here.</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:spacer {\"height\":20} -->
                                 <div style=\"height:20px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-                                
+
                                 <!-- wp:buttons {\"contentJustification\":\"center\",\"orientation\":\"vertical\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center is-vertical\"><!-- wp:button {\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
                                 <div class=\"wp-block-button has-custom-width wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link\">Call to action</a></div>
@@ -472,19 +464,19 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-cover has-background-dim has-background-gradient\" style=\"background:linear-gradient(0deg,rgb(254,205,165) 0%,rgb(254,45,45) 33%,rgb(107,0,62) 100%)\"><div class=\"wp-block-cover__inner-container\"><!-- wp:spacer {\"height\":10} -->
                                 <div style=\"height:10px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-                                
+
                                 <!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"color\":{\"text\":\"#ffffff\"}}} -->
                                 <h2 class=\"has-text-align-center has-text-color\" style=\"color:#ffffff\">Major attention message!</h2>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"color\":{\"text\":\"#ffffff\"}}} -->
                                 <p class=\"has-text-align-center has-text-color\" style=\"color:#ffffff\">Write additional text here.</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:spacer {\"height\":30} -->
                                 <div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-                                
+
                                 <!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"width\":75,\"style\":{\"color\":{\"background\":\"#8c1111\"}}} -->
                                 <div class=\"wp-block-button has-custom-width wp-block-button__width-75\"><a class=\"wp-block-button__link has-background\" style=\"background-color:#8c1111\">GET IT</a></div>
@@ -508,7 +500,7 @@ if (! defined('ABSPATH')) {
                                 <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"black\",\"fontSize\":\"large\"} -->
                                 <p class=\"has-text-align-center has-black-color has-text-color has-large-font-size\">YOUR ATTENTION MESSAGE!</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
                                 <div class=\"wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color\">Get it!</a></div>
@@ -537,11 +529,11 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
                                 <h2 class=\"has-text-align-center\">Write your heading here...</h2>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:html /--></div>
                                 <!-- /wp:group -->",
                 ]
@@ -557,11 +549,11 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#6340a7\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\"} -->
                                 <h2 class=\"has-text-align-center\">Write your heading here...</h2>
                                 <!-- /wp:heading -->
-                                
+
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 <!-- /wp:paragraph -->
-                                
+
                                 <!-- wp:html /--></div></div>
                                 <!-- /wp:cover -->",
                 ]
@@ -615,7 +607,7 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:cover -->",
                 ]
             );
-    
+
             // Signup 3
             register_block_pattern(
                 'maxboxy/signup-iacbwi', [
@@ -644,8 +636,8 @@ if (! defined('ABSPATH')) {
             );
 
             /*
-             * 5 - higher priority than default, 
+             * 5 - higher priority than default,
              * so it loads before the patterns added by the Pro plugin
              */
-        }, 5 
+        }, 5
     );

@@ -1,26 +1,25 @@
 <?php
-    /**
-     * PHP version  7.3.5
-     * 
-     * @category Conversion
-     * @package  MaxBoxy
-     * @author   MaxPressy <webmaster@maxpressy.com>
-     * @license  GPL v2 or later
-     * @link     maxpressy.com
-     * Plugin Name:         MaxBoxy - Conversion Boxes, Float and Inject Any Content
-     * Description:         Make Popups, Notifications, Conversion Boxes...
-     * Distinguished Call to Actions, Ad Boxes - Any Content Floating, 
-     * Sticking and Injecting with Stats and various output ways.
-     * Author:              MaxPressy
-     * Author URI:          https://maxpressy.com
-     * License:             GPL v2 or later
-     * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
-     * Version:             1.0.0
-     * Text Domain:         maxboxy
-     * Domain Path:         /languages
-     * Requires at least:   5.8
-     * Requires PHP:        7.3.5
-     */
+/**
+ * Plugin Name:         MaxBoxy
+ * Description:         Conversion Boxes, Popups, Float and Inject Any Content
+ *
+ * PHP version  7.3.5
+ *
+ * @category Conversion
+ * @package  MaxBoxy
+ * @author   MaxPressy <webmaster@maxpressy.com>
+ * @license  GPL v2 or later
+ * @link     maxpressy.com
+ *
+ * Author URI:          https://maxpressy.com
+ * License:             GPL v2 or later
+ * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
+ * Version:             1.0.1
+ * Text Domain:         maxboxy
+ * Domain Path:         /languages
+ * Requires at least:   5.8
+ * Requires PHP:        7.3.5
+ */
 
 if (! defined('ABSPATH') ) {
     exit;

@@ -1,5 +1,5 @@
 === MaxBoxy: Make WordPress Floating Content, Popup, Alert Bar ===
-Contributors: maxPressy
+Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.1
 Stable tag: 1.0.1
@@ -77,13 +77,13 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 == Screenshots ==
 1. Add a new panel
-2. The simple interface leads you to complete the purpose of the box and it’s location
+2. The simple interface leads you to complete the purpose of the panel and it’s location
 3. Add content and publish
 4. Created FloatAny Panel appears on the site
 5. Full width sliding FloatAny panel from the top
-6. Simple call to action example
+6. Call to action example at the page's bottom
 7. Inline triggered panel (YouTube content)
-8. Inject panel in content
+8. Inject dismissible panel in content
 9. ...or create more catchy pop-up box, announcement, alert bar...
 
 

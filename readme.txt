@@ -93,8 +93,8 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 * Improved: file structure changed a bit for better organization
 * Improved: Moved more to OOP programming and functions efficiency
 * Improved: Lint the PHP code
-* Improved: A bit of UI changes which should lead to better options organisation and UX
-* Important: Due to UI cahnges you may need to resave each panel settings
+* Improved: A bit of UI changes which should lead to better options organization and UX
+* Important: Due to UI changes you may need to re-save each panel settings
 
 
 == Upgrade Notice ==

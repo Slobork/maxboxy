@@ -89,7 +89,7 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
-= 1.0.1 - 2022-10- =
+= 1.0.1 - 2022-10-28 =
 * Improved: file structure changed a bit for better organization
 * Improved: Moved more to OOP programming and functions efficiency
 * Improved: Lint the PHP code

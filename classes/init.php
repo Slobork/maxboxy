@@ -10,49 +10,27 @@ if (! defined('ABSPATH')) {
 
 if (! class_exists('Max_Boxy')) {
 
-        add_action(
-            'init', array( 'Max_Boxy', 'textdomain' )
-        );
+        add_action('init', array( 'Max_Boxy', 'textdomain' ));
 
-        add_action(
-            'wp_enqueue_scripts', array( 'Max_Boxy', 'scripts_and_styles' )
-        );
+        add_action('wp_enqueue_scripts', array( 'Max_Boxy', 'scripts_and_styles' ));
 
-        add_action(
-            'admin_notices', array( 'Max_Boxy', 'admin_notices' )
-        );
+        add_action('admin_notices', array( 'Max_Boxy', 'admin_notices' ));
 
-        add_action(
-            'admin_menu', array( 'Max_Boxy', 'admin_menu' )
-        );
+        add_action('admin_menu', array( 'Max_Boxy', 'admin_menu' ));
 
-        add_action(
-            'init', array( 'Max_Boxy', 'set_post_type_inject_any' )
-        );
+        add_action('init', array( 'Max_Boxy', 'set_post_type_inject_any' ));
 
-        add_action(
-            'init', array( 'Max_Boxy', 'set_post_type_float_any' )
-        );
+        add_action('init', array( 'Max_Boxy', 'set_post_type_float_any' ));
 
-        add_action(
-            'init', array( 'Max_Boxy', 'set_taxonomies' )
-        );
+        add_action('init', array( 'Max_Boxy', 'set_taxonomies' ));
 
-        add_action(
-            'wp_head', array( 'Max_Boxy', 'loop_injectany_head' )
-        );
+        add_action('wp_head', array( 'Max_Boxy', 'loop_injectany_head' ));
 
-        add_action(
-            'wp_body_open', array( 'Max_Boxy', 'loop_injectany_top' )
-        );
+        add_action('wp_body_open', array( 'Max_Boxy', 'loop_injectany_top' ));
 
-        add_action(
-            'wp_footer', array( 'Max_Boxy', 'loop_injectany_bottom' )
-        );
+        add_action('wp_footer', array( 'Max_Boxy', 'loop_injectany_bottom' ));
 
-        add_action(
-            'wp_footer', array( 'Max_Boxy', 'loop_floatany' )
-        );
+        add_action('wp_footer', array( 'Max_Boxy', 'loop_floatany' ));
 
 
     // phpcs:ignore
@@ -739,6 +717,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @type boolean 'global'       Whether a panel's global (auto) loading, i.e. over the whole site is enabled or disabled.
          * @type string  'location'     In which location the panel is loaded.
+         * @type boolean 'test_mode'    Load the panel only for the Admins with manage_options privileges.
          *
          * }
          *

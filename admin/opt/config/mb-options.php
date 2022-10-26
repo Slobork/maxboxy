@@ -37,6 +37,13 @@ if (! defined('ABSPATH')) {
                                 ? array( 'dependency'  =>  array( 'is_splitted_from', '==', '', 'true', 'visible' ) )
                                 : array();
 
+    $test_mode                  = array(
+                                    'id'            => 'test_mode',
+                                    'type'          => 'checkbox',
+                                    'title'         => esc_html__('Test mode', 'booster-sweeper'),
+                                    'help'          => esc_html__('If enabled, applied rules will be rendered only to the logged in users who can manage options, i.e. you.', 'booster-sweeper'),
+                                );
+                        
     $field_auto_loading         = array(
                                     'id'            => 'auto_loading',
                                     'type'          => 'button_set',

@@ -41,18 +41,19 @@ if (! defined('ABSPATH')) {
                $field_auto_loading,
                $auto_loading_splitter_info,
                array(
-                   'id'        => 'location',
-                   'type'      => 'select',
-                   'title'     => esc_html__('Location', 'maxboxy'),
-                   'help'      => esc_html__('"Head" option allows only specific code that can be put to the <head> section of the page. You should use HTML block in order to output the styles/scripts and similar code to the page\'s head. Code that isn\'t properly structured for the head output will be stripped away.', 'maxboxy'),
-                   'options'   => array(
+                   'id'         => 'location',
+                   'type'       => 'select',
+                   'title'      => esc_html__('Location', 'maxboxy'),
+                   'help'       => esc_html__('"Head" option allows only specific code that can be put to the <head> section of the page. You should use HTML block in order to output the styles/scripts and similar code to the page\'s head. Code that isn\'t properly structured for the head output will be stripped away.', 'maxboxy'),
+                   'options'    => array(
                        'head'   => esc_html__('Head',          'maxboxy'),
                        'top'    => esc_html__('Top <body>',    'maxboxy'),
                        'bottom' => esc_html__('Bottom <body>', 'maxboxy'),
                    ),
-                   'default'   => 'top',
-                   'dependency'=> array('auto_loading','!=','disabled'),
+                   'default'    => 'top',
+                   'dependency' => array('auto_loading','!=','disabled'),
                ),
+               $test_mode,
             ),
         )
     );
@@ -95,6 +96,7 @@ if (! defined('ABSPATH')) {
                     ),
                     'default'       => 'center',
                 ),
+                $test_mode,
             ),
         )
     );
@@ -286,4 +288,3 @@ if (! defined('ABSPATH')) {
             ),
         )
     );
-

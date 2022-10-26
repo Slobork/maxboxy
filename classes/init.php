@@ -818,6 +818,22 @@ if (! class_exists('Max_Boxy')) {
                 return;
             }
 
+
+            /*
+             * $loading[ 'location' ] and $loading[ 'test_mode' ] is null for
+             * 'wp_block' and browser would throw a warning notice,
+             * so make this check
+             */
+            $location        = ! empty($loading[ 'location' ]) ? $loading[ 'location' ]  : '';
+            $test_mode       = isset($loading[ 'test_mode' ])  ? $loading[ 'test_mode' ] : '';
+
+            $user_privileges = current_user_can('manage_options') ? true : false;
+
+            // If test mode is on and user doesn't have enough previlieges - stop
+            if (! empty($test_mode) && $user_privileges === false) {
+                return;
+            }
+
             $_escaped_out = '';
 
             if (! empty($_set_content) && $conditionals[ 'page_pass' ] !== false && $conditionals[ 'appear_pass' ] !== false && $conditionals[ 'schedule' ] !== 'stop') {
@@ -827,12 +843,6 @@ if (! class_exists('Max_Boxy')) {
                                    ? ' data-panel-id="' .esc_attr($get_id) .'"' : '';
 
                 $stats_enabled     = Max_Boxy_Track::enabled() === true ? ' stats-on' : '';
-
-                /*
-                 * $loading[ 'location' ] is null for 'wp_block' and 
-                 * browser would throw a warning notice, so make this check
-                 */
-                $location          = ! empty($loading[ 'location' ]) ? $loading[ 'location' ] : '';
                 $shorty_class      = $is_shorty === true ? ' shortcode-made' : '';
 
                 /*

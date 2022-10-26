@@ -41,12 +41,14 @@ if (! class_exists('Max_Boxy_Options')) {
               */
              $global_loading  = get_post_meta($get_id, 'auto_loading', true);
              $location        = get_post_meta($get_id, 'location', true);
+             $test_mode       = get_post_meta($get_id, 'test_mode', true);
 
-            // set $global_loading as boolean
-            $global_loading = $global_loading === 'disabled' ? false : true;
+             // set $global_loading as boolean
+             $global_loading = $global_loading === 'disabled' ? false : true;
 
             if (isset($location)) {
 
+                // For the InjectAny
                 if (get_post_type($get_id) === 'float_any') {
 
                     // default popup place
@@ -63,10 +65,11 @@ if (! class_exists('Max_Boxy_Options')) {
                     $elm_popup_place = $location ===  'right-bottomed'  ? ' place-right-bottomed'  : $elm_popup_place;
 
                     $popup_place = $elm_popup_place;
-
-                        $args = array(
-                            'global'   => $global_loading,
-                            'location' => $popup_place,
+                    
+                    $args = array(
+                        'global'    => $global_loading,
+                        'location'  => $popup_place,
+                        'test_mode' => $test_mode,
                         );
 
                     // For the InjectAny
@@ -76,8 +79,9 @@ if (! class_exists('Max_Boxy_Options')) {
                     $inject_place = $location === 'bottom' ? ' place-bottom' : $inject_place;
 
                     $args = array(
-                        'global'   => $global_loading,
-                        'location' => $inject_place,
+                        'global'         => $global_loading,
+                        'location'       => $inject_place,
+                        'test_mode'      => $test_mode,
                     );
 
                 }

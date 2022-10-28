@@ -63,7 +63,6 @@ After installing the plugin, the best way to start is to check the documentation
 </blockquote>
 
 
-
 == Installation ==
 
 = Automated Installation =
@@ -87,14 +86,14 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 9. ...or create more catchy pop-up box, announcement, alert bar...
 
 
-
 == Changelog ==
-= 1.0.1 - 2022-10- =
-* Improved: file structure changed a bit for better organization
-* Improved: Moved more to OOP programming and functions efficiency
-* Improved: Lint the PHP code
-* Improved: A bit of UI changes which should lead to better options organisation and UX
-* Important: Due to UI cahnges you may need to resave each panel settings
+= 1.0.1 - 2022-10-29 =
+Improved: file structure changed a bit for better organization
+Improved: Moved more to OOP programming and functions efficiency
+Improved: Lint the PHP code
+Improved: A bit of UI changes which should lead to better options organization and UX
+IMPORTANT: Due to UI changes you may need to re-save each panel settings
+
 
 
 == Upgrade Notice ==

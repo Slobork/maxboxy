@@ -95,7 +95,6 @@ Improved: A bit of UI changes which should lead to better options organization a
 IMPORTANT: Due to UI changes you may need to re-save each panel settings
 
 
-
 == Upgrade Notice ==
 
 Make a full site backup before upgrading.

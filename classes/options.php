@@ -41,46 +41,39 @@ if (! class_exists('Max_Boxy_Options')) {
               */
              $global_loading  = get_post_meta($get_id, 'auto_loading', true);
              $location        = get_post_meta($get_id, 'location', true);
+             $test_mode       = get_post_meta($get_id, 'test_mode', true);
 
-            // set $global_loading as boolean
-            $global_loading = $global_loading === 'disabled' ? false : true;
+             // set $global_loading as boolean
+             $global_loading = $global_loading === 'disabled' ? false : true;
 
             if (isset($location)) {
 
-                if (get_post_type($get_id) === 'float_any') {
+                // default popup place
+                $popup_place     = ' place-center-centered';
 
-                    // default popup place
-                    $popup_place     = ' place-center-centered';
+                $elm_popup_place = $location ===  'left-topped'     ? ' place-left-topped'     : $popup_place;
+                $elm_popup_place = $location ===  'left-centered'   ? ' place-left-centered'   : $elm_popup_place;
+                $elm_popup_place = $location ===  'left-bottomed'   ? ' place-left-bottomed'   : $elm_popup_place;
+                $elm_popup_place = $location ===  'center-topped'   ? ' place-center-topped'   : $elm_popup_place;
+                $elm_popup_place = $location ===  'center'          ? ' place-center-centered' : $elm_popup_place;
+                $elm_popup_place = $location ===  'center-bottomed' ? ' place-center-bottomed' : $elm_popup_place;
+                $elm_popup_place = $location ===  'right-topped'    ? ' place-right-topped'    : $elm_popup_place;
+                $elm_popup_place = $location ===  'right-centered'  ? ' place-right-centered'  : $elm_popup_place;
+                $elm_popup_place = $location ===  'right-bottomed'  ? ' place-right-bottomed'  : $elm_popup_place;
 
-                    $elm_popup_place = $location ===  'left-topped'     ? ' place-left-topped'     : $popup_place;
-                    $elm_popup_place = $location ===  'left-centered'   ? ' place-left-centered'   : $elm_popup_place;
-                    $elm_popup_place = $location ===  'left-bottomed'   ? ' place-left-bottomed'   : $elm_popup_place;
-                    $elm_popup_place = $location ===  'center-topped'   ? ' place-center-topped'   : $elm_popup_place;
-                    $elm_popup_place = $location ===  'center'          ? ' place-center-centered' : $elm_popup_place;
-                    $elm_popup_place = $location ===  'center-bottomed' ? ' place-center-bottomed' : $elm_popup_place;
-                    $elm_popup_place = $location ===  'right-topped'    ? ' place-right-topped'    : $elm_popup_place;
-                    $elm_popup_place = $location ===  'right-centered'  ? ' place-right-centered'  : $elm_popup_place;
-                    $elm_popup_place = $location ===  'right-bottomed'  ? ' place-right-bottomed'  : $elm_popup_place;
+                $popup_place = $elm_popup_place;
 
-                    $popup_place = $elm_popup_place;
+                $inject_place = $location === 'top'    ? ' place-top'    : 'head';
+                $inject_place = $location === 'bottom' ? ' place-bottom' : $inject_place;
 
-                        $args = array(
-                            'global'   => $global_loading,
-                            'location' => $popup_place,
-                        );
+                // location - InjectAny or FloatAny
+                $place = get_post_type($get_id) === 'float_any' ? $popup_place : $inject_place;
 
-                    // For the InjectAny
-                } else if (get_post_type($get_id) === 'inject_any' ) {
-
-                    $inject_place = $location === 'top'    ? ' place-top'    : 'head';
-                    $inject_place = $location === 'bottom' ? ' place-bottom' : $inject_place;
-
-                    $args = array(
-                        'global'   => $global_loading,
-                        'location' => $inject_place,
-                    );
-
-                }
+                $args = array(
+                    'global'         => $global_loading,
+                    'location'       => $place,
+                    'test_mode'      => $test_mode,
+                );
 
             }
 

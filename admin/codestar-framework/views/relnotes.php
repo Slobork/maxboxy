@@ -1,5 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly. ?>
 
+<h3>v2.2.8</h3>
+<ul>
+  <li>Fixed: Free vs Pro version load priority conflict.</li>
+</ul>
+
 <h3>v2.2.7</h3>
 <ul>
   <li>Added: Number field "min", "max", "step" options.</li>

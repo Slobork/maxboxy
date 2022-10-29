@@ -87,12 +87,17 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.0.2 - 2022-11- =
+* New: Test mode option - allowing to preview the created panel as an Admin before making it publicly available
+* Update options fields framework
+* Small code correction
+
 = 1.0.1 - 2022-10-29 =
-Improved: file structure changed a bit for better organization
-Improved: Moved more to OOP programming and functions efficiency
-Improved: Lint the PHP code
-Improved: A bit of UI changes which should lead to better options organization and UX
-IMPORTANT: Due to UI changes you may need to re-save each panel settings
+* Improved: file structure changed a bit for better organization
+* Improved: Moved more to OOP programming and functions efficiency
+* Improved: Lint the PHP code
+* Improved: A bit of UI changes which should lead to better options organization and UX
+* IMPORTANT: Due to UI changes you may need to re-save each panel settings
 
 
 == Upgrade Notice ==

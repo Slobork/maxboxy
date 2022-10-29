@@ -34,7 +34,7 @@ if (! function_exists('maxboxy_upgrade_call')) {
 
             // else would be called if the Pro version isn't active at all
         } else {
-            echo '<div style="padding: 0 10px; border-left: 4px solid #339fd4;">' .__('Upgrade to ', 'maxboxy') .'<a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=pluginAdminUpgrade&mtm_kwd=maxboxy"" target="_blank">' .__('Pro version', 'maxboxy') .'</a> to gain access to premium features.</div>';
+            echo '<div style="padding: 0 10px; border-left: 4px solid #339fd4;">' .__('Upgrade to ', 'maxboxy') .'<a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=pluginAdminUpgrade&mtm_kwd=maxboxy" target="_blank">' .__('Pro version', 'maxboxy') .'</a> to gain access to premium features.</div>';
         }
 
     }

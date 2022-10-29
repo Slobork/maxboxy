@@ -100,7 +100,6 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 * IMPORTANT: Due to UI changes you may need to re-save each panel settings
 
 
-
 == Upgrade Notice ==
 
 Make a full site backup before upgrading.

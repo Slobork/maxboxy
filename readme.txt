@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
-MaxBoxy is a tool that will help you in making engagement and conversion elements for your Website. To be concrete, with <a href="https://maxpressy.com/maxboxy/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=top" target="_blank">MaxBoxy</a> create floating content, menus, info bars, popup or slide-in panels. Set them into rotating notification system, introduce them on page's load or exit intend, offer coupons and much more. It can be used, for example, to:
+MaxBoxy is a tool that will help you in making engagement and conversion elements for your Website. To be concrete, with <a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=top" target="_blank">MaxBoxy</a> create floating content, menus, info bars, popup or slide-in panels. Set them into rotating notification system, introduce them on page's load or exit intend, offer coupons and much more. It can be used, for example, to:
 <ul>
     <li>Engage visitors with your products and items</li>
     <li>Turn over site visitors to consumers, followers or buyers</li>
@@ -41,7 +41,7 @@ Set the goals inside your MaxBoxy content boxes and measure conversions. These g
 Therefore, MaxBoxy allows you to simply extend the functionality of your Website and to create floating content or injecting content box in an easy and a way you should be already familiar with. Multiple styles and functionalities are there which will help you to engage your site’s guests and will enable additional interactions for them on the site. You see, by using WordPress blocks you assemble components to form different site elements, i.e. floating menus, popup boxes, newsletter signup forms, important announcements and alerts, rotating messages. As you guess, the way you form the content, is up to you. You can get really creative by yourself or use existing patterns.
 
 = Documentation and other help when you need it =
-After installing the plugin, the best way to start is to check the documentation on our site. We explain in details all the features the plugin have. To fully understand MaxBoxy's features you can visit Demo section from our site. At the end, to get things easier we’ve created the import/export feature. This permits you to quickly move FloatAny and InjectAny content from one Website to a different one or to begin simply with the examples we have prepared for you. Once imported, you'll be able to test different content panel types. More information on how to import exemple content <a href="https://maxpressy.com/maxboxy/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=mid#section-support" rel="nofollow" target="_blank">is provided on our site</a>.
+After installing the plugin, the best way to start is to check the documentation on our site. We explain in details all the features the plugin have. To fully understand MaxBoxy's features you can visit Demo section from our site. At the end, to get things easier we’ve created the import/export feature. This permits you to quickly move FloatAny and InjectAny content from one Website to a different one or to begin simply with the examples we have prepared for you. Once imported, you'll be able to test different content panel types. More information on how to import exemple content <a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=mid#section-support" rel="nofollow" target="_blank">is provided on our site</a>.
 
 <strong>Note:</strong> Some features are part of the Premium addon. Free version allows you to extend WordPress' Reusable blocks, use InjectAny with pre-defined locations and to create FloatAny panels for the site overall disposal, while the Premium addon gives you more flexibility. With free version obtain the general impression regarding the plugin and if the site overall functionallity is all you need, you’re free to use it. However, with Premium version you get more features and options.
 
@@ -59,7 +59,7 @@ After installing the plugin, the best way to start is to check the documentation
     <li>Output as a shortcode or through WordPress block interface</li>
     <li>and much more customization options...</li>
 </ul>
-<p>For additional information visit our site and <a href="https://maxpressy.com/maxboxy/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=bottom" target="_blank">see all features and benefits of upgrading to the MaxBoxy's Premium version</a>.</p>
+<p>For additional information visit our site and <a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=bottom" target="_blank">see all features and benefits of upgrading to the MaxBoxy's Premium version</a>.</p>
 </blockquote>
 
 

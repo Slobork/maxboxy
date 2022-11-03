@@ -41,7 +41,7 @@ if (! defined('ABSPATH')) {
                                     'id'            => 'test_mode',
                                     'type'          => 'checkbox',
                                     'title'         => esc_html__('Test mode', 'booster-sweeper'),
-                                    'help'          => esc_html__('Load the panel only for the logged in users who can edit posts, i.e. you.', 'booster-sweeper'),
+                                    'help'          => esc_html__('Load the panel only for the logged in users who can edit pages, i.e. you.', 'booster-sweeper'),
                                 );
                         
     $field_auto_loading         = array(

@@ -717,7 +717,7 @@ if (! class_exists('Max_Boxy')) {
          *
          * @type boolean 'global'       Whether a panel's global (auto) loading, i.e. over the whole site is enabled or disabled.
          * @type string  'location'     In which location the panel is loaded.
-         * @type boolean 'test_mode'    Load the panel only for the Admins with manage_options privileges.
+         * @type boolean 'test_mode'    Load the panel only for the Admins with edit_posts privileges.
          *
          * }
          *
@@ -806,7 +806,7 @@ if (! class_exists('Max_Boxy')) {
             $location        = ! empty($loading[ 'location' ]) ? $loading[ 'location' ]  : '';
             $test_mode       = isset($loading[ 'test_mode' ])  ? $loading[ 'test_mode' ] : '';
 
-            $user_privileges = current_user_can('manage_options') ? true : false;
+            $user_privileges = current_user_can('edit_posts') ? true : false;
 
             // If test mode is on and user doesn't have enough previlieges - stop
             if (! empty($test_mode) && $user_privileges === false) {

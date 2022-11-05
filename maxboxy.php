@@ -11,6 +11,7 @@
  * @license  GPL v2 or later
  * @link     maxpressy.com
  *
+ * Author:              MaxPressy
  * Author URI:          https://maxpressy.com
  * License:             GPL v2 or later
  * License URI:         https://www.gnu.org/licenses/gpl-2.0.html

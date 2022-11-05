@@ -46,7 +46,7 @@ if (! class_exists('Max_Boxy')) {
          */
         public static function version()
         {
-            $plugin_version = '1.0.2';
+            $plugin_version = '1.0.3';
             return $plugin_version;
         }
 

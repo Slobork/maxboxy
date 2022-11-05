@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,9 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.0.3 - 2022-11-05 =
+* Change the privilige for the Test mode to Editor and above
+
 = 1.0.2 - 2022-11-03 =
 * New: Test mode option - allowing to preview the created panel as an Admin before making it publicly available
 * Update: options fields framework

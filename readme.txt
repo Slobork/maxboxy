@@ -88,7 +88,7 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 == Changelog ==
 = 1.0.3 - 2022-11-05 =
-* Change the privilige for the Test mode to Editor and above
+* Change the privilege for the Test mode to Editor and above
 
 = 1.0.2 - 2022-11-03 =
 * New: Test mode option - allowing to preview the created panel as an Admin before making it publicly available

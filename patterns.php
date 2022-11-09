@@ -132,8 +132,14 @@ if (! defined('ABSPATH')) {
                  * @link https://github.com/WordPress/gutenberg/pull/41791
                  * 'blockTypes' => array( 'core/post-content' ),
                  *  For specified post types, will work with Gutenberg plugin active,
-                 * integration planned from wp 6.1:
+                 * - Integration planned from wp 6.1:
                  * 'postTypes' => array( 'float_any', 'inject_any', 'wp_block' ),
+                 * 
+                 * @todo contentOnly for templateLock, i.e. only editing content inside the pattern,
+                 * e.g. for group block <!-- wp:group {"templateLock": "contentOnly"}
+                 * @link https://make.wordpress.org/core/2022/10/11/content-locking-features-and-updates/
+                 * @link https://richtabor.com/content-only-editing/
+                 * @link https://gist.github.com/richtabor/ddeea41ced691721318649bea8ce9db8
                  */
 
                 'content'       => "<!-- wp:group -->

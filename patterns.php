@@ -185,13 +185,13 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:spacer -->
 
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Contact form here...</h4>
+                                <h4 class=\"has-text-align-center\">Contact form here:</h4>
                                 <!-- /wp:heading -->
 
                                 <!-- wp:shortcode /-->
 
                                 <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Google map here...</h4>
+                                <h4 class=\"has-text-align-center\">Google map here:</h4>
                                 <!-- /wp:heading -->
 
                                 <!-- wp:html /-->
@@ -236,44 +236,6 @@ if (! defined('ABSPATH')) {
                                 <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
                                 <!-- /wp:social-links --></div>
                                 <!-- /wp:group -->",
-                ]
-            );
-
-            // Contact 3
-            register_block_pattern(
-                'maxboxy/contact-cfegmsiwacb', [
-                'title'         => esc_html__('Contact form + embed google map + social icons (with a cover background)', 'maxboxy'),
-                'keywords'      => ['contact', 'contact us'],
-                'categories'    => ['maxboxy-contact'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#7cc9f8\"} -->
-                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#7cc9f8\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
-
-                                <!-- wp:shortcode /-->
-
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
-
-                                <!-- wp:html /-->
-
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
-
-                                <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
-                                <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
-
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
-
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
-
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
-
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
-                                <!-- /wp:social-links --></div></div>
-                                <!-- /wp:cover -->",
                 ]
             );
 
@@ -363,7 +325,7 @@ if (! defined('ABSPATH')) {
             // Cookies - 4
             register_block_pattern(
                 'maxboxy/cookies-4', [
-                'title'         => esc_html__('2 columns + 1', 'maxboxy'),
+                'title'         => esc_html__('2 + 1 columns', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
                 'categories'    => ['maxboxy-cookies'],
                 'content'       => "<!-- wp:group -->
@@ -436,7 +398,7 @@ if (! defined('ABSPATH')) {
             // CTA 1
             register_block_pattern(
                 'maxboxy/cta-cctag', [
-                'title'         => esc_html__('Common CTA group', 'maxboxy'),
+                'title'         => esc_html__('Common CTA (in group block)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action'],
                 'categories'    => ['maxboxy-cta'],
                 'content'       => "<!-- wp:group -->
@@ -468,60 +430,28 @@ if (! defined('ABSPATH')) {
             // CTA 2
             register_block_pattern(
                 'maxboxy/cta-ctapc', [
-                'title'         => esc_html__('CTA positioned central', 'maxboxy'),
+                'title'         => esc_html__('CTA (in a cover block)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action'],
                 'categories'    => ['maxboxy-cta'],
-                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(0deg,rgb(254,205,165) 0%,rgb(254,45,45) 33%,rgb(107,0,62) 100%)\"} -->
-                                <div class=\"wp-block-cover has-background-dim has-background-gradient\" style=\"background:linear-gradient(0deg,rgb(254,205,165) 0%,rgb(254,45,45) 33%,rgb(107,0,62) 100%)\"><div class=\"wp-block-cover__inner-container\"><!-- wp:spacer {\"height\":10} -->
-                                <div style=\"height:10px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
-
-                                <!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"color\":{\"text\":\"#ffffff\"}}} -->
-                                <h2 class=\"has-text-align-center has-text-color\" style=\"color:#ffffff\">Major attention message!</h2>
-                                <!-- /wp:heading -->
-
-                                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"color\":{\"text\":\"#ffffff\"}}} -->
-                                <p class=\"has-text-align-center has-text-color\" style=\"color:#ffffff\">Write additional text here.</p>
-                                <!-- /wp:paragraph -->
-
-                                <!-- wp:spacer {\"height\":30} -->
-                                <div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
-
-                                <!-- wp:buttons {\"contentJustification\":\"center\"} -->
-                                <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"width\":75,\"style\":{\"color\":{\"background\":\"#8c1111\"}}} -->
-                                <div class=\"wp-block-button has-custom-width wp-block-button__width-75\"><a class=\"wp-block-button__link has-background\" style=\"background-color:#8c1111\">GET IT</a></div>
-                                <!-- /wp:button --></div>
-                                <!-- /wp:buttons --></div></div>
-                                <!-- /wp:cover -->",
-                ]
-            );
-
-            // CTA 3
-            register_block_pattern(
-                'maxboxy/cta-ctapbpfbi', [
-                'title'         => esc_html__('CTA positioned bottom (perfect for background image)', 'maxboxy'),
-                'keywords'      => ['CTA', 'call to action'],
-                'categories'    => ['maxboxy-cta'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#a9c3ed\",\"minHeight\":500,\"contentPosition\":\"bottom center\",\"className\":\"has-background-gradient is-position-top-center\"} -->
-                                <div class=\"wp-block-cover has-background-dim has-custom-content-position is-position-bottom-center has-background-gradient is-position-top-center\" style=\"background-color:#a9c3ed;min-height:500px\"><div class=\"wp-block-cover__inner-container\"><!-- wp:spacer -->
-                                <div style=\"height:100px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
-
-                                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"black\",\"fontSize\":\"large\"} -->
-                                <p class=\"has-text-align-center has-black-color has-text-color has-large-font-size\">YOUR ATTENTION MESSAGE!</p>
-                                <!-- /wp:paragraph -->
-
-                                <!-- wp:buttons {\"contentJustification\":\"center\"} -->
-                                <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
-                                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color\">Get it!</a></div>
-                                <!-- /wp:button -->
-
-                                <!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"mboxy-closer is-style-outline\"} -->
-                                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 mboxy-closer is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color\">No thanks.</a></div>
-                                <!-- /wp:button --></div>
-                                <!-- /wp:buttons --></div></div>
-                                <!-- /wp:cover -->",
+                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\",\"contentPosition\":\"bottom center\",\"isDark\":false} -->
+                <div class=\"wp-block-cover is-light has-custom-content-position is-position-bottom-center\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim\" style=\"background-color:#f6f0de\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:spacer -->
+                <div style=\"height:100px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"black\",\"fontSize\":\"large\"} -->
+                <p class=\"has-text-align-center has-black-color has-text-color has-large-font-size\">YOUR ATTENTION MESSAGE!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color wp-element-button\">Get it!</a></div>
+                <!-- /wp:button -->
+                
+                <!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"mboxy-closer is-style-outline\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 mboxy-closer is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color wp-element-button\">No thanks.</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons --></div></div>
+                <!-- /wp:cover -->",
                 ]
             );
 
@@ -786,36 +716,38 @@ if (! defined('ABSPATH')) {
                 'keywords'      => ['media', 'video', 'html'],
                 'categories'    => ['maxboxy-media'],
                 'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
-                                <h2 class=\"has-text-align-center\">Write your heading here...</h2>
-                                <!-- /wp:heading -->
-
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
-                                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <!-- /wp:paragraph -->
-
-                                <!-- wp:html /--></div>
-                                <!-- /wp:group -->",
+                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
+                <h2 class=\"has-text-align-center\"></h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph {\"align\":\"center\"} -->
+                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:html /--></div>
+                <!-- /wp:group -->",
                 ]
             );
 
             // media 2
             register_block_pattern(
                 'maxboxy/media-emycatiwbc', [
-                'title'         => esc_html__('Embed media (e.g. youtube code) and text intro (with background cover)', 'maxboxy'),
+                'title'         => esc_html__('Embed media (e.g. youtube code) and text intro (in a cover block)', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
                 'categories'    => ['maxboxy-media'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#6340a7\"} -->
-                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#6340a7\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\"} -->
-                                <h2 class=\"has-text-align-center\">Write your heading here...</h2>
-                                <!-- /wp:heading -->
-
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
-                                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                <!-- /wp:paragraph -->
-
-                                <!-- wp:html /--></div></div>
-                                <!-- /wp:cover -->",
+                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\",\"isDark\":false} -->
+                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim\" style=\"background-color:#f6f0de\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
+                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
+                <h2 class=\"has-text-align-center\"></h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph {\"align\":\"center\"} -->
+                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:html /--></div>
+                <!-- /wp:group --></div></div>
+                <!-- /wp:cover -->",
                 ]
             );
 

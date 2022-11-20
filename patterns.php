@@ -20,7 +20,7 @@ if (! defined('ABSPATH')) {
 
             register_block_pattern_category(
                 'maxboxy-buttons',
-                array( 'label' => esc_html__('MaxBoxy: Buttons', 'maxboxy') )
+                array( 'label' => esc_html__('MaxBoxy: Functional buttons', 'maxboxy') )
             );
 
             register_block_pattern_category(
@@ -782,8 +782,8 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('In a cover block', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#002b43\"} -->
-                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#002b43\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"52px\"}}} -->
+                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
+                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f0de\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"52px\"}}} -->
                                 <h2 class=\"has-text-align-center\" style=\"font-size:52px\"><strong>JOIN 1000+ PALS</strong></h2>
                                 <!-- /wp:heading -->
 
@@ -806,8 +806,8 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('In a cover block with image', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#5b95b0\"} -->
-                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#5b95b0\"><div class=\"wp-block-cover__inner-container\"><!-- wp:image {\"sizeSlug\":\"large\",\"className\":\"is-style-default\"} -->
+                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
+                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f0de\"><div class=\"wp-block-cover__inner-container\"><!-- wp:image {\"sizeSlug\":\"large\",\"className\":\"is-style-default\"} -->
                                 <figure class=\"wp-block-image size-large is-style-default\"><img src=\"https://via.placeholder.com/1200x450\"/></figure>
                                 <!-- /wp:image -->
                                 <!-- wp:spacer {\"height\":30} -->

@@ -88,7 +88,8 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 == Changelog ==
 = 1.0.5 - 2022-12-01 =
-* Update options fields framework
+* Update: Options fields framework
+* Update: Patterns
 
 = 1.0.4 - 2022-11-14 =
 * Add info/alert patterns

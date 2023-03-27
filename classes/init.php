@@ -1118,7 +1118,9 @@ if (! class_exists('Max_Boxy')) {
                 // safe to output, all escapped in @see function panel
                 echo $_safe_panels_group;
 
-                self::enqueue_place_on_demand();
+                // here, in order to bypass the html error and the output of css in the <body> tag,
+                // you have to call the wp_head hook for the css 
+                self::enqueue_place_on_demand(); 
 
             }
 

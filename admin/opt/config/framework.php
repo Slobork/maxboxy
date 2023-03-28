@@ -165,7 +165,7 @@ if (! defined('ABSPATH')) {
                     'id'            => 'enqueue_place',
                     'type'          => 'button_set',
                     'title'         => esc_html__('Loading plugin files', 'maxboxy'),
-                    'help'          => esc_html__('"Default" means that files will be loaded over the whole site, no matter if the FloatAny panels are utilized on those pages. "On demand" option loads plugin files only on pages where the panels are apearing, but bypassing default WordPress enqueuing.', 'maxboxy'),
+                    'help'          => esc_html__('"Default" means that files will be loaded over the whole site, no matter if the FloatAny/InjectAny panels are utilized on those pages. "On demand" option loads plugin files only on pages where the panels are apearing, but bypassing default WordPress enqueuing and that will output the styles in the "body" tag instaed of the "head" which may break HTML validity. To keep HTML validity, it may be the best if you set the "Site overall" option here and use a plugin like Booster Sweeper to unload the files you do not need on certain pages.', 'maxboxy'),
                     'options'       => array(
                                             'overall'   => esc_html__('Site overall',   'maxboxy'),
                                             'on_demand' => esc_html__('On demand',      'maxboxy'),

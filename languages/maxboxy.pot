@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MaxBoxy  1.0\n"
 "Report-Msgid-Bugs-To: https://foxnet-themes.fi/contact/\n"
-"POT-Creation-Date: 2022-11-02 13:33+0100\n"
+"POT-Creation-Date: 2023-03-31 10:35+0200\n"
 "PO-Revision-Date: 2017-05-26 21:49+0200\n"
 "Last-Translator: Sloba <sloooba@yahoo.com>\n"
 "Language-Team: maxPressy\n"
@@ -90,10 +90,15 @@ msgstr ""
 #: admin/opt/config/framework.php:168
 msgid ""
 "\"Default\" means that files will be loaded over the whole "
-"site, no matter if the FloatAny panels are utilized on "
-"those pages. \"On demand\" option loads plugin files only "
-"on pages where the panels are apearing, but bypassing "
-"default WordPress enqueuing."
+"site, no matter if the FloatAny/InjectAny panels are "
+"utilized on those pages. \"On demand\" option loads plugin "
+"files only on pages where the panels are apearing, but "
+"bypassing default WordPress enqueuing and that will output "
+"the styles in the \"body\" tag instaed of the \"head\" "
+"which may break HTML validity. To keep HTML validity, it "
+"may be the best if you set the \"Site overall\" option "
+"here and use a plugin like Booster Sweeper to unload the "
+"files you do not need on certain pages."
 msgstr ""
 
 #: admin/opt/config/framework.php:170
@@ -278,8 +283,8 @@ msgstr ""
 
 #: admin/opt/config/mb-options.php:44
 msgid ""
-"If enabled, applied rules will be rendered only to the "
-"logged in users who can manage options, i.e. you."
+"Load the panel only for the logged in users who can edit "
+"pages, i.e. you."
 msgstr ""
 
 #: admin/opt/config/mb-options.php:50
@@ -392,7 +397,7 @@ msgstr ""
 
 #: admin/opt/config/mb-options.php:262
 #: admin/opt/config/mb-options.php:397
-#: admin/opt/config/mb-options.php:1031
+#: admin/opt/config/mb-options.php:1008
 msgid "Toggler"
 msgstr ""
 
@@ -558,18 +563,14 @@ msgid ""
 msgstr ""
 
 #: admin/opt/config/mb-options.php:385
-#: admin/opt/config/mb-options.php:983
 msgid "Start"
 msgstr ""
 
 #: admin/opt/config/mb-options.php:386
-#: admin/opt/config/mb-options.php:984
-#: admin/opt/config/metabox.php:91
 msgid "Center"
 msgstr ""
 
 #: admin/opt/config/mb-options.php:387
-#: admin/opt/config/mb-options.php:985
 msgid "End"
 msgstr ""
 
@@ -701,71 +702,12 @@ msgstr ""
 msgid "It's opening the panel"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:900
-#: admin/opt/config/mb-options.php:921
-msgid "Plus (+)"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:901
-#: admin/opt/config/mb-options.php:922
-msgid "Minus (-)"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:902
-#: admin/opt/config/mb-options.php:924
-msgid "Point left (<) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:903
-#: admin/opt/config/mb-options.php:925
-msgid "Point right (>) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:904
-#: admin/opt/config/mb-options.php:926
-msgid "Point up (^) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:905
-#: admin/opt/config/mb-options.php:927
-msgid "Point down (ˇ) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:906
-#: admin/opt/config/mb-options.php:928
-msgid "Hamburger (=) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:907
-#: admin/opt/config/mb-options.php:929
-msgid "Hamburger 2 (=) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:908
-#: admin/opt/config/mb-options.php:930
-msgid "Hamburger 3 (=) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:909
-#: admin/opt/config/mb-options.php:931
-msgid "Hamburger 4 (=) "
-msgstr ""
-
-#: admin/opt/config/mb-options.php:910
-#: admin/opt/config/mb-options.php:932
-msgid "Hamburger 5 (=) "
-msgstr ""
-
 #: admin/opt/config/mb-options.php:918
 msgid "Closer icon"
 msgstr ""
 
 #: admin/opt/config/mb-options.php:919
 msgid "It's closing the panel"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:923
-msgid "Closer (x)"
 msgstr ""
 
 #: admin/opt/config/mb-options.php:940
@@ -792,123 +734,74 @@ msgstr ""
 msgid "Huge"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:955
-msgid "Positioning"
+#: admin/opt/config/mb-options.php:954
+msgid "Position"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:961
-msgid "Position - Direction"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:962
-msgid ""
-"It is relative to the panel's content box, i.e. set would "
-"the toggler/closer appear beneath (vertical) or next "
-"(horizontal) to the adjacent content box."
-msgstr ""
-
-#: admin/opt/config/mb-options.php:964
-msgid "Horizontal"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:965
-msgid "Vertical"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:973
-msgid "Position - Reverse order"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:974
-msgid ""
-"Basicaly, toggler/closer button will switch the position "
-"with the content box based on the set direction. If "
-"checked, toggler/closer button will take the 1st place in "
-"order."
-msgstr ""
-
-#: admin/opt/config/mb-options.php:980
-msgid "Position - alignment"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:981
-msgid ""
-"Align toggler/closer button relative to the content box. "
-"In essence, alignment takes different course in regards to "
-"the \"Direction\". This means, if \"Direction\" is set as "
-"\"Horizontal\", \"Alignment\" will take vertical course. "
-"And vice-versa, if \"Direction\" is set to \"Vertical\", "
-"\"Alignment\" will take horizontal course."
-msgstr ""
-
-#: admin/opt/config/mb-options.php:993
-msgid "Styling"
-msgstr ""
-
-#: admin/opt/config/mb-options.php:999
+#: admin/opt/config/mb-options.php:976
 msgid "Apply style(s)"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1000
+#: admin/opt/config/mb-options.php:977
 msgid "Multiple selections allowed (use control key)."
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1001
+#: admin/opt/config/mb-options.php:978
 msgid ""
 "Change the way the Toggler/closer button(s) are displayed."
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1003
+#: admin/opt/config/mb-options.php:980
 msgid "Squared"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1004
+#: admin/opt/config/mb-options.php:981
 msgid "Rounded"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1005
+#: admin/opt/config/mb-options.php:982
 msgid "Inside"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1006
+#: admin/opt/config/mb-options.php:983
 msgid "Bordered"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1051
+#: admin/opt/config/mb-options.php:1028
 msgid "Set a goal"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1052
+#: admin/opt/config/mb-options.php:1029
 msgid ""
 "Set a goal you want to track/achieve, e.g. click on a "
 "particular button or form submit."
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1054
+#: admin/opt/config/mb-options.php:1031
 msgid "None"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1055
+#: admin/opt/config/mb-options.php:1032
 msgid "Click"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1056
+#: admin/opt/config/mb-options.php:1033
 msgid "Form submit"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1066
+#: admin/opt/config/mb-options.php:1043
 msgid "Form submit checker"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1068
+#: admin/opt/config/mb-options.php:1045
 msgid "Form element has a class"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1069
+#: admin/opt/config/mb-options.php:1046
 msgid "Broad check for a class"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1071
+#: admin/opt/config/mb-options.php:1048
 msgid ""
 "After the submit button is pressed, we're able to check "
 "for one of the options: 1. Form element has a specified "
@@ -917,63 +810,63 @@ msgid ""
 "form (usually beneath the form)."
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1078
+#: admin/opt/config/mb-options.php:1055
 msgid "Element's attribute"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1079
+#: admin/opt/config/mb-options.php:1056
 msgid "Target element by ID or class"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1081
+#: admin/opt/config/mb-options.php:1058
 msgid "Class"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1082
+#: admin/opt/config/mb-options.php:1059
 msgid "ID"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1091
+#: admin/opt/config/mb-options.php:1068
 msgid "Enter attribute's value"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1092
+#: admin/opt/config/mb-options.php:1069
 msgid "E.g. target-element"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1098
+#: admin/opt/config/mb-options.php:1075
 msgid "Do not show the panel again"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1099
+#: admin/opt/config/mb-options.php:1076
 msgid ""
 "After the goal is met, do not show the panel for the same "
 "visitor"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1111
+#: admin/opt/config/mb-options.php:1088
 msgid "Track logged in users"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1112
+#: admin/opt/config/mb-options.php:1089
 msgid ""
 "By default, users who are logged in the Website are not "
 "tracked."
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1132
+#: admin/opt/config/mb-options.php:1109
 msgid "Conversions module has to be activated from the "
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1132
+#: admin/opt/config/mb-options.php:1109
 msgid "global settings"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1144
+#: admin/opt/config/mb-options.php:1121
 msgid "Goals"
 msgstr ""
 
-#: admin/opt/config/mb-options.php:1156
+#: admin/opt/config/mb-options.php:1133
 #: admin/opt/config/metabox.php:260
 msgid "Stats"
 msgstr ""
@@ -1012,40 +905,8 @@ msgstr ""
 
 #: admin/opt/config/metabox.php:85
 msgid ""
-"Even if the Global loading is disabled, set the location "
-"of the panel"
-msgstr ""
-
-#: admin/opt/config/metabox.php:87
-msgid "Left topped"
-msgstr ""
-
-#: admin/opt/config/metabox.php:88
-msgid "Left centered"
-msgstr ""
-
-#: admin/opt/config/metabox.php:89
-msgid "Left bottomed"
-msgstr ""
-
-#: admin/opt/config/metabox.php:90
-msgid "Center topped"
-msgstr ""
-
-#: admin/opt/config/metabox.php:92
-msgid "Center bottomed"
-msgstr ""
-
-#: admin/opt/config/metabox.php:93
-msgid "Right topped"
-msgstr ""
-
-#: admin/opt/config/metabox.php:94
-msgid "Right centered"
-msgstr ""
-
-#: admin/opt/config/metabox.php:95
-msgid "Right bottomed"
+"Even if the Global loading is disabled, select the "
+"location of the panel, relative to the screen."
 msgstr ""
 
 #: admin/opt/config/metabox.php:110
@@ -1201,7 +1062,7 @@ msgid "Move out to close"
 msgstr ""
 
 #: patterns.php:23
-msgid "MaxBoxy: Buttons"
+msgid "MaxBoxy: Functional buttons"
 msgstr ""
 
 #: patterns.php:28
@@ -1209,100 +1070,142 @@ msgid "MaxBoxy: Contact"
 msgstr ""
 
 #: patterns.php:33
-msgid "MaxBoxy: Cookies & GDPR"
+msgid "MaxBoxy: Cookies and GDPR"
 msgstr ""
 
 #: patterns.php:38
 msgid "MaxBoxy: CTA"
 msgstr ""
 
-#: patterns.php:51
+#: patterns.php:43
+msgid "MaxBoxy: Info and warnings"
+msgstr ""
+
+#: patterns.php:56
 msgid "MaxBoxy: Media"
 msgstr ""
 
-#: patterns.php:58
+#: patterns.php:63
 msgid "MaxBoxy: Promo"
 msgstr ""
 
-#: patterns.php:63
+#: patterns.php:68
 msgid "MaxBoxy: Signups"
 msgstr ""
 
-#: patterns.php:87
+#: patterns.php:92
 msgid "Panel closer"
 msgstr ""
 
-#: patterns.php:104
+#: patterns.php:109
 msgid "Panel toggler"
 msgstr ""
 
-#: patterns.php:126
+#: patterns.php:131
 msgid "Contact form with social icons"
 msgstr ""
 
-#: patterns.php:168
+#: patterns.php:179
 msgid ""
 "Contact form + embed google map + phone + email + address "
 "+ social icons"
 msgstr ""
 
-#: patterns.php:234
-msgid ""
-"Contact form + embed google map + social icons (with a "
-"cover background)"
-msgstr ""
-
-#: patterns.php:277
+#: patterns.php:250
 msgid "Common cookies notice group"
 msgstr ""
 
-#: patterns.php:301
+#: patterns.php:274
 msgid "2 columns - notice and a button"
 msgstr ""
 
-#: patterns.php:325
+#: patterns.php:298
 msgid "3 columns"
 msgstr ""
 
-#: patterns.php:355
-msgid "2 columns + 1"
+#: patterns.php:328
+msgid "2 + 1 columns"
 msgstr ""
 
-#: patterns.php:393
+#: patterns.php:366
 msgid "2 columns + large button"
 msgstr ""
 
-#: patterns.php:428
-msgid "Common CTA group"
+#: patterns.php:401
+msgid "Common CTA (in group block)"
 msgstr ""
 
-#: patterns.php:460
-msgid "CTA positioned central"
+#: patterns.php:433
+msgid "CTA (in a cover block)"
 msgstr ""
 
-#: patterns.php:492
-msgid "CTA positioned bottom (perfect for background image)"
+#: patterns.php:470
+msgid "Info - i"
 msgstr ""
 
-#: patterns.php:525
-msgid "Common media group (e.g. youtube code and text intro"
+#: patterns.php:490
+msgid "Info - Pin"
 msgstr ""
 
-#: patterns.php:545
-msgid ""
-"Embed media (e.g. youtube code) and text intro (with "
-"background cover)"
+#: patterns.php:510
+msgid "Info - Flag"
+msgstr ""
+
+#: patterns.php:530
+msgid "Info - Bulb on"
+msgstr ""
+
+#: patterns.php:550
+msgid "Info - Bell"
 msgstr ""
 
 #: patterns.php:570
-msgid "Common newsletter group"
+msgid "Info - Thumb up"
 msgstr ""
 
 #: patterns.php:590
+msgid "Warning - Exclamation mark"
+msgstr ""
+
+#: patterns.php:610
+msgid "Warning -Bulb off"
+msgstr ""
+
+#: patterns.php:630
+msgid "Warning - Star"
+msgstr ""
+
+#: patterns.php:650
+msgid "Danger - Stop"
+msgstr ""
+
+#: patterns.php:670
+msgid "Danger - Close"
+msgstr ""
+
+#: patterns.php:690
+msgid "Danger - Shield"
+msgstr ""
+
+#: patterns.php:715
+msgid "Common media group (e.g. youtube code and text intro"
+msgstr ""
+
+#: patterns.php:735
+msgid ""
+"Embed media (e.g. youtube code) and text intro (in a cover "
+"block)"
+msgstr ""
+
+#: patterns.php:762
+msgid "Common newsletter group"
+msgstr ""
+
+#: patterns.php:782
 msgid "In a cover block"
 msgstr ""
 
-#: patterns.php:614
+#: patterns.php:806
 msgid "In a cover block with image"
 msgstr ""
 

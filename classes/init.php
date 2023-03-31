@@ -46,7 +46,7 @@ if (! class_exists('Max_Boxy')) {
          */
         public static function version()
         {
-            $plugin_version = '1.0.5';
+            $plugin_version = '1.0.6';
             return $plugin_version;
         }
 
@@ -1118,7 +1118,7 @@ if (! class_exists('Max_Boxy')) {
                 // safe to output, all escapped in @see function panel
                 echo $_safe_panels_group;
 
-                self::enqueue_place_on_demand();
+                self::enqueue_place_on_demand(); 
 
             }
 

@@ -33,7 +33,7 @@ if (! defined('ABSPATH')) {
              */
             'menu_slug'         => 'maxboxy-settings', // has to be the same as registered top menu item on the Max_Boxy::admin_menu()
             'framework_title'   => 'MaxBoxy',
-            'footer_credit'     => 'MaxBoxy <small> v1.0.5</small>',
+            'footer_credit'     => 'MaxBoxy <small> v1.0.6</small>',
             'footer_text'       => ' ',
             'theme'             => 'light',
             'show_bar_menu'     => false,

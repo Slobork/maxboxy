@@ -82,7 +82,7 @@ if (! defined('ABSPATH')) {
                     'id'            => 'location',
                     'type'          => 'image_select',
                     'title'         => esc_html__('Location', 'maxboxy'),
-                    'desc'          => esc_html__('Even if the Global loading is disabled, select the location of the panel', 'maxboxy'),
+                    'desc'          => esc_html__('Even if the Global loading is disabled, select the location of the panel, relative to the screen.', 'maxboxy'),
                     'options'       => array(
                         'left-topped'     => plugins_url('maxboxy/admin/opt/img/loc-1.png'),
                         'center-topped'   => plugins_url('maxboxy/admin/opt/img/loc-2.png'),

@@ -391,16 +391,31 @@ if (! class_exists('Max_Boxy_Options')) {
             $unset_toggler_class            = $unset_toggler === 'all'    ?   ' default-toggler-closer-unset' : '';
             $unset_toggler_class            = $unset_toggler === 'closer' ?   ' default-closer-unset' : $unset_toggler_class;
 
+            // Closer/toggler styling
+
+            $get_closer_style               = ! empty($basics[ 'closer_styling' ]) ? $basics[ 'closer_styling' ]  : '';
+            // convert the array to a string
+            $check_closer_style             = is_array($get_closer_style)   ?   implode(' ', $get_closer_style)   : '';
+            // prepend a space before the output, so it adds correctly to the existing classes ...$panel_type set on the Basic plugin
+            $toggler_styling                = $unset_toggler === 'no' && ! empty($check_closer_style)
+                                            ? ' ' .$check_closer_style : '';
+
+            // check is the style 'inside'. We'll need this to dismiss the '-rev' output beneath when it's 'inside'
+            $is_inside                      = is_array($get_closer_style) && in_array('inside', $get_closer_style) ? true : false;
 
             /**
-             * Column: 5, 6, 7, 8 11, 12   ? 'column' : 'row'
-             * reverse: 3, 4, 7, 8, 9 , 11 ? '-rev' : ''
-             * 
+             * Flex reverse when $is_inside !== true: 3, 4, 7, 8, 9 , 11 ? '-rev' : ''
+             * Flex reverse when $is_inside === true: 1, 2, 5, 6, 10 , 12 ? '-rev' : ''
+             *
+             * Column ($get_direction): 5, 6, 7, 8 11, 12   ? 'column' : 'row'
+             *
              * Align-center: 9, 10, 11, 12 ? 'align-center' : ''
              * align-end: 2, 4, 6, 8       ? 'align-end' : ''
              */
 
-            $reverse                        = $unset_toggler !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '3' || $basics[ 'toggler_pos' ] === '4' || $basics[ 'toggler_pos' ] === '7' || $basics[ 'toggler_pos' ] === '8' || $basics[ 'toggler_pos' ] === '9' || $basics[ 'toggler_pos' ] === '11') ? '-rev' : '';
+            $reverse                        = $unset_toggler !== true && $is_inside !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '3' || $basics[ 'toggler_pos' ] === '4' || $basics[ 'toggler_pos' ] === '7' || $basics[ 'toggler_pos' ] === '8' || $basics[ 'toggler_pos' ] === '9' || $basics[ 'toggler_pos' ] === '11') ? '-rev' : '';
+            $reverse                        = $unset_toggler !== true && $is_inside === true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '1' || $basics[ 'toggler_pos' ] === '2' || $basics[ 'toggler_pos' ] === '5' || $basics[ 'toggler_pos' ] === '6' || $basics[ 'toggler_pos' ] === '10' || $basics[ 'toggler_pos' ] === '12') ? '-rev' : $reverse;
+
             $get_direction                  = $unset_toggler !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '5' || $basics[ 'toggler_pos' ] === '6' || $basics[ 'toggler_pos' ] === '7' || $basics[ 'toggler_pos' ] === '8' || $basics[ 'toggler_pos' ] === '11' || $basics[ 'toggler_pos' ] === '12') ? 'column' : 'row';
             $direction                      = !empty($get_direction) ? ' dir-' .$get_direction .$reverse : '';
 
@@ -411,15 +426,6 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $closer_size                    = $unset_toggler !== true && isset($basics[ 'closer_size' ]) && $basics[ 'closer_size' ] !== 'normal' ? ' ' .$basics[ 'closer_size' ] : '';
 
-
-            // Closer/toggler styling
-
-            $get_closer_style               = ! empty($basics[ 'closer_styling' ]) ? $basics[ 'closer_styling' ]  : '';
-            // convert the array to a string
-            $check_closer_style             = is_array($get_closer_style)   ?   implode(' ', $get_closer_style)   : '';
-            // prepend a space before the output, so it adds correctly to the existing classes ...$panel_type set on the Basic plugin
-            $toggler_styling                = $unset_toggler === 'no' && ! empty($check_closer_style)
-                                            ? ' ' .$check_closer_style : '';
 
             // trigger animation
             //$trigger_anim                   =   $unset_toggler === 'no' && ! empty( $basics[ 'trigger_anim' ] ) && ( $panel_type === 'toggler' || $panel_type === 'igniter' ) ?  ' trigger-anim-rotate'   : '';

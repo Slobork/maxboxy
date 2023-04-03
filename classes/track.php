@@ -88,7 +88,7 @@ if (! class_exists('Max_Boxy_Track')) {
         /**
          * Update the load - retreive from JS ajax.
          * 
-         * @return null It's updating the meta value.
+         * @return void It's updating the meta value.
          */
         // phpcs:ignore
         public static function update_load_count()
@@ -142,7 +142,7 @@ if (! class_exists('Max_Boxy_Track')) {
         /**
          * Update the views count - retreive from JS ajax.
          * 
-         * @return null It's updating the meta value.
+         * @return void It's updating the meta value.
          */
         // phpcs:ignore
         public static function update_views_count()
@@ -197,7 +197,7 @@ if (! class_exists('Max_Boxy_Track')) {
         /**
          * Update the goals count - retreive from JS ajax.
          * 
-         * @return null It's updating the meta value.
+         * @return void It's updating the meta value.
          */
         // phpcs:ignore
         public static function update_goals_count()
@@ -330,7 +330,7 @@ if (! class_exists('Max_Boxy_Track')) {
         /**
          * Reset panel stats - Ajax call.
          * 
-         * @return null It's deleteng the meta value.
+         * @return void It's deleteng the meta value.
          */
         // phpcs:ignore
         public static function reset_panel_stats()

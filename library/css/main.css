@@ -640,20 +640,20 @@ body.maxboxy-overlay-on {
     -webkit-transform: scale(1.25);
         -ms-transform: scale(1.25);
             transform: scale(1.25);
-    margin: 6px;
+    margin: 6px 8px;
     padding: 0 20px; }
   .mboxy-wrap > .mboxy .shuter.size-h {
     -webkit-transform: scale(1.55);
         -ms-transform: scale(1.55);
             transform: scale(1.55);
-    margin: 14px;
+    margin: 14px 17px;
     padding: 0 20px; }
   .mboxy-wrap > .mboxy .shuter.bordered {
     border: 2px solid; }
   .mboxy-wrap > .mboxy .shuter.inside {
     position: absolute; }
   .mboxy-wrap > .mboxy .shuter.rounded {
-    border-radius: 50px;
+    border-radius: 50%;
     margin: 8px; }
     .mboxy-wrap > .mboxy .shuter.rounded.size-m {
       margin: -4px; }

@@ -39,7 +39,7 @@ if (! function_exists('maxboxy_admin_scripts')) {
     /**
      * Enqueue admin scripts.
      * 
-     * @return null Hook to the enqueueing functions.
+     * @return void Hook to the enqueueing functions.
      */
     // phpcs:ignore
     function maxboxy_admin_scripts()

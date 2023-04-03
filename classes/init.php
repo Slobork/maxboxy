@@ -54,7 +54,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Load plugin's textdomain.
          * 
-         * @return null Hooking a load_plugin_textdomain().
+         * @return void Hooking a load_plugin_textdomain().
          */
         public static function textdomain()
         {
@@ -85,7 +85,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Enqueue if it's place on demand.
          * 
-         * @return null Calling enqueueing functions.
+         * @return void Calling enqueueing functions.
          */
         // phpcs:ignore
         public static function enqueue_place_on_demand()
@@ -116,7 +116,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Register and Enqueue assets.
          *
-         * @return null Registering and enqueueing assets.
+         * @return void Registering and enqueueing assets.
          */
         // phpcs:ignore
         public static function scripts_and_styles()
@@ -382,7 +382,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Add admin menu items.
          * 
-         * @return null Hooking to the add_menupage and add_submenu_page functions.
+         * @return void Hooking to the add_menupage and add_submenu_page functions.
          */
         // phpcs:ignore
         public static function admin_menu()
@@ -425,7 +425,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Post type - inject_any.
          *
-         * @return null Hooking to the register_post_type().
+         * @return void Hooking to the register_post_type().
          */
         // phpcs:ignore
         public static function set_post_type_inject_any()
@@ -468,7 +468,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Post type - float_any.
          * 
-         * @return null Hooking to the register_post_type().
+         * @return void Hooking to the register_post_type().
          */
         // phpcs:ignore
         public static function set_post_type_float_any()
@@ -512,7 +512,7 @@ if (! class_exists('Max_Boxy')) {
         /**
          * Taxonomies.
          * 
-         * @return null Hooking to the register_taxonomy().
+         * @return void Hooking to the register_taxonomy().
          */
         // phpcs:ignore
         public static function set_taxonomies()

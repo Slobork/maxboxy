@@ -529,8 +529,10 @@ body.maxboxy-overlay-on {
       -webkit-box-shadow: 0 1px 0 0;
               box-shadow: 0 1px 0 0; }
       .mboxy-wrap > .mboxy .shuter .shut-inner[class*="ham"]:before {
-        top: 2px;
-        left: 0; }
+        top: 1px;
+        left: 0;
+        -webkit-box-shadow: 0 -9px 0 0;
+                box-shadow: 0 -9px 0 0; }
       .mboxy-wrap > .mboxy .shuter .shut-inner[class*="ham"]:after {
         top: 0;
         left: 0; }
@@ -636,6 +638,9 @@ body.maxboxy-overlay-on {
               transform: rotate(-90deg) translateY(1px); }
     .mboxy-wrap > .mboxy .shuter.size-s .shut-inner:before, .mboxy-wrap > .mboxy .shuter.size-s .shut-inner:after {
       height: 2px; }
+    .mboxy-wrap > .mboxy .shuter.size-s .shut-inner[class*="ham"]:before {
+      -webkit-box-shadow: 0 -7px 0 0;
+              box-shadow: 0 -7px 0 0; }
   .mboxy-wrap > .mboxy .shuter.size-l {
     -webkit-transform: scale(1.25);
         -ms-transform: scale(1.25);

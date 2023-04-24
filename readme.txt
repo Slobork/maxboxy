@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.2
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,9 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.0.8 - 2023-24-03 =
+* Fix: ham trigger style not showing correctly in Firefox
+
 = 1.0.7 - 2023-04-03 =
 * Fix: The position of toggler when it's 'inside' (Caused by image_select released in previous version)
 * Fix: Toggler styling correction for the rounded style & enlarged sizes

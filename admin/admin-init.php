@@ -56,7 +56,6 @@ if (! function_exists('maxboxy_admin_scripts')) {
             'post_id'  => get_the_ID(),
             'ajax_url' => admin_url('admin-ajax.php'),
             'mb_nonce' => wp_create_nonce('mb-nonce'),
-            'collapser_attr_title' => esc_html__('Expand all', 'maxboxy'),
         );
 
         wp_localize_script('maxboxy-adminizr', 'maxboxy_localize', $local_var_array);

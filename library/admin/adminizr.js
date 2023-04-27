@@ -165,30 +165,6 @@ jQuery(document).ready(function($) {
 
 
 	/**
-	 * In listing page (i.e. post type page) - conversion column.
-	 */
-	var conversion_column  = $('.edit-php #conversion');
-
-	// ...set a pointer and title for hover
-	conversion_column
-		.css('cursor', 'pointer')
-		.attr('title', maxboxy_localize.collapser_attr_title);
-
-	// ...on click expand all
-	$(conversion_column).on('click', function () {
-
-		var collapser = $('.maxboxy-stats-collapser');
-
-		if (collapser.attr('open')) {
-			collapser.removeAttr('open');
-		} else {
-			collapser.attr('open', true);
-		}
-
-	});
-
-
-	/**
 	 * With InjectAny location "Head", hide options that cannot be used.
 	 */
 	var injectany_location	=	$('[name="_mb_injectany_loading[location]"]');
@@ -305,17 +281,41 @@ jQuery(document).ready(function($) {
 	// put the fieldset fields in one row
 	$('.fieldset-set-1-row .csf-fieldset-content').css('display', 'flex');
 
-	// Stats
-	$('.maxboxy-stats').css({
+	/**
+	 * Stats
+	 */
+
+	$('.maxboxy-stats-fraction').css({
 		'display'				: 'grid',
 		'grid-template-columns'	: 'repeat(3, 1fr)',
 		'column-gap'			: '15px',
 		'margin-bottom'			: '20px',
 	});
 
-	$('.maxboxy-stats-stress').css('font-weight', 'bold');
+	$('.maxboxy-stats-rate-wrap').css({
+		'margin-top': '15px',
+		'margin-bottom': '5px',
+	});
+
+	$('.maxboxy-stats-rate-title').css('border-bottom', '1px dotted');
+
+	$('.maxboxy-stats-rate-main').css('padding', '8px 0');
+
+	$('.maxboxy-stats-rate-cols').css({
+		'display'				: 'grid',
+		'grid-template-columns'	: 'repeat(5, 1fr)',
+		'column-gap'			: '5px',
+		'margin-top'			: '5px',
+		'font-size' 			: '.95em',
+	});
+	$('.maxboxy-stats-rate-wrap > div, .maxboxy-stats-rate-cols .rate').css('text-align', 'center');
+
+	$('.maxboxy-stats-rate-cols .multi-stat').css({
+		'display': 'flex',
+		'flex-direction': 'row',
+	});
+	
 	$('.maxboxy-stats-more-pro').css('margin-bottom', '10px');
-	$('.maxboxy-stats-collapser summary').css('cursor', 'pointer');
 
 	// in splitter's stats - hide the lasr 'hr', visually it's better overview
 	$('#maxboxy-splitter-stats-group .splitter-item:last-child hr').css('display', 'none');

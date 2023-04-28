@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.2
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,7 +87,11 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
-= 1.0.8 - 2023-24-03 =
+= 1.0.9 - 2023-28-04 =
+* Minor update regarding Stats option
+** Change is actually reflected in the upcoming Pro addon, but has to be synchronized here as well
+
+= 1.0.8 - 2023-24-04 =
 * Fix: ham trigger style not showing correctly in Firefox
 
 = 1.0.7 - 2023-04-03 =

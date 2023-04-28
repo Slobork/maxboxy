@@ -81,8 +81,8 @@ if (! function_exists('maxboxy_stats_call')) {
             if (isset($_GET['post'])) {
 
                 // Load/Views/goals stats
-                echo '<div class="maxboxy-stats" title="'.__('Volume / Unique', 'maxboxy') .'">
-                        <div>' .esc_html('Load',  'maxboxy') .'</div>
+                echo '<div class="maxboxy-stats-fraction" title="'.__('Volume / Unique', 'maxboxy') .'">
+                        <div>' .esc_html('Loads',  'maxboxy') .'</div>
                         <div>' .esc_html('Views', 'maxboxy') .'</div>
                         <div>' .esc_html('Goals', 'maxboxy') .'</div>
                         <div>' .esc_html($loaded_volume) .'/' .esc_html($loaded_unique) .'</div>
@@ -96,7 +96,7 @@ if (! function_exists('maxboxy_stats_call')) {
 
             $ratio = is_numeric($goals_volume) && is_numeric($loaded_volume) ? $goals_volume / $loaded_volume *100 : '';
             $ratio = is_numeric($ratio) ? number_format($ratio, 2) .'%' : 0;
-            echo'<div class="maxboxy-stats-stress">' .esc_html($ratio) .'</div>';
+            echo'<div><strong>' .esc_html($ratio) .'</strong></div>';
 
             /*
              * Only for the 'post' page, i.e. omit for the listing

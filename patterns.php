@@ -455,6 +455,210 @@ if (! defined('ABSPATH')) {
                 ]
             );
 
+            // CTA 3
+            register_block_pattern(
+                'maxboxy/cta-cmogb', [
+                'title'         => esc_html__('Ciber Monday offer (group block)', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action', 'Black Friday'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":\"100%\"}},\"gradient\":\"luminous-dusk\"} -->
+                <div class=\"wp-block-group has-luminous-dusk-gradient-background has-background\" style=\"border-radius:100%\"><!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"white\",\"className\":\"is-style-default\"} -->
+                <p class=\"has-text-align-center is-style-default has-white-color has-text-color\">SPECIAL OFFER</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:group {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"4em\"}}},\"className\":\"is-style-default\",\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-group is-style-default\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:4em\"><!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"3.5em\",\"fontStyle\":\"normal\",\"fontWeight\":\"100\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}}},\"textColor\":\"black\"} -->
+                <p class=\"has-text-align-center has-black-color has-text-color\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:100\">Ciber</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"lineHeight\":\"0\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"fontSize\":\"3.5em\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}}},\"textColor\":\"white\"} -->
+                <p class=\"has-text-align-center has-white-color has-text-color\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:700;line-height:0\">Monday</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:group -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"white\"} -->
+                <p class=\"has-text-align-center has-white-color has-text-color\">UP TO 50% OFF!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"vertical\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"has-custom-width wp-block-button__width-25 is-style-fill\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-25 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\">SHOP NOW</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons -->
+                
+                <!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer --></div>
+                <!-- /wp:group -->",
+                ]
+            );
+
+            // CTA 4
+            register_block_pattern(
+                'maxboxy/cta-bfocwbiagio', [
+                'title'         => esc_html__('Black Friday offer (cover with background image and gradient in opacity)', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action', 'Black Friday'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\",\"dimRatio\":40,\"gradient\":\"cool-to-warm-spectrum\",\"style\":{\"color\":{}}} -->
+                <div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-40 has-background-dim wp-block-cover__gradient-background has-background-gradient has-cool-to-warm-spectrum-gradient-background\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
+                <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+
+                <!-- wp:paragraph {\"align\":\"center\",\"className\":\"is-style-default\"} -->
+                <p class=\"has-text-align-center is-style-default\">SPECIAL OFFER</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:group {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"4em\"}}},\"className\":\"is-style-default\",\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-group is-style-default\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:4em\"><!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"70px\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"}}},\"textColor\":\"black\"} -->
+                <p class=\"has-text-align-center has-black-color has-text-color\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-top:0;padding-right:var(--wp--preset--spacing--default);padding-bottom:0;padding-left:var(--wp--preset--spacing--default);font-size:70px;font-style:normal;font-weight:700\">Black</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"lineHeight\":\"0\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"fontSize\":\"70px\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"}}},\"textColor\":\"black\"} -->
+                <p class=\"has-text-align-center has-black-color has-text-color\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-top:0;padding-right:var(--wp--preset--spacing--default);padding-bottom:0;padding-left:var(--wp--preset--spacing--default);font-size:70px;font-style:normal;font-weight:700;line-height:0\">Friday</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:group -->
+                
+                <!-- wp:paragraph {\"align\":\"center\"} -->
+                <p class=\"has-text-align-center\">UP TO 50% OFF!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"vertical\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"width\":50,\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link wp-element-button\">SHOP NOW</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons -->
+                
+                <!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer --></div>
+                <!-- /wp:group --></div></div>
+                <!-- /wp:cover -->",
+                ]
+            );
+
+            // CTA 5
+            register_block_pattern(
+                'maxboxy/cta-cocwbi', [
+                'title'         => esc_html__('Christmas offer (cover with background image)', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action', 'Christmass'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-christmas-three.jpeg', __FILE__)) ."\",\"dimRatio\":10,\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-10 has-background-dim\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-christmas-three.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"placeholder\":\"Write title…\"} -->
+                <p class=\"has-text-align-center\">HO HO HO!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:group {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"4em\"}}},\"className\":\"is-style-default\",\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-group is-style-default\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:4em\"><!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"70px\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"lineHeight\":\"1\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}}},\"className\":\"is-style-default\"} -->
+                <p class=\"has-text-align-center is-style-default\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:70px;font-style:normal;font-weight:700;line-height:1\">Christmas time!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"color\":{\"text\":\"#800303\"},\"typography\":{\"lineHeight\":\"1\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"fontSize\":\"55px\"},\"spacing\":{\"margin\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\",\"top\":\"10px\",\"bottom\":\"10px\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}}},\"className\":\"is-style-default\"} -->
+                <p class=\"has-text-align-center is-style-default has-text-color\" style=\"color:#800303;margin-top:10px;margin-right:var(--wp--preset--spacing--default);margin-bottom:10px;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:55px;font-style:normal;font-weight:700;line-height:1\">BIG SALE</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:group -->
+                
+                <!-- wp:paragraph {\"align\":\"center\"} -->
+                <p class=\"has-text-align-center\">GET UP TO 50% OFF ON SELECTED PRODUCTS!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"vertical\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"width\":50,\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link wp-element-button\">SEE PRODUCTS!</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons -->
+                
+                <!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer --></div></div>
+                <!-- /wp:cover -->",
+                ]
+            );
+
+            // CTA 6
+            register_block_pattern(
+                'maxboxy/cta-vdogbwgb', [
+                'title'         => esc_html__('Valentine\'s day offer (group block with gradient background)', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action', 'Christmass'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":{\"topLeft\":\"0%\",\"topRight\":\"100%\",\"bottomLeft\":\"100%\",\"bottomRight\":\"100%\"}},\"color\":{\"gradient\":\"linear-gradient(140deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%)\"}}} -->
+                <div class=\"wp-block-group has-background\" style=\"border-top-left-radius:0%;border-top-right-radius:100%;border-bottom-left-radius:100%;border-bottom-right-radius:100%;background:linear-gradient(140deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%)\"><!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"className\":\"is-style-default\"} -->
+                <p class=\"has-text-align-center is-style-default\">ONLY TODAY</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:group {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"4em\"}}},\"className\":\"is-style-default\",\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-group is-style-default\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:4em\"><!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"3.5em\",\"fontStyle\":\"normal\",\"fontWeight\":\"100\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}},\"color\":{\"text\":\"#63196f\"}}} -->
+                <p class=\"has-text-align-center has-text-color\" style=\"color:#63196f;margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:100\"><em>Valentine's Day</em></p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"lineHeight\":\"0.5\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"fontSize\":\"2.5em\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}},\"color\":{\"text\":\"#dd0e87\"}}} -->
+                <p class=\"has-text-align-center has-text-color\" style=\"color:#dd0e87;margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:2.5em;font-style:normal;font-weight:700;line-height:0.5\">MEGA SALE</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:group -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"color\":{\"text\":\"#414446\"}}} -->
+                <p class=\"has-text-align-center has-text-color\" style=\"color:#414446\">UP TO 50% OFF!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"vertical\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"has-custom-width wp-block-button__width-25 is-style-fill\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-25 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\">SHOP NOW</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons -->
+                
+                <!-- wp:spacer {\"height\":\"3vh\"} -->
+                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer --></div>
+                <!-- /wp:group -->",
+                ]
+            );
+
+            // CTA 7
+            register_block_pattern(
+                'maxboxy/cta-cwawbiatced', [
+                'title'         => esc_html__('Cover with a wrinkly background image and two colums (Ebook download)', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action', 'Christmass'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) ."\",\"dimRatio\":50,\"customOverlayColor\":\"#f6f0de\",\"contentPosition\":\"center center\",\"isDark\":false} -->
+                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim\" style=\"background-color:#f6f0de\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null} -->
+                <div class=\"wp-block-columns\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->
+                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:paragraph {\"align\":\"center\",\"placeholder\":\"Write title…\",\"style\":{\"typography\":{\"fontSize\":\"34px\"}}} -->
+                <p class=\"has-text-align-center\" style=\"font-size:34px\"><strong><em>Get the FREE e-book</em></strong>!</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"}}}} -->
+                <p class=\"has-text-align-center\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-top:0;padding-right:var(--wp--preset--spacing--default);padding-bottom:0;padding-left:var(--wp--preset--spacing--default)\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"base\",\"width\":50,\"style\":{\"color\":{\"background\":\"#373131\"}},\"className\":\"is-style-outline\"} -->
+                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 is-style-outline\"><a class=\"wp-block-button__link has-base-color has-text-color has-background wp-element-button\" style=\"background-color:#373131\">Download now!</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons --></div>
+                <!-- /wp:column -->
+                
+                <!-- wp:column -->
+                <div class=\"wp-block-column\"><!-- wp:image {\"id\":27173,\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
+                <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
+                <!-- /wp:image --></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns --></div></div>
+                <!-- /wp:cover -->",
+                ]
+            );
+
 
             /*
              * Info and warning boxes
@@ -751,6 +955,44 @@ if (! defined('ABSPATH')) {
                 ]
             );
 
+            // media 3
+            register_block_pattern(
+                'maxboxy/media-eyvabctaiacbwg', [
+                'title'         => esc_html__('Example youtube video and a button call to action (in a cover block with gradient)', 'maxboxy'),
+                'keywords'      => ['media', 'video', 'html'],
+                'categories'    => ['maxboxy-media'],
+                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\",\"isDark\":false} -->
+                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
+                <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"1.5em\"} -->
+                <div style=\"height:1.5em\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+                
+                <!-- wp:heading {\"textAlign\":\"center\"} -->
+                <h2 class=\"wp-block-heading has-text-align-center\">Hajde da vidimo</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph {\"align\":\"center\"} -->
+                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:html -->
+                <iframe width=\"100%\" height=\"400\" src=\"https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>
+                <!-- /wp:html -->
+                
+                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button -->
+                <div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\">Join now!</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons -->
+                
+                <!-- wp:spacer {\"height\":\"0.5em\"} -->
+                <div style=\"height:0.5em\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer --></div>
+                <!-- /wp:group --></div></div>
+                <!-- /wp:cover -->",
+                ]
+            );
+
 
             /*
              * Signups
@@ -824,6 +1066,36 @@ if (! defined('ABSPATH')) {
 
                                 <!-- wp:html /--></div></div>
                                 <!-- /wp:cover -->",
+                ]
+            );
+
+            // Signup 4
+            register_block_pattern(
+                'maxboxy/signup-iacbwgai', [
+                'title'         => esc_html__('In a cover block with gradient and image', 'maxboxy'),
+                'keywords'      => ['Signup, news'],
+                'categories'    => ['maxboxy-signups'],
+                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(135deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(135deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null,\"align\":\"full\"} -->
+                <div class=\"wp-block-columns alignfull\"><!-- wp:column {\"verticalAlignment\":\"top\"} -->
+                <div class=\"wp-block-column is-vertically-aligned-top\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
+                <h3 class=\"wp-block-heading has-text-align-center\">Join our newsletter!</h3>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph {\"align\":\"center\"} -->
+                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:html /--></div>
+                <!-- /wp:column -->
+                
+                <!-- wp:column {\"verticalAlignment\":\"center\"} -->
+                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"align\":\"center\",\"id\":30272,\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-default\"} -->
+                <figure class=\"wp-block-image aligncenter size-full is-style-default\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
+                <!-- /wp:image --></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns --></div></div>
+                <!-- /wp:cover -->",
                 ]
             );
 

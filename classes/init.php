@@ -11,6 +11,8 @@ if (! defined('ABSPATH')) {
 if (! class_exists('Max_Boxy')) {
 
         add_action('init', array( 'Max_Boxy', 'textdomain' ));
+        
+        add_action('init', array( 'Max_Boxy', 'remove_wpautop' ));
 
         add_action('wp_enqueue_scripts', array( 'Max_Boxy', 'scripts_and_styles' ));
 
@@ -78,6 +80,26 @@ if (! class_exists('Max_Boxy')) {
                             ?       get_option('_maxboxy_options')[ 'enqueue_place' ] : '';
 
             return esc_html($enqueue_place);
+
+        }
+
+
+        /**
+         * Prevent wpautop.
+         * 
+         * @return void.
+         */
+        // phpcs:ignore
+        public static function remove_wpautop()
+        {
+
+            $remove_wpautop  = isset(get_option('_maxboxy_options')[ 'remove_wpautop' ])
+                             ?       get_option('_maxboxy_options')[ 'remove_wpautop' ] : '';
+
+            if ($remove_wpautop !== '1' ) {
+                // Stop WP adding extra <p> </p> to your pages' content
+                remove_filter('the_content', 'wpautop');
+            }
 
         }
 

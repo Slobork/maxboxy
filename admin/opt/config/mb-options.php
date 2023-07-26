@@ -510,9 +510,9 @@ if (! defined('ABSPATH')) {
                 'id'            => 'panel_popup_bg',
                 'type'          => 'background',
                 'title'         => $panel_bg_title, // var determined at framework.config
-                'default'       => array(
-                                'background-color' => $floatany_bg_bc_default,
-                ),
+               'default'       => array(
+                               'background-color' => $floatany_bg_bc_default,
+               ),
             ),
             array(
                 'id'            => 'panel_popup_color',
@@ -748,17 +748,9 @@ if (! defined('ABSPATH')) {
             ),
             array(
                 'id'            => 'panel_padding',
-                'type'          => 'spacing',
+                'type'          => 'spacing', 
                 'title'         => esc_html__('Padding', 'maxboxy'),
-                'help'          => esc_html__('Default is 1.5em', 'maxboxy'),
                 'units'         => array( '%', 'px', 'em', 'rem' ),
-                'default'       => array(
-                                        'top'    => '1.5',
-                                        'right'  => '1.5',
-                                        'bottom' => '1.5',
-                                        'left'   => '1.5',
-                                        'unit'   => 'em',
-                                    ),
             ),
             array(
                 'type'          => 'subheading',

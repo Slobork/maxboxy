@@ -344,21 +344,18 @@ if (! class_exists('Max_Boxy_Options')) {
 
             // panel's padding
             $padding_unit                   = isset($basics[ 'panel_padding' ][ 'unit' ]) ? $basics[ 'panel_padding' ][ 'unit' ] : '';
-            $default_pad                    = '1.5em';
 
             $get_pad_top                    = isset($basics[ 'panel_padding' ][ 'top' ]) && is_numeric($basics[ 'panel_padding' ][ 'top' ]) ? abs($basics[ 'panel_padding' ][ 'top' ])   : '';
-
-            $panel_padding                  = $get_pad_top .$padding_unit !== $default_pad    ? 'padding-top: ' .$get_pad_top .$padding_unit .';'       : '';
-
-
+            $panel_padding                  = ! empty($get_pad_top) ? 'padding-top: ' .$get_pad_top .$padding_unit .';' : '';
+            
             $get_pad_left                   = isset($basics[ 'panel_padding' ][ 'left' ]) && is_numeric($basics[ 'panel_padding' ][ 'left' ]) ? abs($basics[ 'panel_padding' ][ 'left' ])  : '';
-            $panel_padding                 .= $get_pad_left .$padding_unit !== $default_pad   ? 'padding-left: ' .$get_pad_left .$padding_unit .';'     : '';
-
+            $panel_padding                 .= ! empty($get_pad_left) ? 'padding-top: ' .$get_pad_left .$padding_unit .';' : '';
+            
             $get_pad_right                  = isset($basics[ 'panel_padding' ][ 'right' ]) && is_numeric($basics[ 'panel_padding' ][ 'right' ]) ? abs($basics[ 'panel_padding' ][ 'right' ]) : '';
-            $panel_padding                 .= $get_pad_right .$padding_unit !== $default_pad  ? 'padding-right: ' .$get_pad_right .$padding_unit .';'   : '';
-
+            $panel_padding                 .= ! empty($get_pad_right) ? 'padding-top: ' .$get_pad_right .$padding_unit .';' : '';
+            
             $get_pad_bottom                 = isset($basics[ 'panel_padding' ][ 'bottom' ]) && is_numeric($basics[ 'panel_padding' ][ 'bottom' ]) ? abs($basics[ 'panel_padding' ][ 'bottom' ]): '';
-            $panel_padding                 .= $get_pad_bottom .$padding_unit !== $default_pad ? 'padding-bottom: ' .$get_pad_bottom .$padding_unit .';' : '';
+            $panel_padding                 .= ! empty($get_pad_bottom) ? 'padding-top: ' .$get_pad_bottom .$padding_unit .';' : '';
 
             // panel's border
             $border                         = isset($basics[ 'panel_border' ]) ?   $basics[ 'panel_border' ] : '';

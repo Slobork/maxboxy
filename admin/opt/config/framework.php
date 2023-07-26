@@ -186,17 +186,6 @@ if (! defined('ABSPATH')) {
                     'sanitize'      => 'absint',
                 ),
                 array(
-                    'id'            => 'zindex',
-                    'type'          => 'number',
-                    'placeholder'   => 999,
-                    'title'         => esc_html__('Z-index', 'maxboxy'),
-                    'help'          => esc_html__('If other element is overlapping the box, with "z-index" give a higher priority to the box in a stack order. Default is quite high: 999, most likely you won\'t neet to overwrite it. Still, here you can enter the new default value. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                ),
-                array(
-                    'type'      => 'heading',
-                    'content'   => esc_html__('Other', 'maxboxy'),
-                ),
-                array(
                     'id'        => 'remove_wpautop',
                     'type'      => 'switcher',
                     'title'     => esc_html__('WP autop removal', 'maxboxy'),
@@ -206,147 +195,11 @@ if (! defined('ABSPATH')) {
                     'text_off'  => esc_html__('Prevent', 'maxboxy'),
                     'text_width'=> 120,
                 ),
+                array(
+                    'type'      => 'heading',
+                    'content'   => esc_html__('Other', 'maxboxy'),
+                ),
                 $uninstall_setting,
-            )
-        )
-    );
-
-
-    /**
-     * Colors tab.
-     */
-    $panel_bg_title     = esc_html__('Panel\'s background', 'maxboxy');
-    $panel_col_title    = esc_html__('Panel\'s text color', 'maxboxy');
-    $closer_subheading  = esc_html__('Close/toggle button', 'maxboxy');
-    $closer_bg_title    = esc_html__('Background', 'maxboxy');
-    $closer_col_title   = esc_html__('Color', 'maxboxy');
-
-    CSF::createSection(
-        $prefix, array(
-            'title'  => esc_html__('Colors', 'maxboxy'),
-            'icon'   => 'fas fa-palette',
-            'fields' => array(
-                array(
-                    'type'      => 'heading',
-                    'content'   => 'FloatAny',
-                ),
-                array(
-                    'type'      => 'content',
-                    'content'   => esc_html__('Colors applied here act as default for FloatAny panels. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                ),
-                array(
-                    'id'        => 'floatany_bg',
-                    'type'      => 'background',
-                    'title'     => $panel_bg_title,
-                    'default'   => array(
-                                    'background-color' => '#e8e2b7',
-                    ),
-                ),
-                array(
-                    'id'        => 'floatany_color',
-                    'type'      => 'color',
-                    'title'     => $panel_col_title,
-                    'default'   => '#4b4b4b',
-                ),
-                array(
-                    'type'      => 'subheading',
-                    'content'   => $closer_subheading,
-                ),
-                array(
-                    'id'        => 'floatany_shut_bg',
-                    'type'      => 'color',
-                    'title'     => $closer_bg_title,
-                    'default'   => '#333333',
-                ),
-                array(
-                    'id'        => 'floatany_shut_color',
-                    'type'      => 'color',
-                    'title'     => $closer_col_title,
-                    'default'   => '#ffffff',
-                ),
-                array(
-                    'type'      => 'heading',
-                    'content'   => 'InjectAny',
-                ),
-                array(
-                    'type'      => 'content',
-                    'content'   => esc_html__('Colors applied here act as default for InjectAny panels. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                ),
-                array(
-                    'id'        => 'injectany_bg',
-                    'type'      => 'background',
-                    'title'     => $panel_bg_title,
-                    'default'   => array(
-                                    'background-color' => '#e8e2b7',
-                    ),
-                ),
-                array(
-                    'id'        => 'injectany_color',
-                    'type'      => 'color',
-                    'title'     => $panel_col_title,
-                    'default'   => '#4b4b4b',
-                ),
-                array(
-                    'type'      => 'subheading',
-                    'content'   => $closer_subheading,
-                ),
-                array(
-                    'id'        => 'injectany_shut_bg',
-                    'type'      => 'color',
-                    'title'     => $closer_bg_title,
-                    'default'   => '#333333',
-                ),
-                array(
-                    'id'        => 'injectany_shut_color',
-                    'type'      => 'color',
-                    'title'     => $closer_col_title,
-                    'default'   => '#ffffff',
-                ),
-                array(
-                    'type'      => 'heading',
-                    'content'   => esc_html__('Sync Patterns', 'maxboxy'),
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'type'      => 'content',
-                    'content'   => esc_html__('Colors applied here act as default for Reusable block. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_bg',
-                    'type'      => 'background',
-                    'title'     => $panel_bg_title,
-                    'default'   => array(
-                        'background-color' => '#e8e2b7',
-                    ),
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_color',
-                    'type'      => 'color',
-                    'title'     => $panel_col_title,
-                    'default'   => '#4b4b4b',
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'type'      => 'subheading',
-                    'content'   => $closer_subheading,
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_shut_bg',
-                    'type'      => 'color',
-                    'title'     => $closer_bg_title,
-                    'default'   => '#333333',
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_shut_color',
-                    'type'      => 'color',
-                    'title'     => $closer_col_title,
-                    'default'   => '#ffffff',
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
             )
         )
     );

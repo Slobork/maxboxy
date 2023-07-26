@@ -56,8 +56,6 @@
         -ms-flex-align: end;
             align-items: flex-end; }
   .mboxy-wrap > .mboxy > .mboxy-content {
-    background: #e8e2b7;
-    color: #4b4b4b;
     width: -webkit-fill-available;
     width: -moz-available;
     width: stretch;

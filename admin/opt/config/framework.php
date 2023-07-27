@@ -186,6 +186,18 @@ if (! defined('ABSPATH')) {
                     'sanitize'      => 'absint',
                 ),
                 array(
+                    'id'        => 'modal_offer',
+                    'type'      => 'button_set',
+                    'title'     => esc_html__('Load in modal starting panel patterns', 'maxboxy'),
+                    'help'      => esc_html__('When you\'re starting a new panel design, a modal popup will be presented with selected starting panel patterns.', 'maxboxy'),
+                    'options'   => array(
+                        'yes'   => esc_html__('Yes',   'maxboxy'),
+                        'no'    => esc_html__('No',    'maxboxy'),
+                ),
+                'default'       => 'yes',
+                'inline'        => true,
+                ),
+                array(
                     'id'        => 'remove_wpautop',
                     'type'      => 'switcher',
                     'title'     => esc_html__('WP autop removal', 'maxboxy'),

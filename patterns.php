@@ -81,6 +81,15 @@ if (! defined('ABSPATH')) {
                 return;
             }
 
+            $get_modal_offer = isset(get_option('_maxboxy_options')[ 'modal_offer' ])
+            ?                        get_option('_maxboxy_options')[ 'modal_offer' ] : '';
+
+            $modal_offer   = $get_modal_offer !== 'no'
+            ? array(
+                'blockTypes' => array( 'core/post-content' ),
+                'postTypes'  => array( 'float_any', 'inject_any', 'wp_block' )
+            )
+            : array();
 
             /*
              * Buttons
@@ -239,6 +248,37 @@ if (! defined('ABSPATH')) {
                 ]
             );
 
+            register_block_pattern(
+                'maxboxy/contact-cfsiiacb', [
+                'title'         => esc_html__('Contact form placeholder + social icons (in a cover block)', 'maxboxy'),
+                'keywords'      => ['contact', 'contact us'],
+                'categories'    => ['maxboxy-contact'],
+                'content'       => "<!-- wp:cover {\"overlayColor\":\"vivid-cyan-blue\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-vivid-cyan-blue-background-color has-background-dim-100 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"left\",\"level\":3} -->
+                <h3 class=\"wp-block-heading has-text-align-left\">Contact us</h3>
+                <!-- /wp:heading -->
+                
+                <!-- wp:shortcode /-->
+                
+                <!-- wp:spacer {\"height\":\"50px\"} -->
+                <div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                <!-- /wp:spacer -->
+                
+                <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
+                <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
+                
+                <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
+                
+                <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
+                
+                <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
+                
+                <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
+                <!-- /wp:social-links --></div></div>
+                <!-- /wp:cover -->",
+                ] +$modal_offer
+            );
+
 
             /*
              * Cookies
@@ -290,6 +330,30 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:column --></div>
                                 <!-- /wp:columns -->",
                 ]
+            );
+
+            // Cookies - 2
+            register_block_pattern(
+                'maxboxy/cookies-2cbg', [
+                'title'         => esc_html__('2 columns - notice and a button adjusted with a background color', 'maxboxy'),
+                'keywords'      => ['gdpr', 'cookies'],
+                'categories'    => ['maxboxy-cookies'],
+                'content'       => "<!-- wp:columns {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"0\"}}},\"backgroundColor\":\"luminous-vivid-amber\"} -->
+                <div class=\"wp-block-columns has-luminous-vivid-amber-background-color has-background\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:0\"><!-- wp:column {\"width\":\"75%\"} -->
+                <div class=\"wp-block-column\" style=\"flex-basis:75%\"><!-- wp:paragraph -->
+                <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:column -->
+                
+                <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
+                <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
+                <div class=\"wp-block-button mboxy-closer\"><a class=\"wp-block-button__link wp-element-button\">I agree</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons --></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns -->",
+                ] +$modal_offer
             );
 
             // Cookies - 3
@@ -459,7 +523,7 @@ if (! defined('ABSPATH')) {
             register_block_pattern(
                 'maxboxy/cta-cmogb', [
                 'title'         => esc_html__('Ciber Monday offer (group block)', 'maxboxy'),
-                'keywords'      => ['CTA', 'call to action', 'Black Friday'],
+                'keywords'      => ['CTA', 'call to action', 'Ciber Monday'],
                 'categories'    => ['maxboxy-cta'],
                 'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":\"100%\"}},\"gradient\":\"luminous-dusk\"} -->
                 <div class=\"wp-block-group has-luminous-dusk-gradient-background has-background\" style=\"border-radius:100%\"><!-- wp:spacer {\"height\":\"3vh\"} -->
@@ -494,7 +558,7 @@ if (! defined('ABSPATH')) {
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group -->",
-                ]
+                ] +$modal_offer
             );
 
             // CTA 4
@@ -503,8 +567,8 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Black Friday offer (cover with background image and gradient in opacity)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Black Friday'],
                 'categories'    => ['maxboxy-cta'],
-                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\",\"dimRatio\":40,\"gradient\":\"cool-to-warm-spectrum\",\"style\":{\"color\":{}}} -->
-                <div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-40 has-background-dim wp-block-cover__gradient-background has-background-gradient has-cool-to-warm-spectrum-gradient-background\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
+                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\",\"dimRatio\":60,\"gradient\":\"cool-to-warm-spectrum\",\"style\":{\"color\":{}}} -->
+                <div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim wp-block-cover__gradient-background has-background-gradient has-cool-to-warm-spectrum-gradient-background\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
                 <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"3vh\"} -->
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer -->
@@ -580,13 +644,13 @@ if (! defined('ABSPATH')) {
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer --></div></div>
                 <!-- /wp:cover -->",
-                ]
+                ] +$modal_offer
             );
 
             // CTA 6
             register_block_pattern(
-                'maxboxy/cta-vdogbwgb', [
-                'title'         => esc_html__('Valentine\'s day offer (group block with gradient background)', 'maxboxy'),
+                'maxboxy/cta-voiagbwb', [
+                'title'         => esc_html__('Valentine offer (in a group block with background)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
                 'categories'    => ['maxboxy-cta'],
                 'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":{\"topLeft\":\"0%\",\"topRight\":\"100%\",\"bottomLeft\":\"100%\",\"bottomRight\":\"100%\"}},\"color\":{\"gradient\":\"linear-gradient(140deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%)\"}}} -->
@@ -622,7 +686,7 @@ if (! defined('ABSPATH')) {
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group -->",
-                ]
+                ] +$modal_offer
             );
 
             // CTA 7
@@ -650,13 +714,13 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column -->
                 
                 <!-- wp:column -->
-                <div class=\"wp-block-column\"><!-- wp:image {\"id\":27173,\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
+                <div class=\"wp-block-column\"><!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
                 <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
                 <!-- /wp:cover -->",
-                ]
+                ] +$modal_offer
             );
 
 
@@ -685,7 +749,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:group --></div>
                 <!-- /wp:group -->",
-                ]
+                ] +$modal_offer
             );
 
             // info box 2
@@ -745,7 +809,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:group --></div>
                 <!-- /wp:group -->",
-                ]
+                ] +$modal_offer
             );
 
             // green box 2
@@ -805,7 +869,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:group --></div>
                 <!-- /wp:group -->",
-                ]
+                ] +$modal_offer
             );
 
             // warning box 2
@@ -865,7 +929,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:group --></div>
                 <!-- /wp:group -->",
-                ]
+                ] +$modal_offer
             );
 
             // danger box 2
@@ -957,8 +1021,8 @@ if (! defined('ABSPATH')) {
 
             // media 3
             register_block_pattern(
-                'maxboxy/media-eyvabctaiacbwg', [
-                'title'         => esc_html__('Example youtube video and a button call to action (in a cover block with gradient)', 'maxboxy'),
+                'maxboxy/media-eyvabctaiacb', [
+                'title'         => esc_html__('Example youtube video and a button call to action (in a cover block)', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
                 'categories'    => ['maxboxy-media'],
                 'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\",\"isDark\":false} -->
@@ -968,7 +1032,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:spacer -->
                 
                 <!-- wp:heading {\"textAlign\":\"center\"} -->
-                <h2 class=\"wp-block-heading has-text-align-center\">Hajde da vidimo</h2>
+                <h2 class=\"wp-block-heading has-text-align-center\">You're Going To Love This</h2>
                 <!-- /wp:heading -->
                 
                 <!-- wp:paragraph {\"align\":\"center\"} -->
@@ -990,7 +1054,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group --></div></div>
                 <!-- /wp:cover -->",
-                ]
+                ] +$modal_offer
             );
 
 
@@ -1044,8 +1108,8 @@ if (! defined('ABSPATH')) {
 
             // Signup 3
             register_block_pattern(
-                'maxboxy/signup-iacbwi', [
-                'title'         => esc_html__('In a cover block with image', 'maxboxy'),
+                'maxboxy/signup-iacbwai', [
+                'title'         => esc_html__('In a cover block with an image', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
                 'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
@@ -1071,14 +1135,14 @@ if (! defined('ABSPATH')) {
 
             // Signup 4
             register_block_pattern(
-                'maxboxy/signup-iacbwgai', [
-                'title'         => esc_html__('In a cover block with gradient and image', 'maxboxy'),
+                'maxboxy/signup-spiacbwaia', [
+                'title'         => esc_html__('Signup placeholder in a cover block with an image aside', 'maxboxy'),
                 'keywords'      => ['Signup, news'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(135deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
-                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(135deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null,\"align\":\"full\"} -->
-                <div class=\"wp-block-columns alignfull\"><!-- wp:column {\"verticalAlignment\":\"top\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-top\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
+                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
+                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null,\"align\":\"full\"} -->
+                <div class=\"wp-block-columns alignfull\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->
+                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
                 <h3 class=\"wp-block-heading has-text-align-center\">Join our newsletter!</h3>
                 <!-- /wp:heading -->
                 
@@ -1090,13 +1154,13 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column -->
                 
                 <!-- wp:column {\"verticalAlignment\":\"center\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"align\":\"center\",\"id\":30272,\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-default\"} -->
+                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"className\":\"aligncenter size-full is-style-rounded\"} -->
                 <figure class=\"wp-block-image aligncenter size-full is-style-default\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
                 <!-- /wp:cover -->",
-                ]
+                ] +$modal_offer
             );
 
             /*

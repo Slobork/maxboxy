@@ -277,7 +277,7 @@ if (! class_exists('Max_Boxy')) {
                  * the MaxBoxy makes an issue when on Cat and Tags page (needs clicking twice
                  * on a link to get to another page).
                  */
-                add_menu_page('reusableblocks', 'Sync Patterns', 'edit_pages',  'edit.php?post_type=wp_block', false, 'dashicons-layout', 80);
+                add_menu_page('reusableblocks', 'Synced Patterns', 'edit_pages',  'edit.php?post_type=wp_block', false, 'dashicons-layout', 80);
             }
 
             add_submenu_page('admin.php?page=maxboxy-settings', '', __('Manage Categories', 'maxboxy'), 'edit_pages',  'edit-tags.php?taxonomy=maxboxy_cat', false);

@@ -228,7 +228,7 @@ if (! defined('ABSPATH')) {
                 array(
                     array(
                         'type'      => 'content',
-                        'content'   => esc_html__('Panel strains are different branches of MaxBoxy (with FloatAny build popups, with InjectAny build in-content panels). Further you can enable MaxBoxy options for WordPress built in feature, i.e. Sync Patterns.', 'maxboxy'),
+                        'content'   => esc_html__('Panel strains are different branches of MaxBoxy (with FloatAny build popups, with InjectAny build in-content panels). Further you can enable MaxBoxy options for WordPress built in feature, i.e. Synced Patterns.', 'maxboxy'),
                     ),
                     array(
                         'type'      => 'content',
@@ -241,8 +241,8 @@ if (! defined('ABSPATH')) {
                     array(
                         'id'        => 'enable_wp_block',
                         'type'      => 'switcher',
-                        'title'     => esc_html__('Enable MaxBoxy for Sync Patterns', 'maxboxy'),
-                        'subtitle'  => esc_html__('"Sync Patterns" is WordPress built in feature which output is very similar to our InjectAny. With MaxBoxy you can enhance ', 'maxboxy') .'<a href="' .esc_url(admin_url('edit.php?post_type=wp_block')) .'">' .__('Sync Patterns') .'</a>. See documentation for differences.',
+                        'title'     => esc_html__('Enable MaxBoxy for Synced Patterns', 'maxboxy'),
+                        'subtitle'  => esc_html__('"Synced Patterns" is WordPress built in feature which output is very similar to our InjectAny. With MaxBoxy you can enhance ', 'maxboxy') .'<a href="' .esc_url(admin_url('edit.php?post_type=wp_block')) .'">' .__('Synced Patterns') .'</a>. See documentation for differences.',
                     ),
                 )
             )
@@ -261,7 +261,7 @@ if (! defined('ABSPATH')) {
                 array(
                     array(
                         'type'      => 'content',
-                        'content'   => esc_html__('Enabled modules are avaliable across multiple panel strains (InjectAny, FloatAny, Sync Patterns).', 'maxboxy'),
+                        'content'   => esc_html__('Enabled modules are avaliable across multiple panel strains (InjectAny, FloatAny, Synced Patterns).', 'maxboxy'),
                     ),
                     array(
                         'type'      => 'subheading',

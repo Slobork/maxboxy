@@ -11,6 +11,8 @@ if (! defined('ABSPATH')) {
 if (! class_exists('Max_Boxy')) {
 
         add_action('init', array( 'Max_Boxy', 'textdomain' ));
+        
+        add_action('init', array( 'Max_Boxy', 'remove_wpautop' ));
 
         add_action('wp_enqueue_scripts', array( 'Max_Boxy', 'scripts_and_styles' ));
 
@@ -46,7 +48,7 @@ if (! class_exists('Max_Boxy')) {
          */
         public static function version()
         {
-            $plugin_version = '1.0.9';
+            $plugin_version = '1.1.0';
             return $plugin_version;
         }
 
@@ -78,6 +80,26 @@ if (! class_exists('Max_Boxy')) {
                             ?       get_option('_maxboxy_options')[ 'enqueue_place' ] : '';
 
             return esc_html($enqueue_place);
+
+        }
+
+
+        /**
+         * Prevent wpautop.
+         * 
+         * @return void.
+         */
+        // phpcs:ignore
+        public static function remove_wpautop()
+        {
+
+            $remove_wpautop  = isset(get_option('_maxboxy_options')[ 'remove_wpautop' ])
+                             ?       get_option('_maxboxy_options')[ 'remove_wpautop' ] : '';
+
+            if ($remove_wpautop !== '1' ) {
+                // Stop WP adding extra <p> </p> to your pages' content
+                remove_filter('the_content', 'wpautop');
+            }
 
         }
 
@@ -129,10 +151,10 @@ if (! class_exists('Max_Boxy')) {
                 wp_register_style('maxboxy', plugins_url('/library/css/min/main.css', dirname(__FILE__)), array(), $plugin_version, 'all');
 
                 // dotimeout with prefix 'maxpressy-' coz other plugins can depend on the same script
-                wp_register_script('maxpressy-dotimeout', plugins_url('/library/js/min/do-timeout.js', dirname(__FILE__)), array('jquery'), $plugin_version, true);
+                wp_register_script('maxpressy-dotimeout', plugins_url('/library/js/min/do-timeout.js', dirname(__FILE__)), array('jquery'), $plugin_version, array('strategy' => 'defer'));
 
-                wp_register_script('maxboxy', plugins_url('/library/js/min/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), $plugin_version, true);
-                wp_register_script('maxboxy-conversions', plugins_url('/library/js/min/conversions.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout', 'maxboxy'), $plugin_version, true);
+                wp_register_script('maxboxy', plugins_url('/library/js/min/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), $plugin_version, array('strategy' => 'defer'));
+                wp_register_script('maxboxy-conversions', plugins_url('/library/js/min/conversions.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout', 'maxboxy'), $plugin_version, array('strategy' => 'defer'));
 
                 // for debugging:
                 //wp_register_script('maxboxy', plugins_url('/library/js/src/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), $plugin_version, true);
@@ -176,153 +198,7 @@ if (! class_exists('Max_Boxy')) {
 
                 }
 
-                // for dynamic inline css output
-                $_escaped_data = ! empty(self::_escaped_css()) ? self::_escaped_css() : '';
-
-                /*
-                 * wp_add_inline_style will add a <style> element inside the <body> which will produce.
-                 * an error with w3.org validator. To overcome the error, the solution is to use combining
-                 * CSS External and Inline with one of speed optimization plugins.
-                 */
-                wp_add_inline_style('maxboxy', $_escaped_data);
-
             }
-
-        }
-
-
-        /**
-         * Escaped css.
-         * 
-         * @return string Prepered css for inline output.
-         */
-        // phpcs:ignore
-        public static function _escaped_css()
-        {
-
-            $zindex                  = isset(get_option('_maxboxy_options')[ 'zindex' ])
-                                     ?       get_option('_maxboxy_options')[ 'zindex' ] : '';
-
-            /*
-             * FloatAny colors
-             */
-            $floatany_bg             = isset(get_option('_maxboxy_options')[ 'floatany_bg' ])
-                                     ?       get_option('_maxboxy_options')[ 'floatany_bg' ] : '';
-
-            $floatany_color          = isset(get_option('_maxboxy_options')[ 'floatany_color' ])
-                                     ?       get_option('_maxboxy_options')[ 'floatany_color' ] : '';
-
-            $floatany_shut_bg        = isset(get_option('_maxboxy_options')[ 'floatany_shut_bg' ])
-                                     ?       get_option('_maxboxy_options')[ 'floatany_shut_bg' ] : '';
-
-            $floatany_shut_color     = isset(get_option('_maxboxy_options')[ 'floatany_shut_color' ])
-                                     ?       get_option('_maxboxy_options')[ 'floatany_shut_color' ] : '';
-
-            $floatany_panel_wrap     = is_numeric($zindex)   ?   'z-index:' .intval($zindex) .';'  :   '';
-
-            $floatany_panel_content  = ! empty($floatany_bg[ 'background-image' ][ 'url' ]) ? 'background-image:url('  .$floatany_bg[ 'background-image' ][ 'url' ] .');': '';
-            $floatany_panel_content .= ! empty($floatany_bg[ 'background-repeat' ])         ? 'background-repeat:'     .$floatany_bg[ 'background-repeat' ]         .';' : '';
-            $floatany_panel_content .= ! empty($floatany_bg[ 'background-position' ])       ? 'background-position:'   .$floatany_bg[ 'background-position' ]       .';' : '';
-            $floatany_panel_content .= ! empty($floatany_bg[ 'background-attachment' ])     ? 'background-attachment:' .$floatany_bg[ 'background-attachment' ]     .';' : '';
-            $floatany_panel_content .= ! empty($floatany_bg[ 'background-size' ])           ? 'background-size:'       .$floatany_bg[ 'background-size' ]           .';' : '';
-            $floatany_panel_content .= isset($floatany_bg[ 'background-color' ]) && $floatany_bg[ 'background-color' ] !== '#e8e2b7'
-                                     ? 'background-color:' .$floatany_bg[ 'background-color' ] .';'   : '';
-
-            $floatany_panel_content .= $floatany_color !== '#4b4b4b' ? 'color:' .$floatany_color .';' : '';
-
-
-            $floatany_panel_shut     = $floatany_shut_bg !== '#333333'      ?   'background:' .$floatany_shut_bg .';' : '';
-            $floatany_panel_shut    .= $floatany_shut_color !== '#ffffff'   ?   'color:' .$floatany_shut_color   .';' : '';
-
-            // Output FloatAny
-            $out  = ! empty($floatany_panel_wrap)    ? '.mboxy-wrap.floatany {' .esc_attr($floatany_panel_wrap) .'}' : '';
-            $out .= ! empty($floatany_panel_content) ? '.mboxy-wrap.floatany .mboxy .mboxy-content {' .esc_attr($floatany_panel_content) .'}' : '';
-            $out .= ! empty($floatany_panel_shut)    ? '.mboxy-wrap.floatany .mboxy .shuter, .mboxy-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr($floatany_panel_shut) .'}' : '';
-
-            /**
-             * InjectAny colors
-             */
-            $injectany_bg           = isset(get_option('_maxboxy_options')[ 'injectany_bg' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_bg' ] : '';
-
-              $injectany_color      = isset(get_option('_maxboxy_options')[ 'injectany_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_color' ] : '';
-
-            $injectany_shut_bg      = isset(get_option('_maxboxy_options')[ 'injectany_shut_bg' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_shut_bg' ] : '';
-
-            $injectany_shut_color   = isset(get_option('_maxboxy_options')[ 'injectany_shut_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_shut_color' ] : '';
-
-
-            $injectany_panel_wrap   = is_numeric($zindex)   ?   'z-index:' .intval($zindex) .';' : '';
-
-
-            $injectany_panel_content  = ! empty($injectany_bg[ 'background-image' ][ 'url' ]) ? 'background-image:url('  .$injectany_bg[ 'background-image' ][ 'url' ] .');': '';
-            $injectany_panel_content .= ! empty($injectany_bg[ 'background-repeat' ])       ? 'background-repeat:'     .$injectany_bg[ 'background-repeat' ]           .';' : '';
-            $injectany_panel_content .= ! empty($injectany_bg[ 'background-position' ])     ? 'background-position:'   .$injectany_bg[ 'background-position' ]         .';' : '';
-            $injectany_panel_content .= ! empty($injectany_bg[ 'background-attachment' ])   ? 'background-attachment:' .$injectany_bg[ 'background-attachment' ]       .';' : '';
-            $injectany_panel_content .= ! empty($injectany_bg[ 'background-size' ])         ? 'background-size:'       .$injectany_bg[ 'background-size' ]             .';' : '';
-            $injectany_panel_content .= isset($injectany_bg[ 'background-color' ]) && $injectany_bg[ 'background-color' ] !== '#e8e2b7'
-                                      ? 'background-color:' .sanitize_text_field($injectany_bg[ 'background-color' ]) .';'   : '';
-
-            $injectany_panel_content .= $injectany_color !== '#4b4b4b' ? 'color:' .$injectany_color .';' : '';
-
-
-            $injectany_panel_shut     = $injectany_shut_bg !== '#333333'     ?  'background:' .$injectany_shut_bg .';' : '';
-            $injectany_panel_shut    .= $injectany_shut_color !== '#ffffff'  ?  'color:' .$injectany_shut_color   .';' : '';
-
-            // Output InjectAny
-            $out .= ! empty($injectany_panel_wrap)     ?  '.mboxy-wrap.injectany:not(.is-reusable-block) {' .esc_attr($injectany_panel_wrap) .'}' : '';
-            $out .= ! empty($injectany_panel_content)  ?  '.mboxy-wrap.injectany:not(.is-reusable-block) .mboxy .mboxy-content {' .esc_attr($injectany_panel_content) .'}' : '';
-            $out .= ! empty($injectany_panel_shut)     ?  '.mboxy-wrap.injectany:not(.is-reusable-block) .mboxy .shuter, .iany-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr($injectany_panel_shut) .'}' : '';
-
-            /**
-             * Reusable blocks colors
-             */
-            $reusable_bg             = isset(get_option('_maxboxy_options')[ 'reusable_bg' ])
-                                     ?       get_option('_maxboxy_options')[ 'reusable_bg' ] : '';
-
-            $reusable_color          = isset(get_option('_maxboxy_options')[ 'reusable_color' ])
-                                     ?       get_option('_maxboxy_options')[ 'reusable_color' ] : '';
-
-            $reusable_shut_bg        = isset(get_option('_maxboxy_options')[ 'reusable_shut_bg' ])
-                                     ?       get_option('_maxboxy_options')[ 'reusable_shut_bg' ] : '';
-
-            $reusable_shut_color     = isset(get_option('_maxboxy_options')[ 'reusable_shut_color' ])
-                                     ?       get_option('_maxboxy_options')[ 'reusable_shut_color' ] : '';
-
-            $reusable_panel_wrap     = is_numeric($zindex)   ?   'z-index:' .intval($zindex) .';' : '';
-
-            $reusable_panel_content  = ! empty($reusable_bg[ 'background-image' ][ 'url' ]) ? 'background-image:url('  .$reusable_bg[ 'background-image' ][ 'url' ] .');': '';
-            $reusable_panel_content .= ! empty($reusable_bg[ 'background-repeat' ])       ? 'background-repeat:'     .$reusable_bg[ 'background-repeat' ]           .';' : '';
-            $reusable_panel_content .= ! empty($reusable_bg[ 'background-position' ])     ? 'background-position:'   .$reusable_bg[ 'background-position' ]         .';' : '';
-            $reusable_panel_content .= ! empty($reusable_bg[ 'background-attachment' ])   ? 'background-attachment:' .$reusable_bg[ 'background-attachment' ]       .';' : '';
-            $reusable_panel_content .= ! empty($reusable_bg[ 'background-size' ])         ? 'background-size:'       .$reusable_bg[ 'background-size' ]             .';' : '';
-            $reusable_panel_content .= isset($reusable_bg[ 'background-color' ]) && $reusable_bg[ 'background-color' ] !== '#e8e2b7'
-                                     ? 'background-color:' .sanitize_text_field($reusable_bg[ 'background-color' ]) .';'   : '';
-
-            $reusable_panel_content .= $reusable_color !== '#4b4b4b' ? 'color:' .$reusable_color .';' : '';
-
-
-            $reusable_panel_shut    = $reusable_shut_bg !== '#333333'     ?  'background:' .$reusable_shut_bg .';' : '';
-            $reusable_panel_shut   .= $reusable_shut_color !== '#ffffff'  ?  'color:' .$reusable_shut_color   .';' : '';
-
-            // Output Reusable blocks
-            $out .= ! empty($reusable_panel_wrap)    ? '.mboxy-wrap.injectany.is-reusable-block {' .esc_attr($reusable_panel_wrap) .'}' : '';
-            $out .= ! empty($reusable_panel_content) ? '.mboxy-wrap.injectany.is-reusable-block .mboxy .mboxy-content {' .esc_attr($reusable_panel_content) .'}' : '';
-            $out .= ! empty($reusable_panel_shut)    ? '.mboxy-wrap.injectany.is-reusable-block .mboxy .shuter, .iany-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {' .esc_attr($reusable_panel_shut) .'}' : '';
-
-            /*
-             * To return $out, in order to skip printing empty floatany-inline-css you could use one of the following:
-             * if ( isset( get_option( '_maxboxy_options' )[ 'panel_popup_color' ] ) ) {
-             * $fa_options = get_option( '_maxboxy_options', '' );
-             * if ($fa_options !== '' ) {
-             *
-             * However,the same effect is achieved by saving default values of CSF's 'save_defaults' to true
-             */
-
-            return $out;
 
         }
 
@@ -401,7 +277,7 @@ if (! class_exists('Max_Boxy')) {
                  * the MaxBoxy makes an issue when on Cat and Tags page (needs clicking twice
                  * on a link to get to another page).
                  */
-                add_menu_page('reusableblocks', 'Reusable blocks', 'edit_pages',  'edit.php?post_type=wp_block', false, 'dashicons-layout', 80);
+                add_menu_page('reusableblocks', 'Synced Patterns', 'edit_pages',  'edit.php?post_type=wp_block', false, 'dashicons-layout', 80);
             }
 
             add_submenu_page('admin.php?page=maxboxy-settings', '', __('Manage Categories', 'maxboxy'), 'edit_pages',  'edit-tags.php?taxonomy=maxboxy_cat', false);

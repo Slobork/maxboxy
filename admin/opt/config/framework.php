@@ -33,7 +33,7 @@ if (! defined('ABSPATH')) {
              */
             'menu_slug'         => 'maxboxy-settings', // has to be the same as registered top menu item on the Max_Boxy::admin_menu()
             'framework_title'   => 'MaxBoxy',
-            'footer_credit'     => 'MaxBoxy <small> v1.0.9</small>',
+            'footer_credit'     => 'MaxBoxy <small> v1.1.0</small>',
             'footer_text'       => ' ',
             'theme'             => 'light',
             'show_bar_menu'     => false,
@@ -186,157 +186,32 @@ if (! defined('ABSPATH')) {
                     'sanitize'      => 'absint',
                 ),
                 array(
-                    'id'            => 'zindex',
-                    'type'          => 'number',
-                    'placeholder'   => 999,
-                    'title'         => esc_html__('Z-index', 'maxboxy'),
-                    'help'          => esc_html__('If other element is overlapping the box, with "z-index" give a higher priority to the box in a stack order. Default is quite high: 999, most likely you won\'t neet to overwrite it. Still, here you can enter the new default value. Further, you can override that for each panel from its settings.', 'maxboxy'),
+                    'id'        => 'modal_offer',
+                    'type'      => 'button_set',
+                    'title'     => esc_html__('Load in modal starting panel patterns', 'maxboxy'),
+                    'help'      => esc_html__('When you\'re starting a new panel design, a modal popup will be presented with selected starting panel patterns.', 'maxboxy'),
+                    'options'   => array(
+                        'yes'   => esc_html__('Yes',   'maxboxy'),
+                        'no'    => esc_html__('No',    'maxboxy'),
+                ),
+                'default'       => 'yes',
+                'inline'        => true,
+                ),
+                array(
+                    'id'        => 'remove_wpautop',
+                    'type'      => 'switcher',
+                    'title'     => esc_html__('WP autop removal', 'maxboxy'),
+                    'desc'      => esc_html__('We remove the empty paragraphs when WordPress auto-inject them. Here you can disable that. Recommended: keep it prevented.', 'maxboxy'),
+                    'help'      => esc_html__('By default we prevent wpautop. WordPress somethimes have a habit to inject excesive empty paragraphs. We remove this possibility. However, it is affecting the whole site, not just the MaxBoxy panels, so you ca turn off this if from any reason is necessary.', 'maxboxy'),
+                    'text_on'   => esc_html__('Allowed', 'maxboxy'),
+                    'text_off'  => esc_html__('Prevent', 'maxboxy'),
+                    'text_width'=> 120,
                 ),
                 array(
                     'type'      => 'heading',
                     'content'   => esc_html__('Other', 'maxboxy'),
                 ),
                 $uninstall_setting,
-            )
-        )
-    );
-
-
-    /**
-     * Colors tab.
-     */
-    $panel_bg_title     = esc_html__('Panel\'s background', 'maxboxy');
-    $panel_col_title    = esc_html__('Panel\'s text color', 'maxboxy');
-    $closer_subheading  = esc_html__('Close/toggle button', 'maxboxy');
-    $closer_bg_title    = esc_html__('Background', 'maxboxy');
-    $closer_col_title   = esc_html__('Color', 'maxboxy');
-
-    CSF::createSection(
-        $prefix, array(
-            'title'  => esc_html__('Colors', 'maxboxy'),
-            'icon'   => 'fas fa-palette',
-            'fields' => array(
-                array(
-                    'type'      => 'heading',
-                    'content'   => 'FloatAny',
-                ),
-                array(
-                    'type'      => 'content',
-                    'content'   => esc_html__('Colors applied here act as default for FloatAny panels. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                ),
-                array(
-                    'id'        => 'floatany_bg',
-                    'type'      => 'background',
-                    'title'     => $panel_bg_title,
-                    'default'   => array(
-                                    'background-color' => '#e8e2b7',
-                    ),
-                ),
-                array(
-                    'id'        => 'floatany_color',
-                    'type'      => 'color',
-                    'title'     => $panel_col_title,
-                    'default'   => '#4b4b4b',
-                ),
-                array(
-                    'type'      => 'subheading',
-                    'content'   => $closer_subheading,
-                ),
-                array(
-                    'id'        => 'floatany_shut_bg',
-                    'type'      => 'color',
-                    'title'     => $closer_bg_title,
-                    'default'   => '#333333',
-                ),
-                array(
-                    'id'        => 'floatany_shut_color',
-                    'type'      => 'color',
-                    'title'     => $closer_col_title,
-                    'default'   => '#ffffff',
-                ),
-                array(
-                    'type'      => 'heading',
-                    'content'   => 'InjectAny',
-                ),
-                array(
-                    'type'      => 'content',
-                    'content'   => esc_html__('Colors applied here act as default for InjectAny panels. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                ),
-                array(
-                    'id'        => 'injectany_bg',
-                    'type'      => 'background',
-                    'title'     => $panel_bg_title,
-                    'default'   => array(
-                                    'background-color' => '#e8e2b7',
-                    ),
-                ),
-                array(
-                    'id'        => 'injectany_color',
-                    'type'      => 'color',
-                    'title'     => $panel_col_title,
-                    'default'   => '#4b4b4b',
-                ),
-                array(
-                    'type'      => 'subheading',
-                    'content'   => $closer_subheading,
-                ),
-                array(
-                    'id'        => 'injectany_shut_bg',
-                    'type'      => 'color',
-                    'title'     => $closer_bg_title,
-                    'default'   => '#333333',
-                ),
-                array(
-                    'id'        => 'injectany_shut_color',
-                    'type'      => 'color',
-                    'title'     => $closer_col_title,
-                    'default'   => '#ffffff',
-                ),
-                array(
-                    'type'      => 'heading',
-                    'content'   => esc_html__('Reusable blocks', 'maxboxy'),
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'type'      => 'content',
-                    'content'   => esc_html__('Colors applied here act as default for Reusable block. Further, you can override that for each panel from its settings.', 'maxboxy'),
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_bg',
-                    'type'      => 'background',
-                    'title'     => $panel_bg_title,
-                    'default'   => array(
-                        'background-color' => '#e8e2b7',
-                    ),
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_color',
-                    'type'      => 'color',
-                    'title'     => $panel_col_title,
-                    'default'   => '#4b4b4b',
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'type'      => 'subheading',
-                    'content'   => $closer_subheading,
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_shut_bg',
-                    'type'      => 'color',
-                    'title'     => $closer_bg_title,
-                    'default'   => '#333333',
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
-                array(
-                    'id'        => 'reusable_shut_color',
-                    'type'      => 'color',
-                    'title'     => $closer_col_title,
-                    'default'   => '#ffffff',
-                    'dependency'=> array('enable_wp_block','==','true', true),
-                ),
             )
         )
     );
@@ -353,7 +228,7 @@ if (! defined('ABSPATH')) {
                 array(
                     array(
                         'type'      => 'content',
-                        'content'   => esc_html__('Panel strains are different branches of MaxBoxy (with FloatAny build popups, with InjectAny build in-content panels). Further you can enable MaxBoxy options for WordPress built in feature, i.e. Reusable blocks.', 'maxboxy'),
+                        'content'   => esc_html__('Panel strains are different branches of MaxBoxy (with FloatAny build popups, with InjectAny build in-content panels). Further you can enable MaxBoxy options for WordPress built in feature, i.e. Synced Patterns.', 'maxboxy'),
                     ),
                     array(
                         'type'      => 'content',
@@ -366,8 +241,8 @@ if (! defined('ABSPATH')) {
                     array(
                         'id'        => 'enable_wp_block',
                         'type'      => 'switcher',
-                        'title'     => esc_html__('Enable MaxBoxy for Reusable blocks', 'maxboxy'),
-                        'subtitle'  => esc_html__('"Reusable blocks" is WordPress built in feature which output is very similar to our InjectAny. With MaxBoxy you can enhance ', 'maxboxy') .'<a href="' .esc_url(admin_url('edit.php?post_type=wp_block')) .'">' .__('Reusable blocks') .'</a>. See documentation for differences.',
+                        'title'     => esc_html__('Enable MaxBoxy for Synced Patterns', 'maxboxy'),
+                        'subtitle'  => esc_html__('"Synced Patterns" is WordPress built in feature which output is very similar to our InjectAny. With MaxBoxy you can enhance ', 'maxboxy') .'<a href="' .esc_url(admin_url('edit.php?post_type=wp_block')) .'">' .__('Synced Patterns') .'</a>. See documentation for differences.',
                     ),
                 )
             )
@@ -386,7 +261,7 @@ if (! defined('ABSPATH')) {
                 array(
                     array(
                         'type'      => 'content',
-                        'content'   => esc_html__('Enabled modules are avaliable across multiple panel strains (InjectAny, FloatAny, Reusable blocks).', 'maxboxy'),
+                        'content'   => esc_html__('Enabled modules are avaliable across multiple panel strains (InjectAny, FloatAny, Synced Patterns).', 'maxboxy'),
                     ),
                     array(
                         'type'      => 'subheading',

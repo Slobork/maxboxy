@@ -475,206 +475,51 @@ if (! defined('ABSPATH')) {
      * Colors tab.
      */
 
-     /* Floatany */
-    // get default values from the Admin global settings
-    $floatany_bg_bc                 = isset(get_option('_maxboxy_options')[ 'floatany_bg' ][ 'background-color' ])
-                                    ?       get_option('_maxboxy_options')[ 'floatany_bg' ][ 'background-color' ] : '';
-
-    $floatany_bg_bc_default         = ! empty($floatany_bg_bc) ? $floatany_bg_bc : '#e8e2b7';
-
-    $floatany_panel_color           = isset(get_option('_maxboxy_options')[ 'floatany_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'floatany_color' ] : '';
-
-    $floatany_color_default         = ! empty($floatany_panel_color) ? $floatany_panel_color : '#4b4b4b';
-
-
-    $floatany_shut_bg               = isset(get_option('_maxboxy_options')[ 'floatany_shut_bg' ])
-                                    ?       get_option('_maxboxy_options')[ 'floatany_shut_bg' ] : '';
-
-    $floatany_shut_bg_default       = ! empty($floatany_shut_bg) ? $floatany_shut_bg : '#333333';
-
-
-    $floatany_shut_color            = isset(get_option('_maxboxy_options')[ 'floatany_shut_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'floatany_shut_color' ] : '';
-
-    $floatany_shut_color_default    = ! empty($floatany_shut_color) ? $floatany_shut_color : '#ffffff';
+    /* Floatany */
 
     // set colors tab
-    $colors_tab_floatany = array(
+    $colors_tab = array(
 
         'title'     => esc_html__('Colors', 'maxboxy'),
         'icon'      => 'fas fa-paint-brush',
         'fields'    => array(
-
+            
             array(
                 'id'            => 'panel_popup_bg',
                 'type'          => 'background',
-                'title'         => $panel_bg_title, // var determined at framework.config
-                'default'       => array(
-                                'background-color' => $floatany_bg_bc_default,
-                ),
+                'title'         => esc_html__('Panel\'s background', 'maxboxy'),
+            ),
+            array(
+                'type'          => 'submessage',
+                'style'         => 'normal',
+                'content'       => esc_html__('The background visibility depends on the transparency of the blocks you use. Also if you apply padding from the "Size" tab, that will result in the background set from here becoming visible.', 'maxboxy'),
             ),
             array(
                 'id'            => 'panel_popup_color',
                 'type'          => 'color',
-                'title'         => $panel_col_title,
-                'default'       => $floatany_color_default,
+                'title'         => esc_html__('Panel\'s text color', 'maxboxy'),
+                'help'          => esc_html__('If the block doesn\'t has the text color set, it will inherit from here.', 'maxboxy'),
             ),
             array(
                 'type'          => 'subheading',
-                'content'       => $closer_subheading,
+                'content'       => esc_html__('Close/toggle button', 'maxboxy'),
                 'dependency'    => array('unset_toggler','!=','true', true),
             ),
             array(
                 'id'            => 'panel_shut_bg',
                 'type'          => 'color',
-                'title'         => $closer_bg_title,
-                'default'       => $floatany_shut_bg_default,
+                'title'         => esc_html__('Background', 'maxboxy'),
+                'default'       => '#333333',
                 'dependency'    => array('unset_toggler','!=','true', true),
             ),
             array(
                 'id'            => 'panel_shut_color',
                 'type'          => 'color',
-                'title'         => $closer_col_title,
-                'default'       => $floatany_shut_color_default,
+                'title'         => esc_html__('Color', 'maxboxy'),
+                'default'       => '#ffffff',
                 'dependency'    => array('unset_toggler','!=','true', true),
             ),
 
-        )
-
-    );
-
-    /* Injectany */
-    // get default values from the settings
-    $injectany_bg_bc                = isset(get_option('_maxboxy_options')[ 'injectany_bg' ][ 'background-color' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_bg' ][ 'background-color' ] : '';
-
-    $injectany_bg_bc_default        = ! empty($injectany_bg_bc) ? $injectany_bg_bc : '#e8e2b7';
-
-    $injectany_panel_color          = isset(get_option('_maxboxy_options')[ 'injectany_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_color' ] : '';
-
-    $injectany_color_default        = ! empty($injectany_panel_color) ? $injectany_panel_color : '#4b4b4b';
-
-    $injectany_shut_bg              = isset(get_option('_maxboxy_options')[ 'injectany_shut_bg' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_shut_bg' ] : '';
-
-    $injectany_shut_bg_default      = ! empty($injectany_shut_bg) ? $injectany_shut_bg : '#333333';
-
-
-    $injectany_shut_color           = isset(get_option('_maxboxy_options')[ 'injectany_shut_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'injectany_shut_color' ] : '';
-
-    $injectany_shut_color_default   = ! empty($injectany_shut_color) ? $injectany_shut_color : '#ffffff';
-
-
-    // set colors tab
-    $colors_tab_injectany = array(
-
-        'title'     => esc_html__('Colors', 'maxboxy'),
-        'icon'      => 'fas fa-paint-brush',
-        'fields'    => array(
-            array(
-                'id'            => 'panel_popup_bg',
-                'type'          => 'background',
-                'title'         => $panel_bg_title, // var determined at framework.config
-                'default'       => array(
-                                'background-color' => $injectany_bg_bc_default,
-                ),
-            ),
-            array(
-                'id'            => 'panel_popup_color',
-                'type'          => 'color',
-                'title'         => $panel_col_title,
-                'default'       => $injectany_color_default,
-            ),
-            array(
-                'type'          => 'subheading',
-                'content'       => $closer_subheading,
-                'dependency'    => array('unset_toggler','!=','true', true),
-            ),
-            array(
-                'id'            => 'panel_shut_bg',
-                'type'          => 'color',
-                'title'         => $closer_bg_title,
-                'default'       => $injectany_shut_bg_default,
-                'dependency'    => array('unset_toggler','!=','true', true),
-            ),
-            array(
-                'id'            => 'panel_shut_color',
-                'type'          => 'color',
-                'title'         => $closer_col_title,
-                'default'       => $injectany_shut_color_default,
-                'dependency'    => array('unset_toggler','!=','true', true),
-            ),
-        )
-
-    );
-
-
-    /* Reusable blocks */
-    // get default values from the settings
-    $reusable_bg_bc                 = isset(get_option('_maxboxy_options')[ 'reusable_bg' ][ 'background-color' ])
-                                    ?       get_option('_maxboxy_options')[ 'reusable_bg' ][ 'background-color' ] : '';
-
-    $reusable_bg_bc_default         = ! empty($reusable_bg_bc) ? $reusable_bg_bc : '#e8e2b7';
-
-    $reusable_panel_color           = isset(get_option('_maxboxy_options')[ 'reusable_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'reusable_color' ] : '';
-
-    $reusable_color_default         = ! empty($reusable_panel_color) ? $reusable_panel_color : '#4b4b4b';
-
-    $reusable_shut_bg               = isset(get_option('_maxboxy_options')[ 'reusable_shut_bg' ])
-                                    ?       get_option('_maxboxy_options')[ 'reusable_shut_bg' ] : '';
-
-    $reusable_shut_bg_default       = ! empty($reusable_shut_bg) ? $reusable_shut_bg : '#333333';
-
-
-    $reusable_shut_color            = isset(get_option('_maxboxy_options')[ 'reusable_shut_color' ])
-                                    ?       get_option('_maxboxy_options')[ 'reusable_shut_color' ] : '';
-
-    $reusable_shut_color_default    = ! empty($reusable_shut_color) ? $reusable_shut_color : '#ffffff';
-
-
-    // set colors tab
-    $colors_tab_reusable = array(
-
-        'title'     => esc_html__('Colors', 'maxboxy'),
-        'icon'      => 'fas fa-paint-brush',
-        'fields'    => array(
-            array(
-                'id'            => 'panel_popup_bg',
-                'type'          => 'background',
-                'title'         => $panel_bg_title, // var determined at framework.config
-                'default'       => array(
-                                'background-color' => $reusable_bg_bc_default,
-                ),
-            ),
-            array(
-                'id'            => 'panel_popup_color',
-                'type'          => 'color',
-                'title'         => $panel_col_title,
-                'default'       => $reusable_color_default,
-            ),
-            array(
-                'type'          => 'subheading',
-                'content'       => $closer_subheading,
-                'dependency'    => array('unset_toggler','!=','true', true),
-            ),
-            array(
-                'id'            => 'panel_shut_bg',
-                'type'          => 'color',
-                'title'         => $closer_bg_title,
-                'default'       => $reusable_shut_bg_default,
-                'dependency'    => array('unset_toggler','!=','true', true),
-            ),
-            array(
-                'id'            => 'panel_shut_color',
-                'type'          => 'color',
-                'title'         => $closer_col_title,
-                'default'       => $reusable_shut_color_default,
-                'dependency'    => array('unset_toggler','!=','true', true),
-            ),
         )
 
     );
@@ -748,17 +593,9 @@ if (! defined('ABSPATH')) {
             ),
             array(
                 'id'            => 'panel_padding',
-                'type'          => 'spacing',
+                'type'          => 'spacing', 
                 'title'         => esc_html__('Padding', 'maxboxy'),
-                'help'          => esc_html__('Default is 1.5em', 'maxboxy'),
                 'units'         => array( '%', 'px', 'em', 'rem' ),
-                'default'       => array(
-                                        'top'    => '1.5',
-                                        'right'  => '1.5',
-                                        'bottom' => '1.5',
-                                        'left'   => '1.5',
-                                        'unit'   => 'em',
-                                    ),
             ),
             array(
                 'type'          => 'subheading',

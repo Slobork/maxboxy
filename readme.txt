@@ -1,8 +1,8 @@
 === MaxBoxy: Make WordPress Floating Content, Popup, Alert Bar ===
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
-Tested up to: 6.2
-Stable tag: 1.0.9
+Tested up to: 6.3
+Stable tag: 1.1.0
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,15 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.0 - 2023-08-13 =
+* Add commencing patterns in modal when starting a new panel
+* Add option to disable the patterns modal
+* Add defer strategy for the scripts enqueueing (Compatibility with WordPress 6.3)
+* Add removing autop option
+* Change the label Reusable Blocks to Sync Patterns
+* Update some exisitng and add few more patterns
+* Update Fields framework
+
 = 1.0.9 - 2023-04-28 =
 * Minor update regarding Stats option
 ** Change is actually reflected in the upcoming Pro addon, but has to be synchronized here as well

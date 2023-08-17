@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.3
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,9 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.1 - 2023-08-17 =
+* Fix: Image folder wasn't set properly for the background usage in patterns
+
 = 1.1.0 - 2023-08-13 =
 * Add commencing patterns in modal when starting a new panel
 * Add option to disable the patterns modal

@@ -25,10 +25,18 @@ if (! defined('ABSPATH') ) {
     exit;
 }
 
-    require_once 'admin/admin-init.php';
-    require_once 'classes/init.php';
-    require_once 'classes/reusable-blocks.php';
-    require_once 'classes/options.php';
-    require_once 'classes/admin-columns.php';
-    require_once 'classes/track.php';
-    require_once 'patterns.php';
+// Plugin data (getting plugin version, name, etc.)
+if (! function_exists('get_plugin_data')) {
+    include_once ABSPATH .'wp-admin/includes/plugin.php';
+}
+$plugin_data = get_plugin_data(__FILE__);
+define('MAXBOXY', ($plugin_data && $plugin_data['Name']) ? $plugin_data['Name'] : 'MaxBoxy');
+define('MAXBOXY_VERSION', ($plugin_data && $plugin_data['Version']) ? $plugin_data['Version'] : '1.0.0');
+
+require_once 'admin/admin-init.php';
+require_once 'classes/init.php';
+require_once 'classes/reusable-blocks.php';
+require_once 'classes/options.php';
+require_once 'classes/admin-columns.php';
+require_once 'classes/track.php';
+require_once 'patterns.php';

@@ -40,20 +40,6 @@ if (! class_exists('Max_Boxy')) {
     {
 
         /**
-         * Version.
-         * 
-         * Also has to be updated in fields framework settings @see /admin/opt/config/framework.php
-         * 
-         * @return string Plugin's version.
-         */
-        public static function version()
-        {
-            $plugin_version = '1.1.1';
-            return $plugin_version;
-        }
-
-
-        /**
          * Load plugin's textdomain.
          * 
          * @return void Hooking a load_plugin_textdomain().
@@ -146,19 +132,17 @@ if (! class_exists('Max_Boxy')) {
 
             if (! is_admin()) {
 
-                $plugin_version = self::version();
-
-                wp_register_style('maxboxy', plugins_url('/library/css/min/main.css', dirname(__FILE__)), array(), $plugin_version, 'all');
+                wp_register_style('maxboxy', plugins_url('/library/css/min/main.css', dirname(__FILE__)), array(), MAXBOXY_VERSION, 'all');
 
                 // dotimeout with prefix 'maxpressy-' coz other plugins can depend on the same script
-                wp_register_script('maxpressy-dotimeout', plugins_url('/library/js/min/do-timeout.js', dirname(__FILE__)), array('jquery'), $plugin_version, array('strategy' => 'defer'));
+                wp_register_script('maxpressy-dotimeout', plugins_url('/library/js/min/do-timeout.js', dirname(__FILE__)), array('jquery'), MAXBOXY_VERSION, array('strategy' => 'defer'));
 
-                wp_register_script('maxboxy', plugins_url('/library/js/min/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), $plugin_version, array('strategy' => 'defer'));
-                wp_register_script('maxboxy-conversions', plugins_url('/library/js/min/conversions.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout', 'maxboxy'), $plugin_version, array('strategy' => 'defer'));
+                wp_register_script('maxboxy', plugins_url('/library/js/min/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), MAXBOXY_VERSION, array('strategy' => 'defer'));
+                wp_register_script('maxboxy-conversions', plugins_url('/library/js/min/conversions.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout', 'maxboxy'), MAXBOXY_VERSION, array('strategy' => 'defer'));
 
                 // for debugging:
-                //wp_register_script('maxboxy', plugins_url('/library/js/src/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), $plugin_version, true);
-                //wp_register_script('maxboxy-conversions', plugins_url('/library/js/src/conversions.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout', 'maxboxy'), $plugin_version, true);
+                //wp_register_script('maxboxy', plugins_url('/library/js/src/main.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout'), MAXBOXY_VERSION, true);
+                //wp_register_script('maxboxy-conversions', plugins_url('/library/js/src/conversions.js', dirname(__FILE__)), array('jquery', 'maxpressy-dotimeout', 'maxboxy'), MAXBOXY_VERSION, true);
 
                 if (self::enqueue_place() !== 'on_demand') {
 

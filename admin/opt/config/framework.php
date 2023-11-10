@@ -12,7 +12,7 @@ if (! defined('ABSPATH')) {
      * Set a unique slug-like ID.
      */
     $prefix = '_maxboxy_options';
-    $MB_pro_version = class_exists('Max_Boxy_Pro') ? MAXBOXY_PRO_VERSION : '';
+    $MB_pro_version = defined('MAXBOXY_PRO_VERSION') ? MAXBOXY_PRO_VERSION : '';
     $print_pro_version = $MB_pro_version !== '' ? ' - Pro Version: ' .MAXBOXY_PRO_VERSION : '';
     CSF::createOptions(
         $prefix,

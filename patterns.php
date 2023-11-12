@@ -86,8 +86,8 @@ if (! defined('ABSPATH')) {
 
             $modal_offer   = $get_modal_offer !== 'no'
             ? array(
-                'blockTypes' => array( 'core/post-content' ),
-                'postTypes'  => array( 'float_any', 'inject_any', 'wp_block' )
+                'blockTypes' => array( 'core/post-content' ), // puts it in the commencing modal
+                'postTypes'  => array( 'float_any', 'inject_any', 'wp_block' ) // ...for specific post_types
             )
             : array();
 
@@ -133,8 +133,118 @@ if (! defined('ABSPATH')) {
             /*
              * Contacts
              */
+            register_block_pattern(
+                'maxboxy/contact-cceitc', [
+                'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
+                'keywords'      => ['contact', 'contact us'],
+                'categories'    => ['maxboxy-contact'],
+                'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group"><!-- wp:columns -->
+                <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
+                <h2 class="wp-block-heading">Call us</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph -->
+                <p>(555) 555-555</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:column -->
+                
+                <!-- wp:column {"width":"66.66%"} -->
+                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
+                <h2 class="wp-block-heading">Have a Question?</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph -->
+                <p>You should put a contact form beneath. First, you should install a plugin, for example "Contact form 7", then insert its shortcode. Also remove this paragraph.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:shortcode /--></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns -->
+                
+                <!-- wp:columns -->
+                <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
+                <h2 class="wp-block-heading">Find us</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph -->
+                <p>Dolor Sit, 567 89</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:column -->
+                
+                <!-- wp:column {"width":"66.66%"} -->
+                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
+                <h2 class="wp-block-heading">Follow us</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:social-links {"iconColor":"darko-transit","iconColorValue":"#171f29","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","layout":{"type":"flex","justifyContent":"left"}} -->
+                <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
+                
+                <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
+                
+                <!-- wp:social-link {"url":"#","service":"instagram"} /--></ul>
+                <!-- /wp:social-links --></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns --></div>
+                <!-- /wp:group -->',
+                 ] +$modal_offer
+            );
 
-            // Contact 1
+            register_block_pattern(
+                'maxboxy/contact-cceitc2', [
+                'title'         => esc_html__('Common contact elements in two columns 2', 'maxboxy'),
+                'keywords'      => ['contact', 'contact us'],
+                'categories'    => ['maxboxy-contact'],
+                'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group"><!-- wp:columns -->
+                <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} -->
+                <h3 class="wp-block-heading">Call us</h3>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph -->
+                <p>(555) 555-555</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:heading {"level":3} -->
+                <h3 class="wp-block-heading">Find us</h3>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph -->
+                <p>Dolor Sit, 567 89</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:heading {"level":3} -->
+                <h3 class="wp-block-heading">Follow us</h3>
+                <!-- /wp:heading -->
+                
+                <!-- wp:social-links {"iconColor":"darko-transit","iconColorValue":"#171f29","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","layout":{"type":"flex","justifyContent":"left"}} -->
+                <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
+                
+                <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
+                
+                <!-- wp:social-link {"url":"#","service":"instagram"} /--></ul>
+                <!-- /wp:social-links --></div>
+                <!-- /wp:column -->
+                
+                <!-- wp:column {"width":"66.66%"} -->
+                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
+                <h2 class="wp-block-heading">Have a Question?</h2>
+                <!-- /wp:heading -->
+                
+                <!-- wp:paragraph -->
+                <p>You should put a contact form beneath. First, you should install a plugin, for example "Contact form 7", then insert its shortcode. Also remove this paragraph.</p>
+                <!-- /wp:paragraph -->
+                
+                <!-- wp:shortcode /--></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns --></div>
+                <!-- /wp:group -->',
+                ] +$modal_offer
+            );
+
             register_block_pattern(
                 'maxboxy/contact-cfwsi', [
                 'title' => esc_html__('Contact form with social icons', 'maxboxy'),
@@ -142,13 +252,6 @@ if (! defined('ABSPATH')) {
                 'categories'    => ['maxboxy-contact'],
 
                 /*
-                 * @todo put in the modal on the page load:
-                 * @link https://github.com/WordPress/gutenberg/pull/41791
-                 * 'blockTypes' => array( 'core/post-content' ),
-                 *  For specified post types, will work with Gutenberg plugin active,
-                 * - Integration planned from wp 6.1:
-                 * 'postTypes' => array( 'float_any', 'inject_any', 'wp_block' ),
-                 * 
                  * @todo contentOnly for templateLock, i.e. only editing content inside the pattern,
                  * e.g. for group block <!-- wp:group {"templateLock": "contentOnly"}
                  * @link https://make.wordpress.org/core/2022/10/11/content-locking-features-and-updates/
@@ -182,7 +285,6 @@ if (! defined('ABSPATH')) {
                 ]
             );
 
-            // Contact 2
             register_block_pattern(
                 'maxboxy/contact-cfegmpeasi', [
                 'title'         => esc_html__('Contact form + embed google map + phone + email + address + social icons', 'maxboxy'),
@@ -276,7 +378,7 @@ if (! defined('ABSPATH')) {
                 <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
                 <!-- /wp:social-links --></div></div>
                 <!-- /wp:cover -->",
-                ] +$modal_offer
+                ]
             );
 
 

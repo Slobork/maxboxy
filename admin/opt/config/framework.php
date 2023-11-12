@@ -12,7 +12,8 @@ if (! defined('ABSPATH')) {
      * Set a unique slug-like ID.
      */
     $prefix = '_maxboxy_options';
-
+    $MB_pro_version = defined('MAXBOXY_PRO_VERSION') ? MAXBOXY_PRO_VERSION : '';
+    $print_pro_version = $MB_pro_version !== '' ? ' - Pro Version: ' .MAXBOXY_PRO_VERSION : '';
     CSF::createOptions(
         $prefix,
         array(
@@ -33,7 +34,7 @@ if (! defined('ABSPATH')) {
              */
             'menu_slug'         => 'maxboxy-settings', // has to be the same as registered top menu item on the Max_Boxy::admin_menu()
             'framework_title'   => 'MaxBoxy',
-            'footer_credit'     => 'MaxBoxy <small> v1.1.1</small>',
+            'footer_credit'     => 'MaxBoxy <small> ' .MAXBOXY_VERSION .$print_pro_version.'</small>',
             'footer_text'       => ' ',
             'theme'             => 'light',
             'show_bar_menu'     => false,

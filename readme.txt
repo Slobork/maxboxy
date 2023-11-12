@@ -1,8 +1,8 @@
 === MaxBoxy: Make WordPress Floating Content, Popup, Alert Bar ===
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
-Tested up to: 6.3
-Stable tag: 1.1.1
+Tested up to: 6.4
+Stable tag: 1.1.2
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,11 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.2 - 2023-11-13 =
+* Change the way the plugin version is retrieved and printed
+* Update contact patterns
+* Update the initial modal offer
+
 = 1.1.1 - 2023-08-17 =
 * Fix: Image folder wasn't set properly for the background usage in patterns
 

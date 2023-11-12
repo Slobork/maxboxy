@@ -44,13 +44,10 @@ if (! function_exists('maxboxy_admin_scripts')) {
     // phpcs:ignore
     function maxboxy_admin_scripts()
     {
-
-        $plugin_version = Max_Boxy::version();
-
-        wp_enqueue_script('maxboxy-adminizr', plugin_dir_url(__DIR__) .'library/admin/min/adminizr.js', array('jquery'), $plugin_version, true);
+        wp_enqueue_script('maxboxy-adminizr', plugin_dir_url(__DIR__) .'library/admin/min/adminizr.js', array('jquery'), MAXBOXY_VERSION, true);
 
         // for debugging
-        //wp_enqueue_script( 'maxboxy-adminizr', plugin_dir_url(  __DIR__  ) .'library/admin/adminizr.js', array( 'jquery' ), $plugin_version, true );
+        //wp_enqueue_script( 'maxboxy-adminizr', plugin_dir_url(  __DIR__  ) .'library/admin/adminizr.js', array( 'jquery' ), MAXBOXY_VERSION, true );
 
         $local_var_array  = array(
             'post_id'  => get_the_ID(),

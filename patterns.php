@@ -1289,8 +1289,8 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column -->
                 
                 <!-- wp:column {\"verticalAlignment\":\"center\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"className\":\"aligncenter size-full is-style-rounded\"} -->
-                <figure class=\"wp-block-image aligncenter size-full is-style-default\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
+                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
+                <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>

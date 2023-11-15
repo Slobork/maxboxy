@@ -133,11 +133,9 @@ if (! defined('ABSPATH')) {
             /*
              * Contacts
              */
-            register_block_pattern(
-                'maxboxy/contact-cceitc', [
+            $contact_cceitc_content = [
                 'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'categories'    => ['maxboxy-contact'],
                 'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
                 <div class="wp-block-group"><!-- wp:columns -->
                 <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
@@ -189,14 +187,20 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div>
                 <!-- /wp:group -->',
-                 ] +$modal_offer
-            );
+            ];
 
-            register_block_pattern(
-                'maxboxy/contact-cceitc2', [
+            /**
+             * Contact blocks pattern registration (1st for the pattern's block inserter category, 2nd to appear in modal).
+             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any, wp_block)
+             * So, if all put together, it would dispaly the pattern in the Modal,
+             * but not on block inserter outside of the listed postTypes
+             */
+            register_block_pattern('maxboxy/contact-cceitc', $contact_cceitc_content +['categories' => ['maxboxy-contact']]);
+            register_block_pattern('maxboxy/contact-cceitc-modal', $contact_cceitc_content +$modal_offer);
+
+            $contact_cceitc_2_content = [
                 'title'         => esc_html__('Common contact elements in two columns 2', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'categories'    => ['maxboxy-contact'],
                 'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
                 <div class="wp-block-group"><!-- wp:columns -->
                 <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
@@ -242,8 +246,10 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div>
                 <!-- /wp:group -->',
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/contact-cceitc2', $contact_cceitc_2_content +['categories' => ['maxboxy-contact']]);
+            register_block_pattern('maxboxy/contact-cceitc2-modal', $contact_cceitc_2_content +$modal_offer);
 
             register_block_pattern(
                 'maxboxy/contact-cfwsi', [
@@ -435,11 +441,9 @@ if (! defined('ABSPATH')) {
             );
 
             // Cookies - 2
-            register_block_pattern(
-                'maxboxy/cookies-2cbg', [
-                'title'         => esc_html__('2 columns - notice and a button adjusted with a background color', 'maxboxy'),
+            $contact_cookies_2cbg_content = [
+                'title'         => esc_html__('Cookies - 2 columns - notice and a button, with a background color', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
-                'categories'    => ['maxboxy-cookies'],
                 'content'       => "<!-- wp:columns {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"0\"}}},\"backgroundColor\":\"luminous-vivid-amber\"} -->
                 <div class=\"wp-block-columns has-luminous-vivid-amber-background-color has-background\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:0\"><!-- wp:column {\"width\":\"75%\"} -->
                 <div class=\"wp-block-column\" style=\"flex-basis:75%\"><!-- wp:paragraph -->
@@ -455,8 +459,10 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:buttons --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns -->",
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/cookies-2cbg', $contact_cookies_2cbg_content +['categories' => ['maxboxy-cookies']]);
+            register_block_pattern('maxboxy/cookies-2cbg-modal', $contact_cookies_2cbg_content +$modal_offer);
 
             // Cookies - 3
             register_block_pattern(
@@ -489,11 +495,9 @@ if (! defined('ABSPATH')) {
             );
 
             // Cookies - 4
-            register_block_pattern(
-                'maxboxy/cookies-4', [
-                'title'         => esc_html__('2 + 1 columns', 'maxboxy'),
+            $contact_cookies_4_content = [
+                'title'         => esc_html__('Cookies - 2 + 1 columns', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
-                'categories'    => ['maxboxy-cookies'],
                 'content'       => "<!-- wp:group -->
                                 <div class=\"wp-block-group\"><!-- wp:columns -->
                                 <div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"75%\"} -->
@@ -501,7 +505,7 @@ if (! defined('ABSPATH')) {
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column -->
-
+    
                                 <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
                                 <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:buttons {\"contentJustification\":\"center\"} -->
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
@@ -510,21 +514,23 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:buttons --></div>
                                 <!-- /wp:column --></div>
                                 <!-- /wp:columns -->
-
+    
                                 <!-- wp:separator -->
                                 <hr class=\"wp-block-separator\"/>
                                 <!-- /wp:separator -->
-
+    
                                 <!-- wp:spacer {\"height\":10} -->
                                 <div style=\"height:10px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                                 <!-- /wp:spacer -->
-
+    
                                 <!-- wp:paragraph {\"align\":\"center\"} -->
                                 <p class=\"has-text-align-center\">You can read more from our <a href=\"#\">Privacy Policy</a>.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:group -->",
-                ]
-            );
+            ];
+
+            register_block_pattern('maxboxy/cookies-4', $contact_cookies_4_content +['categories' => ['maxboxy-cookies']]);
+            register_block_pattern('maxboxy/cookies-4-modal', $contact_cookies_4_content +$modal_offer);
 
             // Cookies - 5
             register_block_pattern(
@@ -622,11 +628,9 @@ if (! defined('ABSPATH')) {
             );
 
             // CTA 3
-            register_block_pattern(
-                'maxboxy/cta-cmogb', [
+            $contact_cta_cmogb_content = [
                 'title'         => esc_html__('Ciber Monday offer (group block)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Ciber Monday'],
-                'categories'    => ['maxboxy-cta'],
                 'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":\"100%\"}},\"gradient\":\"luminous-dusk\"} -->
                 <div class=\"wp-block-group has-luminous-dusk-gradient-background has-background\" style=\"border-radius:100%\"><!-- wp:spacer {\"height\":\"3vh\"} -->
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
@@ -660,8 +664,10 @@ if (! defined('ABSPATH')) {
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group -->",
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/cta-cmogb', $contact_cta_cmogb_content +['categories' => ['maxboxy-cta']]);
+            register_block_pattern('maxboxy/cta-cmogb-modal', $contact_cta_cmogb_content +$modal_offer);
 
             // CTA 4
             register_block_pattern(
@@ -708,11 +714,9 @@ if (! defined('ABSPATH')) {
             );
 
             // CTA 5
-            register_block_pattern(
-                'maxboxy/cta-cocwbi', [
+            $cta_cocwbi_content = [
                 'title'         => esc_html__('Christmas offer (cover with background image)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'categories'    => ['maxboxy-cta'],
                 'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'","dimRatio":10,"layout":{"type":"constrained"}} -->
                 <div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="http://protester.local/wp-content/plugins/maxboxy/library/img/bg-christmas-three.jpeg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"3vh"} -->
                 <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
@@ -746,15 +750,16 @@ if (! defined('ABSPATH')) {
                 <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer --></div></div>
                 <!-- /wp:cover -->',
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/cta-cocwbi', $cta_cocwbi_content +['categories' => ['maxboxy-cta']]);
+            register_block_pattern('maxboxy/cta-cocwbi-modal', $cta_cocwbi_content +$modal_offer);
+
 
             // CTA 6
-            register_block_pattern(
-                'maxboxy/cta-voiagbwb', [
+            $cta_voiagbwb_content = [
                 'title'         => esc_html__('Valentine offer (in a group block with background)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'categories'    => ['maxboxy-cta'],
                 'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":{\"topLeft\":\"0%\",\"topRight\":\"100%\",\"bottomLeft\":\"100%\",\"bottomRight\":\"100%\"}},\"color\":{\"gradient\":\"linear-gradient(140deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%)\"}}} -->
                 <div class=\"wp-block-group has-background\" style=\"border-top-left-radius:0%;border-top-right-radius:100%;border-bottom-left-radius:100%;border-bottom-right-radius:100%;background:linear-gradient(140deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%)\"><!-- wp:spacer {\"height\":\"3vh\"} -->
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
@@ -788,15 +793,15 @@ if (! defined('ABSPATH')) {
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group -->",
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/cta-voiagbwb', $cta_voiagbwb_content +['categories' => ['maxboxy-cta']]);
+            register_block_pattern('maxboxy/cta-voiagbwb-modal', $cta_voiagbwb_content +$modal_offer);
 
             // CTA 7
-            register_block_pattern(
-                'maxboxy/cta-cwawbiatced', [
+            $cta_cwawbiatced_content = [
                 'title'         => esc_html__('Cover with a wrinkly background image and two colums (Ebook download)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'categories'    => ['maxboxy-cta'],
                 'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) ."\",\"dimRatio\":50,\"customOverlayColor\":\"#f6f0de\",\"contentPosition\":\"center center\",\"isDark\":false} -->
                 <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim\" style=\"background-color:#f6f0de\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null} -->
                 <div class=\"wp-block-columns\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->
@@ -822,8 +827,10 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
                 <!-- /wp:cover -->",
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/cta-cwawbiatced', $cta_cwawbiatced_content +['categories' => ['maxboxy-cta']]);
+            register_block_pattern('maxboxy/cta-cwawbiatced-modal', $cta_cwawbiatced_content +$modal_offer);
 
 
             /*
@@ -834,12 +841,9 @@ if (! defined('ABSPATH')) {
              * @link https://www.reshot.com/license/
              */
 
-            // info box 1
-            register_block_pattern(
-                'maxboxy/infobox-info-i', [
+            $info_i_content = [
                 'title'         => esc_html__('Info - i', 'maxboxy'),
                 'keywords'      => ['info box', 'info'],
-                'categories'    => ['maxboxy-infoboxes'],
                 'content'       => '<!-- wp:columns {"style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}},"border":{"top":{"width":"4px"}},"color":{"background":"#e6eff9","text":"#0d0deb"},"elements":{"link":{"color":{"text":"#0d0deb"}}}}} -->
                 <div class="wp-block-columns has-text-color has-background has-link-color" style="border-top-width:4px;color:#0d0deb;background-color:#e6eff9;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px"><!-- wp:column {"width":"8%","layout":{"type":"constrained"}} -->
                 <div class="wp-block-column" style="flex-basis:8%"><!-- wp:html -->
@@ -853,8 +857,16 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns -->',
-                ]
-            );
+            ];
+
+            /**
+             * Info box 1 (1st for the pattern's block inserter category, 2nd to appear in modal).
+             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any, wp_block)
+             * So, if all put together, it would dispaly the pattern in the Modal,
+             * but not on block inserter outside of the listed postTypes
+             */
+            register_block_pattern('maxboxy/infobox-info-i', $info_i_content +['categories' => ['maxboxy-infoboxes']]);
+            register_block_pattern('maxboxy/infobox-info-i-modal', $info_i_content +$modal_offer);
 
             // info box 2
             register_block_pattern(
@@ -901,11 +913,9 @@ if (! defined('ABSPATH')) {
             );
 
             // green box 1
-            register_block_pattern(
-                'maxboxy/infobox-info-bulb', [
+            $info_bulb_content = [
                 'title'         => esc_html__('Info - Bulb on', 'maxboxy'),
                 'keywords'      => ['info box', 'success', 'bulb'],
-                'categories'    => ['maxboxy-infoboxes'],
                 'content'       => '<!-- wp:columns {"style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}},"border":{"top":{"width":"4px"},"right":{},"bottom":{},"left":{}},"color":{"background":"#e0ffec","text":"#38b265"},"elements":{"link":{"color":{"text":"#38b265"}}}}} -->
                 <div class="wp-block-columns has-text-color has-background has-link-color" style="border-top-width:4px;color:#38b265;background-color:#e0ffec;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px"><!-- wp:column {"width":"8%","layout":{"type":"constrained"}} -->
                 <div class="wp-block-column" style="flex-basis:8%"><!-- wp:html -->
@@ -919,8 +929,10 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns -->',
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/infobox-info-bulb', $info_bulb_content +['categories' => ['maxboxy-infoboxes']]);
+            register_block_pattern('maxboxy/infobox-info-bulb-modal', $info_bulb_content +$modal_offer);
 
             // green box 2
             register_block_pattern(
@@ -967,11 +979,9 @@ if (! defined('ABSPATH')) {
             );
 
             // warning box 1
-            register_block_pattern(
-                'maxboxy/infobox-warning-exclamation-mark', [
+            $info_warning_exclamation_content = [
                 'title'         => esc_html__('Warning - Exclamation mark', 'maxboxy'),
                 'keywords'      => ['info box', 'warning', 'exclamation mark'],
-                'categories'    => ['maxboxy-infoboxes'],
                 'content'       => '<!-- wp:columns {"style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}},"border":{"top":{"width":"4px"},"right":{},"bottom":{},"left":{}},"color":{"background":"#fef8ee","text":"#f0b849"},"elements":{"link":{"color":{"text":"#f0b849"}}}}} -->
                 <div class="wp-block-columns has-text-color has-background has-link-color" style="border-top-width:4px;color:#f0b849;background-color:#fef8ee;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px"><!-- wp:column {"width":"8%","layout":{"type":"constrained"}} -->
                 <div class="wp-block-column" style="flex-basis:8%"><!-- wp:html -->
@@ -985,8 +995,9 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns -->',
-                ] +$modal_offer
-            );
+            ];
+            register_block_pattern('maxboxy/infobox-warning-exclamation-mark', $info_warning_exclamation_content +['categories' => ['maxboxy-infoboxes']]);
+            register_block_pattern('maxboxy/infobox-warning-exclamation-mark-modal', $info_warning_exclamation_content +$modal_offer);
 
             // warning box 2
             register_block_pattern(
@@ -1033,11 +1044,9 @@ if (! defined('ABSPATH')) {
             );
 
             // danger box 1
-            register_block_pattern(
-                'maxboxy/infobox-danger-stop', [
+            $info_danger_stop_content = [
                 'title'         => esc_html__('Danger - Stop', 'maxboxy'),
                 'keywords'      => ['info box', 'danger', 'stop'],
-                'categories'    => ['maxboxy-infoboxes'],
                 'content'       => '<!-- wp:columns {"style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}},"color":{"background":"#f7e9ed","text":"#eb0d16"},"elements":{"link":{"color":{"text":"#eb0d16"}}},"border":{"top":{"width":"4px"}}}} -->
                 <div class="wp-block-columns has-text-color has-background has-link-color" style="border-top-width:4px;color:#eb0d16;background-color:#f7e9ed;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px"><!-- wp:column {"width":"8%","layout":{"type":"constrained"}} -->
                 <div class="wp-block-column" style="flex-basis:8%"><!-- wp:html -->
@@ -1051,8 +1060,10 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns -->',
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/infobox-danger-stop', $info_danger_stop_content +['categories' => ['maxboxy-infoboxes']]);
+            register_block_pattern('maxboxy/infobox-danger-stop-modal', $info_danger_stop_content +$modal_offer);
 
             // danger box 2
             register_block_pattern(
@@ -1146,11 +1157,9 @@ if (! defined('ABSPATH')) {
             );
 
             // media 3
-            register_block_pattern(
-                'maxboxy/media-eyvabctaiacb', [
+            $media_eyvabctaiacb_content = [
                 'title'         => esc_html__('Example youtube video and a button call to action (in a cover block)', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
-                'categories'    => ['maxboxy-media'],
                 'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\",\"isDark\":false} -->
                 <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
                 <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"1.5em\"} -->
@@ -1180,8 +1189,10 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group --></div></div>
                 <!-- /wp:cover -->",
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/eyvabctaiacb', $media_eyvabctaiacb_content +['categories' => ['maxboxy-media']]);
+            register_block_pattern('maxboxy/eyvabctaiacb-modal', $media_eyvabctaiacb_content +$modal_offer);
 
 
             /*
@@ -1260,11 +1271,9 @@ if (! defined('ABSPATH')) {
             );
 
             // Signup 4
-            register_block_pattern(
-                'maxboxy/signup-spiacbwaia', [
+            $signup_spiacbwaia_content = [
                 'title'         => esc_html__('Signup placeholder in a cover block with an image aside', 'maxboxy'),
                 'keywords'      => ['Signup, news'],
-                'categories'    => ['maxboxy-signups'],
                 'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
                 <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null,\"align\":\"full\"} -->
                 <div class=\"wp-block-columns alignfull\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->
@@ -1286,8 +1295,11 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
                 <!-- /wp:cover -->",
-                ] +$modal_offer
-            );
+            ];
+
+            register_block_pattern('maxboxy/signup-spiacbwaia', $signup_spiacbwaia_content +['categories' => ['maxboxy-signups']]);
+            register_block_pattern('maxboxy/signup-spiacbwaia-modal', $signup_spiacbwaia_content +$modal_offer);
+
 
             /*
              * 5 - higher priority than default,

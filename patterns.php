@@ -1024,7 +1024,7 @@ if (! defined('ABSPATH')) {
             // warning box 3
             register_block_pattern(
                 'maxboxy/infobox-warning-star', [
-                'title'         => esc_html__('Warning - Star', 'maxboxy'),
+                'title'         => esc_html__('Orange box - Star', 'maxboxy'),
                 'keywords'      => ['info box', 'warning', 'star'],
                 'categories'    => ['maxboxy-infoboxes'],
                 'content'       => '<!-- wp:columns {"style":{"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}},"border":{"top":{"width":"4px"},"right":{},"bottom":{},"left":{}},"color":{"background":"#fef8ee","text":"#f0b849"},"elements":{"link":{"color":{"text":"#f0b849"}}}}} -->

@@ -29,8 +29,8 @@ Basically, with FloatAny strain - float any content on your site. Whatever you m
 = Strain InjectAny =
 In essence, with InjectAny strain - inject any content on specified pages or over the whole site. Create alerts or highlighted content boxes and even dismissible notes. You can also inject CSS and JS code in predefined head and footer locations.
 
-= Extend Reusable blocks =
-"Reusable blocks" is native WordPress feature. Extend these content boxes with MaxBoxy functionality. It makes the boxes options similar to aforementioned InjectAny (MaxBoxy's content box strain), still, it's up to you to decide when is it suitable to use Reusable blocks and when InjectAny.
+= Extend Synced-Patterns (Reusable blocks) =
+Synced Patterns, a.k.a. "Reusable blocks" is native WordPress feature. Extend these content boxes with MaxBoxy functionality. It makes the boxes options similar to aforementioned InjectAny (MaxBoxy's content box strain), still, it's up to you to decide when is it suitable to use Synced Pattern and when InjectAny. You should visit the plugin documentation to compare the difference in detail.
 
 = Simplicity, Performance and Design =
 The big chance is you're going to like this, MaxBoxy’s interface is the same that WordPress is using for publishing posts and pages. This means that content of the panels are built with native WordPress’ blocks. This creates lightweight outcome, outputting mostly the resources your site is already using. This should produce faster page loading compared to the tools competitors provide.

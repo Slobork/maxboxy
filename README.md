@@ -1,6 +1,6 @@
 # Create WordPress Floating Content, Popup, Alert Bars & Injecting Content
 
-![MaxBoxy Logo](https://ps.w.org/maxboxy/assets/banner-772x250.jpeg)
+![MaxBoxy banner](https://ps.w.org/maxboxy/assets/banner-772x250.jpeg)
 
 MaxBoxy is a dynamic WordPress plugin designed to enhance the functionality and aesthetics of your website. It allows you to create floating content and popups, inject panels into your site's content, and enhance the built-in WordPress Sync-Patterns.
 

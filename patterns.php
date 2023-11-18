@@ -263,6 +263,14 @@ if (! defined('ABSPATH')) {
                  * @link https://make.wordpress.org/core/2022/10/11/content-locking-features-and-updates/
                  * @link https://richtabor.com/content-only-editing/
                  * @link https://gist.github.com/richtabor/ddeea41ced691721318649bea8ce9db8
+                 * @link https://gist.github.com/annezazu/d62acd2514cea558be6cea97fe28ff3c
+                 * 
+                 * @todo Similar as above, moving & removing prevention. May be used on the trigger button
+                 * e.g. for the paragraph block <!-- wp:paragraph {"lock":{"remove":true,"move":true}}
+                 * @link https://gist.github.com/annezazu/acee30f8b6e8995e1b1a52796e6ef805
+                 * 
+                 * ...Another way to lock the blocks is on a template for the post type:
+                 * @link https://developer.wordpress.org/block-editor/reference-guides/block-api/block-templates/#locking
                  */
 
                 'content'       => "<!-- wp:group -->

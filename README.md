@@ -1,4 +1,5 @@
-Create WordPress Floating Content, Popup, Alert Bars & Injecting Content
+# Create WordPress Floating Content, Popup, Alert Bars & Injecting Content
+
 ![MaxBoxy Logo](https://ps.w.org/maxboxy/assets/banner-772x250.jpeg)
 
 MaxBoxy is a dynamic WordPress plugin designed to enhance the functionality and aesthetics of your website. It allows you to create floating content and popups, inject panels into your site's content, and enhance the built-in WordPress Sync-Patterns.
@@ -15,7 +16,7 @@ This feature allows you to inject panels directly into your site's content. This
 MaxBoxy also enhances the built-in WordPress Sync-Patterns, providing a more seamless and efficient workflow on how users can interact with these patterns.
 
 ## Installation
-Search for the 'MaxBoxy' plugin from your WordPress Dashboard → Plugins → Add new. Or alternatively:
+Search for the "MaxBoxy" plugin from your WordPress Dashboard → Plugins → Add new. Or alternatively:
 
 1. Download the plugin from the WordPress plugin directory or from [here](https://wordpress.org/plugins/maxboxy/).
 2. Navigate to your WordPress dashboard, then go to `Plugins > Add New`.
@@ -33,13 +34,13 @@ Search for the 'MaxBoxy' plugin from your WordPress Dashboard → Plugins → Ad
 For more detailed instructions, please refer to
 - the official [documentation](https://maxpressy.com/maxboxy/documentation/)
 - [plugin demo](https://maxpressy.com/maxboxy/demo/)
-- or the [MaxBoxy Home presentation](https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/).
+- or the [MaxBoxy official presentation](https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/)
 
 ## Support
 If you encounter any issues or have any questions about MaxBoxy, please consider a couple of options:
 1. If you use just the Basic (FREE) version, for the general support questions, it'll be appreciated if you use the forum on the WordPress repository. Visit our [support page](https://wordpress.org/support/plugin/maxboxy/)
 2. If you think you can constructively contribute, start an issue [here on GitHub](https://github.com/Slobork/maxboxy/issues)
-3. More support options are available [from our website](https://wordpress.org/support/plugin/maxboxy/)
+3. More support options are available [from our website](https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/#section-support)
 
 ## License
 MaxBoxy is licensed under the [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html).

@@ -12,8 +12,8 @@ This feature allows you to create and customize floating content and popups on y
 ### InjectAny
 This feature allows you to inject panels directly into your site's content. This could be used for adding additional information, embedding forms, or enhancing the visual appeal of your site.
 
-### Enhanced WordPress Sync-Patterns
-MaxBoxy also enhances the built-in WordPress Sync-Patterns, providing a more seamless and efficient workflow on how users can interact with these patterns.
+### Enhanced WordPress Synced-Patterns (Reusable blocks)
+MaxBoxy also enhances the built-in WordPress Synced Patterns, providing a more seamless and efficient workflow on how users can interact with these patterns.
 
 ### Track conversions
 MaxBoxy's track conversion option is a powerful feature that allows users to monitor and analyze the effectiveness of their content. It provides valuable insights and stats into user engagement and interaction. See the stats and how the visitors are reacting to action calls. With this option, users can optimize their content strategy and enhance conversion rates.

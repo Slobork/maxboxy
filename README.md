@@ -1,4 +1,5 @@
 Create WordPress Floating Content, Popup, Alert Bars & Injecting Content
+![MaxBoxy Logo](https://ps.w.org/maxboxy/assets/banner-772x250.jpeg)
 
 MaxBoxy is a dynamic WordPress plugin designed to enhance the functionality and aesthetics of your website. It allows you to create floating content and popups, inject panels into your site's content, and enhance the built-in WordPress Sync-Patterns.
 
@@ -36,8 +37,9 @@ For more detailed instructions, please refer to
 
 ## Support
 If you encounter any issues or have any questions about MaxBoxy, please consider a couple of options:
-1. If you use just the Basic (FREE) version, it'll be appreciated if you use the forum on the WordPress repository. Visit our [support page](https://wordpress.org/support/plugin/maxboxy/).
-2. Open a [ticket](https://maxpressy.freshdesk.com/support/tickets/new)
+1. If you use just the Basic (FREE) version, for the general support questions, it'll be appreciated if you use the forum on the WordPress repository. Visit our [support page](https://wordpress.org/support/plugin/maxboxy/)
+2. If you think you can constructively contribute, start an issue [here on GitHub](https://github.com/Slobork/maxboxy/issues)
+3. More support options are available [from our website](https://wordpress.org/support/plugin/maxboxy/)
 
 ## License
 MaxBoxy is licensed under the [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html).

@@ -947,34 +947,6 @@ jQuery(document).ready(function ($) {
 
 
 	/**
-	 * Set a class when the panel is hovered, so it can be used in css.
-	 */
-	$.fn.panelIsHovered = function() {
-
-		this.on({
-
-			mouseenter: function () {
-
-				$(this).addClass('ishovered');
-
-			},
-
-			mouseleave: function () {
-
-				$(this).removeClass('ishovered');
-
-			}
-
-		});
-
-		return this;
-
-	};
-
-	$( '.type-closer.role-hoverer.mark-hoverout-close' ).panelIsHovered();
-
-
-	/**
 	 * Mark a panel with 'nospace' class when there's no room in a viewport.
 	 */
 	 $.fn.panelNospace = function() {

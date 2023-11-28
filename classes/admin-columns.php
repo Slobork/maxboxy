@@ -64,6 +64,7 @@ if (! class_exists('Max_Boxy_Admin_Columns')) {
             $columns['post_views']  = esc_html__('Views (V/U)',  'maxboxy');
             $columns['post_goals']  = esc_html__('Goals (V/U)',  'maxboxy');
             $columns['conversion']  = esc_html__('Conversion',   'maxboxy');
+            // @doit 3 - Set shortcode copier for the panel
             return $columns;
 
         }

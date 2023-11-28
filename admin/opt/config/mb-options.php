@@ -322,13 +322,6 @@ if (! defined('ABSPATH')) {
                 'help'          => esc_html__('After the last notification item is shown, it will start over again from the first one, and continue endlessly.', 'maxboxy'),
                 'dependency'    => array('panel_roles','any','role-rotator'),
             ),
-            array(
-                'id'            => 'mark_hoverout_closing',
-                'type'          => 'checkbox',
-                'title'         => esc_html__('Label mark for closing', 'maxboxy'),
-                'help'          => esc_html__('Text will be added marking that the panel will be closed on mouse move out of the box.', 'maxboxy'),
-                'dependency'    => array('panel_type|panel_roles','any|any','closer|role-hoverer'),
-            ),
             $add_classes_field,
 
         ),
@@ -455,13 +448,6 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Repeat rotation', 'maxboxy'),
                 'help'          => esc_html__('After the last notification item is shown, it will start over again from the first one, and continue endlessly.', 'maxboxy'),
                 'dependency'    => array('panel_roles','any','role-rotator'),
-            ),
-            array(
-                'id'            => 'mark_hoverout_closing',
-                'type'          => 'checkbox',
-                'title'         => esc_html__('Label for hover closing', 'maxboxy'),
-                'help'          => esc_html__('Text will be added marking that the panel will be closed on mouse move out of the box.', 'maxboxy'),
-                'dependency'    => array('panel_type|panel_roles','any|any','closer|role-hoverer'),
             ),
             $add_classes_field,
 
@@ -731,7 +717,7 @@ if (! defined('ABSPATH')) {
         array(
             'id'            => 'button_open',
             'type'          => 'image_select',
-            'title'         => esc_html__('Opener icon', 'maxboxy'),
+            'title'         => esc_html__('Opener icon (CSS)', 'maxboxy'),
             'help'          => esc_html__('It\'s opening the panel', 'maxboxy'),
             'options'       => array(
                 'iks-plus'          => plugins_url('maxboxy/admin/opt/img/i-plus.png'),
@@ -750,9 +736,31 @@ if (! defined('ABSPATH')) {
             'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
         ),
         array(
+            'id'            => 'button_open_svg',
+            'type'          => 'image_select',
+            'title'         => esc_html__('Opener SVG', 'maxboxy'),
+            //'help'          => esc_html__('It\'s opening the panel', 'maxboxy'),
+            'desc'          => esc_html__('Overrides an icon', 'maxboxy'),
+            'options'       => array(
+                'iks-plus'          => plugins_url('maxboxy/admin/opt/img/i-plus.png'),
+                'minus'             => plugins_url('maxboxy/admin/opt/img/i-minus.png'),
+                'point-left'        => plugins_url('maxboxy/admin/opt/img/i-point-left.png'),
+            ),
+            'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
+        ),
+        array(
+            'id'            => 'button_open_img',
+            'title'         => esc_html__('Opener image', 'maxboxy'),
+            //'help'          => esc_html__('It\'s opening the panel', 'maxboxy'),
+            'desc'          => esc_html__('Overrides an icon and SVG', 'maxboxy'),
+            'type'          => 'media',
+            'library'       => 'image',
+            'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
+        ),
+        array(
             'id'            => 'button_close',
             'type'          => 'image_select',
-            'title'         => esc_html__('Closer icon', 'maxboxy'),
+            'title'         => esc_html__('Closer icon (CSS)', 'maxboxy'),
             'help'          => esc_html__('It\'s closing the panel', 'maxboxy'),
             'options'       => array(
                 'iks-plus'          => plugins_url('maxboxy/admin/opt/img/i-plus.png'),
@@ -770,6 +778,29 @@ if (! defined('ABSPATH')) {
             ),
             'default'       => 'iks',
             'dependency'    => array('unset_toggler','==','no'),
+        ),
+        array(
+            'id'            => 'button_close_svg',
+            'type'          => 'image_select',
+            'title'         => esc_html__('Closer SVG', 'maxboxy'),
+            //'help'          => esc_html__('It\'s closing the panel', 'maxboxy'),
+            'desc'          => esc_html__('Overrides an icon', 'maxboxy'),
+            'options'       => array(
+                //'none'          => 'none',
+                'iks-plus'          => plugins_url('maxboxy/admin/opt/img/i-plus.png'),
+                'minus'             => plugins_url('maxboxy/admin/opt/img/i-minus.png'),
+                'point-left'        => plugins_url('maxboxy/admin/opt/img/i-point-left.png'),
+            ),
+            'dependency'    => array('unset_toggler','==', 'no'),
+        ),
+        array(
+            'id'            => 'button_close_img',
+            'title'         => esc_html__('Closer image', 'maxboxy'),
+            //'help'          => esc_html__('It\'s closing the panel', 'maxboxy'),
+            'desc'          => esc_html__('Overrides an icon and SVG', 'maxboxy'),
+            'type'          => 'media',
+            'library'       => 'image',
+            'dependency'    => array('unset_toggler','==', 'no'),
         ),
         array(
             'id'            => 'closer_size',
@@ -824,6 +855,25 @@ if (! defined('ABSPATH')) {
               'style'       => 'height:80px;'
             ),
             'dependency'    => array('unset_toggler','!=','all'),
+        ),
+        array(
+            'id'            => 'additional_message',
+            'type'          => 'textarea',
+            'title'         => esc_html__('Additional message', 'maxboxy'),
+            'help'          => esc_html__('Set additional message that can appear along the trigger button or a panel', 'maxboxy'),
+        ),
+        array(
+            'id'            => 'additional_message_appear',
+            'type'          => 'button_set',
+            'title'         => esc_html__('Message appear on', 'maxboxy'),
+            //'help'          => esc_html__('', 'maxboxy'),
+            'options'       => array(
+                'over_closer'=> esc_html__('Trigger', 'maxboxy'),
+                'over_panel' => esc_html__('Panel',   'maxboxy'),
+                'both'       => esc_html__('Both',    'maxboxy'),
+            ),
+            'default'       => 'over_closer',
+            'dependency'    => array('additional_message','!=',''),
         ),
         /* @todo this option will need improvment - offering a couple of more optopns - set with select field
         array(

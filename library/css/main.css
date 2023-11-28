@@ -64,10 +64,9 @@
 .mboxy-wrap.on.default-closer-unset > .mboxy > .shut-default {
   display: none; }
 
-.mboxy-wrap.role-hoverer.mark-hoverout-close {
+.mboxy-wrap.has-additional-message {
   position: relative; }
-  .mboxy-wrap.role-hoverer.mark-hoverout-close .hover-out-closing-mark {
-    display: none;
+  .mboxy-wrap.has-additional-message .additional-message {
     color: #ffffff;
     background: #333333;
     padding: 8px 20px;
@@ -75,13 +74,21 @@
     height: -moz-max-content;
     height: max-content;
     text-align: center;
-    position: absolute; }
-  .mboxy-wrap.role-hoverer.mark-hoverout-close.ishovered .hover-out-closing-mark {
-    display: block; }
-  .mboxy-wrap.role-hoverer.mark-hoverout-close:not([class*="bottomed"]) .hover-out-closing-mark {
-    top: 100%; }
-  .mboxy-wrap.role-hoverer.mark-hoverout-close[class*="bottomed"] .hover-out-closing-mark {
-    bottom: 100%; }
+    position: absolute;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    pointer-events: none; }
+  .mboxy-wrap.has-additional-message:not([class*="bottomed"]) .additional-message {
+    top: 100%;
+    margin-top: 22px;
+    left: inherit;
+    right: inherit; }
+  .mboxy-wrap.has-additional-message[class*="bottomed"] .additional-message {
+    bottom: 100%;
+    margin-bottom: 22px;
+    left: inherit;
+    right: inherit; }
 
 /**
   * Floatany.

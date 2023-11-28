@@ -222,8 +222,9 @@ if (! class_exists('Max_Boxy_Options')) {
             $_escaped_rotator_time_data     = $rotator === true ? $_escaped_rotator_on_data .$_escaped_rotator_off_data .$_escaped_rota_close_pause_data : '';
             $rotator_repeat                 = $rotator === true && ! empty($basics[ 'rotator_repeat' ]) ? ' rotator-repeat' : '';
 
-            // mark closing with hover-out panel type
-            $mark_hoverout_close            = $panel_type === 'closer' && is_array($get_roles) && in_array('role-hoverer', $get_roles) && ! empty($basics[ 'mark_hoverout_closing' ]) ? ' mark-hoverout-close' : '';
+            // additional message for the trigger button or panel
+            $additional_message            = ! empty($basics[ 'additional_message' ]) ? $basics[ 'additional_message' ] : '';
+            $additional_message_class      = ! empty($basics[ 'additional_message' ]) ? ' has-additional-message' : '';
 
             /*
              * Additional classes - the field is in the group (i.e. in tab),
@@ -371,36 +372,37 @@ if (! class_exists('Max_Boxy_Options')) {
 
             // gather arguments
             $args = array(
-                'type'                  => $panel_type,
+                'type'                     => $panel_type,
                 // classes:
-                'strain'                => $panel_strain,
-                'style'                 => $showing_style,
-                'roles'                 => $panel_roles,
-                'rotator_repeat'        => $rotator_repeat,
-                'mark_hoverout_closing' => $mark_hoverout_close,
-                'shut_class'            => $shut_class,
-                //'trigger_anim'        => $trigger_anim,
-                'add_classes'           => $add_classes,
-                'panel_size'            => $panel_size_class,
-                'direction'             => $direction,
-                'closer_align'          => $closer_align,
-                'closer_size'           => $closer_size,
-                'toggler_styling'       => $toggler_styling,
-                'toggler_start_class'   => $toggler_start_class,
-                'unset_toggler_class'   => $unset_toggler_class,
-                'injectany_align'       => $injectany_align,
-                'sticky'                => $sticky,
+                'strain'                   => $panel_strain,
+                'style'                    => $showing_style,
+                'roles'                    => $panel_roles,
+                'rotator_repeat'           => $rotator_repeat,
+                'additional_message_class' => $additional_message_class,
+                'shut_class'               => $shut_class,
+                //'trigger_anim'           => $trigger_anim,
+                'add_classes'              => $add_classes,
+                'panel_size'               => $panel_size_class,
+                'direction'                => $direction,
+                'closer_align'             => $closer_align,
+                'closer_size'              => $closer_size,
+                'toggler_styling'          => $toggler_styling,
+                'toggler_start_class'      => $toggler_start_class,
+                'unset_toggler_class'      => $unset_toggler_class,
+                'injectany_align'          => $injectany_align,
+                'sticky'                   => $sticky,
                 // data:
-                'rotator_time'          => $_escaped_rotator_time_data,
-                'wrap_style'            => $_escaped_panel_wrap_style,
-                'panel_style'           => $_escaped_panel_data,
-                'content_style'         => $_escaped_panel_content_style,
-                'shut_style'            => $_escaped_panel_shut_style,
-                'toggler_data'          => $_escaped_toggler_data,
+                'rotator_time'             => $_escaped_rotator_time_data,
+                'wrap_style'               => $_escaped_panel_wrap_style,
+                'panel_style'              => $_escaped_panel_data,
+                'content_style'            => $_escaped_panel_content_style,
+                'shut_style'               => $_escaped_panel_shut_style,
+                'toggler_data'             => $_escaped_toggler_data,
                 // else:
-                'unset_toggler'         => $unset_toggler,
-                'toggler_start_title'   => $toggler_start_title,
-                'use_overlay'           => $use_overlay,
+                'unset_toggler'            => $unset_toggler,
+                'toggler_start_title'      => $toggler_start_title,
+                'use_overlay'              => $use_overlay,
+                'additional_message'       => $additional_message,
             );
 
             return $args;

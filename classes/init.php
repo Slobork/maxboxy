@@ -582,30 +582,31 @@ if (! class_exists('Max_Boxy')) {
          * }
          *
          *                              $basics of @param {
-         * @type string  'type'                  The type of the panel e.g. closer|toggler.
-         * @type string  'style'                 The appearance style of the panel e.g. bump|slide-vertical|etc.
-         * @type string  'roles'                 The role of the panel e.g. role-hidden|role-exit|role-igniter|etc.
-         * @type string  'rotator_repeat'        Set the class for rotator repeatition, otherwise it's empty.
-         * @type string  'mark_hoverout_closing' Set the class for panel's closing with hoverout, otherwise it's empty.
-         * @type string  'shut_class'            Based on the panel's type, set the class for panel's closing button.
-         * @type string  'add_classes'           Add additional classes to the panel.
-         * @type string  'panel_size'            Panel size class.
-         * @type string  'direction'             Class detirmens the relation direction of content box and toggler/closer button.
-         * @type string  'closer_align'          Class detirmens the alignment of toggler/closer button.
-         * @type string  'closer_size'           Class detirmens the size of toggler/closer button.
-         * @type string  'toggler_styling'       Additional toggler/closer styling e.g. border|inside|etc.
-         * @type string  'toggler_start_class'   Styling of toggler/closer button iks-plus|minus|etc.
-         * @type string  'injectany_align'       Alignment class for InjectAny.
-         * @type string  'sticky'                For InjectAny, print a class setting the panel as sticky, otherwise it's empty.
-         * @type string  'rotator_time'          For role rotator time data (already escaped).
-         * @type string  'wrap_style'            Escaped - get style attribute with its values for the .mboxy-wrap div.
-         * @type string  'panel_style'           Escaped - get style attribute with its values for the .mboxy div.
-         * @type string  'content_style'         Escaped - get style attribute with its values for the .mboxy-content div.
-         * @type string  'shut_style'            Escaped - get style attribute with its values for the shut button and hoverout element.
-         * @type string  'toggler_data'          Escaped - get data attribute with its values for the toggler/closer button.
-         * @type string  'unset_toggler'         Wheather to unset toggler/closer button. Default 'no'. Further accepts 'closer', 'all'.
-         * @type string  'toggler_start_title'   Title attriblute's value for the toggler/closer button. Default 'Close'. If the panel is role-igniter switch value to 'Open'.
-         * @type boolean 'use_overlay'           Wheather to use the overlay.
+         * @type string  'type'                     The type of the panel e.g. closer|toggler.
+         * @type string  'style'                    The appearance style of the panel e.g. bump|slide-vertical|etc.
+         * @type string  'roles'                    The role of the panel e.g. role-hidden|role-exit|role-igniter|etc.
+         * @type string  'rotator_repeat'           Set the class for rotator repeatition, otherwise it's empty.
+         * @type string  'shut_class'               Based on the panel's type, set the class for panel's closing button.
+         * @type string  'add_classes'              Add additional classes to the panel.
+         * @type string  'panel_size'               Panel size class.
+         * @type string  'direction'                Class detirmens the relation direction of content box and toggler/closer button.
+         * @type string  'closer_align'             Class detirmens the alignment of toggler/closer button.
+         * @type string  'closer_size'              Class detirmens the size of toggler/closer button.
+         * @type string  'toggler_styling'          Additional toggler/closer styling e.g. border|inside|etc.
+         * @type string  'toggler_start_class'      Styling of toggler/closer button iks-plus|minus|etc.
+         * @type string  'injectany_align'          Alignment class for InjectAny.
+         * @type string  'sticky'                   For InjectAny, print a class setting the panel as sticky, otherwise it's empty.
+         * @type string  'rotator_time'             For role rotator time data (already escaped).
+         * @type string  'wrap_style'               Escaped - get style attribute with its values for the .mboxy-wrap div.
+         * @type string  'panel_style'              Escaped - get style attribute with its values for the .mboxy div.
+         * @type string  'content_style'            Escaped - get style attribute with its values for the .mboxy-content div.
+         * @type string  'shut_style'               Escaped - get style attribute with its values for the shut button and hoverout element.
+         * @type string  'toggler_data'             Escaped - get data attribute with its values for the toggler/closer button.
+         * @type string  'unset_toggler'            Wheather to unset toggler/closer button. Default 'no'. Further accepts 'closer', 'all'.
+         * @type string  'toggler_start_title'      Title attriblute's value for the toggler/closer button. Default 'Close'. If the panel is role-igniter switch value to 'Open'.
+         * @type string  'additional_message_class' Set the class for panel's additional message.
+         * @type string  'additional_message'       Set the trigger button or panel's additional message.
+         * @type boolean 'use_overlay'              Wheather to use the overlay.
          *
          * }
          *
@@ -703,7 +704,7 @@ if (! class_exists('Max_Boxy')) {
                                     .esc_attr($basics[ 'style' ])
                                     .esc_attr($basics[ 'roles' ])
                                     .esc_attr($basics[ 'rotator_repeat' ])
-                                    .esc_attr($basics[ 'mark_hoverout_closing' ])
+                                    .esc_attr($basics[ 'additional_message_class' ])
                                     .esc_attr($basics[ 'shut_class' ])
                                     .esc_attr($basics[ 'unset_toggler_class' ])
                                     .esc_attr($basics[ 'sticky' ])
@@ -733,56 +734,46 @@ if (! class_exists('Max_Boxy')) {
 
                 $basic_toggler_classes = 'shuter shut-default';
 
-                // Label (on hover out)
-                if (! empty($basics[ 'mark_hoverout_closing' ])) {
-                    // $basics[ 'shut_style' ] is already escaped @see Max_Boxy_Options::basics()
-                    $_escaped_out .= '<div class="hover-out-closing-mark"' .$basics[ 'shut_style' ] .'>' .esc_html__('Move out to close', 'maxboxy') .'</div>';
-                }
+                // Additional message on a trigger button or a panel
+                // $basics[ 'shut_style' ] is already escaped @see Max_Boxy_Options::basics()
+                $_escaped_additional_message = ! empty($basics[ 'additional_message' ]) ?  '<div class="additional-message"' .$basics[ 'shut_style' ] .'>' .esc_html($basics[ 'additional_message' ]) .'</div>' : '';
 
-                // if closer isn't disabled
-                if ($basics[ 'unset_toggler' ] === 'no') {
+                // closer && if closer isn't disabled
+                if ($basics[ 'type' ] === 'closer' && $basics[ 'unset_toggler' ] === 'no') {
 
-                    // closer
-                    if ($basics[ 'type' ] === 'closer') {
-
-                        // $basics[ 'shut_style' ] and $basics[ 'toggler_data' ] is already escaped @see Max_Boxy_Options::basics()
-                        $_escaped_out .= '<div class="mboxy-closer '
-                        .esc_attr($basic_toggler_classes)
-                        .esc_attr($basics[ 'closer_size' ])
-                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$basics[ 'shut_style' ] .'>
-                        <div class="shut-inner' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$basics[ 'toggler_data' ] .'></div>
-                        </div>';
-
-                    }
+                    // $basics[ 'shut_style' ] and $basics[ 'toggler_data' ] is already escaped @see Max_Boxy_Options::basics()
+                    $_escaped_out .= '<div class="mboxy-closer '
+                    .esc_attr($basic_toggler_classes)
+                    .esc_attr($basics[ 'closer_size' ])
+                    .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$basics[ 'shut_style' ] .'>
+                    ' .$_escaped_additional_message .'
+                    <div class="shut-inner' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$basics[ 'toggler_data' ] .'></div>
+                    </div>';
 
                 }
 
-                // if toggler isn't disabled
-                if ($basics[ 'unset_toggler' ] !== 'all') {
+                // toggler/igniter && if it isn't disabled
+                if ($basics[ 'type' ] === 'toggler' && $basics[ 'unset_toggler' ] !== 'all') {
 
-                    // toggler/igniter
-                    if ($basics[ 'type' ] === 'toggler') {
-
-                         // $basics[ 'shut_style' ] and $basics[ 'toggler_data' ] is already escaped @see Max_Boxy_Options::basics()
-                        $_escaped_out .= '<div class="mboxy-toggler '
-                                                .esc_attr($basic_toggler_classes)
-                                                .esc_attr($basics[ 'closer_size' ])
-                                                .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$basics[ 'shut_style' ] .'>
-                                            <div class="shut-inner' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$basics[ 'toggler_data' ] .'></div>
-                                        </div>';
-
-                    }
+                        // $basics[ 'shut_style' ] and $basics[ 'toggler_data' ] are already escaped @see Max_Boxy_Options::basics()
+                    $_escaped_out .= '<div class="mboxy-toggler '
+                                            .esc_attr($basic_toggler_classes)
+                                            .esc_attr($basics[ 'closer_size' ])
+                                            .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$basics[ 'shut_style' ] .'>
+                                        ' .$_escaped_additional_message .'
+                                        <div class="shut-inner' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$basics[ 'toggler_data' ] .'></div>
+                                    </div>';
 
                 }
 
-                $_escaped_out .= '</div>';
-
+                $_escaped_out .= '</div>'; // close .mboxy
+                
                 // overlay
                 if ($basics[ 'use_overlay' ] === true) {
                     $_escaped_out .= '<div class="mboxy-overlay"><div class="overlay-inner" title="' .__('Close', 'maxboxy') .'"></div></div>';
                 }
-
-                $_escaped_out .= '</div>';
+                
+                $_escaped_out .= '</div>'; // close .mboxy-wrap
 
             }
 

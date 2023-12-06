@@ -373,6 +373,14 @@ if (! defined('ABSPATH')) {
                     'content'   => esc_html__('- Easily move the common settings from one to another Website.', 'maxboxy'),
                 ),
                 array(
+                    'type'      => 'subheading',
+                    'content'   => esc_html__('Quick start adding panels', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'submessage',
+                    'content'   => esc_html__('- From the left navigation menu locate MaxBoxy. Pick InjectAny or FloatAny, then select the "Add new" to commence panel creation.', 'maxboxy'),
+                ),
+                array(
                     'type'      => 'notice',
                     'style'     => 'info',
                     'content'   => esc_html__('See ', 'maxboxy') .'<a href="https://maxpressy.com/maxboxy/documentation/" target="_blank">' .__('the whole documentation', 'maxboxy') .'</a>' .esc_html__(' for illustrated details. ', 'maxboxy'),

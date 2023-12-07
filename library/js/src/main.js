@@ -819,7 +819,7 @@ jQuery(document).ready(function ($) {
 
 				panel.find('.mboxy-toggler.shut-default').toggleClass('igniteon');
 
-				var shut_inner              =   panel.find( '.shut-inner' ),
+				var shut_inner              =   panel.find( '.trig-icon' ),
 					data_button_open        =   typeof shut_inner.data('button-open')     !== 'undefined'     ?   shut_inner.data('button-open')    : '',
 					data_button_close       =   typeof shut_inner.data('button-close')    !== 'undefined'     ?   shut_inner.data('button-close')   : '';
 
@@ -945,6 +945,14 @@ jQuery(document).ready(function ($) {
 
 	$( '.type-closer.role-hoverer' ).panelHoverShut();
 
+
+	/**
+	 * Close the additional message on the igniter
+	 */
+	$('.additional-message-killer').on('click', function (e) {
+		e.stopPropagation();
+		$(this).parent().hide();
+	});
 
 	/**
 	 * Mark a panel with 'nospace' class when there's no room in a viewport.

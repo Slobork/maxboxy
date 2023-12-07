@@ -29,11 +29,26 @@
 			max-width: 100%; // in conjuction with "width: fill-available", this makes the combination that seems to work for all scenarios
 		}
 
+	} // end .mboxy
+
+	.additional-lable {
+		position: absolute;
+		color: #ffffff;
+		background: #333333;
+		padding: 4px 14px;
+		height: max-content;
+		width: fit-content;
+		max-width: 50%;
+		text-align: center;
 	}
 
+	//&:not([class*="bottomed"]) .additional-lable  { top: 100%; }
+	//&[class*="bottomed"] .additional-lable  { bottom: 100%; }
+	&:not([class*="bottomed"]) .additional-lable { top: 100%; left: inherit; right: inherit; }
+	&[class*="bottomed"] .additional-lable { bottom: 100%; left: inherit; right: inherit; }
 	&.on {
 	
-		&.default-closer-unset {
+		&.hide-default-closer {
 
 			// hide the default toggler if the user has set the in content toggler for the panel
 			> .mboxy > .shut-default { display: none; }
@@ -41,27 +56,9 @@
 
 	}
 
-	// &:not(.on) {}
+	&:not(.on) {
 
-	// hover out marking
-	//&.mark-hoverout-close {
-	&.has-additional-message {
-		position: relative;
-
-		.additional-message {
-			color: #ffffff;
-			background: #333333;
-			padding: 8px 20px;
-			height: max-content;
-			text-align: center;
-			position: absolute;
-			
-			width: max-content;
-			pointer-events: none;
-		}
-
-		&:not([class*="bottomed"]) .additional-message { top: 100%; margin-top: 22px; left: inherit; right: inherit; }
-		&[class*="bottomed"] .additional-message { bottom: 100%; margin-bottom: 22px; left: inherit; right: inherit; }
+		.additional-lable {display: none;}
 
 	}
 

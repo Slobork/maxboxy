@@ -215,6 +215,12 @@ if (! defined('ABSPATH')) {
 
     $get_zindex_default = ! empty($zindex) ? $zindex : 999;
 
+    $panel_additional_lable = array(
+        'id'            => 'panel_additional_lable',
+        'type'          => 'textarea',
+        'title'         => esc_html__('Additional label over the panel', 'maxboxy'),
+        'help'          => esc_html__('Set additional message that can appear along the panel', 'maxboxy'),
+    );
 
     $add_classes_field  = function_exists('maxboxy_metabox_settings_basic_pro') && ! empty(maxboxy_metabox_settings_basic_pro()[ 'add_classes' ])
                         ? maxboxy_metabox_settings_basic_pro()[ 'add_classes' ]
@@ -322,6 +328,7 @@ if (! defined('ABSPATH')) {
                 'help'          => esc_html__('After the last notification item is shown, it will start over again from the first one, and continue endlessly.', 'maxboxy'),
                 'dependency'    => array('panel_roles','any','role-rotator'),
             ),
+            $panel_additional_lable,
             $add_classes_field,
 
         ),
@@ -449,6 +456,7 @@ if (! defined('ABSPATH')) {
                 'help'          => esc_html__('After the last notification item is shown, it will start over again from the first one, and continue endlessly.', 'maxboxy'),
                 'dependency'    => array('panel_roles','any','role-rotator'),
             ),
+            $panel_additional_lable,
             $add_classes_field,
 
         )
@@ -488,7 +496,7 @@ if (! defined('ABSPATH')) {
             ),
             array(
                 'type'          => 'subheading',
-                'content'       => esc_html__('Close/toggle button', 'maxboxy'),
+                'content'       => esc_html__('Toggler/Additional message', 'maxboxy'),
                 'dependency'    => array('unset_toggler','!=','true', true),
             ),
             array(
@@ -705,7 +713,7 @@ if (! defined('ABSPATH')) {
             'id'            => 'unset_toggler',
             'type'          => 'button_set',
             'title'         => esc_html__('Usage', 'maxboxy'),
-            'help'          => esc_html__('You can still utilize the in-content closing/toggling buttons, no matter which option you set here.', 'maxboxy'),
+            'help'          => esc_html__('You can use, remove the close button, or remove entirely both open and close button. You can still utilize the in-content closing/toggling buttons, no matter which option you set here.', 'maxboxy'),
             'options'       => array(
                 'no'        => esc_html__('Use',        'maxboxy'),
                 'closer'    => esc_html__('No Closer',  'maxboxy'),
@@ -715,7 +723,7 @@ if (! defined('ABSPATH')) {
             'class'         => 'mb-unset-toggling-default',
         ),
         array(
-            'id'            => 'button_open',
+            'id'            => 'button_open_icon',
             'type'          => 'image_select',
             'title'         => esc_html__('Opener icon (CSS)', 'maxboxy'),
             'help'          => esc_html__('It\'s opening the panel', 'maxboxy'),
@@ -733,20 +741,37 @@ if (! defined('ABSPATH')) {
                 'ham-f4'            => plugins_url('maxboxy/admin/opt/img/i-ham-5.png'),
             ),
             'default'       => 'iks-plus',
-            'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
+            'dependency'    => array('unset_toggler|button_open_svg|button_open_img|panel_type','!=|==|==|any','all|no||toggler', '|||true'),
         ),
         array(
             'id'            => 'button_open_svg',
             'type'          => 'image_select',
             'title'         => esc_html__('Opener SVG', 'maxboxy'),
             //'help'          => esc_html__('It\'s opening the panel', 'maxboxy'),
-            'desc'          => esc_html__('Overrides an icon', 'maxboxy'),
+            'desc'          => esc_html__('Overrides a css icon', 'maxboxy'),
             'options'       => array(
-                'iks-plus'          => plugins_url('maxboxy/admin/opt/img/i-plus.png'),
-                'minus'             => plugins_url('maxboxy/admin/opt/img/i-minus.png'),
-                'point-left'        => plugins_url('maxboxy/admin/opt/img/i-point-left.png'),
+                'no'                => plugins_url('maxboxy/admin/opt/img/svg-none.png'),
+                'svg-basket'        => plugins_url('maxboxy/admin/opt/img/svg-basket.png'),
+                'svg-book'          => plugins_url('maxboxy/admin/opt/img/svg-book.png'),
+                'svg-call'          => plugins_url('maxboxy/admin/opt/img/svg-call.png'),
+                'svg-cookie'        => plugins_url('maxboxy/admin/opt/img/svg-cookie.png'),
+                'svg-chat'          => plugins_url('maxboxy/admin/opt/img/svg-chat.png'),
+                'svg-chats'         => plugins_url('maxboxy/admin/opt/img/svg-chats.png'),
+                'svg-plus'          => plugins_url('maxboxy/admin/opt/img/svg-plus.png'),
+                'svg-eye'           => plugins_url('maxboxy/admin/opt/img/svg-eye.png'),
+                'svg-flag'          => plugins_url('maxboxy/admin/opt/img/svg-flag.png'),
+                'svg-home'          => plugins_url('maxboxy/admin/opt/img/svg-home.png'),
+                'svg-info'          => plugins_url('maxboxy/admin/opt/img/svg-info.png'),
+                'svg-layer'         => plugins_url('maxboxy/admin/opt/img/svg-layer.png'),
+                'svg-location'      => plugins_url('maxboxy/admin/opt/img/svg-location.png'),
+                'svg-mail'          => plugins_url('maxboxy/admin/opt/img/svg-mail.png'),
+                'svg-pin'           => plugins_url('maxboxy/admin/opt/img/svg-pin.png'),
+                'svg-play'          => plugins_url('maxboxy/admin/opt/img/svg-play.png'),
+                'svg-settings'      => plugins_url('maxboxy/admin/opt/img/svg-settings.png'),
+                'svg-share'         => plugins_url('maxboxy/admin/opt/img/svg-share.png'),
             ),
-            'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
+            'default'       => 'no',
+            'dependency'    => array('unset_toggler|button_open_img|panel_type','!=|==|any','all||toggler', '||true'),
         ),
         array(
             'id'            => 'button_open_img',
@@ -758,7 +783,7 @@ if (! defined('ABSPATH')) {
             'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
         ),
         array(
-            'id'            => 'button_close',
+            'id'            => 'button_close_icon',
             'type'          => 'image_select',
             'title'         => esc_html__('Closer icon (CSS)', 'maxboxy'),
             'help'          => esc_html__('It\'s closing the panel', 'maxboxy'),
@@ -777,7 +802,7 @@ if (! defined('ABSPATH')) {
                 'ham-f4'            => plugins_url('maxboxy/admin/opt/img/i-ham-5.png'),
             ),
             'default'       => 'iks',
-            'dependency'    => array('unset_toggler','==','no'),
+            'dependency'    => array('unset_toggler|button_close_svg|button_close_img','==|==|==','no|no|'),
         ),
         array(
             'id'            => 'button_close_svg',
@@ -786,12 +811,28 @@ if (! defined('ABSPATH')) {
             //'help'          => esc_html__('It\'s closing the panel', 'maxboxy'),
             'desc'          => esc_html__('Overrides an icon', 'maxboxy'),
             'options'       => array(
-                //'none'          => 'none',
-                'iks-plus'          => plugins_url('maxboxy/admin/opt/img/i-plus.png'),
-                'minus'             => plugins_url('maxboxy/admin/opt/img/i-minus.png'),
-                'point-left'        => plugins_url('maxboxy/admin/opt/img/i-point-left.png'),
+                'no'                => plugins_url('maxboxy/admin/opt/img/svg-none.png'),
+                'svg-basket'        => plugins_url('maxboxy/admin/opt/img/svg-basket.png'),
+                'svg-book'          => plugins_url('maxboxy/admin/opt/img/svg-book.png'),
+                'svg-call'          => plugins_url('maxboxy/admin/opt/img/svg-call.png'),
+                'svg-cookie'        => plugins_url('maxboxy/admin/opt/img/svg-cookie.png'),
+                'svg-chat'          => plugins_url('maxboxy/admin/opt/img/svg-chat.png'),
+                'svg-chats'         => plugins_url('maxboxy/admin/opt/img/svg-chats.png'),
+                'svg-close'         => plugins_url('maxboxy/admin/opt/img/svg-close.png'),
+                'svg-eye'           => plugins_url('maxboxy/admin/opt/img/svg-eye.png'),
+                'svg-flag'          => plugins_url('maxboxy/admin/opt/img/svg-flag.png'),
+                'svg-home'          => plugins_url('maxboxy/admin/opt/img/svg-home.png'),
+                'svg-info'          => plugins_url('maxboxy/admin/opt/img/svg-info.png'),
+                'svg-layer'         => plugins_url('maxboxy/admin/opt/img/svg-layer.png'),
+                'svg-location'      => plugins_url('maxboxy/admin/opt/img/svg-location.png'),
+                'svg-mail'          => plugins_url('maxboxy/admin/opt/img/svg-mail.png'),
+                'svg-pin'           => plugins_url('maxboxy/admin/opt/img/svg-pin.png'),
+                'svg-play'          => plugins_url('maxboxy/admin/opt/img/svg-play.png'),
+                'svg-settings'      => plugins_url('maxboxy/admin/opt/img/svg-settings.png'),
+                'svg-share'         => plugins_url('maxboxy/admin/opt/img/svg-share.png'),
             ),
-            'dependency'    => array('unset_toggler','==', 'no'),
+            'default'       => 'no',
+            'dependency'    => array('unset_toggler|button_close_img','==|==', 'no|'),
         ),
         array(
             'id'            => 'button_close_img',
@@ -857,23 +898,11 @@ if (! defined('ABSPATH')) {
             'dependency'    => array('unset_toggler','!=','all'),
         ),
         array(
-            'id'            => 'additional_message',
+            'id'            => 'trigger_additional_message',
             'type'          => 'textarea',
-            'title'         => esc_html__('Additional message', 'maxboxy'),
-            'help'          => esc_html__('Set additional message that can appear along the trigger button or a panel', 'maxboxy'),
-        ),
-        array(
-            'id'            => 'additional_message_appear',
-            'type'          => 'button_set',
-            'title'         => esc_html__('Message appear on', 'maxboxy'),
-            //'help'          => esc_html__('', 'maxboxy'),
-            'options'       => array(
-                'over_closer'=> esc_html__('Trigger', 'maxboxy'),
-                'over_panel' => esc_html__('Panel',   'maxboxy'),
-                'both'       => esc_html__('Both',    'maxboxy'),
-            ),
-            'default'       => 'over_closer',
-            'dependency'    => array('additional_message','!=',''),
+            'title'         => esc_html__('Toggler additional message', 'maxboxy'),
+            'help'          => esc_html__('Set additional message that can appear along the trigger button.', 'maxboxy'),
+            'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
         ),
         /* @todo this option will need improvment - offering a couple of more optopns - set with select field
         array(

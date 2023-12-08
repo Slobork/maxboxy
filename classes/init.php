@@ -649,7 +649,7 @@ if (! class_exists('Max_Boxy')) {
         public static function panel( $get_id, $post, $is_shorty, $is_ajax_call, $name, $loading, $basics, $goals, $conditionals, $splitter )
         {
 
-            /*
+            /**
              * Set the Content output
              * Instead of apply_shortcodes( $get_content ), 
              * it's better to use apply_filters on the_content,
@@ -658,10 +658,11 @@ if (! class_exists('Max_Boxy')) {
             $get_content  = ! empty($post->post_content) ? $post->post_content : '';
             $_set_content = apply_filters('the_content', $get_content);
 
-            // name is required
-            if (empty($name)) {
-                 return;
-            }
+            /**
+             * If the title isn't specified, set the post id
+             * This is to bypass the cunfusion, when a user omits the title
+             */
+            $name = empty($name) ? $get_id : $name;
 
             // Stop - if it's splitted item and it isn't prerendered (it will be processed through the ajax)
             if ($is_ajax_call === false && $splitter[ 'on' ] === true && $splitter[ 'prerender' ] === false ) {
@@ -669,7 +670,7 @@ if (! class_exists('Max_Boxy')) {
             }
 
 
-            /*
+            /**
              * $loading[ 'location' ] and $loading[ 'test_mode' ] is null for
              * 'wp_block' and browser would throw a warning notice,
              * so make this check
@@ -702,7 +703,7 @@ if (! class_exists('Max_Boxy')) {
                     return $_set_content;
                 }
 
-                /*
+                /**
                  * Output the panel i.e. all other locations than injectany's head.
                  */
                 $_escaped_out .= '<div id="' .esc_attr($name)

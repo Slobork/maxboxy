@@ -346,7 +346,7 @@ if (! defined('ABSPATH')) {
                 ),
                 array(
                     'type'      => 'submessage',
-                    'content'   => esc_html__('- Overall options affecting all the panels.', 'maxboxy'),
+                    'content'   => esc_html__('- Overall options that affect all panels.', 'maxboxy'),
                 ),
                 array(
                     'type'      => 'subheading',
@@ -374,7 +374,7 @@ if (! defined('ABSPATH')) {
                 ),
                 array(
                     'type'      => 'subheading',
-                    'content'   => esc_html__('Quick start adding panels', 'maxboxy'),
+                    'content'   => esc_html__('Quick start creating panels', 'maxboxy'),
                 ),
                 array(
                     'type'      => 'submessage',

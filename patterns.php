@@ -136,8 +136,8 @@ if (! defined('ABSPATH')) {
             $contact_cceitc_content = [
                 'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
-                <div class="wp-block-group"><!-- wp:columns -->
+                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns -->
                 <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
                 <h2 class="wp-block-heading">Call us</h2>
@@ -201,8 +201,8 @@ if (! defined('ABSPATH')) {
             $contact_cceitc_2_content = [
                 'title'         => esc_html__('Common contact elements in two columns 2', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
-                <div class="wp-block-group"><!-- wp:columns -->
+                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-black-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns -->
                 <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} -->
                 <h3 class="wp-block-heading">Call us</h3>
@@ -449,28 +449,28 @@ if (! defined('ABSPATH')) {
             );
 
             // Cookies - 2
-            $contact_cookies_2cbg_content = [
+            $cookies_2cbg_content = [
                 'title'         => esc_html__('Cookies - 2 columns - notice and a button, with a background color', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
-                'content'       => "<!-- wp:columns {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"0\"}}},\"backgroundColor\":\"luminous-vivid-amber\"} -->
-                <div class=\"wp-block-columns has-luminous-vivid-amber-background-color has-background\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:0\"><!-- wp:column {\"width\":\"75%\"} -->
-                <div class=\"wp-block-column\" style=\"flex-basis:75%\"><!-- wp:paragraph -->
+                'content'       => '<!-- wp:columns {"style":{"spacing":{"margin":{"top":"var:preset|spacing|default","bottom":"0"}},"elements":{"link":{"color":{"text":"#222222"}}},"color":{"text":"#222222"}},"backgroundColor":"luminous-vivid-amber"} -->
+                <div class="wp-block-columns has-luminous-vivid-amber-background-color has-text-color has-background has-link-color" style="color:#222222;margin-top:var(--wp--preset--spacing--default);margin-bottom:0"><!-- wp:column {"width":"75%"} -->
+                <div class="wp-block-column" style="flex-basis:75%"><!-- wp:paragraph -->
                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column -->
                 
-                <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
-                <div class=\"wp-block-button mboxy-closer\"><a class=\"wp-block-button__link wp-element-button\">I agree</a></div>
+                <!-- wp:column {"verticalAlignment":"center","width":"25%"} -->
+                <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:25%"><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
+                <div class="wp-block-buttons"><!-- wp:button {"className":"mboxy-closer"} -->
+                <div class="wp-block-button mboxy-closer"><a class="wp-block-button__link wp-element-button">I agree</a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons --></div>
                 <!-- /wp:column --></div>
-                <!-- /wp:columns -->",
+                <!-- /wp:columns -->',
             ];
 
-            register_block_pattern('maxboxy/cookies-2cbg', $contact_cookies_2cbg_content +['categories' => ['maxboxy-cookies']]);
-            register_block_pattern('maxboxy/cookies-2cbg-modal', $contact_cookies_2cbg_content +$modal_offer);
+            register_block_pattern('maxboxy/cookies-2cbg', $cookies_2cbg_content +['categories' => ['maxboxy-cookies']]);
+            register_block_pattern('maxboxy/cookies-2cbg-modal', $cookies_2cbg_content +$modal_offer);
 
             // Cookies - 3
             register_block_pattern(
@@ -503,42 +503,38 @@ if (! defined('ABSPATH')) {
             );
 
             // Cookies - 4
-            $contact_cookies_4_content = [
+            $cookies_4_content = [
                 'title'         => esc_html__('Cookies - 2 + 1 columns', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
-                'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:columns -->
-                                <div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"75%\"} -->
-                                <div class=\"wp-block-column\" style=\"flex-basis:75%\"><!-- wp:paragraph -->
+                'content'       => '<!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black"} -->
+                                <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color"><!-- wp:columns -->
+                                <div class="wp-block-columns"><!-- wp:column {"width":"75%"} -->
+                                <div class="wp-block-column" style="flex-basis:75%"><!-- wp:paragraph -->
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:column -->
-    
-                                <!-- wp:column {\"verticalAlignment\":\"center\",\"width\":\"25%\"} -->
-                                <div class=\"wp-block-column is-vertically-aligned-center\" style=\"flex-basis:25%\"><!-- wp:buttons {\"contentJustification\":\"center\"} -->
-                                <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
-                                <div class=\"wp-block-button mboxy-closer\"><a class=\"wp-block-button__link\">I agree</a></div>
+                                
+                                <!-- wp:column {"verticalAlignment":"center","width":"25%"} -->
+                                <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:25%"><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
+                                <div class="wp-block-buttons"><!-- wp:button {"className":"mboxy-closer"} -->
+                                <div class="wp-block-button mboxy-closer"><a class="wp-block-button__link wp-element-button">I agree</a></div>
                                 <!-- /wp:button --></div>
                                 <!-- /wp:buttons --></div>
                                 <!-- /wp:column --></div>
                                 <!-- /wp:columns -->
-    
-                                <!-- wp:separator -->
-                                <hr class=\"wp-block-separator\"/>
+                                
+                                <!-- wp:separator {"opacity":"css","style":{"spacing":{"margin":{"top":"2rem","bottom":"2.5rem"}}}} -->
+                                <hr class="wp-block-separator has-css-opacity" style="margin-top:2rem;margin-bottom:2.5rem"/>
                                 <!-- /wp:separator -->
-    
-                                <!-- wp:spacer {\"height\":10} -->
-                                <div style=\"height:10px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
-    
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
-                                <p class=\"has-text-align-center\">You can read more from our <a href=\"#\">Privacy Policy</a>.</p>
+                                
+                                <!-- wp:paragraph {"align":"center"} -->
+                                <p class="has-text-align-center">You can read more from our <a href="#">Privacy Policy</a>.</p>
                                 <!-- /wp:paragraph --></div>
-                                <!-- /wp:group -->",
+                                <!-- /wp:group -->',
             ];
 
-            register_block_pattern('maxboxy/cookies-4', $contact_cookies_4_content +['categories' => ['maxboxy-cookies']]);
-            register_block_pattern('maxboxy/cookies-4-modal', $contact_cookies_4_content +$modal_offer);
+            register_block_pattern('maxboxy/cookies-4', $cookies_4_content +['categories' => ['maxboxy-cookies']]);
+            register_block_pattern('maxboxy/cookies-4-modal', $cookies_4_content +$modal_offer);
 
             // Cookies - 5
             register_block_pattern(
@@ -726,7 +722,7 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Christmas offer (cover with background image)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
                 'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'","dimRatio":10,"layout":{"type":"constrained"}} -->
-                <div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="http://protester.local/wp-content/plugins/maxboxy/library/img/bg-christmas-three.jpeg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"3vh"} -->
+                <div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"3vh"} -->
                 <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer -->
                 
@@ -749,8 +745,8 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph -->
                 
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"vertical"}} -->
-                <div class="wp-block-buttons"><!-- wp:button {"width":50,"className":"has-custom-width wp-block-button__width-25 is-style-outline"} -->
-                <div class="wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline"><a class="wp-block-button__link wp-element-button">SEE PRODUCTS!</a></div>
+                <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"vivid-red","width":50,"style":{"elements":{"link":{"color":{"text":"var:preset|color|vivid-red"}}}},"className":"has-custom-width wp-block-button__width-25 is-style-outline"} -->
+                <div class="wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline"><a class="wp-block-button__link has-vivid-red-color has-white-background-color has-text-color has-background has-link-color wp-element-button"><strong>SEE PRODUCTS!</strong></a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons -->
                 

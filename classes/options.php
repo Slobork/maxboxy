@@ -135,9 +135,9 @@ if (! class_exists('Max_Boxy_Options')) {
             // sticky
             $sticky                    = ! empty($basics[ 'set_sticky' ])  ? ' is-sticky' : '';
 
-            // panel shut
+            // panel trig
             $panel_type                = isset($basics[ 'panel_type' ]) ? $basics[ 'panel_type' ]   : 'closer';
-            $shut_class                = isset($basics[ 'panel_type' ]) ? ' type-' .$basics[ 'panel_type' ]  : ' type-toggler';
+            $trig_class                = isset($basics[ 'panel_type' ]) ? ' type-' .$basics[ 'panel_type' ]  : ' type-toggler';
 
             // panel roles
             $get_roles                 = ! empty($basics[ 'panel_roles' ]) ? $basics[ 'panel_roles' ] : '';
@@ -423,12 +423,12 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $panel_color                    =   !empty($basics['panel_popup_color']) ? 'color:' .$basics['panel_popup_color'] .';' : '';
 
-            $shut_bg                        = !empty($basics['panel_shut_bg']) && $basics['panel_shut_bg'] !== '#333333' ? 'background:' .$basics['panel_shut_bg'] .';' : '';
+            $trig_bg                        = !empty($basics['panel_shut_bg']) && $basics['panel_shut_bg'] !== '#333333' ? 'background:' .$basics['panel_shut_bg'] .';' : '';
 
-            $shut_color                     = !empty($basics['panel_shut_color']) && $basics['panel_shut_color'] !== '#ffffff' ? 'color:' .$basics['panel_shut_color'] .';' : '';
+            $trig_color                     = !empty($basics['panel_shut_color']) && $basics['panel_shut_color'] !== '#ffffff' ? 'color:' .$basics['panel_shut_color'] .';' : '';
 
-            $_escaped_panel_shut_style      = ! empty($shut_bg) || ! empty($shut_color)
-                                            ? ' style="' .esc_attr($shut_bg) .esc_attr($shut_color) .'"' : '';
+            $_escaped_panel_trig_style      = ! empty($trig_bg) || ! empty($trig_color)
+                                            ? ' style="' .esc_attr($trig_bg) .esc_attr($trig_color) .'"' : '';
 
              /*
               * Sizes
@@ -544,7 +544,7 @@ if (! class_exists('Max_Boxy_Options')) {
                 'style'                      => $showing_style,
                 'roles'                      => $panel_roles,
                 'rotator_repeat'             => $rotator_repeat,
-                'shut_class'                 => $shut_class,
+                'trig_class'                 => $trig_class,
                 'add_classes'                => $add_classes,
                 'panel_size'                 => $panel_size_class,
                 'direction'                  => $direction,
@@ -566,7 +566,7 @@ if (! class_exists('Max_Boxy_Options')) {
                 'wrap_style'                 => $_escaped_panel_wrap_style,
                 'panel_style'                => $_escaped_panel_data,
                 'content_style'              => $_escaped_panel_content_style,
-                'shut_style'                 => $_escaped_panel_shut_style,
+                'trig_style'                 => $_escaped_panel_trig_style,
                 'toggler_data'               => $_escaped_toggler_data,
                 'trigger_add_message'        => $trigger_add_message,
                 'trig_svg_open'              => $_safe_trig_svg_open,

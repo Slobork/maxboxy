@@ -51,7 +51,7 @@
 		&.hide-default-closer {
 
 			// hide the default toggler if the user has set the in content toggler for the panel
-			> .mboxy > .shut-default { display: none; }
+			> .mboxy > .trig-default { display: none; }
 		}
 
 	}
@@ -129,7 +129,7 @@
 		}
 
 		// this is for the igniteon (i.e. it covers type-toggler and role-igniter)
-		&.type-toggler > .mboxy > .shut-default {
+		&.type-toggler > .mboxy > .trig-default {
 
 			&.igniteon {
 				position: fixed;

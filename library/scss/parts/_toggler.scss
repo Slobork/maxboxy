@@ -6,7 +6,7 @@
 
 	> .mboxy {
 
-		.shuter {
+		.trigger {
 			z-index: 1; // should make sure it stacks over the other elms, eg. cover img
 			cursor: pointer;
 			transition: all .3s linear;
@@ -26,7 +26,7 @@
 				justify-content: center;
 			}
 
-			&:hover { opacity: .85; }
+			&:hover { opacity: .9; }
 
 
 			&.has-svg-open.igniteon .trig-icon,
@@ -343,22 +343,22 @@
 				display: none;
 			}
 
-		} // end .shuter
+		} // end .trigger
 		
 		
 	} // end .mboxy
 
 	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos 
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-m { transform: scale(.55) }
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-s { transform: scale(.75) }
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-l { transform: scale(1.25) }
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-h { transform: scale(1.55) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.55) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-s { transform: scale(.75) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
 	
 	// ...and in the case its pos is left/right, but centered
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-m { transform: scale(.55) }
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-s { transform: scale(.75) }
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-l { transform: scale(1.25) }
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-h { transform: scale(1.55) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-m { transform: scale(.55) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-s { transform: scale(.75) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
 	
 	
 	// trigger's additional message

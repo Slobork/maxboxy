@@ -39,10 +39,10 @@ jQuery(document).ready(function ($) {
 
 						var showPanel  = function() {
 
-								// igniter is handled differently, i.e. by adding the .igniteon to the shut instead of .on class
+								// igniter is handled differently, i.e. by adding the .igniteon to the trigger instead of .on class
 								if ( is_igniter === true ) {
 
-								panel.find('.shut-default').addClass('igniteon');
+								panel.find('.trig-default').addClass('igniteon');
 								panel.panelSize();
 
 							} else {
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
 
 							if ( is_igniter === true ) {
 
-								panel.find('.shut-default').removeClass('igniteon');
+								panel.find('.trig-default').removeClass('igniteon');
 
 							} else {
 
@@ -817,18 +817,18 @@ jQuery(document).ready(function ($) {
 					$('body').toggleClass('maxboxy-overlay-on');
 				}
 
-				panel.find('.mboxy-toggler.shut-default').toggleClass('igniteon');
+				panel.find('.mboxy-toggler.trig-default').toggleClass('igniteon');
 
-				var shut_inner              =   panel.find( '.trig-icon' ),
-					data_button_open        =   typeof shut_inner.data('button-open')     !== 'undefined'     ?   shut_inner.data('button-open')    : '',
-					data_button_close       =   typeof shut_inner.data('button-close')    !== 'undefined'     ?   shut_inner.data('button-close')   : '';
+				var trig_icon         = panel.find( '.trig-icon' ),
+					data_button_open  = typeof trig_icon.data('button-open')  !== 'undefined'  ?  trig_icon.data('button-open')  : '',
+					data_button_close = typeof trig_icon.data('button-close') !== 'undefined'  ?  trig_icon.data('button-close') : '';
 
 				// toggle open/close classes (i.e. responsible for swithcing its icons)
 				if (data_button_open.length || data_button_close.length) {
-					shut_inner.toggleClass( data_button_open + ' ' + data_button_close );
+					trig_icon.toggleClass( data_button_open + ' ' + data_button_close );
 				}
 
-				var toggler =   panel.find( '>.mboxy >.shuter' ),
+				var toggler =   panel.find( '>.mboxy >.trigger' ),
 					open    =   maxboxy_localize.toggler_title_open,
 					close   =   maxboxy_localize.toggler_title_close;
 
@@ -870,7 +870,7 @@ jQuery(document).ready(function ($) {
 				// rotate the toggle icon
 				if (panel.prop('class').match(/trigger-anim-rotate/)) {
 
-					panel.find( '>.mboxy >.shuter' )
+					panel.find( '>.mboxy >.trigger' )
 						.doTimeout(300, 'addClass', 'trigger-rotator') // give a timeout, otherwise won't work
 						.doTimeout(1000, 'removeClass', 'trigger-rotator');
 

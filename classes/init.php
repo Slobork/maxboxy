@@ -587,7 +587,7 @@ if (! class_exists('Max_Boxy')) {
          * @type string  'style'                     The appearance style of the panel e.g. bump|slide-vertical|etc.
          * @type string  'roles'                     The role of the panel e.g. role-hidden|role-exit|role-igniter|etc.
          * @type string  'rotator_repeat'            Set the class for rotator repeatition, otherwise it's empty.
-         * @type string  'shut_class'                Based on the panel's type, set the class for panel's closing button.
+         * @type string  'trig_class'                Based on the panel's type, set the class for panel's closing button.
          * @type string  'add_classes'               Add additional classes to the panel.
          * @type string  'panel_size'                Panel size class.
          * @type string  'direction'                 Class detirmens the relation direction of content box and toggler/closer button.
@@ -606,7 +606,7 @@ if (! class_exists('Max_Boxy')) {
          * @type string  'wrap_style'                Escaped - get style attribute with its values for the .mboxy-wrap div.
          * @type string  'panel_style'               Escaped - get style attribute with its values for the .mboxy div.
          * @type string  'content_style'             Escaped - get style attribute with its values for the .mboxy-content div.
-         * @type string  'shut_style'                Escaped - get style attribute with its values for the shut button and hoverout element.
+         * @type string  'trig_style'                Escaped - get style attribute with its values for the trig button and hoverout element.
          * @type string  'toggler_data'              Escaped - get data attribute with its values for the toggler/closer button.
          * @type string  'trigger_add_message'       Set the trigger button's additional message.
          * @type string  'trig_svg_open'             Safe - svg for the toggler's opening.
@@ -714,7 +714,7 @@ if (! class_exists('Max_Boxy')) {
                                     .esc_attr($basics[ 'style' ])
                                     .esc_attr($basics[ 'roles' ])
                                     .esc_attr($basics[ 'rotator_repeat' ])
-                                    .esc_attr($basics[ 'shut_class' ])
+                                    .esc_attr($basics[ 'trig_class' ])
                                     .esc_attr($basics[ 'unset_toggler_class' ])
                                     .esc_attr($basics[ 'sticky' ])
                                     //.esc_attr($basics[ 'trigger_anim' ])
@@ -735,27 +735,27 @@ if (! class_exists('Max_Boxy')) {
                                 .$conditionals[ 'appear_data' ]
                                 .'>';
 
-                // $basics[ 'panel_style' ], $basics[ 'shut_style' ] and $basics[ 'toggler_data' ] are already escaped @see Max_Boxy_Options::basics()
-                $_escaped_early_shut_style   = $basics[ 'shut_style' ];
+                // $basics[ 'panel_style' ], $basics[ 'trig_style' ] and $basics[ 'toggler_data' ] are already escaped @see Max_Boxy_Options::basics()
+                $_escaped_early_trig_style   = $basics[ 'trig_style' ];
                 $_escaped_early_panel_style  = $basics[ 'panel_style' ];
                 $_escaped_early_toggler_data = $basics[ 'toggler_data' ];
 
                 $_escaped_out .= '<div class="mboxy' .esc_attr($basics[ 'panel_size' ]) .esc_attr($basics[ 'direction' ]) .esc_attr($basics[ 'panel_add_lable_class' ]) .esc_attr($basics[ 'closer_align' ]) .'"' .$_escaped_early_panel_style .'>';
 
-                $_escaped_label = ! empty($basics[ 'panel_add_lable' ]) ? $_escaped_panel_additional_lable = '<div class="additional-lable"' .$_escaped_early_shut_style .'>' .esc_html($basics[ 'panel_add_lable' ]) .'</div>' : '';
+                $_escaped_label = ! empty($basics[ 'panel_add_lable' ]) ? $_escaped_panel_additional_lable = '<div class="additional-lable"' .$_escaped_early_trig_style .'>' .esc_html($basics[ 'panel_add_lable' ]) .'</div>' : '';
 
                 //$_escaped_out .= $_set_content; // $_set_content is the content of the WP post
                 $_escaped_out .= '<div class="mboxy-content"' .$basics[ 'content_style' ]  .'>' .$_set_content .$_escaped_label .'</div>'; // $_set_content is the content of the WP post
 
-                $basic_toggler_classes = 'shuter shut-default';
+                $basic_toggler_classes = 'trigger trig-default';
 
                 // $basics[ 'trig_img_open' ], $basics[ 'trig_img_close' ], $basics[ 'trig_svg_open' ] and $basics[ 'trig_svg_close' ]
                 // are already escaped @see Max_Boxy_Options::basics()
                 $_escaped_early_group = $basics[ 'trig_svg_open' ] .$basics[ 'trig_svg_close' ] .$basics[ 'trig_img_open' ] .$basics[ 'trig_img_close' ];
                 
                 // Additional message on a trigger button or a panel
-                $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_shut_style .'><span class="additional-message-killer" title="' .esc_html('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
-                $shut_icon = ! empty($basics[ 'trigger_icon_classes' ]) ? '<div class="trig-icon' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$_escaped_early_toggler_data .'></div>' : '';
+                $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_trig_style .'><span class="additional-message-killer" title="' .esc_html('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
+                $trig_icon = ! empty($basics[ 'trigger_icon_classes' ]) ? '<div class="trig-icon' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$_escaped_early_toggler_data .'></div>' : '';
 
                 // closer && if closer isn't disabled
                 if ($basics[ 'type' ] === 'closer' && $basics[ 'unset_toggler' ] === 'no') {
@@ -767,10 +767,10 @@ if (! class_exists('Max_Boxy')) {
                         .esc_attr($basics[ 'trigger_add_message_class' ])
                         .esc_attr($basics[ 'toggler_svg_classes' ])
                         .esc_attr($basics[ 'toggler_img_classes' ])
-                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$_escaped_early_shut_style .'>'
+                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$_escaped_early_trig_style .'>'
                         .$_escaped_trigger_add_message
                         .$_escaped_early_group
-                        .$shut_icon
+                        .$trig_icon
                     .'</div>';
 
                 }
@@ -785,10 +785,10 @@ if (! class_exists('Max_Boxy')) {
                                         .esc_attr($basics[ 'trigger_add_message_class' ])
                                         .esc_attr($basics[ 'toggler_svg_classes' ])
                                         .esc_attr($basics[ 'toggler_img_classes' ])
-                                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_early_shut_style .'>'
+                                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_early_trig_style .'>'
                                         .$_escaped_trigger_add_message
                                         .$_escaped_early_group
-                                        .$shut_icon
+                                        .$trig_icon
                                     .'</div>';
 
                 }

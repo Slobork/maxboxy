@@ -247,8 +247,8 @@
 
 			}
 
-			&.size-l { transform: scale(1.25); margin: 6px 8px;  padding: 0 20px; }
-			&.size-h { transform: scale(1.55); margin: 14px 17px; padding: 0 20px; }
+			&.size-l { transform: scale(1.25); margin: 6px 7px;  padding: 0 20px; }
+			&.size-h { transform: scale(1.55); margin: 14px 15px; padding: 0 20px; }
 
 			// additional styles...
 
@@ -302,6 +302,8 @@
 					width: max-content;
 					max-width: 350px;
 					pointer-events: none;
+					margin-left: 6px;
+					border-radius: 5px;
 
 					.additional-message-killer {
 						position: absolute;
@@ -364,6 +366,8 @@
 	// trigger's additional message
 	&:not([class*="bottomed"]) .additional-message { top: 100%; margin-top: 22px; left: inherit; right: inherit; }
 	&[class*="bottomed"] .additional-message { bottom: 100%; margin-bottom: 22px; left: inherit; right: inherit; }
+	&[class*="place-right"] .mboxy .trigger.has-additional-message .additional-message { margin-left: auto; margin-right: 6px; }
+	&[class*="place-right"] .mboxy .trigger.has-additional-message .additional-message .additional-message-killer { right: auto; left: 0; transform: translate(-50%, -50%); }
 	&.on .additional-message {display: none;}
 
 } // end .mboxy-wrap

@@ -743,7 +743,7 @@ if (! class_exists('Max_Boxy')) {
 
                 $_escaped_out .= '<div class="mboxy' .esc_attr($basics[ 'panel_size' ]) .esc_attr($basics[ 'direction' ]) .esc_attr($basics[ 'panel_add_lable_class' ]) .esc_attr($basics[ 'closer_align' ]) .'"' .$_escaped_early_panel_style .'>';
 
-                $_escaped_label = ! empty($basics[ 'panel_add_lable' ]) ? $_escaped_panel_additional_lable = '<div class="additional-lable"' .$_escaped_early_trig_style .'>' .esc_html($basics[ 'panel_add_lable' ]) .'</div>' : '';
+                $_escaped_label = ! empty($basics[ 'panel_add_lable' ]) ? $_escaped_panel_additional_lable = '<div class="additional-label"' .$_escaped_early_trig_style .'>' .esc_html($basics[ 'panel_add_lable' ]) .'</div>' : '';
 
                 //$_escaped_out .= $_set_content; // $_set_content is the content of the WP post
                 $_escaped_out .= '<div class="mboxy-content"' .$basics[ 'content_style' ]  .'>' .$_set_content .$_escaped_label .'</div>'; // $_set_content is the content of the WP post

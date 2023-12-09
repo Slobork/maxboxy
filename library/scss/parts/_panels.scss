@@ -31,7 +31,7 @@
 
 	} // end .mboxy
 
-	.additional-lable {
+	.additional-label {
 		position: absolute;
 		color: #ffffff;
 		background: #333333;
@@ -43,10 +43,10 @@
 		border-radius: 5px;
 	}
 
-	//&:not([class*="bottomed"]) .additional-lable  { top: 100%; }
-	//&[class*="bottomed"] .additional-lable  { bottom: 100%; }
-	&:not([class*="bottomed"]) .additional-lable { top: 100%; left: inherit; right: inherit; }
-	&[class*="bottomed"] .additional-lable { bottom: 100%; left: inherit; right: inherit; }
+	//&:not([class*="bottomed"]) .additional-label  { top: 100%; }
+	//&[class*="bottomed"] .additional-label  { bottom: 100%; }
+	&:not([class*="bottomed"]) .additional-label { top: 100%; left: inherit; right: inherit; }
+	&[class*="bottomed"] .additional-label { bottom: 100%; left: inherit; right: inherit; }
 	&.on {
 	
 		&.hide-default-closer {
@@ -59,7 +59,7 @@
 
 	&:not(.on) {
 
-		.additional-lable {display: none;}
+		.additional-label {display: none;}
 
 	}
 

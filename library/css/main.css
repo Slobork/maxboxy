@@ -61,7 +61,7 @@
     width: stretch;
     max-width: 100%; }
 
-.mboxy-wrap .additional-lable {
+.mboxy-wrap .additional-label {
   position: absolute;
   color: #ffffff;
   background: #333333;
@@ -76,12 +76,12 @@
   text-align: center;
   border-radius: 5px; }
 
-.mboxy-wrap:not([class*="bottomed"]) .additional-lable {
+.mboxy-wrap:not([class*="bottomed"]) .additional-label {
   top: 100%;
   left: inherit;
   right: inherit; }
 
-.mboxy-wrap[class*="bottomed"] .additional-lable {
+.mboxy-wrap[class*="bottomed"] .additional-label {
   bottom: 100%;
   left: inherit;
   right: inherit; }
@@ -89,7 +89,7 @@
 .mboxy-wrap.on.hide-default-closer > .mboxy > .trig-default {
   display: none; }
 
-.mboxy-wrap:not(.on) .additional-lable {
+.mboxy-wrap:not(.on) .additional-label {
   display: none; }
 
 /**

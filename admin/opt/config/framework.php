@@ -327,9 +327,8 @@ if (! defined('ABSPATH')) {
     );
 
 
-    /*
+    /**
      * Docs.
-     * @doit 4
      */
     CSF::createSection(
         $prefix, array(

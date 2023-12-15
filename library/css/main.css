@@ -724,12 +724,17 @@ body.maxboxy-overlay-on {
         font-size: .75rem;
         border: 1px solid currentColor;
         border-radius: 50%; }
+  .mboxy-wrap > .mboxy .trigger[class*="has-svg"] {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content; }
   .mboxy-wrap > .mboxy .trigger svg {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 70px; }
-  .mboxy-wrap > .mboxy .trigger.igniteon.has-img-open, .mboxy-wrap > .mboxy .trigger.close-img-thesame, .mboxy-wrap > .mboxy .trigger:not(.igniteon).has-img-close {
+    width: 55px;
+    height: auto; }
+  .mboxy-wrap > .mboxy .trigger.igniteon.has-img-open, .mboxy-wrap > .mboxy .trigger.igniteon.has-svg-open, .mboxy-wrap > .mboxy .trigger.close-img-thesame, .mboxy-wrap > .mboxy .trigger.close-svg-thesame, .mboxy-wrap > .mboxy .trigger:not(.igniteon).has-img-close, .mboxy-wrap > .mboxy .trigger:not(.igniteon).has-svg-close {
     background: transparent !important;
     color: unset !important; }
   .mboxy-wrap > .mboxy .trigger.igniteon .trig-svg-close,

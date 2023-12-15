@@ -324,15 +324,21 @@
 
 			}
 
+			&[class*="has-svg"] { width: max-content;}
+
 			svg {
 				display: flex;
-				width: 70px;
+				width: 55px;
+				height: auto;
 			}
 
-			// when img is used, remove the bg and color
+			// when img/svg is used, remove the bg and color
 			&.igniteon.has-img-open,
+			&.igniteon.has-svg-open,
 			&.close-img-thesame,
-			&:not(.igniteon).has-img-close {
+			&.close-svg-thesame,
+			&:not(.igniteon).has-img-close,
+			&:not(.igniteon).has-svg-close {
 				background: transparent !important;
 				color: unset !important;
 			}

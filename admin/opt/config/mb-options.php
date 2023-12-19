@@ -226,7 +226,16 @@ if (! defined('ABSPATH')) {
                         ? maxboxy_metabox_settings_basic_pro()[ 'add_classes' ]
                         : $empty_field;
 
-    
+    $trigger_anim_fields= function_exists('maxboxy_metabox_settings_basic_pro') && ! empty(maxboxy_metabox_settings_basic_pro()[ 'trigger_anims' ])
+                        ? maxboxy_metabox_settings_basic_pro()[ 'trigger_anims' ]
+                        : array(
+                            [
+                                'type'      => 'callback',
+                                'function'  => 'maxboxy_upgrade_call',
+                            ]
+                        );
+
+
     // Starter tab - Float Any.
     $starter_tab_floatany = array(
 
@@ -933,18 +942,6 @@ if (! defined('ABSPATH')) {
             'help'          => esc_html__('Set additional message that can appear along the trigger button.', 'maxboxy'),
             'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
         ),
-        /* @todo this option will need improvment - offering a couple of more optopns - set with select field
-        array(
-            'id'            => 'trigger_anim',
-            'type'          => 'checkbox',
-            'title'         => esc_html__('Trigger animation', 'maxboxy'),
-            'help'          => esc_html__('Trigger button (icon) will be animated (rotated)', 'maxboxy'),
-            //'dependency'    => array('panel_type','any','toggler,igniter', true),
-            //'dependency'    => array('unset_toggler|panel_type','!=|any','true|toggler,igniter', '|true'),
-            'dependency'    => array('unset_toggler','!=','true'),
-
-        ),
-        */
     );
 
     // add toggler fields to the Tab.
@@ -952,10 +949,7 @@ if (! defined('ABSPATH')) {
 
         'title'     => esc_html__('Toggler', 'maxboxy'),
         'icon'      => 'fas fa-plus',
-
-        // if in the future we add any feature available with Pro verion use the following line:
-        //'fields'    => array_merge( $toggler_basic_tab, $toggler_advanced ),
-        'fields'    => $toggler_basic_tab,
+        'fields'    => array_merge($toggler_basic_tab, $trigger_anim_fields),
 
     );
 

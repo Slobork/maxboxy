@@ -490,6 +490,12 @@ if (! class_exists('Max_Boxy_Options')) {
             $_escaped_trig_img_open         = ! empty($open_img_class)  ? '<img src="' .esc_url($basics[ 'button_open_img' ]['url']) .'" class="trig-img-open" width="' .esc_attr($open_img_width) .'" height="' .esc_attr($open_img_height) .'" alt="' .esc_attr($open_img_alt) .'">'  : '';
             $_escaped_trig_img_close        = ! empty($close_img_class) && empty($the_same_img) && $unset_toggler === 'no' ? '<img src="' .esc_url($basics[ 'button_close_img' ]['url']) .'" class="trig-img-close" width="' .esc_attr($close_img_width) .'" height="' .esc_attr($close_img_height) .'" alt="' .esc_attr($close_img_alt) .'">' : '';
 
+            // trigger animation
+            $get_trigger_anim               = $unset_toggler === 'no' && ! empty($basics[ 'trigger_anim' ]) ? ' animated ' .$basics[ 'trigger_anim' ] : '';
+            $get_anim_appear                = ! empty($basics[ 'trigger_anim_appear' ]) ? $basics[ 'trigger_anim_appear' ] : '';
+            // Convert array to a string
+            $anim_appear                    = ! empty($get_trigger_anim) && is_array($get_anim_appear) ? ' ' .implode(' ', $get_anim_appear) : '';
+            $trigger_anim                   = $get_trigger_anim .$anim_appear;
 
             // Rotator - on time span
             $rotator_on                     = isset($basics[ 'rotator_on' ]) && is_numeric($basics[ 'rotator_on' ]) ? abs($basics[ 'rotator_on' ]) : 5; // default 5s
@@ -615,12 +621,6 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $closer_size                    = $unset_toggler !== true && isset($basics[ 'closer_size' ]) && $basics[ 'closer_size' ] !== 'normal' ? ' ' .$basics[ 'closer_size' ] : '';
 
-
-            // trigger animation
-            //$trigger_anim                   =   $unset_toggler === 'no' && ! empty( $basics[ 'trigger_anim' ] ) && ( $panel_type === 'toggler' || $panel_type === 'igniter' ) ?  ' trigger-anim-rotate'   : '';
-            $trigger_anim = '';
-
-
             /*
              * Pick the styling from diffrent vars
              */
@@ -647,7 +647,7 @@ if (! class_exists('Max_Boxy_Options')) {
                 'toggler_svg_classes'        => $toggler_svg_classes,
                 'toggler_img_classes'        => $toggler_img_classes,
                 'trigger_icon_classes'       => $trigger_icon_classes,
-                //'trigger_anim'             => $trigger_anim,
+                'trigger_anim'               => $trigger_anim,
                 'unset_toggler_class'        => $unset_toggler_class,
                 'panel_add_lable_class'      => $panel_add_lable_class,
                 'injectany_align'            => $injectany_align,

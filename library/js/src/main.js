@@ -868,11 +868,11 @@ jQuery(document).ready(function ($) {
 				}
 
 				// rotate the toggle icon
-				if (panel.prop('class').match(/trigger-anim-rotate/)) {
+				// ...Anim on every toggler's click
+				if (panel.find( '>.mboxy >.trigger' ).prop('class').match(/anim-click/)) {
 
 					panel.find( '>.mboxy >.trigger' )
-						.doTimeout(300, 'addClass', 'trigger-rotator') // give a timeout, otherwise won't work
-						.doTimeout(1000, 'removeClass', 'trigger-rotator');
+						.togglerAnim();
 
 				}
 
@@ -885,9 +885,36 @@ jQuery(document).ready(function ($) {
 	};
 
 
+
+
+	/**
+	 * Toggler's animation.
+	 */
+	$.fn.togglerAnim = function() {
+
+		this.each( function () {
+
+			var rotate = $(this).prop('class').match(/anim-rotate/) ? true : false;
+			if (rotate === true) {
+				$(this).doTimeout(300, 'addClass', 'trigger-rotator') // give a timeout, otherwise won't work
+					   .doTimeout(1000, 'removeClass', 'trigger-rotator');
+			}
+
+			//this.doTimeout(300, 'addClass', 'animate__rubberBand') // give a timeout, otherwise won't work
+			//	.doTimeout(1000, 'removeClass', 'animate__rubberBand');
+
+		});
+
+		return this;
+
+	};
+
+
 	// apply the toggling
-	var panel_toggler = $('.mboxy-toggler, .type-toggler .mboxy-overlay');
+	var panel_toggler = $('.mboxy-toggler, .type-toggler .mboxy-overlay'),
+	    panel_anim    = $('.mboxy-toggler.anim-onload');
 		panel_toggler.panelToggler();
+		panel_anim.togglerAnim();// anim on load
 
 
 	/**

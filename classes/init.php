@@ -598,6 +598,8 @@ if (! class_exists('Max_Boxy')) {
          * @type string  'trigger_add_message_class' Set the class for trigger's additional message.
          * @type string  'toggler_svg_classes'       Set the trigger svg classes
          * @type string  'toggler_img_classes'       Set the trigger img classes
+         * @type string  'trigger_anim'              Set the trigger animation classes
+         * @type string  'unset_toggler_class'       Additional class for unsetting the toggler
          * @type string  'trigger_icon_classes'      Set the trigger icon classes
          * @type string  'panel_add_lable_class'     Set the class for trigger's additional message.
          * @type string  'injectany_align'           Alignment class for InjectAny.
@@ -718,7 +720,6 @@ if (! class_exists('Max_Boxy')) {
                                     .esc_attr($basics[ 'trig_class' ])
                                     .esc_attr($basics[ 'unset_toggler_class' ])
                                     .esc_attr($basics[ 'sticky' ])
-                                    //.esc_attr($basics[ 'trigger_anim' ])
                                     .esc_attr($basics[ 'add_classes' ])
                                     .esc_attr($goals[ 'goalset' ])
                                     .esc_attr($goals[ 'banish' ])
@@ -768,6 +769,7 @@ if (! class_exists('Max_Boxy')) {
                         .esc_attr($basics[ 'trigger_add_message_class' ])
                         .esc_attr($basics[ 'toggler_svg_classes' ])
                         .esc_attr($basics[ 'toggler_img_classes' ])
+                        .esc_attr($basics[ 'trigger_anim' ])
                         .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$_escaped_early_trig_style .'>'
                         .$_escaped_trigger_add_message
                         .$_escaped_early_group
@@ -786,6 +788,7 @@ if (! class_exists('Max_Boxy')) {
                                         .esc_attr($basics[ 'trigger_add_message_class' ])
                                         .esc_attr($basics[ 'toggler_svg_classes' ])
                                         .esc_attr($basics[ 'toggler_img_classes' ])
+                                        .esc_attr($basics[ 'trigger_anim' ])
                                         .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_early_trig_style .'>'
                                         .$_escaped_trigger_add_message
                                         .$_escaped_early_group

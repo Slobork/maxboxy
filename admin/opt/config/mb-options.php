@@ -505,7 +505,7 @@ if (! defined('ABSPATH')) {
             ),
             array(
                 'type'          => 'subheading',
-                'content'       => esc_html__('Toggler/Additional message', 'maxboxy'),
+                'content'       => esc_html__('Toggler/closser', 'maxboxy'),
                 'dependency'    => array('unset_toggler','!=','true', true),
             ),
             array(

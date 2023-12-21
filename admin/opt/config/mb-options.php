@@ -942,6 +942,19 @@ if (! defined('ABSPATH')) {
             'help'          => esc_html__('Set additional message that can appear along the trigger button.', 'maxboxy'),
             'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
         ),
+        array(
+            'type'          => 'subheading',
+            'content'       => esc_html__('Toggler/closer spacing', 'maxboxy'),
+            'dependency'    => array('unset_toggler','!=','all'),
+        ),
+        array(
+            'id'            => 'trigger_margin',
+            'type'          => 'spacing', 
+            'title'         => esc_html__('Margin', 'maxboxy'),
+            'desc'          => esc_html__('It\'s relative to the current position, e.g. if the panel is positioned on the left/bottom affecting margins are left and bottom, other two values wouldn\'t take effect in that case.', 'maxboxy'),
+            'units'         => array( '%', 'px', 'em', 'rem', 'vh', 'vw' ),
+            'dependency'    => array('unset_toggler','!=','all'),
+        ),
     );
 
     // add toggler fields to the Tab.

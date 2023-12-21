@@ -608,7 +608,8 @@ if (! class_exists('Max_Boxy')) {
          * @type string  'wrap_style'                Escaped - get style attribute with its values for the .mboxy-wrap div.
          * @type string  'panel_style'               Escaped - get style attribute with its values for the .mboxy div.
          * @type string  'content_style'             Escaped - get style attribute with its values for the .mboxy-content div.
-         * @type string  'trig_style'                Escaped - get style attribute with its values for the trig button and hoverout element.
+         * @type string  'trig_style'                Escaped - get style attribute with its values for the trig button.
+         * @type string  'trig_message_style'        Escaped - get style attribute with its values for the trig button's additional message and label.
          * @type string  'toggler_data'              Escaped - get data attribute with its values for the toggler/closer button.
          * @type string  'trigger_add_message'       Set the trigger button's additional message.
          * @type string  'trig_svg_open'             Safe - svg for the toggler's opening.
@@ -738,13 +739,14 @@ if (! class_exists('Max_Boxy')) {
                                 .'>';
 
                 // $basics[ 'panel_style' ], $basics[ 'trig_style' ] and $basics[ 'toggler_data' ] are already escaped @see Max_Boxy_Options::basics()
-                $_escaped_early_trig_style   = $basics[ 'trig_style' ];
-                $_escaped_early_panel_style  = $basics[ 'panel_style' ];
-                $_escaped_early_toggler_data = $basics[ 'toggler_data' ];
+                $_escaped_early_trig_style         = $basics[ 'trig_style' ];
+                $_escaped_early_trig_message_style = $basics[ 'trig_message_style' ];
+                $_escaped_early_panel_style        = $basics[ 'panel_style' ];
+                $_escaped_early_toggler_data       = $basics[ 'toggler_data' ];
 
                 $_escaped_out .= '<div class="mboxy' .esc_attr($basics[ 'panel_size' ]) .esc_attr($basics[ 'direction' ]) .esc_attr($basics[ 'panel_add_lable_class' ]) .esc_attr($basics[ 'closer_align' ]) .'"' .$_escaped_early_panel_style .'>';
 
-                $_escaped_label = ! empty($basics[ 'panel_add_lable' ]) ? $_escaped_panel_additional_lable = '<div class="additional-label"' .$_escaped_early_trig_style .'>' .esc_html($basics[ 'panel_add_lable' ]) .'</div>' : '';
+                $_escaped_label = ! empty($basics[ 'panel_add_lable' ]) ? $_escaped_panel_additional_lable = '<div class="additional-label"' .$_escaped_early_trig_message_style .'>' .esc_html($basics[ 'panel_add_lable' ]) .'</div>' : '';
 
                 //$_escaped_out .= $_set_content; // $_set_content is the content of the WP post
                 $_escaped_out .= '<div class="mboxy-content"' .$basics[ 'content_style' ]  .'>' .$_set_content .$_escaped_label .'</div>'; // $_set_content is the content of the WP post
@@ -756,7 +758,7 @@ if (! class_exists('Max_Boxy')) {
                 $_escaped_early_group = $basics[ 'trig_svg_open' ] .$basics[ 'trig_svg_close' ] .$basics[ 'trig_img_open' ] .$basics[ 'trig_img_close' ];
                 
                 // Additional message on a trigger button or a panel
-                $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_trig_style .'><span class="additional-message-killer" title="' .esc_html('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
+                $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_trig_message_style .'><span class="additional-message-killer" title="' .esc_html('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
                 $trig_icon = ! empty($basics[ 'trigger_icon_classes' ]) ? '<div class="trig-icon' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$_escaped_early_toggler_data .'></div>' : '';
 
                 // closer && if closer isn't disabled

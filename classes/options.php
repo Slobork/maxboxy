@@ -145,9 +145,6 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $trig_color                     = !empty($basics['panel_shut_color']) && $basics['panel_shut_color'] !== '#ffffff' ? 'color:' .$basics['panel_shut_color'] .';' : '';
 
-            $_escaped_panel_trig_style      = ! empty($trig_bg) || ! empty($trig_color)
-                                            ? ' style="' .esc_attr($trig_bg) .esc_attr($trig_color) .'"' : '';
-
             // z-index
             $zindex                    = isset($basics[ 'zindex' ]) && is_numeric($basics[ 'zindex' ]) ? 'z-index:' .intval($basics[ 'zindex' ]) .';' : '';
             $_escaped_panel_wrap_style = ! empty($zindex) ? ' style="' .esc_attr($zindex) . '"' : '';
@@ -491,7 +488,7 @@ if (! class_exists('Max_Boxy_Options')) {
             $_escaped_trig_img_close        = ! empty($close_img_class) && empty($the_same_img) && $unset_toggler === 'no' ? '<img src="' .esc_url($basics[ 'button_close_img' ]['url']) .'" class="trig-img-close" width="' .esc_attr($close_img_width) .'" height="' .esc_attr($close_img_height) .'" alt="' .esc_attr($close_img_alt) .'">' : '';
 
             // trigger animation
-            $get_trigger_anim               = $unset_toggler === 'no' && ! empty($basics[ 'trigger_anim' ]) ? ' animated ' .$basics[ 'trigger_anim' ] : '';
+            $get_trigger_anim               = $unset_toggler === 'no' && ! empty($basics[ 'trigger_anim' ]) ? ' ' .$basics[ 'trigger_anim' ] : '';
             $get_anim_appear                = ! empty($basics[ 'trigger_anim_appear' ]) ? $basics[ 'trigger_anim_appear' ] : '';
             // Convert array to a string
             $anim_appear                    = ! empty($get_trigger_anim) && is_array($get_anim_appear) ? ' ' .implode(' ', $get_anim_appear) : '';
@@ -621,9 +618,30 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $closer_size                    = $unset_toggler !== true && isset($basics[ 'closer_size' ]) && $basics[ 'closer_size' ] !== 'normal' ? ' ' .$basics[ 'closer_size' ] : '';
 
+            // trigger's margin
+            $trig_margin_unit               = isset($basics[ 'trigger_margin' ][ 'unit' ]) ? $basics[ 'trigger_margin' ][ 'unit' ] : '';
+
+            $trig_mar_top                   = isset($basics[ 'trigger_margin' ][ 'top' ]) && is_numeric($basics[ 'trigger_margin' ][ 'top' ]) ? $basics[ 'trigger_margin' ][ 'top' ]   : '';
+            $trigger_margin                 = ! empty($trig_mar_top) ? 'margin-top: ' .$trig_mar_top .$trig_margin_unit .';' : '';
+            
+            $trig_mar_left                  = isset($basics[ 'trigger_margin' ][ 'left' ]) && is_numeric($basics[ 'trigger_margin' ][ 'left' ]) ? $basics[ 'trigger_margin' ][ 'left' ]  : '';
+            $trigger_margin                .= ! empty($trig_mar_left) ? 'margin-left: ' .$trig_mar_left .$trig_margin_unit .';' : '';
+            
+            $trig_mar_right                 = isset($basics[ 'trigger_margin' ][ 'right' ]) && is_numeric($basics[ 'trigger_margin' ][ 'right' ]) ? $basics[ 'trigger_margin' ][ 'right' ] : '';
+            $trigger_margin                .= ! empty($trig_mar_right) ? 'margin-right: ' .$trig_mar_right .$trig_margin_unit .';' : '';
+            
+            $trig_mar_bottom                = isset($basics[ 'trigger_margin' ][ 'bottom' ]) && is_numeric($basics[ 'trigger_margin' ][ 'bottom' ]) ? $basics[ 'trigger_margin' ][ 'bottom' ] : '';
+            $trigger_margin                .= ! empty($trig_mar_bottom) ? 'margin-bottom: ' .$trig_mar_bottom .$trig_margin_unit .';' : '';
+
             /*
              * Pick the styling from diffrent vars
              */
+            $_escaped_trig_style            = ! empty($trig_bg) || ! empty($trig_color) || !empty($trigger_margin)
+                                            ? ' style="' .esc_attr($trig_bg) .esc_attr($trig_color) .esc_attr($trigger_margin) .'"' : '';
+
+            $_escaped_trig_message_style    = ! empty($trig_bg) || ! empty($trig_color)
+                                            ? ' style="' .esc_attr($trig_bg) .esc_attr($trig_color) .'"' : '';
+
             $_escaped_panel_content_style   = ! empty($panel_padding) || ! empty($panel_border) || ! empty($panel_border_raus) || ! empty($set_panel_bg) || ! empty($panel_color)
                                             ? ' style="' .esc_attr($panel_padding) .esc_attr($panel_border) .esc_attr($panel_border_radius) .esc_attr($set_panel_bg) .esc_attr($panel_color) .'"' : '';
 
@@ -657,7 +675,8 @@ if (! class_exists('Max_Boxy_Options')) {
                 'wrap_style'                 => $_escaped_panel_wrap_style,
                 'panel_style'                => $_escaped_panel_data,
                 'content_style'              => $_escaped_panel_content_style,
-                'trig_style'                 => $_escaped_panel_trig_style,
+                'trig_style'                 => $_escaped_trig_style,
+                'trig_message_style'         => $_escaped_trig_message_style,
                 'toggler_data'               => $_escaped_toggler_data,
                 'trigger_add_message'        => $trigger_add_message,
                 'trig_svg_open'              => $_safe_trig_svg_open,

@@ -702,6 +702,79 @@ jQuery(document).ready(function ($) {
 	};
 
 
+	/**
+	 * Toggler/closer's animation.
+	 */
+	$.fn.trigAnim = function() {
+
+		this.each( function () {
+
+			var trig      = $(this),
+				echo      = $(this).prop('class').match(/anim-echo/)    ? true : false,
+				onload    = $(this).prop('class').match(/anim-onload/)  ? true : false,
+				clicker   = $(this).prop('class').match(/anim-doclick/) ? true : false,
+				echo_time = typeof trig.data('anim-echo') !== 'undefined' ? trig.data('anim-echo') *1000 : 15000; // with *1000 convert seconds to miliseconds
+
+
+			function pickAnim() {
+				var rotate = trig.prop('class').match(/anim-rotate/) ? true : false;
+				if (rotate === true) {
+					trig.doTimeout(100, 'addClass', 'anim-do-rotate') // give a timeout, otherwise won't work
+						.doTimeout(1500, 'removeClass', 'anim-do-rotate');
+				}
+
+				var shadow = trig.prop('class').match(/anim-shadow/) ? true : false;
+				if (shadow === true) {
+					trig.doTimeout(100, 'addClass', 'anim-do-shadow') // give a timeout, otherwise won't work
+						.doTimeout(1500, 'removeClass', 'anim-do-shadow');
+				}
+
+				var pulse = trig.prop('class').match(/anim-pulse/) ? true : false;
+				if (pulse === true) {
+					trig.doTimeout(100, 'addClass', 'anim-do-heartBeat') // give a timeout, otherwise won't work
+						.doTimeout(1500, 'removeClass', 'anim-do-heartBeat');
+				}
+
+				var shakeX = trig.prop('class').match(/anim-shake-h/) ? true : false;
+				if (shakeX === true) {
+						trig.doTimeout(100, 'addClass', 'anim-do-shakeX') // give a timeout, otherwise won't work
+							.doTimeout(1500, 'removeClass', 'anim-do-shakeX');
+				}
+
+				var shakeY = trig.prop('class').match(/anim-shake-v/) ? true : false;
+				if (shakeY === true) {
+					trig
+					.doTimeout(100, 'addClass', 'anim-do-shakeY') // give a timeout, otherwise won't work
+					.doTimeout(1500, 'removeClass', 'anim-do-shakeY');
+				}
+			}
+
+			var animEcho = function() {
+				if (trig.prop('class').match(/anim-over/)) {
+					clearInterval(animEcho);
+				} else {
+					pickAnim();
+				}
+			};
+
+			if (onload === true) {
+				pickAnim();
+			}
+
+			if (clicker === true) {
+				pickAnim();
+			}
+
+			if (echo === true) {
+				setInterval(animEcho, echo_time);
+			}
+
+		});
+
+		return this;
+
+	};
+
 
 	/**
 	 * Close the panel.
@@ -781,7 +854,7 @@ jQuery(document).ready(function ($) {
 
 	};
 
-	$('.type-closer .mboxy-overlay, .mboxy-closer').panelCloser();
+	$('.type-closer .mboxy-overlay, .mboxy-closer').panelCloser().trigAnim();
 
 
 	/**
@@ -872,7 +945,7 @@ jQuery(document).ready(function ($) {
 
 					panel.find( '>.mboxy >.trigger' )
 						.addClass('anim-doclick')
-						.togglerAnim();
+						.trigAnim();
 
 				}
 				if (panel.find( '>.mboxy >.trigger' ).prop('class').match(/anim-echo/)) {
@@ -891,82 +964,9 @@ jQuery(document).ready(function ($) {
 
 
 
-	/**
-	 * Toggler's animation.
-	 */
-	$.fn.togglerAnim = function() {
-
-		this.each( function () {
-
-			var trig    = $(this),
-			    echo    = $(this).prop('class').match(/anim-echo/) ? true : false,
-			    onload  = $(this).prop('class').match(/anim-onload/) ? true : false,
-			    clicker = $(this).prop('class').match(/anim-doclick/) ? true : false;
-
-			function pickAnim() {
-				var rotate = trig.prop('class').match(/anim-rotate/) ? true : false;
-				if (rotate === true) {
-					trig.doTimeout(300, 'addClass', 'trigger-rotator') // give a timeout, otherwise won't work
-						.doTimeout(1500, 'removeClass', 'trigger-rotator');
-				}
-
-				var shadow = trig.prop('class').match(/anim-shadow/) ? true : false;
-				if (shadow === true) {
-					trig.doTimeout(100, 'addClass', 'anim-shadowed') // give a timeout, otherwise won't work
-						.doTimeout(1500, 'removeClass', 'anim-shadowed');
-				}
-
-				var pulse = trig.prop('class').match(/anim-pulse/) ? true : false;
-				if (pulse === true) {
-					trig.doTimeout(100, 'addClass', 'anim-heartBeat') // give a timeout, otherwise won't work
-						.doTimeout(1500, 'removeClass', 'anim-heartBeat');
-				}
-
-				var shakeX = trig.prop('class').match(/anim-shake-h/) ? true : false;
-				if (shakeX === true) {
-						trig.doTimeout(100, 'addClass', 'anim-shakeX') // give a timeout, otherwise won't work
-							.doTimeout(1500, 'removeClass', 'anim-shakeX');
-				}
-
-				var shakeY = trig.prop('class').match(/anim-shake-v/) ? true : false;
-				if (shakeY === true) {
-					trig
-					.doTimeout(100, 'addClass', 'anim-shakeY') // give a timeout, otherwise won't work
-					.doTimeout(1500, 'removeClass', 'anim-shakeY');
-				}
-			}
-
-			var animEcho = function() {
-				if (trig.prop('class').match(/anim-over/)) {
-					clearInterval(animEcho);
-				} else {
-					pickAnim();
-				}
-			};
-
-			if (onload === true) {
-				pickAnim();
-			}
-
-			if (clicker === true) {
-				pickAnim();
-			}
-
-			if (echo === true) {
-				setInterval(animEcho, 3000);
-			}
-
-
-		});
-
-		return this;
-
-	};
-
-
 	// apply the toggling
 	var panel_toggler = $('.mboxy-toggler, .type-toggler .mboxy-overlay');
-		panel_toggler.panelToggler().togglerAnim();// anim on load
+		panel_toggler.panelToggler().trigAnim();
 
 
 	/**

@@ -26,6 +26,141 @@
   margin-right: 0 !important; }
 
 /**
+ * Animations
+ */
+@-webkit-keyframes shadow {
+  40% {
+    -webkit-box-shadow: currentColor 0 0 0 20px;
+            box-shadow: currentColor 0 0 0 20px; }
+  100% {
+    -webkit-box-shadow: currentColor 0 0 0 0px;
+            box-shadow: currentColor 0 0 0 0px; } }
+@keyframes shadow {
+  40% {
+    -webkit-box-shadow: currentColor 0 0 0 20px;
+            box-shadow: currentColor 0 0 0 20px; }
+  100% {
+    -webkit-box-shadow: currentColor 0 0 0 0px;
+            box-shadow: currentColor 0 0 0 0px; } }
+
+/*!
+ * Animations
+ * The following is small fork of animate.css - https://animate.style/
+ * Version - 4.1.1
+ * Licensed under the Hippocratic License 2.1 - http://firstdonoharm.dev
+ *
+ * Copyright (c) 2022 Animate.css
+ */
+@-webkit-keyframes shakeX {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(-7px, 0, 0);
+            transform: translate3d(-7px, 0, 0); }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(7px, 0, 0);
+            transform: translate3d(7px, 0, 0); } }
+@keyframes shakeX {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(-7px, 0, 0);
+            transform: translate3d(-7px, 0, 0); }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(7px, 0, 0);
+            transform: translate3d(7px, 0, 0); } }
+
+@-webkit-keyframes shakeY {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(0, -7px, 0);
+            transform: translate3d(0, -7px, 0); }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(0, 7px, 0);
+            transform: translate3d(0, 7px, 0); } }
+
+@keyframes shakeY {
+  from,
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0); }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: translate3d(0, -7px, 0);
+            transform: translate3d(0, -7px, 0); }
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transform: translate3d(0, 7px, 0);
+            transform: translate3d(0, 7px, 0); } }
+
+@-webkit-keyframes heartBeat {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  14% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+  28% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  42% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes heartBeat {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  14% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+  28% {
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  42% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3); }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+/**
  * Panels
  */
 .mboxy-wrap > .mboxy {
@@ -684,170 +819,44 @@ body.maxboxy-overlay-on {
     margin: 26px; }
   .mboxy-wrap > .mboxy .trigger.rounded.squared.igniteon:not(.has-img-open), .mboxy-wrap > .mboxy .trigger.rounded.squared:not(.igniteon):not(.has-img-close):not(.close-img-thesame) {
     border-radius: 5px; }
-  .mboxy-wrap > .mboxy .trigger.trigger-rotator {
-    -webkit-transform: rotate(180deg) !important;
-        -ms-transform: rotate(180deg) !important;
-            transform: rotate(180deg) !important;
-    -webkit-transition: -webkit-transform 750ms ease !important;
-    transition: -webkit-transform 750ms ease !important;
-    -o-transition: transform 750ms ease !important;
-    transition: transform 750ms ease !important;
-    transition: transform 750ms ease, -webkit-transform 750ms ease !important; }
-
-@-webkit-keyframes shadow {
-  0% {
-    -webkit-box-shadow: currentColor 0 0 0 20px;
-            box-shadow: currentColor 0 0 0 20px; } }
-
-@keyframes shadow {
-  0% {
-    -webkit-box-shadow: currentColor 0 0 0 20px;
-            box-shadow: currentColor 0 0 0 20px; } }
-
-@-webkit-keyframes shakeX {
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-            transform: translate3d(-10px, 0, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-            transform: translate3d(10px, 0, 0); } }
-
-@keyframes shakeX {
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-            transform: translate3d(-10px, 0, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(10px, 0, 0);
-            transform: translate3d(10px, 0, 0); } }
-
-@-webkit-keyframes shakeY {
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(0, 10px, 0);
-            transform: translate3d(0, 10px, 0); } }
-
-@keyframes shakeY {
-  from,
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0); }
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0); }
-  20%,
-  40%,
-  60%,
-  80% {
-    -webkit-transform: translate3d(0, 10px, 0);
-            transform: translate3d(0, 10px, 0); } }
-
-@-webkit-keyframes heartBeat {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  14% {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3); }
-  28% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  42% {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3); }
-  70% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-
-@keyframes heartBeat {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  14% {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3); }
-  28% {
-    -webkit-transform: scale(1);
-            transform: scale(1); }
-  42% {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3); }
-  70% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-  .mboxy-wrap > .mboxy .trigger.anim-shadowed {
+  .mboxy-wrap > .mboxy .trigger.anim-do-rotate.anim-do-rotate {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 800ms ease;
+    transition: -webkit-transform 800ms ease;
+    -o-transition: transform 800ms ease;
+    transition: transform 800ms ease;
+    transition: transform 800ms ease, -webkit-transform 800ms ease; }
+  .mboxy-wrap > .mboxy .trigger.anim-do-shadow {
     -webkit-animation-name: shadow;
             animation-name: shadow;
-    -webkit-animation-duration: .8s;
-            animation-duration: .8s;
-    -webkit-animation-delay: .3s;
-            animation-delay: .3s;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
+    -webkit-animation-duration: 1.2s;
+            animation-duration: 1.2s;
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .mboxy-wrap > .mboxy .trigger.anim-shakeX {
+  .mboxy-wrap > .mboxy .trigger.anim-do-shakeX {
     -webkit-animation-name: shakeX;
             animation-name: shakeX;
-    -webkit-animation-duration: 750ms;
-            animation-duration: 750ms;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both; }
-  .mboxy-wrap > .mboxy .trigger.anim-shakeY {
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s; }
+  .mboxy-wrap > .mboxy .trigger.anim-do-shakeY {
     -webkit-animation-name: shakeY;
             animation-name: shakeY;
-    -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both; }
-  .mboxy-wrap > .mboxy .trigger.anim-heartBeat {
+    -webkit-animation-duration: 1.2s;
+            animation-duration: 1.2s; }
+  .mboxy-wrap > .mboxy .trigger.anim-do-heartBeat {
     -webkit-animation-name: heartBeat;
             animation-name: heartBeat;
-    -webkit-animation-duration: calc(1s * 1.3);
-            animation-duration: calc(1s * 1.3);
+    -webkit-animation-duration: 1.2s;
+            animation-duration: 1.2s;
     -webkit-animation-timing-function: ease-in-out;
             animation-timing-function: ease-in-out; }
-  .mboxy-wrap > .mboxy .trigger[class*="anim-"] {
+  .mboxy-wrap > .mboxy .trigger[class*="anim-do-"] {
     -webkit-animation-delay: .5s;
-            animation-delay: .5s; }
+            animation-delay: .5s;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both; }
   .mboxy-wrap > .mboxy .trigger.has-additional-message {
     position: relative; }
     .mboxy-wrap > .mboxy .trigger.has-additional-message .additional-message {

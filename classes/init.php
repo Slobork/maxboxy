@@ -604,7 +604,8 @@ if (! class_exists('Max_Boxy')) {
          * @type string  'panel_add_lable_class'     Set the class for trigger's additional message.
          * @type string  'injectany_align'           Alignment class for InjectAny.
          * @type string  'sticky'                    For InjectAny, print a class setting the panel as sticky, otherwise it's empty.
-         * @type string  'rotator_time'              For role rotator time data (already escaped).
+         * @type string  'anim_echo_time'            Escaped - For anim echo time data.
+         * @type string  'rotator_time'              Escaped - For role rotator time data.
          * @type string  'wrap_style'                Escaped - get style attribute with its values for the .mboxy-wrap div.
          * @type string  'panel_style'               Escaped - get style attribute with its values for the .mboxy div.
          * @type string  'content_style'             Escaped - get style attribute with its values for the .mboxy-content div.
@@ -738,7 +739,8 @@ if (! class_exists('Max_Boxy')) {
                                 .$conditionals[ 'appear_data' ]
                                 .'>';
 
-                // $basics[ 'panel_style' ], $basics[ 'trig_style' ] and $basics[ 'toggler_data' ] are already escaped @see Max_Boxy_Options::basics()
+                // The following are already escaped @see Max_Boxy_Options::basics()
+                $_escaped_anim_echo                = $basics[ 'anim_echo_time' ];
                 $_escaped_early_trig_style         = $basics[ 'trig_style' ];
                 $_escaped_early_trig_message_style = $basics[ 'trig_message_style' ];
                 $_escaped_early_panel_style        = $basics[ 'panel_style' ];
@@ -772,7 +774,7 @@ if (! class_exists('Max_Boxy')) {
                         .esc_attr($basics[ 'toggler_svg_classes' ])
                         .esc_attr($basics[ 'toggler_img_classes' ])
                         .esc_attr($basics[ 'trigger_anim' ])
-                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$_escaped_early_trig_style .'>'
+                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$_escaped_anim_echo .$_escaped_early_trig_style .'>'
                         .$_escaped_trigger_add_message
                         .$_escaped_early_group
                         .$trig_icon
@@ -791,7 +793,7 @@ if (! class_exists('Max_Boxy')) {
                                         .esc_attr($basics[ 'toggler_svg_classes' ])
                                         .esc_attr($basics[ 'toggler_img_classes' ])
                                         .esc_attr($basics[ 'trigger_anim' ])
-                                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_early_trig_style .'>'
+                                        .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_anim_echo .$_escaped_early_trig_style .'>'
                                         .$_escaped_trigger_add_message
                                         .$_escaped_early_group
                                         .$trig_icon

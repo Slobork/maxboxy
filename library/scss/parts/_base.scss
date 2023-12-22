@@ -10,3 +10,87 @@
 .mboxy-mb0 { margin-bottom:  0 !important; }
 .mboxy-ml0 { margin-left:    0 !important; }
 .mboxy-mr0 { margin-right:   0 !important; }
+
+
+/**
+ * Animations
+ */
+
+@keyframes shadow {
+	40% {box-shadow: currentColor 0 0 0 20px;}
+	100% {box-shadow: currentColor 0 0 0 0px;}
+}
+
+/*!
+ * Animations
+ * The following is small fork of animate.css - https://animate.style/
+ * Version - 4.1.1
+ * Licensed under the Hippocratic License 2.1 - http://firstdonoharm.dev
+ *
+ * Copyright (c) 2022 Animate.css
+ */
+@keyframes shakeX {
+	from,
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: translate3d(-7px, 0, 0);
+	}
+
+	20%,
+	40%,
+	60%,
+	80% {
+		transform: translate3d(7px, 0, 0);
+	}
+}
+
+@keyframes shakeY {
+	from,
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: translate3d(0, -7px, 0);
+	}
+
+	20%,
+	40%,
+	60%,
+	80% {
+		transform: translate3d(0, 7px, 0);
+	}
+}
+
+@keyframes heartBeat {
+	0% {
+		transform: scale(1);
+	}
+
+	14% {
+		transform: scale(1.3);
+	}
+
+	28% {
+		transform: scale(1);
+	}
+
+	42% {
+		transform: scale(1.3);
+	}
+
+	70% {
+		transform: scale(1);
+	}
+}

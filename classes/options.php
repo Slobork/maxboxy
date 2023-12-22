@@ -494,6 +494,9 @@ if (! class_exists('Max_Boxy_Options')) {
             $anim_appear                    = ! empty($get_trigger_anim) && is_array($get_anim_appear) ? ' ' .implode(' ', $get_anim_appear) : '';
             $trigger_anim                   = $get_trigger_anim .$anim_appear;
 
+            $anim_echo                      = isset($basics[ 'trigger_anim_echo_interval' ]) && is_numeric($basics[ 'trigger_anim_echo_interval' ]) ? abs($basics[ 'trigger_anim_echo_interval' ]) : 15; // default 15s
+            $_escaped_anim_echo_data        = ! empty($trigger_anim) && in_array('anim-echo', $get_anim_appear) ? ' data-anim-echo="'  .esc_attr($anim_echo) .'"' : '';
+
             // Rotator - on time span
             $rotator_on                     = isset($basics[ 'rotator_on' ]) && is_numeric($basics[ 'rotator_on' ]) ? abs($basics[ 'rotator_on' ]) : 5; // default 5s
             $_escaped_rotator_on_data       = ' data-rotator-on="'  .esc_attr($rotator_on) .'"';
@@ -671,6 +674,7 @@ if (! class_exists('Max_Boxy_Options')) {
                 'injectany_align'            => $injectany_align,
                 'sticky'                     => $sticky,
                 // data:
+                'anim_echo_time'             => $_escaped_anim_echo_data,
                 'rotator_time'               => $_escaped_rotator_time_data,
                 'wrap_style'                 => $_escaped_panel_wrap_style,
                 'panel_style'                => $_escaped_panel_data,

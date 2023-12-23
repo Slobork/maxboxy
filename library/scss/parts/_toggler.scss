@@ -1,4 +1,4 @@
-/*
+/**
  * Toggler
  */
 
@@ -171,8 +171,8 @@
 				}
 
 				// have to tilt it with translateX for default and large sizes
-				&.point-up      { transform: rotate(90deg) translateY(1px); }
-				&.point-down    { transform: rotate(-90deg) translateY(-2px); }
+				&.point-up      { transform: rotate(90deg); }
+				&.point-down    { transform: rotate(-90deg); }
 				&.point-right   { transform: rotate(180deg); }
 
 			} // end trig-icon
@@ -281,41 +281,6 @@
 					}
 				}
 
-			}
-
-			// Animations...
-
-			// rotate icon animation, it's more stable with the following direct transform & transition, than creating @keyframes
-			&.anim-do-rotate.anim-do-rotate {
-				transform: rotate(180deg);
-				transition: transform 800ms ease;
-			}
-
-			&.anim-do-shadow {
-				animation-name: shadow;
-				animation-duration: 1.2s;
-				box-shadow: none;
-			}
-
-			&.anim-do-shakeX {
-				animation-name: shakeX;
-				animation-duration: 1s;
-			}
-			
-			&.anim-do-shakeY {
-				animation-name: shakeY;
-				animation-duration: 1.2s;
-			}
-			
-			&.anim-do-heartBeat {
-				animation-name: heartBeat;
-				animation-duration: 1.2s;
-				animation-timing-function: ease-in-out;
-			}
-
-			&[class*="anim-do-"] {
-				animation-delay: .5s;
-				animation-fill-mode: both;
 			}
 	
 			// with additional message on the trigger

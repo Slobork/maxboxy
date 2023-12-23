@@ -350,7 +350,7 @@
 	} // end .mboxy
 
 	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos
-	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.65) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.55) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-s { transform: scale(.75) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-h { transform: scale(1.55) }

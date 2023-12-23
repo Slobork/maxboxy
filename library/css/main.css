@@ -735,9 +735,9 @@ body.maxboxy-overlay-on {
     display: none; }
 
 .mboxy-wrap:not(.on)[class*="place-center"] > .mboxy > .trigger.size-m {
-  -webkit-transform: scale(0.65);
-      -ms-transform: scale(0.65);
-          transform: scale(0.65); }
+  -webkit-transform: scale(0.55);
+      -ms-transform: scale(0.55);
+          transform: scale(0.55); }
 
 .mboxy-wrap:not(.on)[class*="place-center"] > .mboxy > .trigger.size-s {
   -webkit-transform: scale(0.75);

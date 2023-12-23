@@ -2,7 +2,7 @@
  * Toggler
  */
 
- .mboxy-wrap {
+.mboxy-wrap {
 
 	> .mboxy {
 
@@ -82,8 +82,8 @@
 
 				}
 
-				&.iks-plus { 
-					transform: rotate(45deg); 
+				&.iks-plus {
+					transform: rotate(45deg);
 
 					&:after { top: 0; } // without this correction, it's somehow blurry
 				}
@@ -115,15 +115,15 @@
 				&.ham-f1 {
 					width: 13px;
 					// .ham-f1, .ham-f2 need a bit corection to get centralized with transform translate:
-					transform: translateX(-3px); 
-					
+					transform: translateX(-3px);
+
 					&:before { width: 7px; }
-					
+
 				}
 				&.ham-f2 {
 					width: 13px;
 					// .ham-f1, .ham-f2 need a bit corection to get centralized with transform translate:
-					transform: translateX(-3px); 
+					transform: translateX(-3px);
 
 					&:after { width: 7px; }
 
@@ -179,7 +179,7 @@
 
 			// toggler/closer sizes
 			&.size-m {
-				transform: scale(.55); margin: -4px; 
+				transform: scale(.55); margin: -4px;
 
 				.trig-icon {
 
@@ -189,11 +189,11 @@
 						height: 4px;
 						box-shadow: 0 2px 0 0;
 					}
-					
+
 					&[class*="iks"] {
 						box-shadow: none;
 					}
-					
+
 					&[class*="ham"] {
 						// eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
 						height: 0;
@@ -206,7 +206,7 @@
 					// change translateX applied by defalt
 					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
 					&.point-down { transform: rotate(-90deg) translateY(0px); }
-					
+
 					// since it's scaled down, to be viewable, have to set larger height
 					&:before, &:after { height: 2px; }
 
@@ -215,18 +215,18 @@
 			}
 
 			&.size-s {
-				transform: scale(.75); 
+				transform: scale(.75);
 
-				.trig-icon { 
+				.trig-icon {
 
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="iks"],
 					&[class*="point"],
 					&.minus {
 						height: 3px;
-						
+
 					}
-					
+
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="ham"] {
 						height: 2px;
@@ -252,10 +252,10 @@
 
 			// additional styles...
 
-			&.bordered { 
+			&.bordered {
 				&.igniteon:not(.has-img-open),
 				&:not(.igniteon):not(.has-img-close):not(.close-img-thesame) {
-					border: 2px solid; 
+					border: 2px solid;
 				}
 			}
 
@@ -282,7 +282,7 @@
 				}
 
 			}
-	
+
 			// with additional message on the trigger
 			&.has-additional-message {
 				position: relative;
@@ -346,23 +346,22 @@
 			}
 
 		} // end .trigger
-		
-		
+
 	} // end .mboxy
 
-	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos 
-	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.55) }
+	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.65) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-s { transform: scale(.75) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
-	
+
 	// ...and in the case its pos is left/right, but centered
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-m { transform: scale(.55) }
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-s { transform: scale(.75) }
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
-	
-	
+
+
 	// trigger's additional message
 	&:not([class*="bottomed"]) .additional-message { top: 100%; margin-top: 22px; left: inherit; right: inherit; }
 	&[class*="bottomed"] .additional-message { bottom: 100%; margin-bottom: 22px; left: inherit; right: inherit; }

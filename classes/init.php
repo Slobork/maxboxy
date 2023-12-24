@@ -753,7 +753,7 @@ if (! class_exists('Max_Boxy')) {
                 //$_escaped_out .= $_set_content; // $_set_content is the content of the WP post
                 $_escaped_out .= '<div class="mboxy-content"' .$basics[ 'content_style' ]  .'>' .$_set_content .$_escaped_label .'</div>'; // $_set_content is the content of the WP post
 
-                $basic_toggler_classes = 'trigger trig-default';
+                $basic_trigger_classes = 'trigger trig-default';
 
                 // $basics[ 'trig_img_open' ], $basics[ 'trig_img_close' ], $basics[ 'trig_svg_open' ] and $basics[ 'trig_svg_close' ]
                 // are already escaped @see Max_Boxy_Options::basics()
@@ -767,7 +767,7 @@ if (! class_exists('Max_Boxy')) {
                 if ($basics[ 'type' ] === 'closer' && $basics[ 'unset_toggler' ] === 'no') {
 
                     $_escaped_out .= '<div class="mboxy-closer '
-                        .esc_attr($basic_toggler_classes)
+                        .esc_attr($basic_trigger_classes)
                         .esc_attr($basics[ 'closer_size' ])
                         .esc_attr($basics[ 'trigger_icon_classes' ])
                         .esc_attr($basics[ 'trigger_add_message_class' ])
@@ -786,7 +786,7 @@ if (! class_exists('Max_Boxy')) {
                 if ($basics[ 'type' ] === 'toggler' && $basics[ 'unset_toggler' ] !== 'all') {
 
                     $_escaped_out .= '<div class="mboxy-toggler '
-                                        .esc_attr($basic_toggler_classes)
+                                        .esc_attr($basic_trigger_classes)
                                         .esc_attr($basics[ 'closer_size' ])
                                         .esc_attr($basics[ 'trigger_icon_classes' ])
                                         .esc_attr($basics[ 'trigger_add_message_class' ])

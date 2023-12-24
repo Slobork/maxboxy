@@ -1,31 +1,42 @@
-/*
+/**
  * Toggler
  */
 
- .mboxy-wrap {
+.mboxy-wrap {
 
 	> .mboxy {
 
-		.shuter {
-			cursor: pointer;
-			color: #ffffff;
-			background: #333333;
-			transition: all .3s linear;
-			//height: 2.5em;
-			height: 52px;
-			//width: 52px;
-			//width: auto;
-			width: fit-content;
-			padding: 0 16px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+		.trigger {
 			z-index: 1; // should make sure it stacks over the other elms, eg. cover img
-				
-		&:hover { opacity: .8; }
+			cursor: pointer;
+			transition: all .3s linear;
+			display: flex; // this eliminates excesive spase on svg and aligns for icons
+
+			&.has-icon-open.igniteon,
+			&.has-icon-close:not(.igniteon) {
+				color: #ffffff;
+				background: #333333;
+				//height: 2.5em;
+				height: 52px;
+				//width: 52px;
+				//width: auto;
+				width: fit-content;
+				padding: 0 16px;
+				align-items: center;
+				justify-content: center;
+			}
+
+			&:hover { opacity: .9; }
 
 
-			.shut-inner {
+			&.has-svg-open.igniteon .trig-icon,
+			&.has-img-open.igniteon .trig-icon,
+			&.has-svg-close:not(.igniteon) .trig-icon,
+			&.has-img-close:not(.igniteon) .trig-icon {
+				display: none;
+			}
+
+			.trig-icon {
 				position: relative;
 				top: auto;
 				height: 1px; // must be set to reflect the middle line, e.g. with ham
@@ -71,8 +82,8 @@
 
 				}
 
-				&.iks-plus { 
-					transform: rotate(45deg); 
+				&.iks-plus {
+					transform: rotate(45deg);
 
 					&:after { top: 0; } // without this correction, it's somehow blurry
 				}
@@ -104,15 +115,15 @@
 				&.ham-f1 {
 					width: 13px;
 					// .ham-f1, .ham-f2 need a bit corection to get centralized with transform translate:
-					transform: translateX(-3px); 
-					
+					transform: translateX(-3px);
+
 					&:before { width: 7px; }
-					
+
 				}
 				&.ham-f2 {
 					width: 13px;
 					// .ham-f1, .ham-f2 need a bit corection to get centralized with transform translate:
-					transform: translateX(-3px); 
+					transform: translateX(-3px);
 
 					&:after { width: 7px; }
 
@@ -160,17 +171,17 @@
 				}
 
 				// have to tilt it with translateX for default and large sizes
-				&.point-up      { transform: rotate(90deg) translateY(1px); }
-				&.point-down    { transform: rotate(-90deg) translateY(-2px); }
+				&.point-up      { transform: rotate(90deg); }
+				&.point-down    { transform: rotate(-90deg); }
 				&.point-right   { transform: rotate(180deg); }
 
-			} // end shut-inner
+			} // end trig-icon
 
 			// toggler/closer sizes
 			&.size-m {
-				transform: scale(.55); margin: -4px; 
+				transform: scale(.55); margin: -4px;
 
-				.shut-inner {
+				.trig-icon {
 
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="iks"],
@@ -178,11 +189,11 @@
 						height: 4px;
 						box-shadow: 0 2px 0 0;
 					}
-					
+
 					&[class*="iks"] {
 						box-shadow: none;
 					}
-					
+
 					&[class*="ham"] {
 						// eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
 						height: 0;
@@ -195,27 +206,27 @@
 					// change translateX applied by defalt
 					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
 					&.point-down { transform: rotate(-90deg) translateY(0px); }
-					
+
 					// since it's scaled down, to be viewable, have to set larger height
 					&:before, &:after { height: 2px; }
 
-				} // end shut-inner
+				} // end trig-icon
 
 			}
 
 			&.size-s {
-				transform: scale(.75); 
+				transform: scale(.75);
 
-				.shut-inner { 
+				.trig-icon {
 
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="iks"],
 					&[class*="point"],
 					&.minus {
 						height: 3px;
-						
+
 					}
-					
+
 					// since it's scaled down, to be viewable, have to set larger height
 					&[class*="ham"] {
 						height: 2px;
@@ -232,51 +243,130 @@
 						&:before { box-shadow: 0 -7px 0 0; }
 					}
 
-				} // end shut-inner
+				} // end trig-icon
 
 			}
 
-			&.size-l { transform: scale(1.25); margin: 6px 8px;  padding: 0 20px; }
-			&.size-h { transform: scale(1.55); margin: 14px 17px; padding: 0 20px; }
+			&.size-l { transform: scale(1.25); margin: 6px 7px;  padding: 0 20px; }
+			&.size-h { transform: scale(1.55); margin: 14px 15px; padding: 0 20px; }
 
+			// additional styles...
 
-			&.bordered { border: 2px solid; }
+			&.bordered {
+				&.igniteon:not(.has-img-open),
+				&:not(.igniteon):not(.has-img-close):not(.close-img-thesame) {
+					border: 2px solid;
+				}
+			}
 
-			&.inside { position: absolute; }
+			// double it, coz pos absolute to be forced
+			&.inside.inside { position: absolute; }
 
 			&.rounded {
-				border-radius: 50%;
-				margin: 8px;
+				&.igniteon:not(.has-img-open),
+				&:not(.igniteon):not(.has-img-close):not(.close-img-thesame) {
+					border-radius: 50%;
+					margin: 8px;
+				}
 
 				&.size-m { margin: -4px; }
 				&.size-s { margin: 4px; }
 				&.size-l { margin: 16px; }
 				&.size-h { margin: 26px; }
 
-				&.squared { border-radius: 5px; }
+				&.squared {
+					&.igniteon:not(.has-img-open),
+					&:not(.igniteon):not(.has-img-close):not(.close-img-thesame) {
+						border-radius: 5px;
+					}
+				}
 
 			}
 
-			// rotate icon animation
-			&.trigger-rotator {
-				transform: rotate(180deg) !important;
-				transition: transform 750ms ease !important;
+			// with additional message on the trigger
+			&.has-additional-message {
+				position: relative;
+
+				.additional-message {
+					position: absolute;
+					color: #ffffff;
+					background: #333333;
+					padding: 6px 16px;
+					text-align: center;
+					width: max-content;
+					max-width: 350px;
+					pointer-events: none;
+					margin-left: 6px;
+					border-radius: 5px;
+
+					.additional-message-killer {
+						position: absolute;
+						top: 0;
+						right: 0;
+						transform: translate(50%,-50%);
+						background: inherit;
+						color: inherit;
+						pointer-events: initial;
+						cursor: pointer;
+						width: 25px;
+						height: auto;
+						font-size: .75rem;
+						border: 1px solid currentColor;
+						border-radius: 50%;
+					}
+				}
+
 			}
 
-		} // end .shuter
+			&[class*="has-svg"] { width: max-content;}
+
+			svg {
+				display: flex;
+				width: 55px;
+				height: auto;
+			}
+
+			// when img/svg is used, remove the bg and color
+			&.igniteon.has-img-open,
+			&.igniteon.has-svg-open,
+			&.close-img-thesame,
+			&.close-svg-thesame,
+			&:not(.igniteon).has-img-close,
+			&:not(.igniteon).has-svg-close {
+				background: transparent !important;
+				color: unset !important;
+			}
+
+			// for the toggle - when svg/img, toggle the display
+			&.igniteon .trig-svg-close,
+			&.igniteon .trig-img-close,
+			&:not(.igniteon):not(.close-svg-thesame) .trig-svg-open,
+			&:not(.igniteon):not(.close-img-thesame) .trig-img-open {
+				display: none;
+			}
+
+		} // end .trigger
 
 	} // end .mboxy
 
-	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos 
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-m { transform: scale(.55) }
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-s { transform: scale(.75) }
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-l { transform: scale(1.25) }
-	&:not(.on)[class*="place-center"] >.mboxy > .shuter.size-h { transform: scale(1.55) }
+	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.55) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-s { transform: scale(.75) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
 
 	// ...and in the case its pos is left/right, but centered
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-m { transform: scale(.55) }
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-s { transform: scale(.75) }
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-l { transform: scale(1.25) }
-	&:not(.on)[class*="centered"] >.mboxy > .shuter.size-h { transform: scale(1.55) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-m { transform: scale(.55) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-s { transform: scale(.75) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
+
+
+	// trigger's additional message
+	&:not([class*="bottomed"]) .additional-message { top: 100%; margin-top: 22px; left: inherit; right: inherit; }
+	&[class*="bottomed"] .additional-message { bottom: 100%; margin-bottom: 22px; left: inherit; right: inherit; }
+	&[class*="place-right"] .mboxy .trigger.has-additional-message .additional-message { margin-left: auto; margin-right: 6px; }
+	&[class*="place-right"] .mboxy .trigger.has-additional-message .additional-message .additional-message-killer { right: auto; left: 0; transform: translate(-50%, -50%); }
+	&.on .additional-message {display: none;}
 
 } // end .mboxy-wrap

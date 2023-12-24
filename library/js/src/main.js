@@ -39,10 +39,10 @@ jQuery(document).ready(function ($) {
 
 						var showPanel  = function() {
 
-								// igniter is handled differently, i.e. by adding the .igniteon to the shut instead of .on class
+								// igniter is handled differently, i.e. by adding the .igniteon to the trigger instead of .on class
 								if ( is_igniter === true ) {
 
-								panel.find('.shut-default').addClass('igniteon');
+								panel.find('.trig-default').addClass('igniteon');
 								panel.panelSize();
 
 							} else {
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
 
 							if ( is_igniter === true ) {
 
-								panel.find('.shut-default').removeClass('igniteon');
+								panel.find('.trig-default').removeClass('igniteon');
 
 							} else {
 
@@ -702,6 +702,79 @@ jQuery(document).ready(function ($) {
 	};
 
 
+	/**
+	 * Toggler/closer's animation.
+	 */
+	$.fn.trigAnim = function() {
+
+		this.each( function () {
+
+			var trig      = $(this),
+				echo      = $(this).prop('class').match(/anim-echo/)    ? true : false,
+				onload    = $(this).prop('class').match(/anim-onload/)  ? true : false,
+				clicker   = $(this).prop('class').match(/anim-doclick/) ? true : false,
+				echo_time = typeof trig.data('anim-echo') !== 'undefined' ? trig.data('anim-echo') *1000 : 15000; // with *1000 convert seconds to miliseconds
+
+
+			function pickAnim() {
+				var rotate = trig.prop('class').match(/anim-rotate/) ? true : false;
+				if (rotate === true) {
+					trig.doTimeout(100, 'addClass', 'anim-do-rotate') // give a timeout, otherwise won't work
+						.doTimeout(1500, 'removeClass', 'anim-do-rotate');
+				}
+
+				var shadow = trig.prop('class').match(/anim-shadow/) ? true : false;
+				if (shadow === true) {
+					trig.doTimeout(100, 'addClass', 'anim-do-shadow') // give a timeout, otherwise won't work
+						.doTimeout(1500, 'removeClass', 'anim-do-shadow');
+				}
+
+				var pulse = trig.prop('class').match(/anim-pulse/) ? true : false;
+				if (pulse === true) {
+					trig.doTimeout(100, 'addClass', 'anim-do-heartBeat') // give a timeout, otherwise won't work
+						.doTimeout(1500, 'removeClass', 'anim-do-heartBeat');
+				}
+
+				var shakeX = trig.prop('class').match(/anim-shake-h/) ? true : false;
+				if (shakeX === true) {
+						trig.doTimeout(100, 'addClass', 'anim-do-shakeX') // give a timeout, otherwise won't work
+							.doTimeout(1500, 'removeClass', 'anim-do-shakeX');
+				}
+
+				var shakeY = trig.prop('class').match(/anim-shake-v/) ? true : false;
+				if (shakeY === true) {
+					trig
+					.doTimeout(100, 'addClass', 'anim-do-shakeY') // give a timeout, otherwise won't work
+					.doTimeout(1500, 'removeClass', 'anim-do-shakeY');
+				}
+			}
+
+			var animEcho = function() {
+				if (trig.prop('class').match(/anim-over/)) {
+					clearInterval(animEcho);
+				} else {
+					pickAnim();
+				}
+			};
+
+			if (onload === true) {
+				pickAnim();
+			}
+
+			if (clicker === true) {
+				pickAnim();
+			}
+
+			if (echo === true) {
+				setInterval(animEcho, echo_time);
+			}
+
+		});
+
+		return this;
+
+	};
+
 
 	/**
 	 * Close the panel.
@@ -781,7 +854,7 @@ jQuery(document).ready(function ($) {
 
 	};
 
-	$('.type-closer .mboxy-overlay, .mboxy-closer').panelCloser();
+	$('.type-closer .mboxy-overlay, .mboxy-closer').panelCloser().trigAnim();
 
 
 	/**
@@ -817,18 +890,18 @@ jQuery(document).ready(function ($) {
 					$('body').toggleClass('maxboxy-overlay-on');
 				}
 
-				panel.find('.mboxy-toggler.shut-default').toggleClass('igniteon');
+				panel.find('.mboxy-toggler.trig-default').toggleClass('igniteon');
 
-				var shut_inner              =   panel.find( '.shut-inner' ),
-					data_button_open        =   typeof shut_inner.data('button-open')     !== 'undefined'     ?   shut_inner.data('button-open')    : '',
-					data_button_close       =   typeof shut_inner.data('button-close')    !== 'undefined'     ?   shut_inner.data('button-close')   : '';
+				var trig_icon         = panel.find( '.trig-icon' ),
+					data_button_open  = typeof trig_icon.data('button-open')  !== 'undefined'  ?  trig_icon.data('button-open')  : '',
+					data_button_close = typeof trig_icon.data('button-close') !== 'undefined'  ?  trig_icon.data('button-close') : '';
 
 				// toggle open/close classes (i.e. responsible for swithcing its icons)
 				if (data_button_open.length || data_button_close.length) {
-					shut_inner.toggleClass( data_button_open + ' ' + data_button_close );
+					trig_icon.toggleClass( data_button_open + ' ' + data_button_close );
 				}
 
-				var toggler =   panel.find( '>.mboxy >.shuter' ),
+				var toggler =   panel.find( '>.mboxy >.trigger' ),
 					open    =   maxboxy_localize.toggler_title_open,
 					close   =   maxboxy_localize.toggler_title_close;
 
@@ -867,13 +940,17 @@ jQuery(document).ready(function ($) {
 
 				}
 
-				// rotate the toggle icon
-				if (panel.prop('class').match(/trigger-anim-rotate/)) {
+				// Anim on every toggler's click
+				if (panel.find( '>.mboxy >.trigger' ).prop('class').match(/anim-click/)) {
 
-					panel.find( '>.mboxy >.shuter' )
-						.doTimeout(300, 'addClass', 'trigger-rotator') // give a timeout, otherwise won't work
-						.doTimeout(1000, 'removeClass', 'trigger-rotator');
+					panel.find( '>.mboxy >.trigger' )
+						.addClass('anim-doclick')
+						.trigAnim();
 
+				}
+				if (panel.find( '>.mboxy >.trigger' ).prop('class').match(/anim-echo/)) {
+					panel.find( '>.mboxy >.trigger' )
+						.addClass('anim-over');
 				}
 
 			}
@@ -885,9 +962,11 @@ jQuery(document).ready(function ($) {
 	};
 
 
+
+
 	// apply the toggling
 	var panel_toggler = $('.mboxy-toggler, .type-toggler .mboxy-overlay');
-		panel_toggler.panelToggler();
+		panel_toggler.panelToggler().trigAnim();
 
 
 	/**
@@ -947,32 +1026,12 @@ jQuery(document).ready(function ($) {
 
 
 	/**
-	 * Set a class when the panel is hovered, so it can be used in css.
+	 * Close the additional message on the igniter
 	 */
-	$.fn.panelIsHovered = function() {
-
-		this.on({
-
-			mouseenter: function () {
-
-				$(this).addClass('ishovered');
-
-			},
-
-			mouseleave: function () {
-
-				$(this).removeClass('ishovered');
-
-			}
-
-		});
-
-		return this;
-
-	};
-
-	$( '.type-closer.role-hoverer.mark-hoverout-close' ).panelIsHovered();
-
+	$('.additional-message-killer').on('click', function (e) {
+		e.stopPropagation();
+		$(this).parent().hide();
+	});
 
 	/**
 	 * Mark a panel with 'nospace' class when there's no room in a viewport.

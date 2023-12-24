@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -55,7 +55,7 @@ After installing the plugin, the best way to start is to check the documentation
     <li>Appear after event (time, scrolling, page's element in view), etc.</li>
     <li>Scheduling campaings</li>
     <li>Geolocation targeting</li>
-    <li>Trigger a panel "On click" "On hover" - from the content's button, link or image</li>
+    <li>Trigger a panel "On click", "On hover" - from the content's button, link or image</li>
     <li>Output as a shortcode or through WordPress block interface</li>
     <li>and much more customization options...</li>
 </ul>
@@ -87,6 +87,12 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.3 - 2023-12-25 =
+* New: The additional message for the trigger button and panel
+* New: The SVG and image options for the trigger buttons
+* New: Documentation section in the UI
+* Update: Panel positioning, vertical and horizontal slide-in improvement
+
 = 1.1.2 - 2023-11-13 =
 * Change the way the plugin version is retrieved and printed
 * Update contact patterns

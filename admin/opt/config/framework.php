@@ -308,12 +308,14 @@ if (! defined('ABSPATH')) {
     }
 
 
+    $import_export = esc_html__('Import/Export', 'maxboxy');
+
     /**
      * Backup tab.
      */
     CSF::createSection(
         $prefix, array(
-            'title'  => esc_html__('Export/Import', 'maxboxy'),
+            'title'  => $import_export,
             'icon'   => 'fas fa-save',
             'fields' => array(
                 array(
@@ -323,3 +325,66 @@ if (! defined('ABSPATH')) {
             )
         )
     );
+
+
+    /**
+     * Docs.
+     */
+    CSF::createSection(
+        $prefix, array(
+            'title'  => esc_html__('Documentation', 'maxboxy'),
+            'icon'   => 'fas fa-book',
+            'fields' => array(
+                array(
+                    'type'      => 'subheading',
+                    'content'   => esc_html__('Each section gives you specific options:', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'subheading',
+                    'content'   => esc_html__('General', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'submessage',
+                    'content'   => esc_html__('- Overall options that affect all panels.', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'subheading',
+                    'content'   => esc_html__('Strains', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'submessage',
+                    'content'   => esc_html__('- Strains represent different panel types, i.e. InjectAny and FloatAny that are enabled by default. Additionally, you can enable MaxBoxy options for the Synced Patterns.', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'subheading',
+                    'content'   => esc_html__('Modules', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'submessage',
+                    'content'   => esc_html__('- Once enabled, modules bring specific functionality and additional options to the MaxBoxy panels.', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'subheading',
+                    'content'   => $import_export,
+                ),
+                array(
+                    'type'      => 'submessage',
+                    'content'   => esc_html__('- Easily move the common settings from one to another Website.', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'subheading',
+                    'content'   => esc_html__('Quick start creating panels', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'submessage',
+                    'content'   => esc_html__('- From the left navigation menu locate MaxBoxy. Pick InjectAny or FloatAny, then select the "Add new" to commence panel creation.', 'maxboxy'),
+                ),
+                array(
+                    'type'      => 'notice',
+                    'style'     => 'info',
+                    'content'   => esc_html__('See ', 'maxboxy') .'<a href="https://maxpressy.com/maxboxy/documentation/" target="_blank">' .__('the whole documentation', 'maxboxy') .'</a>' .esc_html__(' for illustrated details. ', 'maxboxy'),
+                ),
+            )
+        )
+    );
+

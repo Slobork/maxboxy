@@ -29,40 +29,37 @@
 			max-width: 100%; // in conjuction with "width: fill-available", this makes the combination that seems to work for all scenarios
 		}
 
+	} // end .mboxy
+
+	.additional-label {
+		position: absolute;
+		color: #ffffff;
+		background: #333333;
+		padding: 4px 14px;
+		height: max-content;
+		width: fit-content;
+		max-width: 50%;
+		text-align: center;
+		border-radius: 5px;
 	}
 
+	//&:not([class*="bottomed"]) .additional-label  { top: 100%; }
+	//&[class*="bottomed"] .additional-label  { bottom: 100%; }
+	&:not([class*="bottomed"]) .additional-label { top: 100%; left: inherit; right: inherit; }
+	&[class*="bottomed"] .additional-label { bottom: 100%; left: inherit; right: inherit; }
 	&.on {
 	
-		&.default-closer-unset {
+		&.hide-default-closer {
 
 			// hide the default toggler if the user has set the in content toggler for the panel
-			> .mboxy > .shut-default { display: none; }
+			> .mboxy > .trig-default { display: none; }
 		}
 
 	}
 
-	// &:not(.on) {}
+	&:not(.on) {
 
-	// hover out marking
-	&.role-hoverer.mark-hoverout-close {
-		position: relative;
-
-		.hover-out-closing-mark {
-			display: none;
-			color: #ffffff;
-			background: #333333;
-			padding: 8px 20px;
-			height: max-content;
-			text-align: center;
-			position: absolute;
-		}
-
-		&.ishovered {
-			.hover-out-closing-mark { display: block; }
-		}
-
-		&:not([class*="bottomed"]) .hover-out-closing-mark  { top: 100%; }
-		&[class*="bottomed"] .hover-out-closing-mark  { bottom: 100%; }
+		.additional-label {display: none;}
 
 	}
 
@@ -91,13 +88,13 @@
 	&.on {
 
 		&[class*="topped"]          .mboxy { top: 0; bottom: auto; }
-		&[class*="centered"]        .mboxy { top: 50%;  bottom: auto; transform: translateY(-50%); }
+		&[class*="centered"]        .mboxy { top: auto;  bottom: 50%; transform: translateY(50%); }
 		&[class*="bottomed"]        .mboxy { bottom: 0; top: auto; }
 		&[class*="place-left"]      .mboxy { left: 0; right: auto; }
 		&[class*="place-right"]     .mboxy { right: 0; left: auto; }
 		
 		&[class*="place-center"]    .mboxy { left: 50%; right: auto; transform: translateX(-50%); }
-		&.place-center-centered     .mboxy { transform: translateX(-50%) translateY(-50%); }
+		&.place-center-centered     .mboxy { transform: translateX(-50%) translateY(50%); }
 
 		&.nospace {
 
@@ -133,7 +130,7 @@
 		}
 
 		// this is for the igniteon (i.e. it covers type-toggler and role-igniter)
-		&.type-toggler > .mboxy > .shut-default {
+		&.type-toggler > .mboxy > .trig-default {
 
 			&.igniteon {
 				position: fixed;
@@ -143,7 +140,8 @@
 
 		&[class*="topped"]          > .mboxy > .igniteon { top: 0; bottom: auto; }
 		&[class*="centered"]        > .mboxy > .igniteon { top: 50%; transform: translateY(-50%); }
-		&.place-center-centered     > .mboxy > .igniteon { top: 0; }
+		&.place-center-centered:not(.style-slide-horizontal) > .mboxy > .igniteon { bottom: 0; top: auto; }
+		&.place-center-centered.style-slide-horizontal > .mboxy > .igniteon { left: 0; transform: translateY(-50%);}
 		&[class*="bottomed"]        > .mboxy > .igniteon { bottom: 0; top: auto; }
 		&[class*="place-left"]      > .mboxy > .igniteon { left: 0; right: auto; }
 		&[class*="place-center"]    > .mboxy > .igniteon { left: 50%; transform: translateX(-50%); right: auto; }
@@ -220,39 +218,33 @@
 .style-slide-horizontal {
 
 	&[class*="place-left"] {
-
 		> .mboxy {
 			right: auto;
 			left: -100%;
 			transition: left 800ms ease;
 		}
-
 	}
 
 
 	&[class*="place-center"] {
-
 		> .mboxy {
 			right: auto;
 			left: -100%;
 			transition: left 800ms ease;
 		}
-
 	}
 
 	&[class*="place-right"] {
-
 		> .mboxy {
 			left: auto;
 			right: -100%;
 			transition: right 800ms ease;
 		}
-
 	}
 
 	// these make panels to slide-out instead of bump dissapearing
 	&[class*="topped"]:not(.on)     > .mboxy { top: 0; bottom: auto; }
-	&[class*="centered"]:not(.on)   > .mboxy { top: 0%;  bottom: auto; } // transform: translateY(-50%);  ----> transform makes a problem with igniter on this pos (Centered). 
+	&[class*="centered"]:not(.on)   > .mboxy { top: auto; bottom: 0; } // transform: translateY(-50%);  ----> transform makes a problem with igniter on this pos (Centered). 
 																		// top: 0; keeps the height during the slide-out, especially if the height is 100%
 	&[class*="bottomed"]:not(.on)   > .mboxy { bottom: 0; top: auto; }
 
@@ -263,44 +255,35 @@
 .style-slide-vertical {
 
 	&[class*="topped"] {
-
 		> .mboxy {
 			bottom: auto;
-			top: -100%;
 			transition: top 800ms ease;
 		}
-
 	}
 
 	&[class*="centered"] {
-
 		> .mboxy {
-			// top: -100%;
-			top: 50vh;
-			bottom: auto;
-			transition: top 800ms ease;
+			top: auto;
+			transition: bottom 800ms ease;
 		}
-
 	}
 
 
 	&[class*="bottomed"] {
-
 		> .mboxy {
 			top: auto;
-			bottom: -100%;
 			transition: bottom 800ms ease;
 		}
-
 	}
 
-	// make slide-out effect
-	&[class*="topped"]:not(.on)    > .mboxy { transition: top 800ms ease; top: -100%; }
-	&[class*="bottomed"]:not(.on)  > .mboxy { transition: bottom 800ms ease; bottom: -100%; }
+	// without .on for the slide effect
+	&[class*="topped"]:not(.on)    > .mboxy { top: -100%; }
+	&[class*="bottomed"]:not(.on)  > .mboxy { bottom: -100%; }
+	&[class*="centered"]:not(.on)  > .mboxy { bottom: -100%; }
 	
 	&[class*="place-left"]:not(.on)   > .mboxy { left: 0; right: auto; }
 	&[class*="place-right"]:not(.on)  > .mboxy { right: 0; left: auto; }
-	&[class*="place-center"]:not(.on) > .mboxy { left: auto; right: auto; }
+	&[class*="place-center"]:not(.on) > .mboxy { left: 50%; transition: transformX 800ms ease; }
 
 }
 

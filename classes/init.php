@@ -761,7 +761,7 @@ if (! class_exists('Max_Boxy')) {
                 
                 // Additional message on a trigger button or a panel
                 $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_trig_message_style .'><span class="additional-message-killer" title="' .esc_html('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
-                $trig_icon = ! empty($basics[ 'trigger_icon_classes' ]) ? '<div class="trig-icon' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$_escaped_early_toggler_data .'></div>' : '';
+                $_escaped_trig_icon = ! empty($basics[ 'trigger_icon_classes' ]) ? '<div class="trig-icon' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$_escaped_early_toggler_data .'></div>' : '';
 
                 // closer && if closer isn't disabled
                 if ($basics[ 'type' ] === 'closer' && $basics[ 'unset_toggler' ] === 'no') {
@@ -777,7 +777,7 @@ if (! class_exists('Max_Boxy')) {
                         .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .__('Close', 'maxboxy') .'"' .$_escaped_anim_echo .$_escaped_early_trig_style .'>'
                         .$_escaped_trigger_add_message
                         .$_escaped_early_group
-                        .$trig_icon
+                        .$_escaped_trig_icon
                     .'</div>';
 
                 }
@@ -796,7 +796,7 @@ if (! class_exists('Max_Boxy')) {
                                         .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_anim_echo .$_escaped_early_trig_style .'>'
                                         .$_escaped_trigger_add_message
                                         .$_escaped_early_group
-                                        .$trig_icon
+                                        .$_escaped_trig_icon
                                     .'</div>';
 
                 }

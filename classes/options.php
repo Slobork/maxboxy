@@ -616,8 +616,8 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $closer_align_center            = $unset_toggler !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '9' || $basics[ 'toggler_pos' ] === '10' || $basics[ 'toggler_pos' ] === '11' || $basics[ 'toggler_pos' ] === '12') ? ' align-center' : '';
             $closer_align_end               = $unset_toggler !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '2' || $basics[ 'toggler_pos' ] === '4' || $basics[ 'toggler_pos' ] === '6' || $basics[ 'toggler_pos' ] === '8') ? ' align-end' : '';
-            $closer_align                   = !empty($closer_align_center) ? $closer_align_center : '';
-            $closer_align                  .= !empty($closer_align_end)    ? $closer_align_end : '';
+            $closer_align                   = !empty($closer_align_center) ? $closer_align_center : ' align-start';
+            $closer_align                   = !empty($closer_align_end)    ? $closer_align_end : $closer_align;
 
             $closer_size                    = $unset_toggler !== true && isset($basics[ 'closer_size' ]) && $basics[ 'closer_size' ] !== 'normal' ? ' ' .$basics[ 'closer_size' ] : '';
 

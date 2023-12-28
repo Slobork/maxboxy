@@ -344,6 +344,8 @@
 			&:not(.igniteon):not(.close-img-thesame) .trig-img-open {
 				display: none;
 			}
+			
+			&.closer-no-margin:not(.igniteon) { margin: 0 !important; }
 
 		} // end .trigger
 

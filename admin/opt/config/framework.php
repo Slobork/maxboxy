@@ -187,6 +187,28 @@ if (! defined('ABSPATH')) {
                     'sanitize'      => 'absint',
                 ),
                 array(
+                    'id'            => 'content_blocks_max_width',
+                    'type'          => 'dimensions',
+                    'title'         => esc_html__('In panel content width', 'maxboxy'),
+                    'help'          => esc_html__('This is noticeable if the panels are taking a large portion of the screen or the full-width size. The default value is 960px. You can set a new value to limit the wideness of the blocks.', 'maxboxy'),
+                    'height'        => false,
+                    'units'         => array( 'px', 'em', 'rem' ),
+                    'default'       => array(
+                        'width'      => '960',
+                    ),
+                ),
+                array(
+                    'id'            => 'content_blocks_max_width_wide',
+                    'type'          => 'dimensions',
+                    'title'         => esc_html__('In panel content wide width', 'maxboxy'),
+                    'help'          => esc_html__('This is noticeable if the panels are taking a large portion of the screen or the full-width size. The default value is 1280px. You can set a new value to limit the wideness of the wide-aligned blocks. You can apply wide alignment for most of the blocks from their toolbar settings.', 'maxboxy'),
+                    'height'        => false,
+                    'units'         => array( 'px', 'em', 'rem' ),
+                    'default'       => array(
+                        'width'      => '1280',
+                    ),
+                ),
+                array(
                     'id'        => 'modal_offer',
                     'type'      => 'button_set',
                     'title'     => esc_html__('Load in modal starting panel patterns', 'maxboxy'),

@@ -140,11 +140,11 @@
   .floatany.on.nospace .mboxy .mboxy-content {
     overflow: auto; }
   .floatany:not(.on) {
-    /** 
-		 * When panel is closing some elements (added by other plugins) inside of the panel (e.g. buttons) can collapse.
-		 * Later than the panel itself. This is coz they have transition set to those elements. This nulls that.
-		 * With :not we're making sure it's observed on the panel closing, since the .on gets removed before any other processing.
-		*/ }
+    /**
+         * When panel is closing some elements (added by other plugins) inside of the panel (e.g. buttons) can collapse.
+         * Later than the panel itself. This is coz they have transition set to those elements. This nulls that.
+         * With :not we're making sure it's observed on the panel closing, since the .on gets removed before any other processing.
+        */ }
     .floatany:not(.on) * {
       -webkit-transition: none;
       -o-transition: none;
@@ -293,7 +293,7 @@
   -o-transition: bottom 800ms ease;
   transition: bottom 800ms ease; }
 
-.style-slide-vertical[class*="bottomed"] > .mboxy {
+.style-slide-vertical[class*="bottomed"] .mboxy {
   top: auto;
   -webkit-transition: bottom 800ms ease;
   -o-transition: bottom 800ms ease;
@@ -322,6 +322,46 @@
   -o-transition: transformX 800ms ease;
   transition: transformX 800ms ease; }
 
+@-webkit-keyframes pushUp {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes pushUp {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+.style-push-up.on .mboxy-content {
+  -webkit-animation-name: pushUp;
+          animation-name: pushUp;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in; }
+
+/*
+// slide-vertical
+.style-push-up {
+
+    .mboxy-content {
+        transform: translateY(0px);
+        transition: transform 300ms ease-in;
+    }
+
+    &:not(.on) .mboxy-content { transform: translateY(50px); }
+
+}
+
+
+
+*/
 /**
    * Injectany - sliding.
    */
@@ -406,17 +446,25 @@
     transition: transform 800ms ease, -webkit-transform 800ms ease; }
 
 /**
- * Alignfull set for the element.
+ * Blocks width.
+ * Including alignfull & alignwide alignments.
  */
-.mboxy .alignfull,
-.mboxy .alignwide {
+.mboxy-content > *:not(.alignwide):not(.alignfull) {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.mboxy-content > .alignwide {
+  max-width: 1280px;
+  margin: 0 auto; }
+
+.mboxy-content > .alignfull {
   max-width: -webkit-fill-available;
   max-width: -moz-available;
   max-width: stretch; }
 
 /**
-  * Panels' overlay.
-  */
+ * Panels' overlay.
+ */
 body.maxboxy-overlay-on {
   overflow: hidden; }
 
@@ -441,8 +489,8 @@ body.maxboxy-overlay-on {
       transition: opacity .5s linear; }
 
 /**
-  * Rotator.
-  */
+ * Rotator.
+ */
 .role-rotator > .mboxy > .mboxy-content > *:not(.rotator-active) {
   display: none; }
 
@@ -450,8 +498,8 @@ body.maxboxy-overlay-on {
   display: none; }
 
 /**
-  * Splitter.
-  */
+ * Splitter.
+ */
 .is-split:not(.split-show) {
   display: none; }
 
@@ -737,6 +785,8 @@ body.maxboxy-overlay-on {
   .mboxy-wrap > .mboxy .trigger:not(.igniteon):not(.close-svg-thesame) .trig-svg-open,
   .mboxy-wrap > .mboxy .trigger:not(.igniteon):not(.close-img-thesame) .trig-img-open {
     display: none; }
+  .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon) {
+    margin: 0 !important; }
 
 .mboxy-wrap:not(.on)[class*="place-center"] > .mboxy > .trigger.size-m {
   -webkit-transform: scale(0.55);

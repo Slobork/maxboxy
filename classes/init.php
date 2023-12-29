@@ -122,6 +122,43 @@ if (! class_exists('Max_Boxy')) {
 
 
         /**
+         * Escaped css.
+         * 
+         * @return string Prepered css for inline output.
+         */
+        // phpcs:ignore
+        public static function _escaped_css() {
+
+            // blocks max-width
+            $blocks_width               =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['width'])
+                                        ?  (int)(get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['width'] ) : '';
+
+            // blocks max-width unit
+            $blocks_width_unit          =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['unit'])
+                                        ?       (get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['unit'] ) : 'px';
+
+            // blocks max-width wide
+            $blocks_width_wide          =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['width'])
+                                        ?  (int)(get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['width'] ) : '';
+
+            // blocks max-width wide unit
+            $blocks_width_wide_unit     =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['unit'])
+                                        ?       (get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['unit'] ) : 'px';
+
+
+            $out  = is_numeric($blocks_width)      && $blocks_width      !== 960  ? '.mboxy-content > :not(.alignwide):not(.alignfull) {max-width:' .esc_attr($blocks_width) .esc_attr($blocks_width_unit) .';}' : '';
+            $out .= is_numeric($blocks_width_wide) && $blocks_width_wide !== 1280 ? '.mboxy-content > .alignwide {max-width:' .esc_attr($blocks_width_wide) .esc_attr($blocks_width_wide_unit) .';}' : '';
+
+            if (!empty($out) ) {
+                     return $out;
+            } else {
+                    return '';
+            }
+
+        }
+
+
+        /**
          * Register and Enqueue assets.
          *
          * @return void Registering and enqueueing assets.
@@ -171,16 +208,26 @@ if (! class_exists('Max_Boxy')) {
                 wp_localize_script('maxboxy', 'maxboxy_localize', $local_var_array);
 
                 // large screen break point - add inline
-                $large_screen_break_point   = isset(get_option('_maxboxy_options')[ 'large_screen_break_point' ])
+                $large_screen_break_point   =  isset(get_option('_maxboxy_options')[ 'large_screen_break_point' ])
                                             ?  (int)(get_option('_maxboxy_options')[ 'large_screen_break_point' ] ) : '';
 
                 if (is_numeric($large_screen_break_point) && $large_screen_break_point !== 992) {
-
-                    $script  = 'var new_large_screen_break_point = ' .esc_attr($large_screen_break_point) .';';
-
+                    $script = 'var new_large_screen_break_point = ' .esc_attr($large_screen_break_point) .';';
                     wp_add_inline_script('maxboxy', $script, false);
 
                 }
+
+                // for dynamic inline css output
+                $_escaped_data = ! empty(self::_escaped_css()) ? self::_escaped_css() : '';
+
+                /*
+                 * With option "Loading plugin file" selected to the "on_demand",
+                 * wp_add_inline_style will add a <style> element inside
+                 * the <body> which will produce an error with w3.org validator.
+                 * To overcome the error, the solution is to use combining
+                 * CSS External and Inline with one of speed optimization plugins.
+                 */
+                wp_add_inline_style('maxboxy', $_escaped_data);
 
             }
 
@@ -604,6 +651,7 @@ if (! class_exists('Max_Boxy')) {
          * @type string  'panel_add_lable_class'     Set the class for trigger's additional message.
          * @type string  'injectany_align'           Alignment class for InjectAny.
          * @type string  'sticky'                    For InjectAny, print a class setting the panel as sticky, otherwise it's empty.
+         * @type string  'no_margin_closer'          Set a class to eliminate the margin on the closer button.
          * @type string  'anim_echo_time'            Escaped - For anim echo time data.
          * @type string  'rotator_time'              Escaped - For role rotator time data.
          * @type string  'wrap_style'                Escaped - get style attribute with its values for the .mboxy-wrap div.
@@ -793,6 +841,7 @@ if (! class_exists('Max_Boxy')) {
                                         .esc_attr($basics[ 'toggler_svg_classes' ])
                                         .esc_attr($basics[ 'toggler_img_classes' ])
                                         .esc_attr($basics[ 'trigger_anim' ])
+                                        .esc_attr($basics[ 'no_margin_closer' ])
                                         .esc_attr($basics[ 'toggler_styling' ]) .'" title="' .esc_attr($basics[ 'toggler_start_title' ]) .'"' .$_escaped_anim_echo .$_escaped_early_trig_style .'>'
                                         .$_escaped_trigger_add_message
                                         .$_escaped_early_group

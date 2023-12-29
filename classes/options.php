@@ -623,7 +623,7 @@ if (! class_exists('Max_Boxy_Options')) {
 
             // trigger's margin
             $trig_margin_unit               = isset($basics[ 'trigger_margin' ][ 'unit' ]) ? $basics[ 'trigger_margin' ][ 'unit' ] : '';
-
+            
             $trig_mar_top                   = isset($basics[ 'trigger_margin' ][ 'top' ]) && is_numeric($basics[ 'trigger_margin' ][ 'top' ]) ? $basics[ 'trigger_margin' ][ 'top' ]   : '';
             $trigger_margin                 = ! empty($trig_mar_top) ? 'margin-top: ' .$trig_mar_top .$trig_margin_unit .';' : '';
             
@@ -635,6 +635,8 @@ if (! class_exists('Max_Boxy_Options')) {
             
             $trig_mar_bottom                = isset($basics[ 'trigger_margin' ][ 'bottom' ]) && is_numeric($basics[ 'trigger_margin' ][ 'bottom' ]) ? $basics[ 'trigger_margin' ][ 'bottom' ] : '';
             $trigger_margin                .= ! empty($trig_mar_bottom) ? 'margin-bottom: ' .$trig_mar_bottom .$trig_margin_unit .';' : '';
+
+            $no_margin_closer               = $panel_type === 'toggler' && ! empty($basics[ 'eliminate_margin_closer' ]) ? ' closer-no-margin' : '';
 
             /*
              * Pick the styling from diffrent vars
@@ -673,6 +675,7 @@ if (! class_exists('Max_Boxy_Options')) {
                 'panel_add_lable_class'      => $panel_add_lable_class,
                 'injectany_align'            => $injectany_align,
                 'sticky'                     => $sticky,
+                'no_margin_closer'           => $no_margin_closer,
                 // data:
                 'anim_echo_time'             => $_escaped_anim_echo_data,
                 'rotator_time'               => $_escaped_rotator_time_data,

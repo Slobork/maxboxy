@@ -10,3 +10,31 @@
 .mboxy-mb0 { margin-bottom:  0 !important; }
 .mboxy-ml0 { margin-left:    0 !important; }
 .mboxy-mr0 { margin-right:   0 !important; }
+
+// Animations...
+
+// fade-in
+@keyframes faderIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+// push-up
+@keyframes pushUp {
+    0% { transform: translateY(50px); }
+    100% { transform: translateY(0); }
+}
+// push-down
+@keyframes pushDown {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(0); }
+}
+// push-left
+@keyframes pushLeft {
+    0% { transform: translateX(50px); }
+    100% { transform: translateX(0); }
+}
+// push-right
+@keyframes pushRight {
+    0% { transform: translateX(-50px); }
+    100% { transform: translateX(0); }
+}

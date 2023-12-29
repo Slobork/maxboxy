@@ -955,6 +955,16 @@ if (! defined('ABSPATH')) {
             'units'         => array( '%', 'px', 'em', 'rem', 'vh', 'vw' ),
             'dependency'    => array('unset_toggler','!=','all'),
         ),
+        array(
+            'id'            => 'eliminate_margin_closer',
+            'type'          => 'checkbox', 
+            'title'         => esc_html__('Eliminate the margin on close button', 'maxboxy'),
+            'desc'          => esc_html__('If checked, margin will be applied just on the opener button.', 'maxboxy'),
+            'units'         => array( '%', 'px', 'em', 'rem', 'vh', 'vw' ),
+            'dependency'    => array('unset_toggler|panel_type','!=|any','all|toggler', '|true'),
+
+        ),
+
     );
 
     // add toggler fields to the Tab.

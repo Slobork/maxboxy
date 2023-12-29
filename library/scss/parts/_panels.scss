@@ -199,11 +199,6 @@
 
 //.style-bumpin {}
 
-@keyframes faderIn {
-    from { opacity: 0; }
-      to { opacity: 1; }
-}
-
 // fade in
 .style-fadein.on {
 
@@ -277,9 +272,9 @@
     }
 
     // without .on for the slide effect
-    &[class*="topped"]:not(.on)    > .mboxy { top: -100%; }
-    &[class*="bottomed"]:not(.on)  > .mboxy { bottom: -100%; }
-    &[class*="centered"]:not(.on)  > .mboxy { bottom: -100%; }
+    &[class*="topped"]:not(.on)   > .mboxy { top: -100%; }
+    &[class*="bottomed"]:not(.on) > .mboxy { bottom: -100%; }
+    &[class*="centered"]:not(.on) > .mboxy { bottom: -100%; }
 
     &[class*="place-left"]:not(.on)   > .mboxy { left: 0; right: auto; }
     &[class*="place-right"]:not(.on)  > .mboxy { right: 0; left: auto; }
@@ -287,37 +282,35 @@
 
 }
 
-
-
-@keyframes pushUp {
-    0% { transform: translateY(50px); }
-    100% { transform: translateY(0); }
-}
-
-//.mboxy-pushup {
+// push-up
 .style-push-up.on .mboxy-content {
     animation-name: pushUp;
     animation-duration: 300ms;
     animation-timing-function: ease-in;
-    //animation-delay: .2s;
 }
 
-/*
-// slide-vertical
-.style-push-up {
+// push-left
+.style-push-left.on .mboxy-content {
+    animation-name: pushLeft;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+}
 
-    .mboxy-content {
-        transform: translateY(0px);
-        transition: transform 300ms ease-in;
-    }
+// push-right
+.style-push-right.on .mboxy-content {
+    animation-name: pushRight;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+}
 
-    &:not(.on) .mboxy-content { transform: translateY(50px); }
-
+// push-down
+.style-push-down.on .mboxy-content {
+    animation-name: pushDown;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
 }
 
 
-
-*/
   /**
    * Injectany - sliding.
    */

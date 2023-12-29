@@ -25,6 +25,82 @@
 .mboxy-mr0 {
   margin-right: 0 !important; }
 
+@-webkit-keyframes faderIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes faderIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes pushUp {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes pushUp {
+  0% {
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes pushDown {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@keyframes pushDown {
+  0% {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px); }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes pushLeft {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes pushLeft {
+  0% {
+    -webkit-transform: translateX(50px);
+            transform: translateX(50px); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes pushRight {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@keyframes pushRight {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px); }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
 /**
  * Panels
  */
@@ -231,17 +307,6 @@
 /**
  * Showing style (Popup, slidein, etc.)
  */
-@-webkit-keyframes faderIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-@keyframes faderIn {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
 .style-fadein.on > .mboxy {
   -webkit-animation-name: faderIn;
           animation-name: faderIn;
@@ -322,22 +387,6 @@
   -o-transition: transformX 800ms ease;
   transition: transformX 800ms ease; }
 
-@-webkit-keyframes pushUp {
-  0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px); }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
-
-@keyframes pushUp {
-  0% {
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px); }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); } }
-
 .style-push-up.on .mboxy-content {
   -webkit-animation-name: pushUp;
           animation-name: pushUp;
@@ -346,22 +395,30 @@
   -webkit-animation-timing-function: ease-in;
           animation-timing-function: ease-in; }
 
-/*
-// slide-vertical
-.style-push-up {
+.style-push-left.on .mboxy-content {
+  -webkit-animation-name: pushLeft;
+          animation-name: pushLeft;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in; }
 
-    .mboxy-content {
-        transform: translateY(0px);
-        transition: transform 300ms ease-in;
-    }
+.style-push-right.on .mboxy-content {
+  -webkit-animation-name: pushRight;
+          animation-name: pushRight;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in; }
 
-    &:not(.on) .mboxy-content { transform: translateY(50px); }
+.style-push-down.on .mboxy-content {
+  -webkit-animation-name: pushDown;
+          animation-name: pushDown;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in; }
 
-}
-
-
-
-*/
 /**
    * Injectany - sliding.
    */

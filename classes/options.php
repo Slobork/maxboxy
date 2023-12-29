@@ -118,6 +118,10 @@ if (! class_exists('Max_Boxy_Options')) {
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'fade'             ? ' style-fadein'           : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'slide-horizontal' ? ' style-slide-horizontal' : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'slide-vertical'   ? ' style-slide-vertical'   : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-up'          ? ' style-push-up'          : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-left'        ? ' style-push-left'        : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-right'       ? ' style-push-right'       : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-down'        ? ' style-push-down'        : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'alignwide'        ? ' style-alignwide'        : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'alignfull'        ? ' style-alignfull'        : $elm_showing_style;
 

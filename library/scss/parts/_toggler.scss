@@ -326,13 +326,10 @@
 				height: auto;
 			}
 
-			// when img/svg is used, remove the bg and color
+			// when img is used, remove the bg and color
 			&.igniteon.has-img-open,
-			&.igniteon.has-svg-open,
 			&.close-img-thesame,
-			&.close-svg-thesame,
-			&:not(.igniteon).has-img-close,
-			&:not(.igniteon).has-svg-close {
+			&:not(.igniteon).has-img-close {
 				background: transparent !important;
 				color: unset !important;
 			}

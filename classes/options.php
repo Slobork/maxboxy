@@ -626,19 +626,23 @@ if (! class_exists('Max_Boxy_Options')) {
             $closer_size                    = $unset_toggler !== true && isset($basics[ 'closer_size' ]) && $basics[ 'closer_size' ] !== 'normal' ? ' ' .$basics[ 'closer_size' ] : '';
 
             // trigger's margin
-            $trig_margin_unit               = isset($basics[ 'trigger_margin' ][ 'unit' ]) ? $basics[ 'trigger_margin' ][ 'unit' ] : '';
-            
+            $trig_margin_unit               = isset($basics[ 'trigger_margin' ][ 'unit' ])     ? $basics[ 'trigger_margin' ][ 'unit' ] : '';
+            $trig_margin_unit_top           = ! empty($basics[ 'trigger_margin_unit_top' ])    ? $basics[ 'trigger_margin_unit_top' ]  : $trig_margin_unit;
+            $trig_margin_unit_left          = ! empty($basics[ 'trigger_margin_unit_left' ])   ? $basics[ 'trigger_margin_unit_left' ]  : $trig_margin_unit;
+            $trig_margin_unit_right         = ! empty($basics[ 'trigger_margin_unit_right' ])  ? $basics[ 'trigger_margin_unit_right' ]  : $trig_margin_unit;
+            $trig_margin_unit_bottom        = ! empty($basics[ 'trigger_margin_unit_bottom' ]) ? $basics[ 'trigger_margin_unit_bottom' ]  : $trig_margin_unit;
+
             $trig_mar_top                   = isset($basics[ 'trigger_margin' ][ 'top' ]) && is_numeric($basics[ 'trigger_margin' ][ 'top' ]) ? $basics[ 'trigger_margin' ][ 'top' ]   : '';
-            $trigger_margin                 = ! empty($trig_mar_top) ? 'margin-top: ' .$trig_mar_top .$trig_margin_unit .';' : '';
+            $trigger_margin                 = ! empty($trig_mar_top) ? 'margin-top: ' .$trig_mar_top .$trig_margin_unit_top .';' : '';
             
             $trig_mar_left                  = isset($basics[ 'trigger_margin' ][ 'left' ]) && is_numeric($basics[ 'trigger_margin' ][ 'left' ]) ? $basics[ 'trigger_margin' ][ 'left' ]  : '';
-            $trigger_margin                .= ! empty($trig_mar_left) ? 'margin-left: ' .$trig_mar_left .$trig_margin_unit .';' : '';
+            $trigger_margin                .= ! empty($trig_mar_left) ? 'margin-left: ' .$trig_mar_left .$trig_margin_unit_left .';' : '';
             
             $trig_mar_right                 = isset($basics[ 'trigger_margin' ][ 'right' ]) && is_numeric($basics[ 'trigger_margin' ][ 'right' ]) ? $basics[ 'trigger_margin' ][ 'right' ] : '';
-            $trigger_margin                .= ! empty($trig_mar_right) ? 'margin-right: ' .$trig_mar_right .$trig_margin_unit .';' : '';
+            $trigger_margin                .= ! empty($trig_mar_right) ? 'margin-right: ' .$trig_mar_right .$trig_margin_unit_right .';' : '';
             
             $trig_mar_bottom                = isset($basics[ 'trigger_margin' ][ 'bottom' ]) && is_numeric($basics[ 'trigger_margin' ][ 'bottom' ]) ? $basics[ 'trigger_margin' ][ 'bottom' ] : '';
-            $trigger_margin                .= ! empty($trig_mar_bottom) ? 'margin-bottom: ' .$trig_mar_bottom .$trig_margin_unit .';' : '';
+            $trigger_margin                .= ! empty($trig_mar_bottom) ? 'margin-bottom: ' .$trig_mar_bottom .$trig_margin_unit_bottom .';' : '';
 
             $no_margin_closer               = $panel_type === 'toggler' && ! empty($basics[ 'eliminate_margin_closer' ]) ? ' closer-no-margin' : '';
 

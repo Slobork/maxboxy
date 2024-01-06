@@ -1228,27 +1228,6 @@ jQuery(document).ready(function ($) {
 
 		}
 
-		var media_align_wide = $('.mboxy .alignwide');
-		if (media_align_wide.length) {
-
-			$.each(media_align_wide, function () {
-
-				var mboxy_content    = $(this).closest('.mboxy-content'),
-					// 10 appearing after the comma (,) is the radix - the best practis is to specify it, though ECMAScript 5 assumes it's 10
-					// for the alignwide we're splitting the size /2
-					paddL = parseInt( mboxy_content.css('padding-left'), 10 ) /2,
-					paddR = parseInt( mboxy_content.css('padding-right'), 10 ) /2;
-				$(this).css({
-					'margin-left': '-' +paddL +'px',
-					'margin-right': '-' +paddR +'px',
-					'width': 'auto',
-					// max-width set with css
-				});
-
-			});
-
-		}
-
 	}
 	$(this).doTimeout(400, media_aligner);
 

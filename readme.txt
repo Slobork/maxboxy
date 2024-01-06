@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.4
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,14 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.4 - 2024-01-07 =
+* Add: Option to eliminate the margin on the Closer button
+* Add: Global option to set the content (blocks) width inside the panels, including the wide alignment
+* Add: Additional panel showing styles: Push up, Push left, Push right, Push down
+* Add: Each margin unit option for the toggler
+* Improvement: Better toggler positioning with align-start positions
+* Improvement: Remove the transparent bg/color when SVG is used on the toggler
+
 = 1.1.3 - 2023-12-25 =
 * New: The additional message for the trigger button and panel
 * New: The SVG and image options for the trigger buttons

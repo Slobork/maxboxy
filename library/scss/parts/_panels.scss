@@ -4,149 +4,149 @@
 
  .mboxy-wrap {
 
-	> .mboxy {
-		display: flex;
+    > .mboxy {
+        display: flex;
 
-		// directions
-		//&.dir-row        { flex-direction: row; }
-		&.dir-row-rev    { flex-direction: row-reverse; }
-		&.dir-column     { flex-direction: column; }
-		&.dir-column-rev { flex-direction: column-reverse; }
+        // directions
+        //&.dir-row        { flex-direction: row; }
+        &.dir-row-rev    { flex-direction: row-reverse; }
+        &.dir-column     { flex-direction: column; }
+        &.dir-column-rev { flex-direction: column-reverse; }
 
-		// alignments
-		//&.align-start    { align-items: flex-start; }
-		&.align-center   { align-items: center; }
-		&.align-end      { align-items: flex-end; }
+        // alignments
+        &.align-start    { align-items: flex-start; }
+        &.align-center   { align-items: center; }
+        &.align-end      { align-items: flex-end; }
 
-		> .mboxy-content {
-			//background: #e8e2b7;
-			//color: #4b4b4b;
-			//padding: 1.5em;
-			// width: fill-available;
-			//---> fiill-available isn't available yet in autoprefix, use "stretch" and autoprefix will compile it properly
-			// ...@see https://github.com/postcss/autoprefixer/issues/1035
-			width: stretch;
-			max-width: 100%; // in conjuction with "width: fill-available", this makes the combination that seems to work for all scenarios
-		}
+        > .mboxy-content {
+            //background: #e8e2b7;
+            //color: #4b4b4b;
+            //padding: 1.5em;
+            // width: fill-available;
+            //---> fiill-available isn't available yet in autoprefix, use "stretch" and autoprefix will compile it properly
+            // ...@see https://github.com/postcss/autoprefixer/issues/1035
+            width: stretch;
+            max-width: 100%; // in conjuction with "width: fill-available", this makes the combination that seems to work for all scenarios
+        }
 
-	} // end .mboxy
+    } // end .mboxy
 
-	.additional-label {
-		position: absolute;
-		color: #ffffff;
-		background: #333333;
-		padding: 4px 14px;
-		height: max-content;
-		width: fit-content;
-		max-width: 50%;
-		text-align: center;
-		border-radius: 5px;
-	}
+    .additional-label {
+        position: absolute;
+        color: #ffffff;
+        background: #333333;
+        padding: 4px 14px;
+        height: max-content;
+        width: fit-content;
+        max-width: 50%;
+        text-align: center;
+        border-radius: 5px;
+    }
 
-	//&:not([class*="bottomed"]) .additional-label  { top: 100%; }
-	//&[class*="bottomed"] .additional-label  { bottom: 100%; }
-	&:not([class*="bottomed"]) .additional-label { top: 100%; left: inherit; right: inherit; }
-	&[class*="bottomed"] .additional-label { bottom: 100%; left: inherit; right: inherit; }
-	&.on {
-	
-		&.hide-default-closer {
+    //&:not([class*="bottomed"]) .additional-label  { top: 100%; }
+    //&[class*="bottomed"] .additional-label  { bottom: 100%; }
+    &:not([class*="bottomed"]) .additional-label { top: 100%; left: inherit; right: inherit; }
+    &[class*="bottomed"] .additional-label { bottom: 100%; left: inherit; right: inherit; }
+    &.on {
 
-			// hide the default toggler if the user has set the in content toggler for the panel
-			> .mboxy > .trig-default { display: none; }
-		}
+        &.hide-default-closer {
 
-	}
+            // hide the default toggler if the user has set the in content toggler for the panel
+            > .mboxy > .trig-default { display: none; }
+        }
 
-	&:not(.on) {
+    }
 
-		.additional-label {display: none;}
+    &:not(.on) {
 
-	}
+        .additional-label {display: none;}
+
+    }
 
 } // end .mboxy-wrap
 
 
  /**
   * Floatany.
-  */ 
+  */
   .floatany {
-	position: absolute; // necessary for z-index to work
-	z-index: 999; 
-	
-	> .mboxy {
-		position: fixed;
-		z-index: 1; // give the higher priority than the anchors, since they can overlap when the panel is opened
-		max-width: 100%;
+    position: absolute; // necessary for z-index to work
+    z-index: 999;
 
-		> .mboxy-content {
-			height: inherit;
-			overflow: auto;
-		}
+    > .mboxy {
+        position: fixed;
+        z-index: 1; // give the higher priority than the anchors, since they can overlap when the panel is opened
+        max-width: 100%;
 
-	}
+        > .mboxy-content {
+            height: inherit;
+            overflow: auto;
+        }
 
-	&.on {
+    }
 
-		&[class*="topped"]          .mboxy { top: 0; bottom: auto; }
-		&[class*="centered"]        .mboxy { top: auto;  bottom: 50%; transform: translateY(50%); }
-		&[class*="bottomed"]        .mboxy { bottom: 0; top: auto; }
-		&[class*="place-left"]      .mboxy { left: 0; right: auto; }
-		&[class*="place-right"]     .mboxy { right: 0; left: auto; }
-		
-		&[class*="place-center"]    .mboxy { left: 50%; right: auto; transform: translateX(-50%); }
-		&.place-center-centered     .mboxy { transform: translateX(-50%) translateY(50%); }
+    &.on {
 
-		&.nospace {
+        &[class*="topped"]          .mboxy { top: 0; bottom: auto; }
+        &[class*="centered"]        .mboxy { top: auto;  bottom: 50%; transform: translateY(50%); }
+        &[class*="bottomed"]        .mboxy { bottom: 0; top: auto; }
+        &[class*="place-left"]      .mboxy { left: 0; right: auto; }
+        &[class*="place-right"]     .mboxy { right: 0; left: auto; }
 
-			.mboxy {
+        &[class*="place-center"]    .mboxy { left: 50%; right: auto; transform: translateX(-50%); }
+        &.place-center-centered     .mboxy { transform: translateX(-50%) translateY(50%); }
 
-				// corrects the height
-				.mboxy-content {
-					//overflow-y: scroll;
-					//overflow-x: hidden;
-					overflow: auto;
-				}
+        &.nospace {
 
-			}
+            .mboxy {
 
-		}
+                // corrects the height
+                .mboxy-content {
+                    //overflow-y: scroll;
+                    //overflow-x: hidden;
+                    overflow: auto;
+                }
 
-	} // end .on
+            }
 
-	&:not(.on) {
-		
-		/** 
-		 * When panel is closing some elements (added by other plugins) inside of the panel (e.g. buttons) can collapse.
-		 * Later than the panel itself. This is coz they have transition set to those elements. This nulls that.
-		 * With :not we're making sure it's observed on the panel closing, since the .on gets removed before any other processing.
-		*/
-		* { transition: none; }
+        }
 
-		&[class*="place-right"] .igniteon { right: 0; left: auto; }
+    } // end .on
 
-		&:not(.type-toggler) {
-			// better to hide it when a panel isn't active (but excluding toggler/ignter coz their's trigger has to be viewable)
-			visibility: hidden;
-		}
+    &:not(.on) {
 
-		// this is for the igniteon (i.e. it covers type-toggler and role-igniter)
-		&.type-toggler > .mboxy > .trig-default {
+        /**
+         * When panel is closing some elements (added by other plugins) inside of the panel (e.g. buttons) can collapse.
+         * Later than the panel itself. This is coz they have transition set to those elements. This nulls that.
+         * With :not we're making sure it's observed on the panel closing, since the .on gets removed before any other processing.
+        */
+        * { transition: none; }
 
-			&.igniteon {
-				position: fixed;
-			}
+        &[class*="place-right"] .igniteon { right: 0; left: auto; }
 
-		}
+        &:not(.type-toggler) {
+            // better to hide it when a panel isn't active (but excluding toggler/ignter coz their's trigger has to be viewable)
+            visibility: hidden;
+        }
 
-		&[class*="topped"]          > .mboxy > .igniteon { top: 0; bottom: auto; }
-		&[class*="centered"]        > .mboxy > .igniteon { top: 50%; transform: translateY(-50%); }
-		&.place-center-centered:not(.style-slide-horizontal) > .mboxy > .igniteon { bottom: 0; top: auto; }
-		&.place-center-centered.style-slide-horizontal > .mboxy > .igniteon { left: 0; transform: translateY(-50%);}
-		&[class*="bottomed"]        > .mboxy > .igniteon { bottom: 0; top: auto; }
-		&[class*="place-left"]      > .mboxy > .igniteon { left: 0; right: auto; }
-		&[class*="place-center"]    > .mboxy > .igniteon { left: 50%; transform: translateX(-50%); right: auto; }
+        // this is for the igniteon (i.e. it covers type-toggler and role-igniter)
+        &.type-toggler > .mboxy > .trig-default {
 
-	}
+            &.igniteon {
+                position: fixed;
+            }
+
+        }
+
+        &[class*="topped"]          > .mboxy > .igniteon { top: 0; bottom: auto; }
+        &[class*="centered"]        > .mboxy > .igniteon { top: 50%; transform: translateY(-50%); }
+        &.place-center-centered:not(.style-slide-horizontal) > .mboxy > .igniteon { bottom: 0; top: auto; }
+        &.place-center-centered.style-slide-horizontal > .mboxy > .igniteon { left: 0; transform: translateY(-50%);}
+        &[class*="bottomed"]        > .mboxy > .igniteon { bottom: 0; top: auto; }
+        &[class*="place-left"]      > .mboxy > .igniteon { left: 0; right: auto; }
+        &[class*="place-center"]    > .mboxy > .igniteon { left: 50%; transform: translateX(-50%); right: auto; }
+
+    }
 
 } // end .floatany
 
@@ -155,40 +155,40 @@
   * Injectany.
   */
 .injectany {
-	position: relative;
-	z-index: 2;
+    position: relative;
+    z-index: 2;
     margin-bottom: 2em;
 
-	.mboxy { position: relative; }
+    .mboxy { position: relative; }
 
-	&:not(.on) {
+    &:not(.on) {
 
-		// with sliding effects, panel has to be hidden in adifferent way on order for slides to work
-		&:not([class*="style-slide-"]):not(.type-toggler) {
-			visibility: hidden; 
-			
-			> .mboxy { display: none !important; }
+        // with sliding effects, panel has to be hidden in adifferent way on order for slides to work
+        &:not([class*="style-slide-"]):not(.type-toggler) {
+            visibility: hidden;
 
-		}
-		
-		&.type-toggler {
-			
-			> .mboxy {
-				
-				> .mboxy-content { display: none !important; }
-				> .igniteon { position: relative; }
+            > .mboxy { display: none !important; }
 
-			}
+        }
 
-		}
+        &.type-toggler {
 
-	}
+            > .mboxy {
 
-	&.is-sticky	{ position: sticky; top: 0; }
+                > .mboxy-content { display: none !important; }
+                > .igniteon { position: relative; }
 
-	&.align-start	{ display: flex; justify-content: start; }
-	&.align-center	{ display: flex; justify-content: center; }
-	&.align-end	 	{ display: flex; justify-content: end; }
+            }
+
+        }
+
+    }
+
+    &.is-sticky	{ position: sticky; top: 0; }
+
+    &.align-start	{ display: flex; justify-content: start; }
+    &.align-center	{ display: flex; justify-content: center; }
+    &.align-end	 	{ display: flex; justify-content: end; }
 
 } // end injectany
 
@@ -199,54 +199,49 @@
 
 //.style-bumpin {}
 
-@keyframes faderIn {
-	from { opacity: 0; }
-	  to { opacity: 1; }
-}
-
 // fade in
 .style-fadein.on {
 
-	> .mboxy {
-		animation-name: faderIn;
-		animation-duration: 800ms;
-	}
+    > .mboxy {
+        animation-name: faderIn;
+        animation-duration: 800ms;
+    }
 
 }
 
 // sliding -horizontal
 .style-slide-horizontal {
 
-	&[class*="place-left"] {
-		> .mboxy {
-			right: auto;
-			left: -100%;
-			transition: left 800ms ease;
-		}
-	}
+    &[class*="place-left"] {
+        > .mboxy {
+            right: auto;
+            left: -100%;
+            transition: left 800ms ease;
+        }
+    }
 
 
-	&[class*="place-center"] {
-		> .mboxy {
-			right: auto;
-			left: -100%;
-			transition: left 800ms ease;
-		}
-	}
+    &[class*="place-center"] {
+        > .mboxy {
+            right: auto;
+            left: -100%;
+            transition: left 800ms ease;
+        }
+    }
 
-	&[class*="place-right"] {
-		> .mboxy {
-			left: auto;
-			right: -100%;
-			transition: right 800ms ease;
-		}
-	}
+    &[class*="place-right"] {
+        > .mboxy {
+            left: auto;
+            right: -100%;
+            transition: right 800ms ease;
+        }
+    }
 
-	// these make panels to slide-out instead of bump dissapearing
-	&[class*="topped"]:not(.on)     > .mboxy { top: 0; bottom: auto; }
-	&[class*="centered"]:not(.on)   > .mboxy { top: auto; bottom: 0; } // transform: translateY(-50%);  ----> transform makes a problem with igniter on this pos (Centered). 
-																		// top: 0; keeps the height during the slide-out, especially if the height is 100%
-	&[class*="bottomed"]:not(.on)   > .mboxy { bottom: 0; top: auto; }
+    // these make panels to slide-out instead of bump dissapearing
+    &[class*="topped"]:not(.on)     > .mboxy { top: 0; bottom: auto; }
+    &[class*="centered"]:not(.on)   > .mboxy { top: auto; bottom: 0; } // transform: translateY(-50%);  ----> transform makes a problem with igniter on this pos (Centered).
+                                                                        // top: 0; keeps the height during the slide-out, especially if the height is 100%
+    &[class*="bottomed"]:not(.on)   > .mboxy { bottom: 0; top: auto; }
 
 }
 
@@ -254,39 +249,66 @@
 // slide-vertical
 .style-slide-vertical {
 
-	&[class*="topped"] {
-		> .mboxy {
-			bottom: auto;
-			transition: top 800ms ease;
-		}
-	}
+    &[class*="topped"] {
+        > .mboxy {
+            bottom: auto;
+            transition: top 800ms ease;
+        }
+    }
 
-	&[class*="centered"] {
-		> .mboxy {
-			top: auto;
-			transition: bottom 800ms ease;
-		}
-	}
+    &[class*="centered"] {
+        > .mboxy {
+            top: auto;
+            transition: bottom 800ms ease;
+        }
+    }
 
 
-	&[class*="bottomed"] {
-		> .mboxy {
-			top: auto;
-			transition: bottom 800ms ease;
-		}
-	}
+    &[class*="bottomed"] {
+        .mboxy {
+            top: auto;
+            transition: bottom 800ms ease;
+        }
+    }
 
-	// without .on for the slide effect
-	&[class*="topped"]:not(.on)    > .mboxy { top: -100%; }
-	&[class*="bottomed"]:not(.on)  > .mboxy { bottom: -100%; }
-	&[class*="centered"]:not(.on)  > .mboxy { bottom: -100%; }
-	
-	&[class*="place-left"]:not(.on)   > .mboxy { left: 0; right: auto; }
-	&[class*="place-right"]:not(.on)  > .mboxy { right: 0; left: auto; }
-	&[class*="place-center"]:not(.on) > .mboxy { left: 50%; transition: transformX 800ms ease; }
+    // without .on for the slide effect
+    &[class*="topped"]:not(.on)   > .mboxy { top: -100%; }
+    &[class*="bottomed"]:not(.on) > .mboxy { bottom: -100%; }
+    &[class*="centered"]:not(.on) > .mboxy { bottom: -100%; }
+
+    &[class*="place-left"]:not(.on)   > .mboxy { left: 0; right: auto; }
+    &[class*="place-right"]:not(.on)  > .mboxy { right: 0; left: auto; }
+    &[class*="place-center"]:not(.on) > .mboxy { left: 50%; transition: transformX 800ms ease; }
 
 }
 
+// push-up
+.style-push-up.on .mboxy-content {
+    animation-name: pushUp;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+}
+
+// push-left
+.style-push-left.on .mboxy-content {
+    animation-name: pushLeft;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+}
+
+// push-right
+.style-push-right.on .mboxy-content {
+    animation-name: pushRight;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+}
+
+// push-down
+.style-push-down.on .mboxy-content {
+    animation-name: pushDown;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in;
+}
 
 
   /**
@@ -294,169 +316,180 @@
    */
 .injectany {
 
-	// slide in - horizontal
-	&.style-slide-horizontal {
+    // slide in - horizontal
+    &.style-slide-horizontal {
 
-		// type-toggler cannot be animated, i.e. transition won't be seen coz:
-		// there's igniteon which must stay visible and at the same time the following have to be set .mboxy { display: none !important; }
-		&.type-closer {
+        // type-toggler cannot be animated, i.e. transition won't be seen coz:
+        // there's igniteon which must stay visible and at the same time the following have to be set .mboxy { display: none !important; }
+        &.type-closer {
 
-			> .mboxy {
-				transform: none;
-				//transition: left transform 800ms ease;
-				transition: transform 800ms ease;
-			}
+            > .mboxy {
+                transform: none;
+                //transition: left transform 800ms ease;
+                transition: transform 800ms ease;
+            }
 
-			&:not(.on) {
+            &:not(.on) {
 
-				&:not(.align-end) {
+                &:not(.align-end) {
 
-					> .mboxy {
-						// transform's translate will work even with .align-end, which wouldn't be the case with margin-left/margin-right
-						// ...still, we need both declarations (with margin-left and transform) present to hide the element from the viewport
-						margin-left: -100%;
-						transform: translateX(-100%);
-						position: fixed;
-					}
+                    > .mboxy {
+                        // transform's translate will work even with .align-end, which wouldn't be the case with margin-left/margin-right
+                        // ...still, we need both declarations (with margin-left and transform) present to hide the element from the viewport
+                        margin-left: -100%;
+                        transform: translateX(-100%);
+                        position: fixed;
+                    }
 
-				}
+                }
 
-				&.align-end {
-					
-					> .mboxy {
-						margin-right: -100%;
-						transform: translateX(100%);
-						position: fixed;
-					}
-				}
+                &.align-end {
 
-			}
+                    > .mboxy {
+                        margin-right: -100%;
+                        transform: translateX(100%);
+                        position: fixed;
+                    }
+                }
 
-		}
+            }
 
-		&.type-toggler {
-			transform: none;
-			transition: transform 800ms ease;
+        }
 
-			&:not(.on) {
-				transform: translateX(-50%);
-			}
-		}
+        &.type-toggler {
+            transform: none;
+            transition: transform 800ms ease;
 
-	}
+            &:not(.on) {
+                transform: translateX(-50%);
+            }
+        }
 
-	// slide in - vertical
-	&.style-slide-vertical {
+    }
 
-		// type-toggler cannot be animated, i.e. transition won't be seen coz:
-		// there's igniteon which must stay visible and at the same time the following have to be set .mboxy { display: none !important; }
-		&.type-closer {
+    // slide in - vertical
+    &.style-slide-vertical {
 
-			> .mboxy {
-				// margin-top: 0;
-				//transition: margin-top 800ms ease;
-				transition: transform 800ms ease;
-			}
+        // type-toggler cannot be animated, i.e. transition won't be seen coz:
+        // there's igniteon which must stay visible and at the same time the following have to be set .mboxy { display: none !important; }
+        &.type-closer {
 
-			&:not(.on) {
+            > .mboxy {
+                // margin-top: 0;
+                //transition: margin-top 800ms ease;
+                transition: transform 800ms ease;
+            }
 
-				> .mboxy { 
-					// with margin-top it gets in the viewport instead of being hidden, so use translateY
-					//margin-top: -100%;
-					bottom: -100%;
-					transform: translateY(100%); // with -100%, sometimes it gets in the viewport
-					position: fixed;
-				}
+            &:not(.on) {
 
-			}
+                > .mboxy {
+                    // with margin-top it gets in the viewport instead of being hidden, so use translateY
+                    //margin-top: -100%;
+                    bottom: -100%;
+                    transform: translateY(100%); // with -100%, sometimes it gets in the viewport
+                    position: fixed;
+                }
 
-		}
+            }
 
-		&.type-toggler {
-			transform: none;
-			transition: transform 800ms ease;
+        }
 
-			&:not(.on) {
-				transform: translateY(50%);
-			}
-		}
+        &.type-toggler {
+            transform: none;
+            transition: transform 800ms ease;
 
-	}
+            &:not(.on) {
+                transform: translateY(50%);
+            }
+        }
 
-	// "Showing style" option with alignwide/aligfull - will slowly enlarge
-	&[class*="style-align"] {
-		transform: scaleX(0.5);
-		
-		// ...after the enlargment is done and alignwide, alignfull added through the JS, remove the enlargement i.e. the transform.
-		&.alignwide,
-		&.alignfull {
-			transform: none;
-			transition: transform 800ms ease;
-		}
+    }
 
-	}
+    // "Showing style" option with alignwide/alignfull - will slowly enlarge
+    &[class*="style-align"] {
+        transform: scaleX(0.5);
+
+        // ...after the enlargment is done and alignwide, alignfull added through the JS, remove the enlargement i.e. the transform.
+        &.alignwide,
+        &.alignfull {
+            transform: none;
+            transition: transform 800ms ease;
+        }
+
+    }
+
+}
+
+
+
+/**
+ * Blocks width.
+ * Including alignfull & alignwide alignments.
+ */
+.mboxy-content > *:not(.alignwide):not(.alignfull) {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.mboxy-content > .alignwide {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.mboxy-content > .alignfull {
+
+    // width: fill-available;
+    //---> fiill-available isn't available yet in autoprefix, use "stretch" and autoprefix will compile it properly
+    // ...@see https://github.com/postcss/autoprefixer/issues/1035
+    max-width: stretch;
 
 }
 
 
 /**
- * Alignfull set for the element.
+ * Panels' overlay.
  */
- .mboxy .alignfull,
- .mboxy .alignwide {
- 
-	 // width: fill-available;
-	 //---> fiill-available isn't available yet in autoprefix, use "stretch" and autoprefix will compile it properly
-	 // ...@see https://github.com/postcss/autoprefixer/issues/1035
-	 max-width: stretch;
- 
-  }
- 
- 
- /**
-  * Panels' overlay.
-  */
  body.maxboxy-overlay-on { overflow: hidden; }
- 
- .mboxy-overlay {
+
+.mboxy-overlay {
    position: absolute;
- 
-	 .overlay-inner {
-	   height: 100%;
-	   width: 100%;
-	   background: #232323;
-	   opacity: 0;
-	 }
- 
-	 &.on {
-		 position: relative;
-		 z-index: -1; // it's placed inside the div which has a large z-index
- 
-		 .overlay-inner {
-			 position: fixed;
-			 top: 0;
-			 left: 0;
-			 // cursor: cell;
-			 cursor: crosshair;
-			 opacity: .9;
-			 transition: opacity .5s linear;
-		 }
- 
-	 }
- 
+
+    .overlay-inner {
+        height: 100%;
+        width: 100%;
+        background: #232323;
+        opacity: 0;
+    }
+
+     &.on {
+         position: relative;
+         z-index: -1; // it's placed inside the div which has a large z-index
+
+         .overlay-inner {
+             position: fixed;
+             top: 0;
+             left: 0;
+             // cursor: cell;
+             cursor: crosshair;
+             opacity: .9;
+             transition: opacity .5s linear;
+         }
+
+     }
+
  }
- 
 
- /**
-  * Rotator.
-  */
-  .role-rotator > .mboxy > .mboxy-content > *:not(.rotator-active) { display: none; }
-  .role-rotator > .mboxy > .mboxy-content >.mboxy-rotator-parentor .rotator-child:not(.rotator-active) { display: none; }
- 
 
- /**
-  * Splitter.
-  */
+/**
+ * Rotator.
+ */
+.role-rotator > .mboxy > .mboxy-content > *:not(.rotator-active) { display: none; }
+.role-rotator > .mboxy > .mboxy-content >.mboxy-rotator-parentor .rotator-child:not(.rotator-active) { display: none; }
+
+
+/**
+ * Splitter.
+ */
 .is-split:not(.split-show) { display: none; }
 
 // hide the splitter picker which shows the group and selected splitter

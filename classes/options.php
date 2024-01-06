@@ -118,6 +118,10 @@ if (! class_exists('Max_Boxy_Options')) {
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'fade'             ? ' style-fadein'           : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'slide-horizontal' ? ' style-slide-horizontal' : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'slide-vertical'   ? ' style-slide-vertical'   : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-up'          ? ' style-push-up'          : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-left'        ? ' style-push-left'        : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-right'       ? ' style-push-right'       : $elm_showing_style;
+                $elm_showing_style = $basics[ 'panel_popup_style' ] === 'push-down'        ? ' style-push-down'        : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'alignwide'        ? ' style-alignwide'        : $elm_showing_style;
                 $elm_showing_style = $basics[ 'panel_popup_style' ] === 'alignfull'        ? ' style-alignfull'        : $elm_showing_style;
 
@@ -616,25 +620,31 @@ if (! class_exists('Max_Boxy_Options')) {
 
             $closer_align_center            = $unset_toggler !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '9' || $basics[ 'toggler_pos' ] === '10' || $basics[ 'toggler_pos' ] === '11' || $basics[ 'toggler_pos' ] === '12') ? ' align-center' : '';
             $closer_align_end               = $unset_toggler !== true && isset($basics[ 'toggler_pos' ]) && ($basics[ 'toggler_pos' ] === '2' || $basics[ 'toggler_pos' ] === '4' || $basics[ 'toggler_pos' ] === '6' || $basics[ 'toggler_pos' ] === '8') ? ' align-end' : '';
-            $closer_align                   = !empty($closer_align_center) ? $closer_align_center : '';
-            $closer_align                  .= !empty($closer_align_end)    ? $closer_align_end : '';
+            $closer_align                   = !empty($closer_align_center) ? $closer_align_center : ' align-start';
+            $closer_align                   = !empty($closer_align_end)    ? $closer_align_end : $closer_align;
 
             $closer_size                    = $unset_toggler !== true && isset($basics[ 'closer_size' ]) && $basics[ 'closer_size' ] !== 'normal' ? ' ' .$basics[ 'closer_size' ] : '';
 
             // trigger's margin
-            $trig_margin_unit               = isset($basics[ 'trigger_margin' ][ 'unit' ]) ? $basics[ 'trigger_margin' ][ 'unit' ] : '';
+            $trig_margin_unit               = isset($basics[ 'trigger_margin' ][ 'unit' ])     ? $basics[ 'trigger_margin' ][ 'unit' ] : '';
+            $trig_margin_unit_top           = ! empty($basics[ 'trigger_margin_unit_top' ])    ? $basics[ 'trigger_margin_unit_top' ]  : $trig_margin_unit;
+            $trig_margin_unit_left          = ! empty($basics[ 'trigger_margin_unit_left' ])   ? $basics[ 'trigger_margin_unit_left' ]  : $trig_margin_unit;
+            $trig_margin_unit_right         = ! empty($basics[ 'trigger_margin_unit_right' ])  ? $basics[ 'trigger_margin_unit_right' ]  : $trig_margin_unit;
+            $trig_margin_unit_bottom        = ! empty($basics[ 'trigger_margin_unit_bottom' ]) ? $basics[ 'trigger_margin_unit_bottom' ]  : $trig_margin_unit;
 
             $trig_mar_top                   = isset($basics[ 'trigger_margin' ][ 'top' ]) && is_numeric($basics[ 'trigger_margin' ][ 'top' ]) ? $basics[ 'trigger_margin' ][ 'top' ]   : '';
-            $trigger_margin                 = ! empty($trig_mar_top) ? 'margin-top: ' .$trig_mar_top .$trig_margin_unit .';' : '';
+            $trigger_margin                 = ! empty($trig_mar_top) ? 'margin-top: ' .$trig_mar_top .$trig_margin_unit_top .';' : '';
             
             $trig_mar_left                  = isset($basics[ 'trigger_margin' ][ 'left' ]) && is_numeric($basics[ 'trigger_margin' ][ 'left' ]) ? $basics[ 'trigger_margin' ][ 'left' ]  : '';
-            $trigger_margin                .= ! empty($trig_mar_left) ? 'margin-left: ' .$trig_mar_left .$trig_margin_unit .';' : '';
+            $trigger_margin                .= ! empty($trig_mar_left) ? 'margin-left: ' .$trig_mar_left .$trig_margin_unit_left .';' : '';
             
             $trig_mar_right                 = isset($basics[ 'trigger_margin' ][ 'right' ]) && is_numeric($basics[ 'trigger_margin' ][ 'right' ]) ? $basics[ 'trigger_margin' ][ 'right' ] : '';
-            $trigger_margin                .= ! empty($trig_mar_right) ? 'margin-right: ' .$trig_mar_right .$trig_margin_unit .';' : '';
+            $trigger_margin                .= ! empty($trig_mar_right) ? 'margin-right: ' .$trig_mar_right .$trig_margin_unit_right .';' : '';
             
             $trig_mar_bottom                = isset($basics[ 'trigger_margin' ][ 'bottom' ]) && is_numeric($basics[ 'trigger_margin' ][ 'bottom' ]) ? $basics[ 'trigger_margin' ][ 'bottom' ] : '';
-            $trigger_margin                .= ! empty($trig_mar_bottom) ? 'margin-bottom: ' .$trig_mar_bottom .$trig_margin_unit .';' : '';
+            $trigger_margin                .= ! empty($trig_mar_bottom) ? 'margin-bottom: ' .$trig_mar_bottom .$trig_margin_unit_bottom .';' : '';
+
+            $no_margin_closer               = $panel_type === 'toggler' && ! empty($basics[ 'eliminate_margin_closer' ]) ? ' closer-no-margin' : '';
 
             /*
              * Pick the styling from diffrent vars
@@ -673,6 +683,7 @@ if (! class_exists('Max_Boxy_Options')) {
                 'panel_add_lable_class'      => $panel_add_lable_class,
                 'injectany_align'            => $injectany_align,
                 'sticky'                     => $sticky,
+                'no_margin_closer'           => $no_margin_closer,
                 // data:
                 'anim_echo_time'             => $_escaped_anim_echo_data,
                 'rotator_time'               => $_escaped_rotator_time_data,

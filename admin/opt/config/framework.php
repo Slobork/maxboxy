@@ -178,7 +178,7 @@ if (! defined('ABSPATH')) {
                     'id'            => 'large_screen_break_point',
                     'type'          => 'slider',
                     'title'         => esc_html__('Large screen breaking point', 'maxboxy'),
-                    'help'          => esc_html__('From entered point onward, it\'s considered to be the large screen. There are the options that depend on this. Default value is "992".', 'maxboxy'),
+                    'help'          => esc_html__('From entered point onward, it\'s considered to be the large screen. There are the options that depend on this, i.e. hiding content blocks for small or large screen. Default value is "992".', 'maxboxy'),
                     'default'       => 992,
                     'min'           => 200,
                     'max'           => 3000,

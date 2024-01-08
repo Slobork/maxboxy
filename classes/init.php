@@ -122,43 +122,6 @@ if (! class_exists('Max_Boxy')) {
 
 
         /**
-         * Escaped css.
-         * 
-         * @return string Prepered css for inline output.
-         */
-        // phpcs:ignore
-        public static function _escaped_css() {
-
-            // blocks max-width
-            $blocks_width               =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['width'])
-                                        ?  (int)(get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['width'] ) : '';
-
-            // blocks max-width unit
-            $blocks_width_unit          =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['unit'])
-                                        ?       (get_option('_maxboxy_options')[ 'content_blocks_max_width' ]['unit'] ) : 'px';
-
-            // blocks max-width wide
-            $blocks_width_wide          =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['width'])
-                                        ?  (int)(get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['width'] ) : '';
-
-            // blocks max-width wide unit
-            $blocks_width_wide_unit     =  isset(get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['unit'])
-                                        ?       (get_option('_maxboxy_options')[ 'content_blocks_max_width_wide' ]['unit'] ) : 'px';
-
-
-            $out  = is_numeric($blocks_width)      && $blocks_width      !== 960  ? '.mboxy-content > :not(.alignwide):not(.alignfull) {max-width:' .esc_attr($blocks_width) .esc_attr($blocks_width_unit) .';}' : '';
-            $out .= is_numeric($blocks_width_wide) && $blocks_width_wide !== 1280 ? '.mboxy-content > .alignwide {max-width:' .esc_attr($blocks_width_wide) .esc_attr($blocks_width_wide_unit) .';}' : '';
-
-            if (!empty($out) ) {
-                     return $out;
-            } else {
-                    return '';
-            }
-
-        }
-
-
-        /**
          * Register and Enqueue assets.
          *
          * @return void Registering and enqueueing assets.
@@ -216,18 +179,6 @@ if (! class_exists('Max_Boxy')) {
                     wp_add_inline_script('maxboxy', $script, false);
 
                 }
-
-                // for dynamic inline css output
-                $_escaped_data = ! empty(self::_escaped_css()) ? self::_escaped_css() : '';
-
-                /*
-                 * With option "Loading plugin file" selected to the "on_demand",
-                 * wp_add_inline_style will add a <style> element inside
-                 * the <body> which will produce an error with w3.org validator.
-                 * To overcome the error, the solution is to use combining
-                 * CSS External and Inline with one of speed optimization plugins.
-                 */
-                wp_add_inline_style('maxboxy', $_escaped_data);
 
             }
 

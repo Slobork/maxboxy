@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.4
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,12 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.5 - 2024-01-08 =
+* Fix: Revoke the global option for the blocks width, too many potential conflicts with individual panel settings
+* Fix: Padding on the toggler when the SVG is used
+* Fix: Margin on the closer button when set to be different from the igniter button
+* Fix: Alignment of the additional message closing button
+
 = 1.1.4 - 2024-01-07 =
 * Add: Option to eliminate the margin on the Closer button
 * Add: Global option to set the content (blocks) width inside the panels, including the wide alignment

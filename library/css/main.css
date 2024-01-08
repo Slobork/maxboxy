@@ -502,19 +502,8 @@
     transition: transform 800ms ease;
     transition: transform 800ms ease, -webkit-transform 800ms ease; }
 
-/**
- * Blocks width.
- * Including alignfull & alignwide alignments.
- */
-.mboxy-content > *:not(.alignwide):not(.alignfull) {
-  max-width: 960px;
-  margin: 0 auto; }
-
+.mboxy-content > .alignfull,
 .mboxy-content > .alignwide {
-  max-width: 1280px;
-  margin: 0 auto; }
-
-.mboxy-content > .alignfull {
   max-width: -webkit-fill-available;
   max-width: -moz-available;
   max-width: stretch; }
@@ -715,67 +704,71 @@ body.maxboxy-overlay-on {
       -webkit-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
               transform: rotate(180deg); }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon[class*="iks"], .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon.minus {
+    height: 4px;
+    -webkit-box-shadow: 0 2px 0 0;
+            box-shadow: 0 2px 0 0; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon[class*="iks"] {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon[class*="ham"] {
+    height: 0; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon .ham-f3:before, .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon .ham-f3:after, .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon .ham-f4:before, .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon .ham-f4:after {
+    width: 12px; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon.point-up {
+    -webkit-transform: rotate(90deg) translateY(-1px);
+        -ms-transform: rotate(90deg) translateY(-1px);
+            transform: rotate(90deg) translateY(-1px); }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon.point-down {
+    -webkit-transform: rotate(-90deg) translateY(0px);
+        -ms-transform: rotate(-90deg) translateY(0px);
+            transform: rotate(-90deg) translateY(0px); }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon:before, .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-m .trig-icon:after {
+    height: 2px; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon[class*="iks"], .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon[class*="point"], .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon.minus {
+    height: 3px; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon[class*="ham"] {
+    height: 2px;
+    -webkit-box-shadow: 0 2px 0 0;
+            box-shadow: 0 2px 0 0; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon.point-up {
+    -webkit-transform: rotate(90deg) translateY(-1px);
+        -ms-transform: rotate(90deg) translateY(-1px);
+            transform: rotate(90deg) translateY(-1px); }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon.point-down {
+    -webkit-transform: rotate(-90deg) translateY(1px);
+        -ms-transform: rotate(-90deg) translateY(1px);
+            transform: rotate(-90deg) translateY(1px); }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon:before, .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon:after {
+    height: 2px; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-s .trig-icon[class*="ham"]:before {
+    -webkit-box-shadow: 0 -7px 0 0;
+            box-shadow: 0 -7px 0 0; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-l {
+    margin: 6px 7px;
+    padding: 0 20px; }
+  .mboxy-wrap > .mboxy .trigger:not([class*="has-svg"]):not([class*="has-img"]).size-h {
+    margin: 14px 15px;
+    padding: 0 20px; }
   .mboxy-wrap > .mboxy .trigger.size-m {
     -webkit-transform: scale(0.55);
         -ms-transform: scale(0.55);
             transform: scale(0.55);
     margin: -4px; }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon[class*="iks"], .mboxy-wrap > .mboxy .trigger.size-m .trig-icon.minus {
-      height: 4px;
-      -webkit-box-shadow: 0 2px 0 0;
-              box-shadow: 0 2px 0 0; }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon[class*="iks"] {
-      -webkit-box-shadow: none;
-              box-shadow: none; }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon[class*="ham"] {
-      height: 0; }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon .ham-f3:before, .mboxy-wrap > .mboxy .trigger.size-m .trig-icon .ham-f3:after, .mboxy-wrap > .mboxy .trigger.size-m .trig-icon .ham-f4:before, .mboxy-wrap > .mboxy .trigger.size-m .trig-icon .ham-f4:after {
-      width: 12px; }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon.point-up {
-      -webkit-transform: rotate(90deg) translateY(-1px);
-          -ms-transform: rotate(90deg) translateY(-1px);
-              transform: rotate(90deg) translateY(-1px); }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon.point-down {
-      -webkit-transform: rotate(-90deg) translateY(0px);
-          -ms-transform: rotate(-90deg) translateY(0px);
-              transform: rotate(-90deg) translateY(0px); }
-    .mboxy-wrap > .mboxy .trigger.size-m .trig-icon:before, .mboxy-wrap > .mboxy .trigger.size-m .trig-icon:after {
-      height: 2px; }
   .mboxy-wrap > .mboxy .trigger.size-s {
     -webkit-transform: scale(0.75);
         -ms-transform: scale(0.75);
             transform: scale(0.75); }
-    .mboxy-wrap > .mboxy .trigger.size-s .trig-icon[class*="iks"], .mboxy-wrap > .mboxy .trigger.size-s .trig-icon[class*="point"], .mboxy-wrap > .mboxy .trigger.size-s .trig-icon.minus {
-      height: 3px; }
-    .mboxy-wrap > .mboxy .trigger.size-s .trig-icon[class*="ham"] {
-      height: 2px;
-      -webkit-box-shadow: 0 2px 0 0;
-              box-shadow: 0 2px 0 0; }
-    .mboxy-wrap > .mboxy .trigger.size-s .trig-icon.point-up {
-      -webkit-transform: rotate(90deg) translateY(-1px);
-          -ms-transform: rotate(90deg) translateY(-1px);
-              transform: rotate(90deg) translateY(-1px); }
-    .mboxy-wrap > .mboxy .trigger.size-s .trig-icon.point-down {
-      -webkit-transform: rotate(-90deg) translateY(1px);
-          -ms-transform: rotate(-90deg) translateY(1px);
-              transform: rotate(-90deg) translateY(1px); }
-    .mboxy-wrap > .mboxy .trigger.size-s .trig-icon:before, .mboxy-wrap > .mboxy .trigger.size-s .trig-icon:after {
-      height: 2px; }
-    .mboxy-wrap > .mboxy .trigger.size-s .trig-icon[class*="ham"]:before {
-      -webkit-box-shadow: 0 -7px 0 0;
-              box-shadow: 0 -7px 0 0; }
   .mboxy-wrap > .mboxy .trigger.size-l {
-    -webkit-transform: scale(1.25);
-        -ms-transform: scale(1.25);
-            transform: scale(1.25);
-    margin: 6px 7px;
-    padding: 0 20px; }
+    -webkit-transform: scale(1.22);
+        -ms-transform: scale(1.22);
+            transform: scale(1.22);
+    margin: 6px 7px; }
   .mboxy-wrap > .mboxy .trigger.size-h {
     -webkit-transform: scale(1.55);
         -ms-transform: scale(1.55);
             transform: scale(1.55);
-    margin: 14px 15px;
-    padding: 0 20px; }
+    margin: 14px 15px; }
   .mboxy-wrap > .mboxy .trigger.bordered.igniteon:not(.has-img-open), .mboxy-wrap > .mboxy .trigger.bordered:not(.igniteon):not(.has-img-close):not(.close-img-thesame) {
     border: 2px solid; }
   .mboxy-wrap > .mboxy .trigger.inside.inside {
@@ -819,9 +812,9 @@ body.maxboxy-overlay-on {
         color: inherit;
         pointer-events: initial;
         cursor: pointer;
-        width: 25px;
+        width: 22px;
         height: auto;
-        font-size: .75rem;
+        font-size: 10px;
         border: 1px solid currentColor;
         border-radius: 50%; }
   .mboxy-wrap > .mboxy .trigger[class*="has-svg"] {
@@ -842,8 +835,26 @@ body.maxboxy-overlay-on {
   .mboxy-wrap > .mboxy .trigger:not(.igniteon):not(.close-svg-thesame) .trig-svg-open,
   .mboxy-wrap > .mboxy .trigger:not(.igniteon):not(.close-img-thesame) .trig-img-open {
     display: none; }
-  .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon) {
+  .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close) {
     margin: 0 !important; }
+    .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).size-m {
+      margin: -4px !important; }
+    .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).size-l {
+      margin: 6px 7px !important; }
+    .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).size-h {
+      margin: 14px 15px !important; }
+    .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).rounded {
+      margin: 8px !important; }
+      .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).rounded.size-m {
+        margin: -4px !important; }
+      .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).rounded.size-s {
+        margin: 4px !important; }
+      .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).rounded.size-l {
+        margin: 16px !important; }
+      .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon):not(.has-img-close).rounded.size-h {
+        margin: 26px !important; }
+  .mboxy-wrap > .mboxy .trigger.closer-no-margin:not(.igniteon).has-img-close {
+    margin: 16px !important; }
 
 .mboxy-wrap:not(.on)[class*="place-center"] > .mboxy > .trigger.size-m {
   -webkit-transform: scale(0.55);
@@ -856,9 +867,9 @@ body.maxboxy-overlay-on {
           transform: scale(0.75); }
 
 .mboxy-wrap:not(.on)[class*="place-center"] > .mboxy > .trigger.size-l {
-  -webkit-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-          transform: scale(1.25); }
+  -webkit-transform: scale(1.22);
+      -ms-transform: scale(1.22);
+          transform: scale(1.22); }
 
 .mboxy-wrap:not(.on)[class*="place-center"] > .mboxy > .trigger.size-h {
   -webkit-transform: scale(1.55);
@@ -876,9 +887,9 @@ body.maxboxy-overlay-on {
           transform: scale(0.75); }
 
 .mboxy-wrap:not(.on)[class*="centered"] > .mboxy > .trigger.size-l {
-  -webkit-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-          transform: scale(1.25); }
+  -webkit-transform: scale(1.22);
+      -ms-transform: scale(1.22);
+          transform: scale(1.22); }
 
 .mboxy-wrap:not(.on)[class*="centered"] > .mboxy > .trigger.size-h {
   -webkit-transform: scale(1.55);

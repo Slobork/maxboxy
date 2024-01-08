@@ -223,7 +223,7 @@ if (! defined('ABSPATH')) {
                 array(
                     'id'        => 'remove_wpautop',
                     'type'      => 'switcher',
-                    'title'     => esc_html__('WP autop removal', 'maxboxy'),
+                    'title'     => esc_html__('WP autop', 'maxboxy'),
                     'desc'      => esc_html__('We remove the empty paragraphs when WordPress auto-inject them. Here you can disable that. Recommended: keep it prevented.', 'maxboxy'),
                     'help'      => esc_html__('By default we prevent wpautop. WordPress somethimes have a habit to inject excesive empty paragraphs. We remove this possibility. However, it is affecting the whole site, not just the MaxBoxy panels, so you can turn off this if from any reason is necessary.', 'maxboxy'),
                     'text_on'   => esc_html__('Allowed', 'maxboxy'),

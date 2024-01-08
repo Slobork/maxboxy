@@ -178,77 +178,76 @@
 			} // end trig-icon
 
 			// toggler/closer sizes
-			&.size-m {
-				transform: scale(.55); margin: -4px;
+			&:not([class*="has-svg"]):not([class*="has-img"]) {
 
-				.trig-icon {
+				&.size-m {
+					.trig-icon {
+						// since it's scaled down, to be viewable, have to set larger height
+						&[class*="iks"],
+						&.minus {
+							height: 4px;
+							box-shadow: 0 2px 0 0;
+						}
 
-					// since it's scaled down, to be viewable, have to set larger height
-					&[class*="iks"],
-					&.minus {
-						height: 4px;
-						box-shadow: 0 2px 0 0;
-					}
+						&[class*="iks"] {
+							box-shadow: none;
+						}
 
-					&[class*="iks"] {
-						box-shadow: none;
-					}
+						&[class*="ham"] {
+							// eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
+							height: 0;
+						}
 
-					&[class*="ham"] {
-						// eliminate the middle line, coz it's scaled too small and it comes too blury even not seen at all
-						height: 0;
-					}
+						.ham-f3, .ham-f4 {
+							&:before, &:after {  width: 12px; }
+						}
 
-					.ham-f3, .ham-f4 {
-						&:before, &:after {  width: 12px; }
-					}
+						// change translateX applied by defalt
+						&.point-up   { transform: rotate(90deg)  translateY(-1px); }
+						&.point-down { transform: rotate(-90deg) translateY(0px); }
 
-					// change translateX applied by defalt
-					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
-					&.point-down { transform: rotate(-90deg) translateY(0px); }
+						// since it's scaled down, to be viewable, have to set larger height
+						&:before, &:after { height: 2px; }
+					} // end trig-icon
+				}
 
-					// since it's scaled down, to be viewable, have to set larger height
-					&:before, &:after { height: 2px; }
+				&.size-s {
+					.trig-icon {
+						// since it's scaled down, to be viewable, have to set larger height
+						&[class*="iks"],
+						&[class*="point"],
+						&.minus {
+							height: 3px;
 
-				} // end trig-icon
+						}
 
+						// since it's scaled down, to be viewable, have to set larger height
+						&[class*="ham"] {
+							height: 2px;
+							box-shadow: 0 2px 0 0;
+						}
+
+						// change translateX applied by defalt
+						&.point-up   { transform: rotate(90deg)  translateY(-1px); }
+						&.point-down { transform: rotate(-90deg) translateY(1px); }
+
+						// since it's scaled down, to be viewable, have to set larger height
+						&:before, &:after { height: 2px; }
+						&[class*="ham"] {
+							&:before { box-shadow: 0 -7px 0 0; }
+						}
+					} // end trig-icon
+				}
+
+				&.size-l { margin: 6px 7px; padding: 0 20px; }
+				&.size-h { margin: 14px 15px; padding: 0 20px; }
 			}
 
-			&.size-s {
-				transform: scale(.75);
-
-				.trig-icon {
-
-					// since it's scaled down, to be viewable, have to set larger height
-					&[class*="iks"],
-					&[class*="point"],
-					&.minus {
-						height: 3px;
-
-					}
-
-					// since it's scaled down, to be viewable, have to set larger height
-					&[class*="ham"] {
-						height: 2px;
-						box-shadow: 0 2px 0 0;
-					}
-
-					// change translateX applied by defalt
-					&.point-up   { transform: rotate(90deg)  translateY(-1px); }
-					&.point-down { transform: rotate(-90deg) translateY(1px); }
-
-					// since it's scaled down, to be viewable, have to set larger height
-					&:before, &:after { height: 2px; }
-					&[class*="ham"] {
-						&:before { box-shadow: 0 -7px 0 0; }
-					}
-
-				} // end trig-icon
-
-			}
-
-			&.size-l { transform: scale(1.25); margin: 6px 7px;  padding: 0 20px; }
-			&.size-h { transform: scale(1.55); margin: 14px 15px; padding: 0 20px; }
+			// size (scaling affects all options (i.e. icon, img, svg)
+			&.size-m { transform: scale(.55); margin: -4px; }
+			&.size-s { transform: scale(.75); }
+			&.size-l { transform: scale(1.22); margin: 6px 7px; } // scale at 1.22, coz when SVG and .bordered are used, with 1.25 border gets interupet (in Firefox)
+			&.size-h { transform: scale(1.55); margin: 14px 15px; }
 
 			// additional styles...
 
@@ -318,7 +317,7 @@
 
 			}
 
-			&[class*="has-svg"] { width: max-content;}
+			&[class*="has-svg"] {width: max-content;}
 
 			svg {
 				display: flex;
@@ -341,8 +340,32 @@
 			&:not(.igniteon):not(.close-img-thesame) .trig-img-open {
 				display: none;
 			}
-			
-			&.closer-no-margin:not(.igniteon) { margin: 0 !important; }
+
+			// eliminate margins set through the UI on the closer
+			&.closer-no-margin:not(.igniteon) {
+
+				&:not(.has-img-close) {
+					margin: 0 !important;
+
+					// actually with the sizes, set some spacing (the same as previously set)
+					&.size-m { margin: -4px !important; }
+					//&.size-s {}
+					&.size-l { margin: 6px 7px !important; }
+					&.size-h { margin: 14px 15px !important; }
+					
+					&.rounded {
+						margin: 8px !important;
+						&.size-m { margin: -4px !important; }
+						&.size-s { margin: 4px !important; }
+						&.size-l { margin: 16px !important; }
+						&.size-h { margin: 26px !important; }
+					}
+
+				}
+
+				&.has-img-close { margin: 16px !important; }
+	
+			}
 
 		} // end .trigger
 
@@ -351,13 +374,13 @@
 	// to override transform property, selector needs higher priority when toggler/igniter is in use and it's closed - in the case it's on center pos
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-m { transform: scale(.55) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-s { transform: scale(.75) }
-	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-l { transform: scale(1.22) }
 	&:not(.on)[class*="place-center"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
 
 	// ...and in the case its pos is left/right, but centered
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-m { transform: scale(.55) }
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-s { transform: scale(.75) }
-	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-l { transform: scale(1.25) }
+	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-l { transform: scale(1.22) }
 	&:not(.on)[class*="centered"] >.mboxy > .trigger.size-h { transform: scale(1.55) }
 
 

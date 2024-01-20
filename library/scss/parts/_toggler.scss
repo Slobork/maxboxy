@@ -299,6 +299,9 @@
 					border-radius: 5px;
 
 					.additional-message-killer {
+						display: flex;
+						align-items: center;
+						justify-content: center;
 						position: absolute;
 						top: 0;
 						right: 0;
@@ -308,7 +311,8 @@
 						pointer-events: initial;
 						cursor: pointer;
 						width: 22px;
-						height: auto;
+						//height: auto;
+						height: 22px;
 						font-size: 10px;
 						border: 1px solid currentColor;
 						border-radius: 50%;

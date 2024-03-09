@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box, floating menu, reusable blocks
 Tested up to: 6.4
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -87,6 +87,10 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.6 - 2024-03-09 =
+* Update the custom fields framework
+* Small styling improvement for the additional message of the closer button
+
 = 1.1.5 - 2024-01-08 =
 * Fix: Revoke the global option for the blocks width, too many potential conflicts with individual panel settings
 * Fix: Padding on the toggler when the SVG is used

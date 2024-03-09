@@ -87,7 +87,7 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
-= 1.1.5 - 2024-03-09 =
+= 1.1.6 - 2024-03-09 =
 * Update the custom fields framework
 * Small styling improvement for the additional message of the closer button
 

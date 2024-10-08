@@ -177,7 +177,7 @@
   */
 .floatany {
   position: absolute;
-  z-index: 999; }
+  z-index: 999999; }
   .floatany > .mboxy {
     position: fixed;
     z-index: 1;

@@ -71,7 +71,7 @@
   */
   .floatany {
     position: absolute; // necessary for z-index to work
-    z-index: 999;
+    z-index: 999999; // Have to be  quite big, WP nav was overlapping it when triggered from it
 
     > .mboxy {
         position: fixed;

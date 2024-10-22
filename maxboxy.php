@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:         MaxBoxy
- * Description:         Conversion Boxes, Popups, Float and Inject Any Content
+ * Description:         Make Conversion Boxes, Popups, Floats and Inject Any Content in a WorsPress way!
  *
  * PHP version  7.3.5
  *
@@ -15,7 +15,7 @@
  * Author URI:          https://maxpressy.com
  * License:             GPL v2 or later
  * License URI:         https://www.gnu.org/licenses/gpl-2.0.html
- * Version:             1.1.6
+ * Version:             1.1.7
  * Text Domain:         maxboxy
  * Domain Path:         /languages
  * Requires at least:   5.8

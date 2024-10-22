@@ -505,7 +505,7 @@ if (! defined('ABSPATH')) {
                 'id'            => 'panel_popup_color',
                 'type'          => 'color',
                 'title'         => esc_html__('Panel\'s text color', 'maxboxy'),
-                'help'          => esc_html__('If the block doesn\'t has the text color set, it will inherit from here.', 'maxboxy'),
+                'help'          => esc_html__('If the block doesn\'t have the text color set or if it doesn\'t inherit it from the global settings, it will inherit from here.', 'maxboxy'),
             ),
             array(
                 'type'          => 'subheading',

@@ -2,11 +2,13 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box
 Tested up to: 6.6
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+
+Make Conversion Boxes, Popups, Floats and Inject Any Content in a WorsPress way!
 
 == Description ==
 MaxBoxy is a tool that will help you in making engagement and conversion elements for your Website. To be concrete, with <a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=top" target="_blank">MaxBoxy</a> create floating content, menus, info bars, popup or slide-in panels. Set them into rotating notification system, introduce them on page's load or exit intend, offer coupons and much more. It can be used, for example, to:
@@ -87,6 +89,10 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.7 - 2024-10-23 =
+* Raise the z-index of .floatany, , WP nav on the mob (modal) was overlapping it when triggered from it
+* Help/description improvement for a couple of option fields
+
 = 1.1.6 - 2024-03-09 =
 * Update the custom fields framework
 * Small styling improvement for the additional message of the closer button

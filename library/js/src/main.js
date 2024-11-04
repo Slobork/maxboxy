@@ -28,6 +28,7 @@ jQuery(document).ready(function ($) {
 							on_until_pageviews_class        =   $(this).prop('class').match(/appear-until-pageviews/)	? true : false,
 							on_after_pageviews_class        =   $(this).prop('class').match(/appear-after-pageviews/)	? true : false,
 							is_igniter                      =   $(this).prop('class').match(/role-igniter/)		? true : false,
+							is_hidden                       =   $(this).prop('class').match(/role-hidden/)		? true : false,
 							data_elm_present                =   typeof $(this).data('appear-elm-present')       !== 'undefined'     ?   $(this).data('appear-elm-present')          : '',
 							data_time                       =   typeof $(this).data('appear-after-time')        !== 'undefined'     ?   $(this).data('appear-after-time') *1000     : '',
 							data_scroll                     =   typeof $(this).data('appear-after-scroll')      !== 'undefined'     ?   $(this).data('appear-after-scroll')         : '',
@@ -39,18 +40,22 @@ jQuery(document).ready(function ($) {
 
 						var showPanel  = function() {
 
-								// igniter is handled differently, i.e. by adding the .igniteon to the trigger instead of .on class
-								if ( is_igniter === true ) {
+							// igniter is handled differently, i.e. by adding the .igniteon to the trigger instead of .on class
+							if ( is_igniter === true ) {
 
 								panel.find('.trig-default').addClass('igniteon');
+								panel.panelSize();
+							
+							} else if ( is_hidden === true ) {
+
 								panel.panelSize();
 
 							} else {
 
 								panel
+								.panelSize()
 								.addClass('on')
 								.panelOverlayOn()
-								.panelSize()
 								.panelRotator();
 
 								if ( $('body').prop('class').match(/maxboxy-tracking-on/) ) {
@@ -208,11 +213,11 @@ jQuery(document).ready(function ($) {
 	function onLoadFloatAny() {
 
 		// set it for the initial opened panel
-		var is_opened_panel = $('.floatany:not(.role-hidden):not(.is-split)');
+		var loaded_panel = $('.floatany:not(.is-split)');
 
-		if (is_opened_panel.length) {
+		if (loaded_panel.length) {
 
-			is_opened_panel.maxboxyOn();
+			loaded_panel.maxboxyOn();
 
 		}
 

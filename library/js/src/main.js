@@ -1118,16 +1118,16 @@ jQuery(document).ready(function ($) {
 	$.fn.panelSize = function() {
 
 		this.each( function () {
-			var with_size				=	$(this).find('.with-size'),
-				width_1st 				=   typeof with_size.data('panel-width')  !== 'undefined' ?	with_size.data('panel-width')  : '',
-				height_1st				=   typeof with_size.data('panel-height') !== 'undefined' ?	with_size.data('panel-height') : '',
+			var width_size				=	$(this).find('.with-size'),
+				width_1st 				=   typeof width_size.data('panel-width')  !== 'undefined' ?	width_size.data('panel-width')  : '',
+				height_1st				=   typeof width_size.data('panel-height') !== 'undefined' ?	width_size.data('panel-height') : '',
 				//on							=   $(this).prop('class').match(/on/)		?	true	:	false,
 				nospace					=   $(this).prop('class').match(/nospace/)	?	true	:	false,
 				current_screen_width	=   $(window).width();
 
-			if (with_size.length && nospace === false) {
+			if (width_size.length && nospace === false) {
 
-				with_size.css({
+				width_size.css({
 					'width':  width_1st,
 					'height': height_1st,
 					'display': 'flex', // if not set, display: block will be printed
@@ -1136,12 +1136,12 @@ jQuery(document).ready(function ($) {
 				// ...overwrite for the large screens
 				if (current_screen_width >= screenBreakPoint()) {
 
-					var width_large     =   with_size.data('panel-large-width'),
-						height_large    =   with_size.data('panel-large-height'),
+					var width_large     =   width_size.data('panel-large-width'),
+						height_large    =   width_size.data('panel-large-height'),
 						width_new   	=   typeof width_large  !== 'undefined'   ?   width_large     :   width_1st,
 						height_new  	=   typeof height_large !== 'undefined'   ?   height_large    :   height_1st;
 
-						with_size.css({
+						width_size.css({
 							'width':  width_new,
 							'height': height_new,
 						});

@@ -106,7 +106,7 @@ if (! defined('ABSPATH')) {
      */
     CSF::createMetabox(
         '_mb_floatany', array(
-            'title'       => esc_html__('Type & style', 'maxboxy'),
+            'title'       => esc_html__('Type and style', 'maxboxy'),
             'post_type'   => 'float_any',
             'context'     => 'side',
             'priority'    => 'default',
@@ -137,7 +137,7 @@ if (! defined('ABSPATH')) {
      */
     CSF::createMetabox(
         '_mb_injectany', array(
-            'title'       => esc_html__('Type & style', 'maxboxy'),
+            'title'       => esc_html__('Type and style', 'maxboxy'),
             'post_type'   => array_merge(array('inject_any'), $add_reusable_blocks),
             'context'     => 'side',
             'priority'    => 'default',

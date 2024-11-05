@@ -28,6 +28,7 @@ jQuery(document).ready(function ($) {
 							on_until_pageviews_class        =   $(this).prop('class').match(/appear-until-pageviews/)	? true : false,
 							on_after_pageviews_class        =   $(this).prop('class').match(/appear-after-pageviews/)	? true : false,
 							is_igniter                      =   $(this).prop('class').match(/role-igniter/)		? true : false,
+							is_hidden                       =   $(this).prop('class').match(/role-hidden/)		? true : false,
 							data_elm_present                =   typeof $(this).data('appear-elm-present')       !== 'undefined'     ?   $(this).data('appear-elm-present')          : '',
 							data_time                       =   typeof $(this).data('appear-after-time')        !== 'undefined'     ?   $(this).data('appear-after-time') *1000     : '',
 							data_scroll                     =   typeof $(this).data('appear-after-scroll')      !== 'undefined'     ?   $(this).data('appear-after-scroll')         : '',
@@ -39,18 +40,22 @@ jQuery(document).ready(function ($) {
 
 						var showPanel  = function() {
 
-								// igniter is handled differently, i.e. by adding the .igniteon to the trigger instead of .on class
-								if ( is_igniter === true ) {
+							// igniter is handled differently, i.e. by adding the .igniteon to the trigger instead of .on class
+							if ( is_igniter === true ) {
 
 								panel.find('.trig-default').addClass('igniteon');
+								panel.panelSize();
+							
+							} else if ( is_hidden === true ) {
+
 								panel.panelSize();
 
 							} else {
 
 								panel
+								.panelSize()
 								.addClass('on')
 								.panelOverlayOn()
-								.panelSize()
 								.panelRotator();
 
 								if ( $('body').prop('class').match(/maxboxy-tracking-on/) ) {
@@ -208,11 +213,11 @@ jQuery(document).ready(function ($) {
 	function onLoadFloatAny() {
 
 		// set it for the initial opened panel
-		var is_opened_panel = $('.floatany:not(.role-hidden):not(.is-split)');
+		var loaded_panel = $('.floatany:not(.is-split)');
 
-		if (is_opened_panel.length) {
+		if (loaded_panel.length) {
 
-			is_opened_panel.maxboxyOn();
+			loaded_panel.maxboxyOn();
 
 		}
 
@@ -1113,16 +1118,16 @@ jQuery(document).ready(function ($) {
 	$.fn.panelSize = function() {
 
 		this.each( function () {
-			var with_size				=	$(this).find('.with-size'),
-				width_1st 				=   typeof with_size.data('panel-width')  !== 'undefined' ?	with_size.data('panel-width')  : '',
-				height_1st				=   typeof with_size.data('panel-height') !== 'undefined' ?	with_size.data('panel-height') : '',
+			var width_size				=	$(this).find('.with-size'),
+				width_1st 				=   typeof width_size.data('panel-width')  !== 'undefined' ?	width_size.data('panel-width')  : '',
+				height_1st				=   typeof width_size.data('panel-height') !== 'undefined' ?	width_size.data('panel-height') : '',
 				//on							=   $(this).prop('class').match(/on/)		?	true	:	false,
 				nospace					=   $(this).prop('class').match(/nospace/)	?	true	:	false,
 				current_screen_width	=   $(window).width();
 
-			if (with_size.length && nospace === false) {
+			if (width_size.length && nospace === false) {
 
-				with_size.css({
+				width_size.css({
 					'width':  width_1st,
 					'height': height_1st,
 					'display': 'flex', // if not set, display: block will be printed
@@ -1131,12 +1136,12 @@ jQuery(document).ready(function ($) {
 				// ...overwrite for the large screens
 				if (current_screen_width >= screenBreakPoint()) {
 
-					var width_large     =   with_size.data('panel-large-width'),
-						height_large    =   with_size.data('panel-large-height'),
+					var width_large     =   width_size.data('panel-large-width'),
+						height_large    =   width_size.data('panel-large-height'),
 						width_new   	=   typeof width_large  !== 'undefined'   ?   width_large     :   width_1st,
 						height_new  	=   typeof height_large !== 'undefined'   ?   height_large    :   height_1st;
 
-						with_size.css({
+						width_size.css({
 							'width':  width_new,
 							'height': height_new,
 						});

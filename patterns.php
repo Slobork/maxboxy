@@ -87,7 +87,7 @@ if (! defined('ABSPATH')) {
             $modal_offer   = $get_modal_offer !== 'no'
             ? array(
                 'blockTypes' => array( 'core/post-content' ), // puts it in the commencing modal
-                'postTypes'  => array( 'float_any', 'inject_any', 'wp_block' ) // ...for specific post_types
+                'postTypes'  => array( 'float_any', 'inject_any' ) // ...for specific post_types
             )
             : array();
 
@@ -191,7 +191,7 @@ if (! defined('ABSPATH')) {
 
             /**
              * Contact blocks pattern registration (1st for the pattern's block inserter category, 2nd to appear in modal).
-             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any, wp_block)
+             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any)
              * So, if all put together, it would dispaly the pattern in the Modal,
              * but not on block inserter outside of the listed postTypes
              */
@@ -865,7 +865,7 @@ if (! defined('ABSPATH')) {
 
             /**
              * Info box 1 (1st for the pattern's block inserter category, 2nd to appear in modal).
-             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any, wp_block)
+             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any)
              * So, if all put together, it would dispaly the pattern in the Modal,
              * but not on block inserter outside of the listed postTypes
              */

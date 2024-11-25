@@ -233,7 +233,7 @@ jQuery(document).ready(function($) {
 		'overflow-x': 'auto',
 	});
 
-	$('.post-type-float_any, .post-type-inject_any, .post-type-wp_block').find('.postbox-header h2').css({
+	$('.post-type-float_any, .post-type-inject_any').find('.postbox-header h2').css({
 		'padding': '18 24px',
 		'font-style': 'italic',
 	});

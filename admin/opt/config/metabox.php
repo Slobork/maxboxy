@@ -13,12 +13,6 @@ if (! defined('ABSPATH')) {
      */
     require_once 'mb-options.php';
 
-
-    $reusable_blocks_enabled = isset(get_option('_maxboxy_options')[ 'enable_wp_block' ])
-                             ?       get_option('_maxboxy_options')[ 'enable_wp_block' ] : '';
-
-    $add_reusable_blocks     = ! empty($reusable_blocks_enabled) ? array('wp_block') : array();
-
     /*
      * Loading - Inject Any.
      */
@@ -138,7 +132,7 @@ if (! defined('ABSPATH')) {
     CSF::createMetabox(
         '_mb_injectany', array(
             'title'       => esc_html__('Type and style', 'maxboxy'),
-            'post_type'   => array_merge(array('inject_any'), $add_reusable_blocks),
+            'post_type'   => 'inject_any',
             'context'     => 'side',
             'priority'    => 'default',
         )
@@ -169,7 +163,7 @@ if (! defined('ABSPATH')) {
     CSF::createMetabox(
         '_mb_maxboxy_conversion', array(
             'title'       => esc_html__('Conversion', 'maxboxy'),
-            'post_type'   => array_merge(array( 'inject_any', 'float_any' ), $add_reusable_blocks),
+            'post_type'   => array( 'inject_any', 'float_any' ),
             'context'     => 'side',
         )
     );
@@ -202,7 +196,7 @@ if (! defined('ABSPATH')) {
         CSF::createMetabox(
             '_mb_maxboxy_splitter_info', array(
                 'title'       => esc_html__('Splitter (A/B Testing)', 'maxboxy'),
-                'post_type'   =>array_merge(array( 'inject_any', 'float_any' ), $add_reusable_blocks),
+                'post_type'   => array( 'inject_any', 'float_any' ),
                 'context'     =>'side',
             )
         );
@@ -222,7 +216,7 @@ if (! defined('ABSPATH')) {
     CSF::createMetabox(
         '_mb_maxboxy_conditionals', array(
             'title'       => esc_html__('Conditionals', 'maxboxy'),
-            'post_type'   => array_merge(array( 'inject_any', 'float_any' ), $add_reusable_blocks),
+            'post_type'   => array( 'inject_any', 'float_any' ),
             'context'     => 'side',
             'priority'    => 'low',
         )
@@ -281,7 +275,7 @@ if (! defined('ABSPATH')) {
             'fields' => array(
                 array(
                     'type'     => 'content',
-                    'content'  => esc_html__('You can takeover the "Global loading" option from the selected panels and control it from here. Global loading controls the output of items from MaxBoxy strains that have such feature, i.e. FloatAny or InjectAny panels. Reusable blocks do not have that feaure.', 'maxboxy'),
+                    'content'  => esc_html__('You can takeover the "Global loading" option from the selected panels and control it from here. Global loading controls the output of items from MaxBoxy strains that have such feature, i.e. FloatAny or InjectAny panels.', 'maxboxy'),
                 ),
                 $field_auto_loading,
             ),

@@ -32,7 +32,7 @@ if (! defined('ABSPATH')) {
 
     $get_id                     = isset($_GET['post']) ? $_GET['post'] : get_the_ID();
     $auto_loading_from_splitter = class_exists('Max_Boxy_Splitter') && Max_Boxy_Splitter::enabled() === true
-                                && ( get_post_type($get_id) === 'float_any' || get_post_type($get_id) === 'inject_any' ) // without the 'wp_block' since it doesnt have global loading option
+                                && ( get_post_type($get_id) === 'float_any' || get_post_type($get_id) === 'inject_any' )
                                     // Set 5th param as "visible" or "true" to set it as visible ony if the 'is_splitted_from' is empty.
                                 ? array( 'dependency'  =>  array( 'is_splitted_from', '==', '', 'true', 'visible' ) )
                                 : array();

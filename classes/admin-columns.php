@@ -28,18 +28,6 @@ if (! class_exists('Max_Boxy_Admin_Columns')) {
         'manage_inject_any_posts_custom_column', array ( 'Max_Boxy_Admin_Columns', 'admin_custom_columns_data' )
     );
 
-    // 'wp_block' i.e. reusable blocks post type (if enabled)
-    if (class_exists('Max_Boxy_Reusable_Blocks') && Max_Boxy_Reusable_Blocks::enabled() === true) {
-
-        add_filter(
-            'manage_wp_block_posts_columns', array ( 'Max_Boxy_Admin_Columns', 'add_admin_columns' )
-        );
-
-        add_action(
-            'manage_wp_block_posts_custom_column', array ( 'Max_Boxy_Admin_Columns', 'admin_custom_columns_data' )
-        );
-
-    }
 
     // phpcs:ignore
     class Max_Boxy_Admin_Columns

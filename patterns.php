@@ -818,8 +818,8 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph -->
                 
                 <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"base\",\"width\":50,\"style\":{\"color\":{\"background\":\"#373131\"}},\"className\":\"is-style-outline\"} -->
-                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 is-style-outline\"><a class=\"wp-block-button__link has-base-color has-text-color has-background wp-element-button\" style=\"background-color:#373131\">Download now!</a></div>
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"white\",\"className\":\"is-style-outline\",\"style\":{\"color\":{\"background\":\"#373131\"}}} -->
+                <div class=\"wp-block-button has-custom-width is-style-outline\"><a class=\"wp-block-button__link has-white-color has-text-color has-background wp-element-button\" style=\"background-color:#373131\">Download now!</a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons --></div>
                 <!-- /wp:column -->

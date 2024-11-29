@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box
 Tested up to: 6.7
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -86,6 +86,11 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.9 - 2024-11-29 =
+* Small styling tweaking in patterns
+* Fix: Text domain loading, due to the missing parameters on the get_plugin_data
+* Remove the Reusable blocks support, just use the InjectAny strain for the same purpose
+
 = 1.1.8 - 2024-11-06 =
 * Improve the panel size outputting when the panel is initially hidden
 * Small code cleaning for option fields

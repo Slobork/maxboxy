@@ -35,7 +35,6 @@ define('MAXBOXY_VERSION', ($plugin_data && $plugin_data['Version']) ? $plugin_da
 
 require_once 'admin/admin-init.php';
 require_once 'classes/init.php';
-require_once 'classes/reusable-blocks.php';
 require_once 'classes/options.php';
 require_once 'classes/admin-columns.php';
 require_once 'classes/track.php';

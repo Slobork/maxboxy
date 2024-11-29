@@ -87,7 +87,7 @@ if (! defined('ABSPATH')) {
             $modal_offer   = $get_modal_offer !== 'no'
             ? array(
                 'blockTypes' => array( 'core/post-content' ), // puts it in the commencing modal
-                'postTypes'  => array( 'float_any', 'inject_any', 'wp_block' ) // ...for specific post_types
+                'postTypes'  => array( 'float_any', 'inject_any' ) // ...for specific post_types
             )
             : array();
 
@@ -191,7 +191,7 @@ if (! defined('ABSPATH')) {
 
             /**
              * Contact blocks pattern registration (1st for the pattern's block inserter category, 2nd to appear in modal).
-             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any, wp_block)
+             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any)
              * So, if all put together, it would dispaly the pattern in the Modal,
              * but not on block inserter outside of the listed postTypes
              */
@@ -818,8 +818,8 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:paragraph -->
                 
                 <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"base\",\"width\":50,\"style\":{\"color\":{\"background\":\"#373131\"}},\"className\":\"is-style-outline\"} -->
-                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 is-style-outline\"><a class=\"wp-block-button__link has-base-color has-text-color has-background wp-element-button\" style=\"background-color:#373131\">Download now!</a></div>
+                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"white\",\"className\":\"is-style-outline\",\"style\":{\"color\":{\"background\":\"#373131\"}}} -->
+                <div class=\"wp-block-button has-custom-width is-style-outline\"><a class=\"wp-block-button__link has-white-color has-text-color has-background wp-element-button\" style=\"background-color:#373131\">Download now!</a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons --></div>
                 <!-- /wp:column -->
@@ -865,7 +865,7 @@ if (! defined('ABSPATH')) {
 
             /**
              * Info box 1 (1st for the pattern's block inserter category, 2nd to appear in modal).
-             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any, wp_block)
+             * ...Have to separate these, coz $modal_offer has boundaries for the postTypes (float_any, inject_any)
              * So, if all put together, it would dispaly the pattern in the Modal,
              * but not on block inserter outside of the listed postTypes
              */

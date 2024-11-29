@@ -239,12 +239,6 @@ if (! defined('ABSPATH')) {
                         'type'      => 'content',
                         'content'   => esc_html__('Create FloatAny panels from ', 'maxboxy') .'<a href="' .esc_url(admin_url('edit.php?post_type=float_any')) .'">' .__('here') .'</a>',
                     ),
-                    array(
-                        'id'        => 'enable_wp_block',
-                        'type'      => 'switcher',
-                        'title'     => esc_html__('Enable MaxBoxy for Synced Patterns', 'maxboxy'),
-                        'subtitle'  => esc_html__('"Synced Patterns" is WordPress built in feature which output is very similar to our InjectAny. With MaxBoxy you can enhance ', 'maxboxy') .'<a href="' .esc_url(admin_url('edit.php?post_type=wp_block')) .'">' .__('Synced Patterns') .'</a>. See documentation for differences.',
-                    ),
                 )
             )
         )

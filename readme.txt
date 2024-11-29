@@ -2,7 +2,7 @@
 Contributors: MaxPressy
 Tags: popup, notifications, floating content, alerts, content box
 Tested up to: 6.7
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 Requires at least: 5.8
 Requires PHP: 7.3.5
 License: GPLv2 or later
@@ -31,9 +31,6 @@ Basically, with FloatAny strain - float any content on your site. Whatever you m
 = Strain InjectAny =
 In essence, with InjectAny strain - inject any content on specified pages or over the whole site. Create alerts or highlighted content boxes and even dismissible notes. You can also inject CSS and JS code in predefined head and footer locations.
 
-= Extend Synced-Patterns (Reusable blocks) =
-Synced Patterns, a.k.a. "Reusable blocks" is native WordPress feature. Extend these content boxes with MaxBoxy functionality. It makes the boxes options similar to aforementioned InjectAny (MaxBoxy's content box strain), still, it's up to you to decide when is it suitable to use Synced Pattern and when InjectAny. You should visit the plugin documentation to compare the difference in detail.
-
 = Simplicity, Performance and Design =
 The big chance is you're going to like this, MaxBoxy’s interface is the same that WordPress is using for publishing posts and pages. This means that content of the panels are built with native WordPress’ blocks. This creates lightweight outcome, outputting mostly the resources your site is already using. This should produce faster page loading compared to the tools competitors provide.
 
@@ -45,7 +42,7 @@ Therefore, MaxBoxy allows you to simply extend the functionality of your Website
 = Documentation and other help when you need it =
 After installing the plugin, the best way to start is to check the documentation on our site. We explain in details all the features the plugin have. To fully understand MaxBoxy's features you can visit Demo section from our site. At the end, to get things easier we’ve created the import/export feature. This permits you to quickly move FloatAny and InjectAny content from one Website to a different one or to begin simply with the examples we have prepared for you. Once imported, you'll be able to test different content panel types. More information on how to import exemple content <a href="https://maxpressy.com/maxboxy/wordpress-floating-content-box-plugin-injection/?mtm_campaign=wpPluginPage&mtm_kwd=maxboxy&mtm_placement=mid#section-support" rel="nofollow" target="_blank">is provided on our site</a>.
 
-<strong>Note:</strong> Some features are part of the Premium addon. Free version allows you to extend WordPress' Reusable blocks, use InjectAny with pre-defined locations and to create FloatAny panels for the site overall disposal, while the Premium addon gives you more flexibility. With free version obtain the general impression regarding the plugin and if the site overall functionallity is all you need, you’re free to use it. However, with Premium version you get more features and options.
+<strong>Note:</strong> Some features are part of the Premium addon. Free version allows usege of InjectAny with pre-defined locations and you can create FloatAny panels for the site overall disposal, while the Premium addon gives you more flexibility. With free version obtain the general impression regarding the plugin and if the site overall functionallity is all you need, you’re free to use it. However, with Premium version you get more features and options.
 
 = Go Premium =
 
@@ -89,6 +86,11 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
+= 1.1.9 - 2024-11-29 =
+* Small styling tweaking in patterns
+* Fix: Text domain loading, due to the missing parameters on the get_plugin_data
+* Remove the Reusable blocks support, just use the InjectAny strain for the same purpose
+
 = 1.1.8 - 2024-11-06 =
 * Improve the panel size outputting when the panel is initially hidden
 * Small code cleaning for option fields

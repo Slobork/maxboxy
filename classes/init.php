@@ -253,15 +253,6 @@ if (! class_exists('Max_Boxy')) {
             add_submenu_page('admin.php?page=maxboxy-settings', '', $panel_label .'InjectAny', 'edit_pages', 'edit.php?post_type=inject_any', false);
             add_submenu_page('admin.php?page=maxboxy-settings', '', $panel_label .'FloatAny',  'edit_pages', 'edit.php?post_type=float_any',  false);
 
-            if (Max_Boxy_Reusable_Blocks::enabled() === true) {
-                /*
-                 * Add Reusable blocks as a main Menu item, coz adding any additonal subitem to
-                 * the MaxBoxy makes an issue when on Cat and Tags page (needs clicking twice
-                 * on a link to get to another page).
-                 */
-                add_menu_page('reusableblocks', 'Synced Patterns', 'edit_pages',  'edit.php?post_type=wp_block', false, 'dashicons-layout', 80);
-            }
-
             add_submenu_page('admin.php?page=maxboxy-settings', '', __('Manage Categories', 'maxboxy'), 'edit_pages',  'edit-tags.php?taxonomy=maxboxy_cat', false);
             add_submenu_page('admin.php?page=maxboxy-settings', '', __('Manage Tags', 'maxboxy'), 'edit_pages',  'edit-tags.php?taxonomy=maxboxy_tag', false);
 
@@ -411,10 +402,8 @@ if (! class_exists('Max_Boxy')) {
                 'show_in_menu'      => false,
             );
 
-            $add_reusable_blocks = Max_Boxy_Reusable_Blocks::enabled() === true ? 'wp_block' : '';
-
-            register_taxonomy('maxboxy_cat', array( 'inject_any', 'float_any', $add_reusable_blocks ), $args_cats);
-            register_taxonomy('maxboxy_tag', array( 'inject_any', 'float_any', $add_reusable_blocks ), $args_tags);
+            register_taxonomy('maxboxy_cat', array( 'inject_any', 'float_any' ), $args_cats);
+            register_taxonomy('maxboxy_tag', array( 'inject_any', 'float_any' ), $args_tags);
 
         }
 

@@ -229,7 +229,7 @@ if (! defined('ABSPATH')) {
                 array(
                     array(
                         'type'      => 'content',
-                        'content'   => esc_html__('Panel strains are different branches of MaxBoxy (with FloatAny build popups, with InjectAny build in-content panels). Further you can enable MaxBoxy options for WordPress built in feature, i.e. Synced Patterns.', 'maxboxy'),
+                        'content'   => esc_html__('Panel strains are different branches of MaxBoxy (with FloatAny build popups, with InjectAny build in-content panels).', 'maxboxy'),
                     ),
                     array(
                         'type'      => 'content',
@@ -256,7 +256,7 @@ if (! defined('ABSPATH')) {
                 array(
                     array(
                         'type'      => 'content',
-                        'content'   => esc_html__('Enabled modules are avaliable across multiple panel strains (InjectAny, FloatAny, Synced Patterns).', 'maxboxy'),
+                        'content'   => esc_html__('Enabled modules are avaliable across multiple panel strains (InjectAny, FloatAny).', 'maxboxy'),
                     ),
                     array(
                         'type'      => 'subheading',
@@ -347,7 +347,7 @@ if (! defined('ABSPATH')) {
                 ),
                 array(
                     'type'      => 'submessage',
-                    'content'   => esc_html__('- Strains represent different panel types, i.e. InjectAny and FloatAny that are enabled by default. Additionally, you can enable MaxBoxy options for the Synced Patterns.', 'maxboxy'),
+                    'content'   => esc_html__('- Strains represent different panel types, i.e. InjectAny for injecting content, and FloatAny for floating content.', 'maxboxy'),
                 ),
                 array(
                     'type'      => 'subheading',

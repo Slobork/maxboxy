@@ -86,7 +86,7 @@ After activating the plugin, in your WordPress Dashboard find the section "MaxBo
 
 
 == Changelog ==
-= 1.2.0 - 2024-04-05 =
+= 1.2.0 - 2025-04-05 =
 * Fix: With upcoming WP 6.8 Notice: Function _load_textdomain_just_in_time was called incorrectly
 
 = 1.1.9 - 2024-11-29 =

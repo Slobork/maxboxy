@@ -136,52 +136,52 @@ if (! defined('ABSPATH')) {
             $contact_cceitc_content = [
                 'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns -->
-                <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cceitc","name":"Common Contact elements in two columns"},"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
+                <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
                 <h2 class="wp-block-heading">Call us</h2>
                 <!-- /wp:heading -->
-                
-                <!-- wp:paragraph -->
-                <p>(555) 555-555</p>
+
+                <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
+                <p style="margin-top:5px">(555) 555-555</p>
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column -->
-                
+
                 <!-- wp:column {"width":"66.66%"} -->
                 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
                 <h2 class="wp-block-heading">Have a Question?</h2>
                 <!-- /wp:heading -->
-                
+
                 <!-- wp:paragraph -->
                 <p>You should put a contact form beneath. First, you should install a plugin, for example "Contact form 7", then insert its shortcode. Also remove this paragraph.</p>
                 <!-- /wp:paragraph -->
-                
+
                 <!-- wp:shortcode /--></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns -->
-                
-                <!-- wp:columns -->
-                <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+
+                <!-- wp:columns {"align":"wide"} -->
+                <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
                 <h2 class="wp-block-heading">Find us</h2>
                 <!-- /wp:heading -->
-                
-                <!-- wp:paragraph -->
-                <p>Dolor Sit, 567 89</p>
+
+                <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
+                <p style="margin-top:5px">Dolor Sit, 567 89</p>
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:column -->
-                
+
                 <!-- wp:column {"width":"66.66%"} -->
                 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
                 <h2 class="wp-block-heading">Follow us</h2>
                 <!-- /wp:heading -->
-                
-                <!-- wp:social-links {"iconColor":"darko-transit","iconColorValue":"#171f29","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","layout":{"type":"flex","justifyContent":"left"}} -->
-                <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
-                
+
+                <!-- wp:social-links {"iconColor":"black","iconColorValue":"#000000","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|xxx-small","left":"var:preset|spacing|xxx-small"},"margin":{"top":"5px"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+                <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline" style="margin-top:5px"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
+
                 <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
-                
+
                 <!-- wp:social-link {"url":"#","service":"instagram"} /--></ul>
                 <!-- /wp:social-links --></div>
                 <!-- /wp:column --></div>
@@ -201,47 +201,47 @@ if (! defined('ABSPATH')) {
             $contact_cceitc_2_content = [
                 'title'         => esc_html__('Common contact elements in two columns 2', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group has-black-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns -->
-                <div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cceitc2","name":"Common contact elements in two columns 2"},"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-black-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
+                <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} -->
                 <h3 class="wp-block-heading">Call us</h3>
                 <!-- /wp:heading -->
-                
-                <!-- wp:paragraph -->
-                <p>(555) 555-555</p>
+
+                <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
+                <p style="margin-top:5px">(555) 555-555</p>
                 <!-- /wp:paragraph -->
-                
+
                 <!-- wp:heading {"level":3} -->
                 <h3 class="wp-block-heading">Find us</h3>
                 <!-- /wp:heading -->
-                
-                <!-- wp:paragraph -->
-                <p>Dolor Sit, 567 89</p>
+
+                <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
+                <p style="margin-top:5px">Dolor Sit, 567 89</p>
                 <!-- /wp:paragraph -->
-                
+
                 <!-- wp:heading {"level":3} -->
                 <h3 class="wp-block-heading">Follow us</h3>
                 <!-- /wp:heading -->
-                
-                <!-- wp:social-links {"iconColor":"darko-transit","iconColorValue":"#171f29","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","layout":{"type":"flex","justifyContent":"left"}} -->
-                <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
-                
+
+                <!-- wp:social-links {"iconColor":"black","iconColorValue":"#000000","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|xxx-small","left":"var:preset|spacing|xxx-small"},"margin":{"top":"10px"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+                <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline" style="margin-top:10px"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
+
                 <!-- wp:social-link {"url":"#","service":"linkedin"} /-->
-                
+
                 <!-- wp:social-link {"url":"#","service":"instagram"} /--></ul>
                 <!-- /wp:social-links --></div>
                 <!-- /wp:column -->
-                
+
                 <!-- wp:column {"width":"66.66%"} -->
                 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
                 <h2 class="wp-block-heading">Have a Question?</h2>
                 <!-- /wp:heading -->
-                
+
                 <!-- wp:paragraph -->
                 <p>You should put a contact form beneath. First, you should install a plugin, for example "Contact form 7", then insert its shortcode. Also remove this paragraph.</p>
                 <!-- /wp:paragraph -->
-                
+
                 <!-- wp:shortcode /--></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div>

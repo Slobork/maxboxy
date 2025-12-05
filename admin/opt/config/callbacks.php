@@ -82,9 +82,9 @@ if (! function_exists('maxboxy_stats_call')) {
 
                 // Load/Views/goals stats
                 echo '<div class="maxboxy-stats-fraction" title="'.__('Volume / Unique', 'maxboxy') .'">
-                        <div>' .esc_html('Loads',  'maxboxy') .'</div>
-                        <div>' .esc_html('Views', 'maxboxy') .'</div>
-                        <div>' .esc_html('Goals', 'maxboxy') .'</div>
+                        <div>' .esc_html__('Loads',  'maxboxy') .'</div>
+                        <div>' .esc_html__('Views', 'maxboxy') .'</div>
+                        <div>' .esc_html__('Goals', 'maxboxy') .'</div>
                         <div>' .esc_html($loaded_volume) .'/' .esc_html($loaded_unique) .'</div>
                         <div>' .esc_html($views_volume)  .'/' .esc_html($views_unique)  .'</div>
                         <div>' .esc_html($goals_volume)  .'/' .esc_html($goals_unique)  .'</div>

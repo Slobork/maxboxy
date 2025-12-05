@@ -194,8 +194,8 @@ if (! class_exists('Max_Boxy')) {
         public static function _safe_license_notactive_notice()
         {
 
-            $_escaped_message =  '<p>' .esc_html('Please do activate your MaxBoxy Pro license ', 'maxboxy') .'<a href="' .esc_url(admin_url('admin.php?page=maxboxy-licenses')) .'" target="_self">' .__('here', 'maxboxy') .'</a>'
-            .esc_html(' to gain access to premium features. Most likely you see this message because your license has expired or you deactivated it. Important: Saving the options without the license active will cause in losing the previously saved premium settings.', 'maxboxy') .'</p>';
+            $_escaped_message =  '<p>' .esc_html__('Please do activate your MaxBoxy Pro license ', 'maxboxy') .'<a href="' .esc_url(admin_url('admin.php?page=maxboxy-licenses')) .'" target="_self">' .__('here', 'maxboxy') .'</a>'
+            .esc_html__(' to gain access to premium features. Most likely you see this message because your license has expired or you deactivated it. Important: Saving the options without the license active will cause in losing the previously saved premium settings.', 'maxboxy') .'</p>';
 
              return $_escaped_message;
 
@@ -748,7 +748,7 @@ if (! class_exists('Max_Boxy')) {
                 $_escaped_early_group = $basics[ 'trig_svg_open' ] .$basics[ 'trig_svg_close' ] .$basics[ 'trig_img_open' ] .$basics[ 'trig_img_close' ];
                 
                 // Additional message on a trigger button or a panel
-                $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_trig_message_style .'><span class="additional-message-killer" title="' .esc_html('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
+                $_escaped_trigger_add_message = ! empty($basics[ 'trigger_add_message' ]) ?  '<div class="additional-message"' .$_escaped_early_trig_message_style .'><span class="additional-message-killer" title="' .esc_html__('Close', 'maxboxy') .'">x</span><span class="additional-message-content">' .esc_html($basics[ 'trigger_add_message' ]) .'</span></div>' : '';
                 $_escaped_trig_icon = ! empty($basics[ 'trigger_icon_classes' ]) ? '<div class="trig-icon' .esc_attr($basics[ 'toggler_start_class' ]) .'"' .$_escaped_early_toggler_data .'></div>' : '';
 
                 // closer && if closer isn't disabled

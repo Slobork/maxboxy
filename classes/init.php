@@ -249,9 +249,9 @@ if (! class_exists('Max_Boxy')) {
             add_menu_page('MaxBoxy', 'MaxBoxy', 'edit_pages', 'admin.php?page=maxboxy-settings', false, 'dashicons-layout', 80);
             add_submenu_page('admin.php?page=maxboxy-settings', '', 'Settings', 'manage_options', 'admin.php?page=maxboxy-settings', false);
 
-            $panel_label = __('Panels: ', 'maxboxy');
-            add_submenu_page('admin.php?page=maxboxy-settings', '', $panel_label .'InjectAny', 'edit_pages', 'edit.php?post_type=inject_any', false);
-            add_submenu_page('admin.php?page=maxboxy-settings', '', $panel_label .'FloatAny',  'edit_pages', 'edit.php?post_type=float_any',  false);
+            $strain_label = __('Strain: ', 'maxboxy');
+            add_submenu_page('admin.php?page=maxboxy-settings', '', $strain_label .'InjectAny', 'edit_pages', 'edit.php?post_type=inject_any', false);
+            add_submenu_page('admin.php?page=maxboxy-settings', '', $strain_label .'FloatAny',  'edit_pages', 'edit.php?post_type=float_any',  false);
 
             add_submenu_page('admin.php?page=maxboxy-settings', '', __('Manage Categories', 'maxboxy'), 'edit_pages',  'edit-tags.php?taxonomy=maxboxy_cat', false);
             add_submenu_page('admin.php?page=maxboxy-settings', '', __('Manage Tags', 'maxboxy'), 'edit_pages',  'edit-tags.php?taxonomy=maxboxy_tag', false);

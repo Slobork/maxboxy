@@ -79,10 +79,34 @@ if (! function_exists('maxboxy_metabox_settings')) {
                                         'dependency' => array( 'is_splitted_from', '!=', '', 'true'),
                                     )
                                     : // empty field coz we cannot set array() since it will return "Field not found"
-                                        $empty_field;
+                                      $empty_field;
 
+        /**
+         * For the shortcode field, since the metabox is generated before saving the post, have to
+         * get data from the $_GET['post'] & metabox, to generate the shortcode with the right ID,
+         * coz get_the_ID() & get_post_type won't work here.
+         */
+        $panel_id     = isset($_GET['post']) ? (int) $_GET['post'] : '';
+        $is_post_type = ! empty($panel_id) && get_post_meta($panel_id, '_mb_floatany', true)  ? 'floatany'  : '';
+        $is_post_type = ! empty($panel_id) && get_post_meta($panel_id, '_mb_injectany', true) ? 'injectany' : $is_post_type;
+        $shortcode_message_content = ! empty($is_post_type) && ! empty($panel_id) ? '[' .$is_post_type .' id="' . $panel_id . '"]' : esc_html__('Please save the panel and reload the page to get the shortcode', 'maxboxy');
+        
+        $shortcode_data             = array(
+                                        'type'      => 'notice',
+                                        'style'     => 'info',
+                                        'title'     => esc_html__('Use shortcode:', 'maxboxy'),
+                                        'content'   => $shortcode_message_content,
+                                        'dependency'=> array('auto_loading','==','disabled'),
+                                    );
 
-        /*
+        $shortcode_info             = array(
+                                        'type'      => 'submessage',
+                                        'style'     => 'info',
+                                        'content'   => esc_html__('Copy this shortcode and use it in your template parts, patterns, posts or pages.', 'maxboxy'),
+                                        'dependency'=> array('auto_loading','==','disabled'),
+                                    );                                    
+
+        /**
         * Differentiate options availabe on the basic & the pro version,
         * For Splitter metabox
         */
@@ -1201,6 +1225,8 @@ if (! function_exists('maxboxy_metabox_settings')) {
             'fields' => array(
                 $field_auto_loading,
                 $auto_loading_splitter_info,
+                $shortcode_data,
+                $shortcode_info,
                 array(
                     'id'         => 'location',
                     'type'       => 'select',
@@ -1239,6 +1265,8 @@ if (! function_exists('maxboxy_metabox_settings')) {
                 'fields' => array(
                     $field_auto_loading,
                     $auto_loading_splitter_info,
+                    $shortcode_data,
+                    $shortcode_info,
                     array(
                         'id'            => 'location',
                         'type'          => 'image_select',

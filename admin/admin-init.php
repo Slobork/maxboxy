@@ -64,3 +64,39 @@ if (! function_exists('maxboxy_admin_scripts')) {
     );
 
 }
+
+
+/**
+ * Redirect to settings page on plugin activation.
+ */
+if (! function_exists('maxboxy_redirect_on_activation')) {
+
+    /**
+     * Redirect to plugin settings page on activation.
+     *
+     * @return void
+     */
+    function maxboxy_redirect_on_activation()
+    {
+        set_transient('maxboxy_redirect_to_settings', true, 30);
+    }
+
+    /**
+     * Perform redirect if transient is set.
+     *
+     * @return void
+     */
+    function maxboxy_do_redirect_on_activation()
+    {
+        if (get_transient('maxboxy_redirect_to_settings')) {
+            delete_transient('maxboxy_redirect_to_settings');
+            wp_safe_remote_post(admin_url('admin.php?page=maxboxy-settings'));
+            wp_redirect(admin_url('admin.php?page=maxboxy-settings'));
+            exit;
+        }
+    }
+
+    register_activation_hook(dirname(dirname(__FILE__)) . '/maxboxy.php', 'maxboxy_redirect_on_activation');
+    add_action('admin_init', 'maxboxy_do_redirect_on_activation');
+
+}

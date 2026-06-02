@@ -30,9 +30,14 @@ if (! function_exists('get_plugin_data')) {
     include_once ABSPATH .'wp-admin/includes/plugin.php';
 }
 $plugin_data = get_plugin_data(__FILE__, true, false);
+
+// Define constants.
 define('MAXBOXY', ($plugin_data && $plugin_data['Name']) ? $plugin_data['Name'] : 'MaxBoxy');
 define('MAXBOXY_VERSION', ($plugin_data && $plugin_data['Version']) ? $plugin_data['Version'] : '1.0.0');
 
+/**
+ * Include other PHP files with functions and features of the plugin.
+ */
 require_once 'admin/admin-init.php';
 require_once 'classes/init.php';
 require_once 'classes/options.php';

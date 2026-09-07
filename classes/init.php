@@ -195,7 +195,7 @@ if (! class_exists('Max_Boxy')) {
         {
 
             $_escaped_message =  '<p>' .esc_html__('Please do activate your MaxBoxy Pro license ', 'maxboxy') .'<a href="' .esc_url(admin_url('admin.php?page=maxboxy-licenses')) .'" target="_self">' .__('here', 'maxboxy') .'</a>'
-            .esc_html__(' to gain access to premium features. Most likely you see this message because your license has expired or you deactivated it. Important: Saving the options without the license active will cause in losing the previously saved premium settings.', 'maxboxy') .'</p>';
+            .esc_html__(' to gain access to premium features. Most likely you see this message because your license has expired or you deactivated it. Important: Saving the options without the active license will lead to losing the previously saved premium settings.', 'maxboxy') .'</p>';
 
              return $_escaped_message;
 

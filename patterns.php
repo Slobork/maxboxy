@@ -1255,19 +1255,18 @@ if (! defined('ABSPATH')) {
                 'categories'    => ['maxboxy-signups'],
                 'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
                                 <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f0de\"><div class=\"wp-block-cover__inner-container\"><!-- wp:image {\"sizeSlug\":\"large\",\"className\":\"is-style-default\"} -->
-                                <figure class=\"wp-block-image size-large is-style-default\"><img src=\"https://via.placeholder.com/1200x450\"/></figure>
+                                <figure class=\"wp-block-image size-large is-style-default\"><img src=\"" .esc_url(plugins_url('/library/img/news-coffee-glasses.jpg', __FILE__)) ."\" alt=\"News and Coffee\"/></figure>
                                 <!-- /wp:image -->
-                                <!-- wp:spacer {\"height\":30} -->
-                                <div style=\"height:30px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
-
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
-                                <h3 class=\"has-text-align-center\">Subscribe To Our Newsletter</h3>
+                                
+                                <!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->
+                                <div class=\"wp-block-group\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"textAlign\":\"center\"}}} -->
+                                <h3 class=\"wp-block-heading has-text-align-center\">Subscribe To Our Newsletter</h3>
                                 <!-- /wp:heading -->
 
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
+                                <!-- wp:paragraph {\"style\":{\"typography\":{\"textAlign\":\"center\"}}} -->
                                 <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, velit a bibendum sodales.</p>
-                                <!-- /wp:paragraph -->
+                                <!-- /wp:paragraph --></div>
+                                <!-- /wp:group -->
 
                                 <!-- wp:html /--></div></div>
                                 <!-- /wp:cover -->",
@@ -1294,7 +1293,7 @@ if (! defined('ABSPATH')) {
                 
                 <!-- wp:column {\"verticalAlignment\":\"center\"} -->
                 <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
-                <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
+                <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"Coffee and Tablet\"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>

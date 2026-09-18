@@ -1209,48 +1209,62 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common newsletter group', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":4,\"fontSize\":\"large\"} -->
-                                <h4 class=\"has-text-align-center has-large-font-size\">GET OUR WEEKLY&nbsp;NEWSLETTER</h4>
-                                <!-- /wp:heading -->
+                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-cng","name":"Common newsletter group"},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group"><!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}},"fontSize":"large"} -->
+                <h4 class="wp-block-heading has-text-align-center has-large-font-size">GET OUR WEEKLY NEWSLETTER</h4>
+                <!-- /wp:heading -->
 
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
-                                <p class=\"has-text-align-center has-text-color\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec tincidunt nisi. Nam neque mi, tempor in pretium et, tincidunt ac urna. Nulla libero ligula, congue ut hendrerit in, posuere et ligula.</p>
-                                <!-- /wp:paragraph -->
+                <!-- wp:paragraph {"className":"has-text-color","style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center has-text-color">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec tincidunt nisi. Nam neque mi, tempor in pretium et, tincidunt ac urna. Nulla libero ligula, congue ut hendrerit in, posuere et ligula.</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:html /--></div>
-                                <!-- /wp:group -->",
+                <!-- wp:spacer {"height":"15px"} -->
+                <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
+
+                <!-- wp:html /--></div>
+                <!-- /wp:group -->'
                 ]
             );
 
             // Signup 2
             register_block_pattern(
                 'maxboxy/signup-iacb', [
-                'title'         => esc_html__('In a cover block', 'maxboxy'),
+                'title'         => esc_html__('Common newsletter elements - in a cover block', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
-                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f0de\"><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"52px\"}}} -->
-                                <h2 class=\"has-text-align-center\" style=\"font-size:52px\"><strong>JOIN 1000+ PALS</strong></h2>
-                                <!-- /wp:heading -->
+                'content'       => '<!-- wp:cover {"customOverlayColor":"#f6f0de","metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-iacb","name":"Common newsletter elements - in a cover block"}} -->
+                <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"fontSize":"52px","textAlign":"center"}}} -->
+                <h2 class="wp-block-heading has-text-align-center" style="font-size:52px"><strong>JOIN 1000+ PALS</strong></h2>
+                <!-- /wp:heading -->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4,\"fontSize\":\"large\"} -->
-                                <h4 class=\"has-text-align-center has-large-font-size\">GET OUR WEEKLY&nbsp;NEWSLETTER</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, velit a bibendum sodales.</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"color\":{\"text\":\"#f3eed3\"}}} -->
-                                <p class=\"has-text-align-center has-text-color\" style=\"color:#f3eed3\">Jump in now to receive the newest hot stories and helpful information</p>
-                                <!-- /wp:paragraph -->
+                <!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}},"fontSize":"large"} -->
+                <h3 class="wp-block-heading has-text-align-center has-large-font-size">GET OUR WEEKLY NEWSLETTER</h3>
+                <!-- /wp:heading -->
 
-                                <!-- wp:html /--></div></div>
-                                <!-- /wp:cover -->",
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Jump in now to receive the newest hot stories and helpful information</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:spacer {"height":"15px"} -->
+                <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
+
+                <!-- wp:html /--></div>
+                <!-- /wp:group --></div></div>
+                <!-- /wp:cover -->'
                 ]
             );
 
             // Signup 3
             register_block_pattern(
                 'maxboxy/signup-iacbwai', [
-                'title'         => esc_html__('In a cover block with an image', 'maxboxy'),
+                'title'         => esc_html__('Common newsletter elements - in a cover block with an image', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
                 'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
@@ -1267,6 +1281,9 @@ if (! defined('ABSPATH')) {
                                 <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, velit a bibendum sodales.</p>
                                 <!-- /wp:paragraph --></div>
                                 <!-- /wp:group -->
+                                <!-- wp:spacer {\"height\":\"15px\"} -->
+                                <div style=\"height:15px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+                                <!-- /wp:spacer -->
 
                                 <!-- wp:html /--></div></div>
                                 <!-- /wp:cover -->",
@@ -1274,34 +1291,71 @@ if (! defined('ABSPATH')) {
             );
 
             // Signup 4
-            $signup_spiacbwaia_content = [
-                'title'         => esc_html__('Signup placeholder in a cover block with an image aside', 'maxboxy'),
+            $signup_spiacbwaiar_content = [
+                'title'         => esc_html__('Signup placeholder in a cover block with an image aside (right)', 'maxboxy'),
                 'keywords'      => ['Signup, news'],
-                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
-                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null,\"align\":\"full\"} -->
-                <div class=\"wp-block-columns alignfull\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
-                <h3 class=\"wp-block-heading has-text-align-center\">Join our newsletter!</h3>
+                'content'       => '<!-- wp:cover {"customGradient":"linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)","isDark":false,"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-spiacbwaiar","name":"Signup placeholder in a cover block with an image aside (right)"},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)"></span><div class="wp-block-cover__inner-container"><!-- wp:columns {"align":"full"} -->
+                <div class="wp-block-columns alignfull"><!-- wp:column {"verticalAlignment":"center"} -->
+                <div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}}} -->
+                <h3 class="wp-block-heading has-text-align-center">Join our newsletter!</h3>
                 <!-- /wp:heading -->
-                
-                <!-- wp:paragraph {\"align\":\"center\"} -->
-                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <!-- /wp:paragraph -->
-                
+
+                <!-- wp:spacer {"height":"15px"} -->
+                <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
+
                 <!-- wp:html /--></div>
                 <!-- /wp:column -->
-                
-                <!-- wp:column {\"verticalAlignment\":\"center\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
-                <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"Coffee and Tablet\"/></figure>
+
+                <!-- wp:column {"verticalAlignment":"center"} -->
+                <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-rounded"} -->
+                <figure class="wp-block-image aligncenter size-full is-style-rounded"><img src="'.esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) .'" alt="Coffee and Tablet"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
-                <!-- /wp:cover -->",
+                <!-- /wp:cover -->'
             ];
 
-            register_block_pattern('maxboxy/signup-spiacbwaia', $signup_spiacbwaia_content +['categories' => ['maxboxy-signups']]);
-            register_block_pattern('maxboxy/signup-spiacbwaia-modal', $signup_spiacbwaia_content +$modal_offer);
+            register_block_pattern('maxboxy/signup-spiacbwaiar', $signup_spiacbwaiar_content +['categories' => ['maxboxy-signups']]);
+            register_block_pattern('maxboxy/signup-spiacbwaiar-modal', $signup_spiacbwaiar_content +$modal_offer);
+
+            // Signup 5
+            register_block_pattern(
+                'maxboxy/signup-spiacbwaial', [
+                'title'         => esc_html__('Signup placeholder in a cover block with an image aside (left)', 'maxboxy'),
+                'keywords'      => ['Signup, news'],
+                'categories'    => ['maxboxy-signups'],
+                'content'       => '<!-- wp:cover {"customOverlayColor":"#0b6ab7","isUserOverlayColor":true,"className":"fany-mt0 fany-mb0"} -->
+                <div class="wp-block-cover fany-mt0 fany-mb0"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#0b6ab7"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
+                <div class="wp-block-columns"><!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
+                <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-rounded"} -->
+                <figure class="wp-block-image aligncenter size-full is-style-rounded"><img src="'.esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) .'" alt="Coffee and Tablet"/></figure>
+                <!-- /wp:image --></div>
+                <!-- /wp:column -->
+
+                <!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
+                <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:heading {"level":3} -->
+                <h3 class="wp-block-heading">Join our Newsletter</h3>
+                <!-- /wp:heading -->
+
+                <!-- wp:paragraph -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien ligula, porttitor in aliquam nec, condimentum vitae nisi.</p>
+                <!-- /wp:paragraph -->
+                <!-- wp:spacer {"height":"15px"} -->
+                <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
+
+                <!-- wp:html /--></div>
+                <!-- /wp:column --></div>
+                <!-- /wp:columns --></div></div>
+                <!-- /wp:cover -->',
+                ]
+            );
 
 
             /*

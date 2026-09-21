@@ -1124,17 +1124,17 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common media group (e.g. youtube code and text intro', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
                 'categories'    => ['maxboxy-media'],
-                'content'       => "<!-- wp:group -->
-                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
-                <h2 class=\"has-text-align-center\"></h2>
+                'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"textAlign":"center"}}} -->
+                <h2 class="wp-block-heading has-text-align-center"></h2>
                 <!-- /wp:heading -->
-                
-                <!-- wp:paragraph {\"align\":\"center\"} -->
-                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 <!-- /wp:paragraph -->
-                
+
                 <!-- wp:html /--></div>
-                <!-- /wp:group -->",
+                <!-- /wp:group -->'
                 ]
             );
 
@@ -1144,19 +1144,11 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Embed media (e.g. youtube code) and text intro (in a cover block)', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
                 'categories'    => ['maxboxy-media'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\",\"isDark\":false} -->
-                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim\" style=\"background-color:#f6f0de\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
-                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\"} -->
-                <h2 class=\"has-text-align-center\"></h2>
-                <!-- /wp:heading -->
-                
-                <!-- wp:paragraph {\"align\":\"center\"} -->
-                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <!-- /wp:paragraph -->
-                
-                <!-- wp:html /--></div>
-                <!-- /wp:group --></div></div>
-                <!-- /wp:cover -->",
+                'content'       => '<!-- wp:cover {"isUserOverlayColor":true,"customGradient":"radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)","contentPosition":"top center","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium","left":"var:preset|spacing|medium","right":"var:preset|spacing|medium"}}},"layout":{"type":"default"}} -->
+                <div class="wp-block-cover has-custom-content-position is-position-top-center" style="padding-top:var(--wp--preset--spacing--medium);padding-right:var(--wp--preset--spacing--medium);padding-bottom:var(--wp--preset--spacing--medium);padding-left:var(--wp--preset--spacing--medium)"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)"></span><div class="wp-block-cover__inner-container">
+                <!-- wp:pattern {"slug":"maxboxy/media-cmgycati"} /-->
+                </div></div>
+                <!-- /wp:cover -->'
                 ]
             );
 
@@ -1164,35 +1156,31 @@ if (! defined('ABSPATH')) {
             $media_eyvabctaiacb_content = [
                 'title'         => esc_html__('Example youtube video and a button call to action (in a cover block)', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
-                'content'       => "<!-- wp:cover {\"customGradient\":\"linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\",\"isDark\":false} -->
-                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient\" style=\"background:linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
-                <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"1.5em\"} -->
-                <div style=\"height:1.5em\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                <!-- /wp:spacer -->
-                
-                <!-- wp:heading {\"textAlign\":\"center\"} -->
-                <h2 class=\"wp-block-heading has-text-align-center\">You're Going To Love This</h2>
-                <!-- /wp:heading -->
-                
-                <!-- wp:paragraph {\"align\":\"center\"} -->
-                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                'content'       => '<!-- wp:cover {"customGradient":"linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)","isDark":false,"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:linear-gradient(0deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%)"></span><div class="wp-block-cover__inner-container"><!-- wp:group -->
+                <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"58px"}}} -->
+                <p class="has-text-align-center" style="font-size:58px">You\'re Going To Love This</p>
                 <!-- /wp:paragraph -->
-                
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- /wp:paragraph -->
+
                 <!-- wp:html -->
-                <iframe width=\"100%\" height=\"400\" src=\"https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>
+                <iframe width="100%" height="380" src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <!-- /wp:html -->
-                
-                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button -->
-                <div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\">Join now!</a></div>
+
+                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+                <div class="wp-block-buttons"><!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Join now!</a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons -->
-                
-                <!-- wp:spacer {\"height\":\"0.5em\"} -->
-                <div style=\"height:0.5em\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+
+                <!-- wp:spacer {"height":"0.5em"} -->
+                <div style="height:0.5em" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer --></div>
                 <!-- /wp:group --></div></div>
-                <!-- /wp:cover -->",
+                <!-- /wp:cover -->'
             ];
 
             register_block_pattern('maxboxy/eyvabctaiacb', $media_eyvabctaiacb_content +['categories' => ['maxboxy-media']]);

@@ -136,7 +136,7 @@ if (! defined('ABSPATH')) {
             $contact_cceitc_content = [
                 'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cceitc","name":"Common Contact elements in two columns"},"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
+                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
                 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
@@ -201,7 +201,7 @@ if (! defined('ABSPATH')) {
             $contact_cceitc_2_content = [
                 'title'         => esc_html__('Common contact elements in two columns 2', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cceitc2","name":"Common contact elements in two columns 2"},"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
+                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group has-black-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
                 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
                 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} -->
@@ -1197,7 +1197,7 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common newsletter group', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-cng","name":"Common newsletter group"},"layout":{"type":"constrained"}} -->
+                'content'       => '<!-- wp:group {"layout":{"type":"constrained"}} -->
                 <div class="wp-block-group"><!-- wp:heading {"level":4,"style":{"typography":{"textAlign":"center"}},"fontSize":"large"} -->
                 <h4 class="wp-block-heading has-text-align-center has-large-font-size">GET OUR WEEKLY NEWSLETTER</h4>
                 <!-- /wp:heading -->
@@ -1221,7 +1221,7 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common newsletter elements - in a cover block', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => '<!-- wp:cover {"customOverlayColor":"#f6f0de","metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-iacb","name":"Common newsletter elements - in a cover block"}} -->
+                'content'       => '<!-- wp:cover {"customOverlayColor":"#f6f0de"} -->
                 <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
                 <div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"fontSize":"52px","textAlign":"center"}}} -->
                 <h2 class="wp-block-heading has-text-align-center" style="font-size:52px"><strong>JOIN 1000+ PALS</strong></h2>
@@ -1282,7 +1282,7 @@ if (! defined('ABSPATH')) {
             $signup_spiacbwaiar_content = [
                 'title'         => esc_html__('Signup placeholder in a cover block with an image aside (right)', 'maxboxy'),
                 'keywords'      => ['Signup, news'],
-                'content'       => '<!-- wp:cover {"customGradient":"linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)","isDark":false,"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-spiacbwaiar","name":"Signup placeholder in a cover block with an image aside (right)"},"layout":{"type":"constrained"}} -->
+                'content'       => '<!-- wp:cover {"customGradient":"linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)","isDark":false,"layout":{"type":"constrained"}} -->
                 <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:linear-gradient(90deg,rgb(219,219,255) 0%,rgb(9,60,150) 100%)"></span><div class="wp-block-cover__inner-container"><!-- wp:columns {"align":"full"} -->
                 <div class="wp-block-columns alignfull"><!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}}} -->

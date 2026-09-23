@@ -19,11 +19,6 @@ if (! defined('ABSPATH')) {
             }
 
             register_block_pattern_category(
-                'maxboxy-buttons',
-                array( 'label' => esc_html__('MaxBoxy: Functional buttons', 'maxboxy') )
-            );
-
-            register_block_pattern_category(
                 'maxboxy-contact',
                 array( 'label' => esc_html__('MaxBoxy: Contact', 'maxboxy') )
             );
@@ -90,44 +85,6 @@ if (! defined('ABSPATH')) {
                 'postTypes'  => array( 'float_any', 'inject_any' ) // ...for specific post_types
             )
             : array();
-
-            /*
-             * Buttons
-             */
-
-            // button 1
-            register_block_pattern(
-                'maxboxy/button-pc', [
-                'title'         => esc_html__('Panel closer', 'maxboxy'),
-                'keywords'      => ['button'],
-                'categories'    => ['maxboxy-buttons'],
-                'content'       => "<!-- wp:buttons -->
-                                <div class=\"wp-block-buttons\">
-                                <!-- wp:button {\"className\":\"mboxy-closer\"} -->
-                                <div class=\"wp-block-button mboxy-closer\">
-                                <a class=\"wp-block-button__link\">Close me</a>
-                                </div>
-                                <!-- /wp:button --></div>
-                                <!-- /wp:buttons -->",
-                ]
-            );
-
-            // button 2
-            register_block_pattern(
-                'maxboxy/button-pt', [
-                'title'         => esc_html__('Panel toggler', 'maxboxy'),
-                'keywords'      => ['button'],
-                'categories'    => ['maxboxy-buttons'],
-                'content'       => "<!-- wp:buttons -->
-                                <div class=\"wp-block-buttons\">
-                                <!-- wp:button {\"className\":\"mboxy-toggler\"} -->
-                                <div class=\"wp-block-button mboxy-toggler\">
-                                <a class=\"wp-block-button__link\">Toggle me</a>
-                                </div>
-                                <!-- /wp:button --></div>
-                                <!-- /wp:buttons -->",
-                ]
-            );
 
 
             /*

@@ -87,18 +87,20 @@ if (! defined('ABSPATH')) {
             : array();
 
 
-            /*
+            /**
              * Contacts
              */
+
+            // Contact 1
             $contact_cceitc_content = [
                 'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
+                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem","top":"2em"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-top:2em;padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
                 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
-                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
-                <h2 class="wp-block-heading">Call us</h2>
-                <!-- /wp:heading -->
+                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Call Us</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
                 <p style="margin-top:5px">(555) 555-555</p>
@@ -106,9 +108,9 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column -->
 
                 <!-- wp:column {"width":"66.66%"} -->
-                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
-                <h2 class="wp-block-heading">Have a Question?</h2>
-                <!-- /wp:heading -->
+                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Have a Question?</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph -->
                 <p>You should put a contact form beneath. First, you should install a plugin, for example "Contact form 7", then insert its shortcode. Also remove this paragraph.</p>
@@ -120,9 +122,9 @@ if (! defined('ABSPATH')) {
 
                 <!-- wp:columns {"align":"wide"} -->
                 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
-                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading -->
-                <h2 class="wp-block-heading">Find us</h2>
-                <!-- /wp:heading -->
+                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Find us</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
                 <p style="margin-top:5px">Dolor Sit, 567 89</p>
@@ -130,9 +132,9 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column -->
 
                 <!-- wp:column {"width":"66.66%"} -->
-                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
-                <h2 class="wp-block-heading">Follow us</h2>
-                <!-- /wp:heading -->
+                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Follow us</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:social-links {"iconColor":"black","iconColorValue":"#000000","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|xxx-small","left":"var:preset|spacing|xxx-small"},"margin":{"top":"5px"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
                 <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline" style="margin-top:5px"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
@@ -143,7 +145,7 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:social-links --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div>
-                <!-- /wp:group -->',
+                <!-- /wp:group -->'
             ];
 
             /**
@@ -155,31 +157,36 @@ if (! defined('ABSPATH')) {
             register_block_pattern('maxboxy/contact-cceitc', $contact_cceitc_content +['categories' => ['maxboxy-contact']]);
             register_block_pattern('maxboxy/contact-cceitc-modal', $contact_cceitc_content +$modal_offer);
 
+            // Contact 2
             $contact_cceitc_2_content = [
-                'title'         => esc_html__('Common contact elements in two columns 2', 'maxboxy'),
+                'title'         => esc_html__('Common contact elements in a columns block (Vertical)', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
-                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group has-black-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color" style="padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
+                'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem","top":"2em"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"pale-cyan-blue","textColor":"black","layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-black-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color" style="padding-top:2em;padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->
                 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.33%"} -->
-                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3} -->
-                <h3 class="wp-block-heading">Call us</h3>
-                <!-- /wp:heading -->
+                <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Call us</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
                 <p style="margin-top:5px">(555) 555-555</p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:heading {"level":3} -->
-                <h3 class="wp-block-heading">Find us</h3>
-                <!-- /wp:heading -->
+                <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
+                <p style="margin-top:5px">(555) 555-555</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Find us</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"5px"}}}} -->
                 <p style="margin-top:5px">Dolor Sit, 567 89</p>
                 <!-- /wp:paragraph -->
 
-                <!-- wp:heading {"level":3} -->
-                <h3 class="wp-block-heading">Follow us</h3>
-                <!-- /wp:heading -->
+                <!-- wp:paragraph {"style":{"typography":{"fontSize":"38px"}}} -->
+                <p style="font-size:38px">Follow us</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:social-links {"iconColor":"black","iconColorValue":"#000000","iconBackgroundColor":"transparent","iconBackgroundColorValue":"transparent","className":"is-style-icecubo-social-outline","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|xxx-small","left":"var:preset|spacing|xxx-small"},"margin":{"top":"10px"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
                 <ul class="wp-block-social-links has-icon-color has-icon-background-color is-style-icecubo-social-outline" style="margin-top:10px"><!-- wp:social-link {"url":"#","service":"facebook"} /-->
@@ -191,9 +198,9 @@ if (! defined('ABSPATH')) {
                 <!-- /wp:column -->
 
                 <!-- wp:column {"width":"66.66%"} -->
-                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
-                <h2 class="wp-block-heading">Have a Question?</h2>
-                <!-- /wp:heading -->
+                <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:paragraph {"style":{"typography":{"fontSize":"44px"}}} -->
+                <p style="font-size:44px">Have a Querstion</p>
+                <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph -->
                 <p>You should put a contact form beneath. First, you should install a plugin, for example "Contact form 7", then insert its shortcode. Also remove this paragraph.</p>
@@ -202,12 +209,13 @@ if (! defined('ABSPATH')) {
                 <!-- wp:shortcode /--></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div>
-                <!-- /wp:group -->',
+                <!-- /wp:group -->'
             ];
 
             register_block_pattern('maxboxy/contact-cceitc2', $contact_cceitc_2_content +['categories' => ['maxboxy-contact']]);
             register_block_pattern('maxboxy/contact-cceitc2-modal', $contact_cceitc_2_content +$modal_offer);
 
+            // Contact 3
             register_block_pattern(
                 'maxboxy/contact-cfwsi', [
                 'title' => esc_html__('Contact form with social icons', 'maxboxy'),
@@ -230,130 +238,148 @@ if (! defined('ABSPATH')) {
                  * @link https://developer.wordpress.org/block-editor/reference-guides/block-api/block-templates/#locking
                  */
 
-                'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"left\",\"level\":3} -->
-                                <h3 class=\"has-text-align-left\">Contact us</h3>
-                                <!-- /wp:heading -->
+                'content'       => '<!-- wp:group {"style":{"background":{"gradient":"var:preset|gradient|pale-ocean"}}} -->
+                <div class="wp-block-group"><!-- wp:paragraph {"style":{"typography":{"fontSize":"36px","textAlign":"center"}}} -->
+                <p class="has-text-align-center" style="font-size:36px">Contact Us</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:shortcode /-->
+                <!-- wp:shortcode /-->
 
-                                <!-- wp:spacer {\"height\":50} -->
-                                <div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
+                <!-- wp:spacer {"height":"50px"} -->
+                <div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-                                <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
-                                <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
+                <!-- wp:social-links {"openInNewTab":true,"size":"has-large-icon-size","className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
+                <ul class="wp-block-social-links has-large-icon-size is-style-default"><!-- wp:social-link {"url":"","service":"pinterest"} /-->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
+                <!-- wp:social-link {"url":"","service":"twitter"} /-->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
+                <!-- wp:social-link {"url":"","service":"instagram"} /-->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
+                <!-- wp:social-link {"url":"","service":"facebook"} /-->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
-                                <!-- /wp:social-links --></div>
-                                <!-- /wp:group -->",
+                <!-- wp:social-link {"url":"","service":"linkedin"} /--></ul>
+                <!-- /wp:social-links --></div>
+                <!-- /wp:group -->'
                 ]
             );
 
+            // Contact 4
             register_block_pattern(
                 'maxboxy/contact-cfegmpeasi', [
                 'title'         => esc_html__('Contact form + embed google map + phone + email + address + social icons', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
                 'categories'    => ['maxboxy-contact'],
-                'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":20} -->
-                                <div style=\"height:20px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
+                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cfegmpeasi","name":"Contact form + embed google map + phone + email + address + social icons"},"style":{"background":{"gradient":"linear-gradient(135deg,rgb(77,77,230) 0%,rgb(219,232,255) 100%)"},"elements":{"link":{"color":{"text":"#4000ff"}}},"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"textColor":"black"} -->
+                <div class="wp-block-group has-black-color has-text-color has-link-color" style="padding-top:2em;padding-bottom:2em"><!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
+                <p class="has-text-align-center" style="font-size:32px">Contact form title here:</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Contact form here:</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:shortcode /-->
 
-                                <!-- wp:shortcode /-->
+                <!-- wp:spacer {"height":"20px"} -->
+                <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Google map here:</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
+                <p class="has-text-align-center" style="font-size:32px">Google map title here:</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:html /-->
+                <!-- wp:html /-->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:spacer {"height":"20px"} -->
+                <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-                                <!-- wp:paragraph {\"align\":\"center\",\"className\":\"is-style-default\"} -->
-                                <p class=\"has-text-align-center is-style-default\"><a href=\"tel:+555555555555\">+555 555 555 555</a></p>
-                                <!-- /wp:paragraph -->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
+                <p class="has-text-align-center" style="font-size:32px">Your title here:</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center is-style-default"><a href="tel:+555555555555">+555 555 555 555</a></p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
-                                <p class=\"has-text-align-center\"><a href=\"mailto:lorem@ipsum.dolor\">lorem@ipsum.dolor</a><br></p>
-                                <!-- /wp:paragraph -->
+                <!-- wp:spacer {"height":"20px"} -->
+                <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
+                <p class="has-text-align-center" style="font-size:32px">Your title here:</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:paragraph {\"align\":\"center\"} -->
-                                <p class=\"has-text-align-center\">Lorem ipsum 123 Dolor Sit, 45</p>
-                                <!-- /wp:paragraph -->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center"><a href="mailto:lorem@ipsum.dolor">lorem@ipsum.dolor</a><br></p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:heading {\"textAlign\":\"center\",\"level\":4} -->
-                                <h4 class=\"has-text-align-center\">Your title here...</h4>
-                                <!-- /wp:heading -->
+                <!-- wp:spacer {"height":"20px"} -->
+                <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-                                <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
-                                <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
+                <p class="has-text-align-center" style="font-size:32px">Your title here:</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Lorem ipsum 123 Dolor Sit, 45</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
+                <!-- wp:spacer {"height":"20px"} -->
+                <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
+                <p class="has-text-align-center" style="font-size:32px">Your title here:</p>
+                <!-- /wp:paragraph -->
 
-                                <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
-                                <!-- /wp:social-links --></div>
-                                <!-- /wp:group -->",
+                <!-- wp:social-links {"openInNewTab":true,"size":"has-large-icon-size","className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
+                <ul class="wp-block-social-links has-large-icon-size is-style-default"><!-- wp:social-link {"url":"","service":"pinterest"} /-->
+
+                <!-- wp:social-link {"url":"","service":"twitter"} /-->
+
+                <!-- wp:social-link {"url":"","service":"instagram"} /-->
+
+                <!-- wp:social-link {"url":"","service":"facebook"} /-->
+
+                <!-- wp:social-link {"url":"","service":"linkedin"} /--></ul>
+                <!-- /wp:social-links --></div>
+                <!-- /wp:group -->'
                 ]
             );
 
+            // Contact 5
             register_block_pattern(
                 'maxboxy/contact-cfsiiacb', [
                 'title'         => esc_html__('Contact form placeholder + social icons (in a cover block)', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
                 'categories'    => ['maxboxy-contact'],
-                'content'       => "<!-- wp:cover {\"overlayColor\":\"vivid-cyan-blue\",\"isDark\":false,\"layout\":{\"type\":\"constrained\"}} -->
-                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-vivid-cyan-blue-background-color has-background-dim-100 has-background-dim\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:heading {\"textAlign\":\"left\",\"level\":3} -->
-                <h3 class=\"wp-block-heading has-text-align-left\">Contact us</h3>
-                <!-- /wp:heading -->
-                
+                'content'       => '<!-- wp:cover {"overlayColor":"vivid-cyan-blue","isUserOverlayColor":true,"minHeight":300,"isDark":false,"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cfsiiacb","name":"Contact form placeholder + social icons (in a cover block)"},"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover is-light" style="padding-top:2em;padding-bottom:2em;min-height:300px"><span aria-hidden="true" class="wp-block-cover__background has-vivid-cyan-blue-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"style":{"typography":{"fontSize":"36px","textAlign":"center"}}} -->
+                <p class="has-text-align-center" style="font-size:36px">Contact Us</p>
+                <!-- /wp:paragraph -->
+
                 <!-- wp:shortcode /-->
-                
-                <!-- wp:spacer {\"height\":\"50px\"} -->
-                <div style=\"height:50px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+
+                <!-- wp:spacer {"height":"50px"} -->
+                <div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer -->
-                
-                <!-- wp:social-links {\"openInNewTab\":true,\"size\":\"has-large-icon-size\",\"className\":\"is-style-default\"} -->
-                <ul class=\"wp-block-social-links has-large-icon-size is-style-default\"><!-- wp:social-link {\"url\":\"\",\"service\":\"pinterest\"} /-->
-                
-                <!-- wp:social-link {\"url\":\"\",\"service\":\"twitter\"} /-->
-                
-                <!-- wp:social-link {\"url\":\"\",\"service\":\"instagram\"} /-->
-                
-                <!-- wp:social-link {\"url\":\"\",\"service\":\"facebook\"} /-->
-                
-                <!-- wp:social-link {\"url\":\"\",\"service\":\"linkedin\"} /--></ul>
+
+                <!-- wp:social-links {"openInNewTab":true,"size":"has-large-icon-size","className":"is-style-default","layout":{"type":"flex","justifyContent":"center"}} -->
+                <ul class="wp-block-social-links has-large-icon-size is-style-default"><!-- wp:social-link {"url":"","service":"pinterest"} /-->
+
+                <!-- wp:social-link {"url":"","service":"twitter"} /-->
+
+                <!-- wp:social-link {"url":"","service":"instagram"} /-->
+
+                <!-- wp:social-link {"url":"","service":"facebook"} /-->
+
+                <!-- wp:social-link {"url":"","service":"linkedin"} /--></ul>
                 <!-- /wp:social-links --></div></div>
-                <!-- /wp:cover -->",
+                <!-- /wp:cover -->'
                 ]
             );
 
 
-            /*
+            /**
              * Cookies
              */
 

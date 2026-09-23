@@ -160,7 +160,7 @@ if (! function_exists('maxboxy_framework_settings')) {
 
         /*
         * Begin options
-        */
+        */ 
 
 
         /*
@@ -184,6 +184,24 @@ if (! function_exists('maxboxy_framework_settings')) {
                         'inline'        => true,
                     ),
                     array(
+                        'id'        => 'modal_offer',
+                        'type'      => 'button_set',
+                        'title'     => esc_html__('Load in modal starting panel patterns', 'maxboxy'),
+                        'help'      => esc_html__('When you\'re starting a new panel design, a modal popup will be presented with selected starting panel patterns.', 'maxboxy'),
+                        'options'   => array(
+                            'yes'   => esc_html__('Yes',   'maxboxy'),
+                            'no'    => esc_html__('No',    'maxboxy'),
+                        ),
+                        'default'       => 'yes',
+                        'inline'        => true,
+                    ),
+                    array(
+                        'id'        => 'enable_functional_buttons',
+                        'type'      => 'switcher',
+                        'title'     => esc_html__('Enable functional buttons', 'maxboxy'),
+                        'help'      => esc_html__('MaxBoxy functional buttons provide the modification of the regular WordPress button block, as additional options to them. Unlike the default MaxBoxy buttons, these are the buttons that can be placed in MaxBoxy panel and used to close or toggle the panel. The MaxBoxy Pro provides more buttons.', 'maxboxy'),
+                    ),
+                    array(
                         'id'            => 'large_screen_break_point',
                         'type'          => 'slider',
                         'title'         => esc_html__('Large screen breaking point', 'maxboxy'),
@@ -194,18 +212,6 @@ if (! function_exists('maxboxy_framework_settings')) {
                         'unit'          => 'px',
                         'validate'      => 'csf_validate_numeric',
                         'sanitize'      => 'absint',
-                    ),
-                    array(
-                        'id'        => 'modal_offer',
-                        'type'      => 'button_set',
-                        'title'     => esc_html__('Load in modal starting panel patterns', 'maxboxy'),
-                        'help'      => esc_html__('When you\'re starting a new panel design, a modal popup will be presented with selected starting panel patterns.', 'maxboxy'),
-                        'options'   => array(
-                            'yes'   => esc_html__('Yes',   'maxboxy'),
-                            'no'    => esc_html__('No',    'maxboxy'),
-                    ),
-                    'default'       => 'yes',
-                    'inline'        => true,
                     ),
                     array(
                         'id'        => 'remove_wpautop',

@@ -13,6 +13,7 @@ if (! class_exists('Max_Boxy')) {
         add_action('init', array( 'Max_Boxy', 'textdomain' ));
         add_action('init', array( 'Max_Boxy', 'remove_wpautop' ));
         add_action('wp_enqueue_scripts', array( 'Max_Boxy', 'scripts_and_styles' ));
+        add_action('enqueue_block_editor_assets', array( 'Max_Boxy', 'enqueue_block_variations' ));
         add_action('admin_notices', array( 'Max_Boxy', 'admin_notices' ));
         add_action('admin_menu', array( 'Max_Boxy', 'admin_menu' ));
         add_action('init', array( 'Max_Boxy', 'set_post_type_inject_any' ));
@@ -171,6 +172,30 @@ if (! class_exists('Max_Boxy')) {
 
             }
 
+        }
+
+
+        /**
+         * Enqueue for Block variations.
+         *
+         * @return void Enqueueing assets.
+         */
+        // phpcs:ignore
+        public static function enqueue_block_variations()
+        {
+
+            $enable_functional_buttons  = isset(get_option('_maxboxy_options')[ 'enable_functional_buttons' ])
+                                        ?       get_option('_maxboxy_options')[ 'enable_functional_buttons' ] : '';
+
+            if (!empty($enable_functional_buttons)) {
+                wp_enqueue_script(
+                    'maxboxy-block-variations-buttons',
+                    plugin_dir_url(__DIR__) .'library/js/min/variations-buttons.js',
+                    array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+                    MAXBOXY_VERSION,
+                    array('strategy' => 'defer')
+                );
+            }
         }
 
 

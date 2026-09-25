@@ -389,8 +389,7 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common cookies notice group', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
                 'categories'    => ['maxboxy-cookies'],
-                'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
+                'content'       => "<!-- wp:heading {\"textAlign\":\"center\",\"level\":3} -->
                                 <h3 class=\"has-text-align-center\">Your title here...</h3>
                                 <!-- /wp:heading -->
 
@@ -402,14 +401,27 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"className\":\"mboxy-closer\"} -->
                                 <div class=\"wp-block-button mboxy-closer\"><a class=\"wp-block-button__link\">I agree</a></div>
                                 <!-- /wp:button --></div>
-                                <!-- /wp:buttons --></div>
-                                <!-- /wp:group -->",
+                                <!-- /wp:buttons -->",
                 ]
             );
 
             // Cookies - 2
             register_block_pattern(
                 'maxboxy/cookies-2', [
+                'title'         => esc_html__('Grouped: Common cookies notice placeholders', 'maxboxy'),
+                'keywords'      => ['gdpr', 'cookies'],
+                'categories'    => ['maxboxy-cookies'],
+                'content'       => '<!-- wp:group {"style":{"color":{"background":"#d3a3ff"}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group has-background" style="background-color:#d3a3ff">
+                    <!-- wp:pattern {"slug":"maxboxy/cookies-1"} /-->
+                </div>
+                <!-- /wp:group -->'
+                ]
+            );
+
+            // Cookies - 3
+            register_block_pattern(
+                'maxboxy/cookies-3', [
                 'title'         => esc_html__('2 columns - notice and a button', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
                 'categories'    => ['maxboxy-cookies'],
@@ -431,7 +443,7 @@ if (! defined('ABSPATH')) {
                 ]
             );
 
-            // Cookies - 2
+            // Cookies - 4
             $cookies_2cbg_content = [
                 'title'         => esc_html__('Cookies - 2 columns - notice and a button, with a background color', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
@@ -455,9 +467,9 @@ if (! defined('ABSPATH')) {
             register_block_pattern('maxboxy/cookies-2cbg', $cookies_2cbg_content +['categories' => ['maxboxy-cookies']]);
             register_block_pattern('maxboxy/cookies-2cbg-modal', $cookies_2cbg_content +$modal_offer);
 
-            // Cookies - 3
+            // Cookies - 5
             register_block_pattern(
-                'maxboxy/cookies-3', [
+                'maxboxy/cookies-5', [
                 'title'         => esc_html__('3 columns', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
                 'categories'    => ['maxboxy-cookies'],
@@ -485,8 +497,8 @@ if (! defined('ABSPATH')) {
                  ]
             );
 
-            // Cookies - 4
-            $cookies_4_content = [
+            // Cookies - 6
+            $cookies_6_content = [
                 'title'         => esc_html__('Cookies - 2 + 1 columns', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
                 'content'       => '<!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black"} -->
@@ -516,17 +528,16 @@ if (! defined('ABSPATH')) {
                                 <!-- /wp:group -->',
             ];
 
-            register_block_pattern('maxboxy/cookies-4', $cookies_4_content +['categories' => ['maxboxy-cookies']]);
-            register_block_pattern('maxboxy/cookies-4-modal', $cookies_4_content +$modal_offer);
+            register_block_pattern('maxboxy/cookies-6', $cookies_6_content +['categories' => ['maxboxy-cookies']]);
+            register_block_pattern('maxboxy/cookies-6-modal', $cookies_6_content +$modal_offer);
 
-            // Cookies - 5
+            // Cookies - 7
             register_block_pattern(
-                'maxboxy/cookies-5', [
+                'maxboxy/cookies-7', [
                 'title'         => esc_html__('2 columns + large button', 'maxboxy'),
                 'keywords'      => ['gdpr', 'cookies'],
                 'categories'    => ['maxboxy-cookies'],
-                'content'       => "<!-- wp:group -->
-                                <div class=\"wp-block-group\"><!-- wp:columns -->
+                'content'       => "<!-- wp:columns -->
                                 <div class=\"wp-block-columns\"><!-- wp:column {\"width\":\"75%\"} -->
                                 <div class=\"wp-block-column\" style=\"flex-basis:75%\"><!-- wp:paragraph -->
                                 <p>We use cookies… Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -544,13 +555,26 @@ if (! defined('ABSPATH')) {
                                 <div class=\"wp-block-buttons is-content-justification-center\"><!-- wp:button {\"width\":75,\"className\":\"is-style-outline mboxy-closer\"} -->
                                 <div class=\"wp-block-button has-custom-width wp-block-button__width-75 is-style-outline mboxy-closer\"><a class=\"wp-block-button__link\">I agree</a></div>
                                 <!-- /wp:button --></div>
-                                <!-- /wp:buttons --></div>
-                                <!-- /wp:group -->",
+                                <!-- /wp:buttons -->",
+                ]
+            );
+
+            // Cookies - 8
+            register_block_pattern(
+                'maxboxy/cookies-8', [
+                'title'         => esc_html__('In a Group: 2 columns + large button', 'maxboxy'),
+                'keywords'      => ['gdpr', 'cookies'],
+                'categories'    => ['maxboxy-cookies'],
+                'content'       => '<!-- wp:group {"style":{"color":{"background":"#66c7ff"}},"layout":{"type":"constrained"}} -->
+                                <div class="wp-block-group has-background" style="background-color:#66c7ff">
+                                    <!-- wp:pattern {"slug":"maxboxy/cookies-7"} /-->
+                                </div>
+                                <!-- /wp:group -->'
                 ]
             );
 
 
-            /*
+            /**
              * CTA
              */
 

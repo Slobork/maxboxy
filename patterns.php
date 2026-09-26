@@ -270,7 +270,7 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Contact form + embed google map + phone + email + address + social icons', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
                 'categories'    => ['maxboxy-contact'],
-                'content'       => '<!-- wp:group {"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cfegmpeasi","name":"Contact form + embed google map + phone + email + address + social icons"},"style":{"background":{"gradient":"linear-gradient(135deg,rgb(77,77,230) 0%,rgb(219,232,255) 100%)"},"elements":{"link":{"color":{"text":"#4000ff"}}},"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"textColor":"black"} -->
+                'content'       => '<!-- wp:group {"style":{"background":{"gradient":"linear-gradient(135deg,rgb(77,77,230) 0%,rgb(219,232,255) 100%)"},"elements":{"link":{"color":{"text":"#4000ff"}}},"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"textColor":"black"} -->
                 <div class="wp-block-group has-black-color has-text-color has-link-color" style="padding-top:2em;padding-bottom:2em"><!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"32px"}}} -->
                 <p class="has-text-align-center" style="font-size:32px">Contact form title here:</p>
                 <!-- /wp:paragraph -->
@@ -352,7 +352,7 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Contact form placeholder + social icons (in a cover block)', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
                 'categories'    => ['maxboxy-contact'],
-                'content'       => '<!-- wp:cover {"overlayColor":"vivid-cyan-blue","isUserOverlayColor":true,"minHeight":300,"isDark":false,"metadata":{"categories":["maxboxy-contact"],"patternName":"maxboxy/contact-cfsiiacb","name":"Contact form placeholder + social icons (in a cover block)"},"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
+                'content'       => '<!-- wp:cover {"overlayColor":"vivid-cyan-blue","isUserOverlayColor":true,"minHeight":300,"isDark":false,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
                 <div class="wp-block-cover is-light" style="padding-top:2em;padding-bottom:2em;min-height:300px"><span aria-hidden="true" class="wp-block-cover__background has-vivid-cyan-blue-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"style":{"typography":{"fontSize":"36px","textAlign":"center"}}} -->
                 <p class="has-text-align-center" style="font-size:36px">Contact Us</p>
                 <!-- /wp:paragraph -->
@@ -580,107 +580,137 @@ if (! defined('ABSPATH')) {
 
             // CTA 1
             register_block_pattern(
-                'maxboxy/cta-cctag', [
-                'title'         => esc_html__('Common CTA (in group block)', 'maxboxy'),
+                'maxboxy/cta-cctae', [
+                'title'         => esc_html__('Common CTA elements', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action'],
                 'categories'    => ['maxboxy-cta'],
-                'content'       => '<!-- wp:group -->
-                <div class="wp-block-group"><!-- wp:spacer {"height":"40px"} -->
-                <div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-                <!-- /wp:spacer -->
-                
-                <!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#414446"}}} -->
-                <h2 class="wp-block-heading has-text-align-center has-text-color" style="color:#414446">Major attention message!</h2>
-                <!-- /wp:heading -->
-                
-                <!-- wp:paragraph {"align":"center","style":{"color":{"text":"#414446"}}} -->
-                <p class="has-text-align-center has-text-color" style="color:#414446">Write additional text here.</p>
+                'content'       => '<!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"46px"}}} -->
+                <p class="has-text-align-center" style="font-size:46px"><strong>Major attention message!</strong></p>
                 <!-- /wp:paragraph -->
-                
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Write additional text here.</p>
+                <!-- /wp:paragraph -->
+
                 <!-- wp:spacer {"height":"20px"} -->
                 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer -->
-                
-                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"vertical","flexWrap":"wrap"}} -->
-                <div class="wp-block-buttons"><!-- wp:button {"width":50,"className":"has-custom-width wp-block-button__width-25 is-style-outline"} -->
-                <div class="wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline"><a class="wp-block-button__link wp-element-button">Call to action</a></div>
+
+                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+                <div class="wp-block-buttons"><!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Call To Action</a></div>
                 <!-- /wp:button --></div>
-                <!-- /wp:buttons --></div>
-                <!-- /wp:group -->',
+                <!-- /wp:buttons -->'
                 ]
             );
 
             // CTA 2
             register_block_pattern(
-                'maxboxy/cta-ctapc', [
-                'title'         => esc_html__('CTA (in a cover block) - Suitable for a background image', 'maxboxy'),
+                'maxboxy/cta-cctaec', [
+                'title'         => esc_html__('Common CTA elements (in a cover block)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action'],
                 'categories'    => ['maxboxy-cta'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\",\"contentPosition\":\"bottom center\",\"isDark\":false} -->
-                <div class=\"wp-block-cover is-light has-custom-content-position is-position-bottom-center\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-100 has-background-dim\" style=\"background-color:#f6f0de\"></span><div class=\"wp-block-cover__inner-container\"><!-- wp:spacer -->
-                <div style=\"height:100px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                <!-- /wp:spacer -->
-                
-                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"black\",\"fontSize\":\"large\"} -->
-                <p class=\"has-text-align-center has-black-color has-text-color has-large-font-size\">YOUR ATTENTION MESSAGE!</p>
-                <!-- /wp:paragraph -->
-                
-                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"horizontal\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"has-custom-width wp-block-button__width-25 is-style-outline\"} -->
-                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color wp-element-button\">Get it!</a></div>
-                <!-- /wp:button -->
-                
-                <!-- wp:button {\"textColor\":\"black\",\"width\":50,\"className\":\"mboxy-closer is-style-outline\"} -->
-                <div class=\"wp-block-button has-custom-width wp-block-button__width-50 mboxy-closer is-style-outline\"><a class=\"wp-block-button__link has-black-color has-text-color wp-element-button\">No thanks.</a></div>
-                <!-- /wp:button --></div>
-                <!-- /wp:buttons --></div></div>
-                <!-- /wp:cover -->",
+                'content'       => '<!-- wp:cover {"isUserOverlayColor":true,"customGradient":"radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)","contentPosition":"top center","style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"default"}} -->
+                <div class="wp-block-cover has-custom-content-position is-position-top-center" style="padding-top:2em;padding-bottom:2em"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)"></span><div class="wp-block-cover__inner-container">
+                    <!-- wp:pattern {"slug":"maxboxy/cta-cctae"} /-->
+                </div></div>
+                <!-- /wp:cover -->'
                 ]
             );
 
             // CTA 3
-            $contact_cta_cmogb_content = [
-                'title'         => esc_html__('Ciber Monday offer (group block)', 'maxboxy'),
-                'keywords'      => ['CTA', 'call to action', 'Ciber Monday'],
-                'content'       => "<!-- wp:group {\"style\":{\"border\":{\"radius\":\"100%\"}},\"gradient\":\"luminous-dusk\"} -->
-                <div class=\"wp-block-group has-luminous-dusk-gradient-background has-background\" style=\"border-radius:100%\"><!-- wp:spacer {\"height\":\"3vh\"} -->
-                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+            register_block_pattern(
+                'maxboxy/cta-cctam2b', [
+                'title'         => esc_html__('Common CTA elements - Message and two buttons', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => '<!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"34px"}},"textColor":"black"} -->
+                <p class="has-text-align-center has-black-color has-text-color" style="font-size:34px">YOUR ATTENTION MESSAGE!</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+                <div class="wp-block-buttons"><!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Get it!</a></div>
+                <!-- /wp:button -->
+
+                <!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">No thanks.</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons -->'
+                ]
+            );
+
+            // CTA 4
+            register_block_pattern(
+                'maxboxy/cta-ctam2bc', [
+                'title'         => esc_html__('Message and two buttons with bg image', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action'],
+                'categories'    => ['maxboxy-cta'],
+                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'","dimRatio":50,"customOverlayColor":"#f6f0de","isUserOverlayColor":true,"contentPosition":"bottom center","isDark":false,"sizeSlug":"full","style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover is-light has-custom-content-position is-position-bottom-center" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background size-full" alt="" src="' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:spacer -->
+                <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer -->
-                
-                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"white\",\"className\":\"is-style-default\"} -->
-                <p class=\"has-text-align-center is-style-default has-white-color has-text-color\">SPECIAL OFFER</p>
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","fontSize":"36px"}},"textColor":"black"} -->
+                <p class="has-text-align-center has-black-color has-text-color" style="font-size:36px">YOUR ATTENTION MESSAGE!</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:group {\"style\":{\"spacing\":{\"margin\":{\"top\":\"var:preset|spacing|default\",\"bottom\":\"4em\"}}},\"className\":\"is-style-default\",\"layout\":{\"type\":\"constrained\"}} -->
-                <div class=\"wp-block-group is-style-default\" style=\"margin-top:var(--wp--preset--spacing--default);margin-bottom:4em\"><!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"fontSize\":\"3.5em\",\"fontStyle\":\"normal\",\"fontWeight\":\"100\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}}},\"textColor\":\"black\"} -->
-                <p class=\"has-text-align-center has-black-color has-text-color\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:100\">Ciber</p>
+
+                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+                <div class="wp-block-buttons"><!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Get it!</a></div>
+                <!-- /wp:button -->
+
+                <!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button">No thanks.</a></div>
+                <!-- /wp:button --></div>
+                <!-- /wp:buttons --></div></div>
+                <!-- /wp:cover -->'
+                ]
+            );
+
+            // CTA 5
+            $contact_cta_cmogb_content = [
+                'title'         => esc_html__('Ciber Monday offer (in a group block)', 'maxboxy'),
+                'keywords'      => ['CTA', 'call to action', 'Ciber Monday'],
+                'content'       => '<!-- wp:group {"style":{"border":{"radius":"100%"}},"gradient":"luminous-dusk"} -->
+                <div class="wp-block-group has-luminous-dusk-gradient-background has-background" style="border-radius:100%"><!-- wp:spacer {"height":"3vh"} -->
+                <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
+
+                <!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"textAlign":"center"}},"textColor":"white"} -->
+                <p class="has-text-align-center is-style-default has-white-color has-text-color">SPECIAL OFFER</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"typography\":{\"lineHeight\":\"0\",\"fontStyle\":\"normal\",\"fontWeight\":\"700\",\"fontSize\":\"3.5em\"},\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"right\":\"var:preset|spacing|default\",\"left\":\"var:preset|spacing|default\"}}},\"textColor\":\"white\"} -->
-                <p class=\"has-text-align-center has-white-color has-text-color\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:700;line-height:0\">Monday</p>
+
+                <!-- wp:group {"className":"is-style-default","style":{"spacing":{"margin":{"top":"var:preset|spacing|default","bottom":"4em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group is-style-default" style="margin-top:var(--wp--preset--spacing--default);margin-bottom:4em"><!-- wp:paragraph {"style":{"typography":{"fontSize":"3.5em","fontStyle":"normal","fontWeight":"100","textAlign":"center"},"spacing":{"margin":{"top":"0","right":"var:preset|spacing|default","bottom":"0","left":"var:preset|spacing|default"},"padding":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default"}}},"textColor":"black"} -->
+                <p class="has-text-align-center has-black-color has-text-color" style="margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:100">Ciber</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:paragraph {"style":{"typography":{"lineHeight":"0","fontStyle":"normal","fontWeight":"700","fontSize":"3.5em","textAlign":"center"},"spacing":{"margin":{"top":"0","right":"var:preset|spacing|default","bottom":"0","left":"var:preset|spacing|default"},"padding":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default"}}},"textColor":"white"} -->
+                <p class="has-text-align-center has-white-color has-text-color" style="margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:3.5em;font-style:normal;font-weight:700;line-height:0">Monday</p>
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:group -->
-                
-                <!-- wp:paragraph {\"align\":\"center\",\"textColor\":\"white\"} -->
-                <p class=\"has-text-align-center has-white-color has-text-color\">UP TO 50% OFF!</p>
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"textColor":"white"} -->
+                <p class="has-text-align-center has-white-color has-text-color">UP TO 50% OFF!</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\",\"orientation\":\"vertical\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button {\"className\":\"has-custom-width wp-block-button__width-25 is-style-fill\"} -->
-                <div class=\"wp-block-button has-custom-width wp-block-button__width-25 is-style-fill\"><a class=\"wp-block-button__link wp-element-button\">SHOP NOW</a></div>
+
+                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"vertical"}} -->
+                <div class="wp-block-buttons"><!-- wp:button {"className":"has-custom-width wp-block-button__width-25 is-style-fill"} -->
+                <div class="wp-block-button has-custom-width wp-block-button__width-25 is-style-fill"><a class="wp-block-button__link wp-element-button">SHOP NOW</a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons -->
-                
-                <!-- wp:spacer {\"height\":\"3vh\"} -->
-                <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
+
+                <!-- wp:spacer {"height":"3vh"} -->
+                <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer --></div>
-                <!-- /wp:group -->",
+                <!-- /wp:group -->'
             ];
 
             register_block_pattern('maxboxy/cta-cmogb', $contact_cta_cmogb_content +['categories' => ['maxboxy-cta']]);
             register_block_pattern('maxboxy/cta-cmogb-modal', $contact_cta_cmogb_content +$modal_offer);
 
-            // CTA 4
+            // CTA 5
             register_block_pattern(
                 'maxboxy/cta-bfocwbiagio', [
                 'title'         => esc_html__('Black Friday offer (cover with background image and gradient in opacity)', 'maxboxy'),
@@ -724,50 +754,42 @@ if (! defined('ABSPATH')) {
                 ]
             );
 
-            // CTA 5
+            // CTA 6
             $cta_cocwbi_content = [
                 'title'         => esc_html__('Christmas offer (cover with background image)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'","dimRatio":10,"layout":{"type":"constrained"}} -->
-                <div class="wp-block-cover"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"3vh"} -->
-                <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
-                <!-- /wp:spacer -->
-                
-                <!-- wp:paragraph {"align":"center","placeholder":"Write title…"} -->
+                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'","dimRatio":10,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"placeholder":"Write title…","style":{"typography":{"textAlign":"center"}}} -->
                 <p class="has-text-align-center">HO HO HO!</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|default","bottom":"4em"}}},"className":"is-style-default","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group is-style-default" style="margin-top:var(--wp--preset--spacing--default);margin-bottom:4em"><!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"70px","fontStyle":"normal","fontWeight":"700","lineHeight":"1.2"},"spacing":{"margin":{"top":"0","right":"var:preset|spacing|default","bottom":"0","left":"var:preset|spacing|default"},"padding":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default"}}},"className":"is-style-default"} -->
+
+                <!-- wp:group {"className":"is-style-default","style":{"spacing":{"margin":{"top":"var:preset|spacing|default","bottom":"4em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group is-style-default" style="margin-top:var(--wp--preset--spacing--default);margin-bottom:4em"><!-- wp:paragraph {"className":"is-style-default","style":{"typography":{"fontSize":"70px","fontStyle":"normal","fontWeight":"700","lineHeight":"1.2","textAlign":"center"},"spacing":{"margin":{"top":"0","right":"var:preset|spacing|default","bottom":"0","left":"var:preset|spacing|default"},"padding":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default"}}}} -->
                 <p class="has-text-align-center is-style-default" style="margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:70px;font-style:normal;font-weight:700;line-height:1.2">Christmas time!</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:paragraph {"align":"center","style":{"color":{"text":"#800303"},"typography":{"fontStyle":"normal","fontWeight":"700","fontSize":"55px","lineHeight":"1.3"},"spacing":{"margin":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default","top":"10px","bottom":"10px"},"padding":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default"}}},"className":"is-style-default"} -->
+
+                <!-- wp:paragraph {"className":"is-style-default","style":{"color":{"text":"#800303"},"typography":{"fontStyle":"normal","fontWeight":"700","fontSize":"55px","lineHeight":"1.3","textAlign":"center"},"spacing":{"margin":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default","top":"10px","bottom":"10px"},"padding":{"right":"var:preset|spacing|default","left":"var:preset|spacing|default"}}}} -->
                 <p class="has-text-align-center is-style-default has-text-color" style="color:#800303;margin-top:10px;margin-right:var(--wp--preset--spacing--default);margin-bottom:10px;margin-left:var(--wp--preset--spacing--default);padding-right:var(--wp--preset--spacing--default);padding-left:var(--wp--preset--spacing--default);font-size:55px;font-style:normal;font-weight:700;line-height:1.3">BIG SALE</p>
                 <!-- /wp:paragraph --></div>
                 <!-- /wp:group -->
-                
-                <!-- wp:paragraph {"align":"center"} -->
+
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
                 <p class="has-text-align-center">GET UP TO 50% OFF ON SELECTED PRODUCTS!</p>
                 <!-- /wp:paragraph -->
-                
+
                 <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"vertical"}} -->
-                <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"vivid-red","width":50,"style":{"elements":{"link":{"color":{"text":"var:preset|color|vivid-red"}}}},"className":"has-custom-width wp-block-button__width-25 is-style-outline"} -->
-                <div class="wp-block-button has-custom-width wp-block-button__width-50 wp-block-button__width-25 is-style-outline"><a class="wp-block-button__link has-vivid-red-color has-white-background-color has-text-color has-background has-link-color wp-element-button"><strong>SEE PRODUCTS!</strong></a></div>
+                <div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"vivid-red","className":"has-custom-width wp-block-button__width-25 is-style-outline","style":{"elements":{"link":{"color":{"text":"var:preset|color|vivid-red"}}},"dimensions":{"width":"50%"}}} -->
+                <div class="wp-block-button has-custom-width wp-block-button__width-25 is-style-outline"><a class="wp-block-button__link has-vivid-red-color has-white-background-color has-text-color has-background has-link-color wp-element-button"><strong>SEE PRODUCTS!</strong></a></div>
                 <!-- /wp:button --></div>
-                <!-- /wp:buttons -->
-                
-                <!-- wp:spacer {"height":"3vh"} -->
-                <div style="height:3vh" aria-hidden="true" class="wp-block-spacer"></div>
-                <!-- /wp:spacer --></div></div>
-                <!-- /wp:cover -->',
+                <!-- /wp:buttons --></div></div>
+                <!-- /wp:cover -->'
             ];
 
             register_block_pattern('maxboxy/cta-cocwbi', $cta_cocwbi_content +['categories' => ['maxboxy-cta']]);
             register_block_pattern('maxboxy/cta-cocwbi-modal', $cta_cocwbi_content +$modal_offer);
 
 
-            // CTA 6
+            // CTA 7
             $cta_voiagbwb_content = [
                 'title'         => esc_html__('Valentine offer (in a group block with background)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
@@ -809,42 +831,42 @@ if (! defined('ABSPATH')) {
             register_block_pattern('maxboxy/cta-voiagbwb', $cta_voiagbwb_content +['categories' => ['maxboxy-cta']]);
             register_block_pattern('maxboxy/cta-voiagbwb-modal', $cta_voiagbwb_content +$modal_offer);
 
-            // CTA 7
+            // CTA 8
             $cta_cwawbiatced_content = [
                 'title'         => esc_html__('Cover with a wrinkly background image and two colums (Ebook download)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) ."\",\"dimRatio\":50,\"customOverlayColor\":\"#f6f0de\",\"contentPosition\":\"center center\",\"isDark\":false} -->
-                <div class=\"wp-block-cover is-light\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim\" style=\"background-color:#f6f0de\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:columns {\"verticalAlignment\":null} -->
-                <div class=\"wp-block-columns\"><!-- wp:column {\"verticalAlignment\":\"center\"} -->
-                <div class=\"wp-block-column is-vertically-aligned-center\"><!-- wp:paragraph {\"align\":\"center\",\"placeholder\":\"Write title…\",\"style\":{\"typography\":{\"fontSize\":\"34px\"}}} -->
-                <p class=\"has-text-align-center\" style=\"font-size:34px\"><strong><em>Get the FREE e-book</em></strong>!</p>
+                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'","dimRatio":50,"customOverlayColor":"#f6f0de","isUserOverlayColor":true,"contentPosition":"center center","isDark":false,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}}} -->
+                <div class="wp-block-cover is-light" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
+                <div class="wp-block-columns"><!-- wp:column {"verticalAlignment":"center"} -->
+                <div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"placeholder":"Write title…","style":{"typography":{"fontSize":"34px","textAlign":"center"}}} -->
+                <p class="has-text-align-center" style="font-size:34px"><strong><em>Get the FREE e-book</em></strong>!</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:paragraph {\"align\":\"center\",\"style\":{\"spacing\":{\"margin\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"},\"padding\":{\"top\":\"0\",\"right\":\"var:preset|spacing|default\",\"bottom\":\"0\",\"left\":\"var:preset|spacing|default\"}}}} -->
-                <p class=\"has-text-align-center\" style=\"margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-top:0;padding-right:var(--wp--preset--spacing--default);padding-bottom:0;padding-left:var(--wp--preset--spacing--default)\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+
+                <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","right":"var:preset|spacing|default","bottom":"0","left":"var:preset|spacing|default"},"padding":{"top":"0","right":"var:preset|spacing|default","bottom":"0","left":"var:preset|spacing|default"}},"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center" style="margin-top:0;margin-right:var(--wp--preset--spacing--default);margin-bottom:0;margin-left:var(--wp--preset--spacing--default);padding-top:0;padding-right:var(--wp--preset--spacing--default);padding-bottom:0;padding-left:var(--wp--preset--spacing--default)">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
                 <!-- /wp:paragraph -->
-                
-                <!-- wp:buttons {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->
-                <div class=\"wp-block-buttons\"><!-- wp:button {\"textColor\":\"white\",\"className\":\"is-style-outline\",\"style\":{\"color\":{\"background\":\"#373131\"}}} -->
-                <div class=\"wp-block-button has-custom-width is-style-outline\"><a class=\"wp-block-button__link has-white-color has-text-color has-background wp-element-button\" style=\"background-color:#373131\">Download now!</a></div>
+
+                <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+                <div class="wp-block-buttons"><!-- wp:button {"textColor":"white","className":"has-custom-width is-style-outline","style":{"color":{"background":"#373131"}}} -->
+                <div class="wp-block-button has-custom-width is-style-outline"><a class="wp-block-button__link has-white-color has-text-color has-background wp-element-button" style="background-color:#373131">Download now!</a></div>
                 <!-- /wp:button --></div>
                 <!-- /wp:buttons --></div>
                 <!-- /wp:column -->
-                
+
                 <!-- wp:column -->
-                <div class=\"wp-block-column\"><!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"is-style-rounded\"} -->
-                <figure class=\"wp-block-image size-full is-style-rounded\"><img src=\"" .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) ."\" alt=\"\"/></figure>
+                <div class="wp-block-column"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-rounded"} -->
+                <figure class="wp-block-image size-full is-style-rounded"><img src="' .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) .'" alt=""/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
-                <!-- /wp:cover -->",
+                <!-- /wp:cover -->'
             ];
 
             register_block_pattern('maxboxy/cta-cwawbiatced', $cta_cwawbiatced_content +['categories' => ['maxboxy-cta']]);
             register_block_pattern('maxboxy/cta-cwawbiatced-modal', $cta_cwawbiatced_content +$modal_offer);
 
 
-            /*
+            /**
              * Info and warning boxes
              *
              * svg icons used from https://www.reshot.com/free-svg-icons/item/essential-minimal-icons-NSKQW8ACT5/

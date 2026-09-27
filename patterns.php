@@ -1173,8 +1173,8 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Embed media (e.g. youtube code) and text intro (in a cover block)', 'maxboxy'),
                 'keywords'      => ['media', 'video', 'html'],
                 'categories'    => ['maxboxy-media'],
-                'content'       => '<!-- wp:cover {"isUserOverlayColor":true,"customGradient":"radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)","contentPosition":"top center","style":{"spacing":{"padding":{"top":"var:preset|spacing|medium","bottom":"var:preset|spacing|medium","left":"var:preset|spacing|medium","right":"var:preset|spacing|medium"}}},"layout":{"type":"default"}} -->
-                <div class="wp-block-cover has-custom-content-position is-position-top-center" style="padding-top:var(--wp--preset--spacing--medium);padding-right:var(--wp--preset--spacing--medium);padding-bottom:var(--wp--preset--spacing--medium);padding-left:var(--wp--preset--spacing--medium)"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)"></span><div class="wp-block-cover__inner-container">
+                'content'       => '<!-- wp:cover {"isUserOverlayColor":true,"customGradient":"radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)","contentPosition":"top center","style":{"spacing":{"padding":{"top":"1.75em","bottom":"1.75em","left":"1.75em","right":"1.75em"}}},"layout":{"type":"default"}} -->
+                <div class="wp-block-cover has-custom-content-position is-position-top-center" style="padding-top:1.75em;padding-right:1.75em;padding-bottom:1.75em;padding-left:1.75em"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:radial-gradient(rgb(10,165,255) 0%,rgb(9,60,150) 100%)"></span><div class="wp-block-cover__inner-container">
                 <!-- wp:pattern {"slug":"maxboxy/media-cmgycati"} /-->
                 </div></div>
                 <!-- /wp:cover -->'

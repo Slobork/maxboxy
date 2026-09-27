@@ -1250,8 +1250,8 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common newsletter elements - in a cover block', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => '<!-- wp:cover {"customOverlayColor":"#f6f0de"} -->
-                <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
+                'content'       => '<!-- wp:cover {"customOverlayColor":"#4fb0e8","isUserOverlayColor":true,"isDark":false,"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-iacb","name":"Common newsletter elements - in a cover block"},"className":"is-light","style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}}} -->
+                <div class="wp-block-cover is-light" style="padding-top:2em;padding-bottom:2em"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#4fb0e8"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"layout":{"type":"constrained"}} -->
                 <div class="wp-block-group"><!-- wp:heading {"style":{"typography":{"fontSize":"52px","textAlign":"center"}}} -->
                 <h2 class="wp-block-heading has-text-align-center" style="font-size:52px"><strong>JOIN 1000+ PALS</strong></h2>
                 <!-- /wp:heading -->
@@ -1284,26 +1284,27 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Common newsletter elements - in a cover block with an image', 'maxboxy'),
                 'keywords'      => ['Signup'],
                 'categories'    => ['maxboxy-signups'],
-                'content'       => "<!-- wp:cover {\"customOverlayColor\":\"#f6f0de\"} -->
-                                <div class=\"wp-block-cover has-background-dim\" style=\"background-color:#f6f0de\"><div class=\"wp-block-cover__inner-container\"><!-- wp:image {\"sizeSlug\":\"large\",\"className\":\"is-style-default\"} -->
-                                <figure class=\"wp-block-image size-large is-style-default\"><img src=\"" .esc_url(plugins_url('/library/img/news-coffee-glasses.jpg', __FILE__)) ."\" alt=\"News and Coffee\"/></figure>
-                                <!-- /wp:image -->
-                                
-                                <!-- wp:group {\"layout\":{\"type\":\"constrained\"}} -->
-                                <div class=\"wp-block-group\"><!-- wp:heading {\"level\":3,\"style\":{\"typography\":{\"textAlign\":\"center\"}}} -->
-                                <h3 class=\"wp-block-heading has-text-align-center\">Subscribe To Our Newsletter</h3>
-                                <!-- /wp:heading -->
+                'content'       => '<!-- wp:cover {"customOverlayColor":"#4fb0e8","isUserOverlayColor":true,"isDark":false,"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-iacbwai","name":"Common newsletter elements - in a cover block with an image"}} -->
+                <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#4fb0e8"></span><div class="wp-block-cover__inner-container"><!-- wp:image {"sizeSlug":"large","className":"is-style-default"} -->
+                <figure class="wp-block-image size-large is-style-default"><img src="' .esc_url(plugins_url('/library/img/news-coffee-glasses.jpg', __FILE__)) .'" alt="News and Coffee"/></figure>
+                <!-- /wp:image -->
 
-                                <!-- wp:paragraph {\"style\":{\"typography\":{\"textAlign\":\"center\"}}} -->
-                                <p class=\"has-text-align-center\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, velit a bibendum sodales.</p>
-                                <!-- /wp:paragraph --></div>
-                                <!-- /wp:group -->
-                                <!-- wp:spacer {\"height\":\"15px\"} -->
-                                <div style=\"height:15px\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
-                                <!-- /wp:spacer -->
+                <!-- wp:group {"layout":{"type":"constrained"}} -->
+                <div class="wp-block-group"><!-- wp:heading {"level":3,"style":{"typography":{"textAlign":"center"}}} -->
+                <h3 class="wp-block-heading has-text-align-center">Subscribe To Our Newsletter</h3>
+                <!-- /wp:heading -->
 
-                                <!-- wp:html /--></div></div>
-                                <!-- /wp:cover -->",
+                <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
+                <p class="has-text-align-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis, velit a bibendum sodales.</p>
+                <!-- /wp:paragraph --></div>
+                <!-- /wp:group -->
+
+                <!-- wp:spacer {"height":"15px"} -->
+                <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                <!-- /wp:spacer -->
+
+                <!-- wp:html /--></div></div>
+                <!-- /wp:cover -->'
                 ]
             );
 

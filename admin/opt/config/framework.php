@@ -80,7 +80,7 @@ if (! function_exists('maxboxy_framework_settings')) {
                                     'id'        => 'uninstall_setting',
                                     'type'      => 'checkbox',
                                     'title'     => esc_html__('Uninstall settings if plugin is deleted', 'maxboxy'),
-                                    'help'      => esc_html__('If this is checked, all FloatAny seetings will be deleted when the plugin is removed, otherwise the settings will be preserved.', 'maxboxy'),
+                                    'help'      => esc_html__('If this is checked, all global plugin settings will be deleted from the database when the plugin is removed, otherwise the settings will be preserved.', 'maxboxy'),
             );
 
             // else - multisite but not the main site
@@ -175,7 +175,7 @@ if (! function_exists('maxboxy_framework_settings')) {
                         'id'            => 'enqueue_place',
                         'type'          => 'button_set',
                         'title'         => esc_html__('Loading plugin files', 'maxboxy'),
-                        'help'          => esc_html__('"Default" means that files will be loaded over the whole site, no matter if the FloatAny/InjectAny panels are utilized on those pages. "On demand" option loads plugin files only on pages where the panels are apearing, but bypassing default WordPress enqueuing and that will output the styles in the "body" tag instaed of the "head" which may break HTML validity. To keep HTML validity, it may be the best if you set the "Site overall" option here and use a plugin like Booster Sweeper to unload the files you do not need on certain pages.', 'maxboxy'),
+                        'help'          => esc_html__('"Site overall" which is the default option means that files will be loaded over the whole site, no matter if the FloatAny/InjectAny panels are utilized on those pages. "On demand" option loads plugin files only on pages where the panels are appearing. The downside is that, at the same time, it is bypassing the default WordPress enqueuing and that will output the styles in the "body" tag instead of the "head" which may break HTML validity. To keep HTML validity, it may be the best if you set the "Site overall" option here and use a plugin like Booster Sweeper to unload the files you do not need on certain pages.', 'maxboxy'),
                         'options'       => array(
                                                 'overall'   => esc_html__('Site overall',   'maxboxy'),
                                                 'on_demand' => esc_html__('On demand',      'maxboxy'),
@@ -186,8 +186,8 @@ if (! function_exists('maxboxy_framework_settings')) {
                     array(
                         'id'        => 'modal_offer',
                         'type'      => 'button_set',
-                        'title'     => esc_html__('Load in modal starting panel patterns', 'maxboxy'),
-                        'help'      => esc_html__('When you\'re starting a new panel design, a modal popup will be presented with selected starting panel patterns.', 'maxboxy'),
+                        'title'     => esc_html__('Offer starting panel patterns in modal', 'maxboxy'),
+                        'help'      => esc_html__('When you\'re starting a new panel design, a modal popup will be presented with select-able starting panel patterns.', 'maxboxy'),
                         'options'   => array(
                             'yes'   => esc_html__('Yes',   'maxboxy'),
                             'no'    => esc_html__('No',    'maxboxy'),
@@ -199,13 +199,13 @@ if (! function_exists('maxboxy_framework_settings')) {
                         'id'        => 'enable_functional_buttons',
                         'type'      => 'switcher',
                         'title'     => esc_html__('Enable functional buttons', 'maxboxy'),
-                        'help'      => esc_html__('MaxBoxy functional buttons provide the modification of the regular WordPress button block, as additional options to them. Unlike the default MaxBoxy buttons, these are the buttons that can be placed in MaxBoxy panel and used to close or toggle the panel. The MaxBoxy Pro provides more buttons.', 'maxboxy'),
+                        'help'      => esc_html__('MaxBoxy functional buttons provide the modification of the regular WordPress button block, as additional options to them. Unlike the default MaxBoxy panel buttons (for closing and toggling the panel), these are the buttons that can be placed in MaxBoxy panel and used to close or toggle the panel. The MaxBoxy Pro provides more buttons.', 'maxboxy'),
                     ),
                     array(
                         'id'            => 'large_screen_break_point',
                         'type'          => 'slider',
                         'title'         => esc_html__('Large screen breaking point', 'maxboxy'),
-                        'help'          => esc_html__('From entered point onward, it\'s considered to be the large screen. There are the options that depend on this, i.e. hiding content blocks for small or large screen. Default value is "992".', 'maxboxy'),
+                        'help'          => esc_html__('From entered point onward, it\'s considered to be the large screen. Width and height options from the each panel settings, under the "Type and Style" → "Sizes" depend on this. Default value is "992".', 'maxboxy'),
                         'default'       => 992,
                         'min'           => 200,
                         'max'           => 3000,
@@ -217,8 +217,8 @@ if (! function_exists('maxboxy_framework_settings')) {
                         'id'        => 'remove_wpautop',
                         'type'      => 'switcher',
                         'title'     => esc_html__('WP autop', 'maxboxy'),
-                        'desc'      => esc_html__('We remove the empty paragraphs when WordPress auto-inject them. Here you can disable that. Recommended: keep it prevented.', 'maxboxy'),
-                        'help'      => esc_html__('By default we prevent wpautop. WordPress somethimes have a habit to inject excesive empty paragraphs. We remove this possibility. However, it is affecting the whole site, not just the MaxBoxy panels, so you can turn off this if from any reason is necessary.', 'maxboxy'),
+                        'desc'      => esc_html__('This option is active by default. It removes the empty paragraphs when WordPress auto-inject them. Here you can disable that. Recommended: keep it prevented.', 'maxboxy'),
+                        'help'      => esc_html__('By default we prevent wpautop. WordPress sometimes have a habit to inject excessive empty paragraphs. MaxBoxy removes this possibility. However, it is affecting the whole site, not just the MaxBoxy panels, so you can turn off this if from any reason is necessary.', 'maxboxy'),
                         'text_on'   => esc_html__('Allowed', 'maxboxy'),
                         'text_off'  => esc_html__('Prevent', 'maxboxy'),
                         'text_width'=> 120,

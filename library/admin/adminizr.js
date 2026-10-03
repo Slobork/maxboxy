@@ -241,12 +241,15 @@ jQuery(document).ready(function($) {
 	$('.major-maxboxy-options.csf-field-tabbed .csf-tabbed-nav a').css({
 			'margin-bottom' : 'auto',
 			'margin-right': 0,
-			//'padding': '10px 12px',
 			'padding': '18px 12px',
 	});
 
 	$('.major-maxboxy-options.csf-field-tabbed').css({
 			'padding' : '1px 0',
+	});
+
+	$('.major-maxboxy-options.csf-field-tabbed .csf-tabbed-nav .csf--icon').css({
+			'padding-right' : 'unset',
 	});
 
 	$('.major-maxboxy-options.csf-field-tabbed .csf-field-subheading').css({

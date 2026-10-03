@@ -1173,40 +1173,6 @@ jQuery(document).ready(function ($) {
 	}
 
 
-
-	/**
-	 * Disable based on ScreenSize.
-	 */
-	$.fn.disableForScreens = function() {
-
-		function disOnSize() {
-
-			if ($(window).width() < screenBreakPoint()) {
-
-				$('.dis-screen-small').addClass('is-screen-disabled');
-				$('.dis-screen-large').removeClass('is-screen-disabled');
-
-			} else {
-
-				$('.dis-screen-small').removeClass('is-screen-disabled');
-				$('.dis-screen-large').addClass('is-screen-disabled');
-
-			}
-
-		}
-
-		return disOnSize();
-
-	};
-
-	/**
-	 * Disable for screens - for resize function.
-	 */
-	function doDisableForScreens() {
-		$(window).disableForScreens();
-	}
-
-
 	/**
 	 * Media alignfull.
 	 */
@@ -1265,8 +1231,6 @@ jQuery(document).ready(function ($) {
 	$(window).on('resize', function () {
 
 		doNospaceDestroy();
-
-		doDisableForScreens();
 
 		doPanelSize();
 

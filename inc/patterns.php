@@ -82,7 +82,8 @@ if (! defined('ABSPATH')) {
             $modal_offer   = $get_modal_offer !== 'no'
             ? array(
                 'blockTypes' => array( 'core/post-content' ), // puts it in the commencing modal
-                'postTypes'  => array( 'float_any', 'inject_any' ) // ...for specific post_types
+                'postTypes'  => array( 'float_any', 'inject_any' ), // ...for specific post_types
+                'categories' => ['hidden'], // ...and hidden from the block inserter
             )
             : array();
 
@@ -94,6 +95,7 @@ if (! defined('ABSPATH')) {
             // Contact 1
             $contact_cceitc_content = [
                 'title'         => esc_html__('Common Contact elements in two columns', 'maxboxy'),
+                'description'   => esc_html__('A simple contact section with two columns', 'maxboxy'),
                 'keywords'      => ['contact', 'contact us'],
                 'content'       => '<!-- wp:group {"style":{"spacing":{"padding":{"bottom":"3rem","top":"2em"}},"elements":{"link":{"color":{"text":"var:preset|color|black"}}}},"backgroundColor":"light-green-cyan","textColor":"black","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group has-black-color has-light-green-cyan-background-color has-text-color has-background has-link-color" style="padding-top:2em;padding-bottom:3rem"><!-- wp:columns {"align":"wide"} -->

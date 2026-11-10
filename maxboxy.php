@@ -43,4 +43,5 @@ require_once 'classes/init.php';
 require_once 'classes/options.php';
 require_once 'classes/admin-columns.php';
 require_once 'classes/track.php';
-require_once 'patterns.php';
+require_once 'inc/patterns.php';
+require_once 'inc/abilities.php';

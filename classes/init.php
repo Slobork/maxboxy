@@ -309,7 +309,8 @@ if (! class_exists('Max_Boxy')) {
 
             $args = array(
                 'labels'              => $labels,
-                'supports'            => array( 'title', 'editor' ),
+                'supports'            => array( 'title', 'editor', 'revisions', 'author', 'page-attributes', 'custom-fields' ),
+                'taxonomies'          => array( 'maxboxy_cat', 'maxboxy_tag' ),
                 'show_in_rest'        => true,
                 'hierarchical'        => false,
                 'public'              => true,
@@ -352,7 +353,7 @@ if (! class_exists('Max_Boxy')) {
 
             $args = array(
                 'labels'              => $labels,
-                'supports'            => array( 'title', 'editor' ),
+                'supports'            => array( 'title', 'editor', 'revisions', 'author', 'page-attributes', 'custom-fields' ),
                 'taxonomies'          => array( 'maxboxy_cat', 'maxboxy_tag' ),
                 'show_in_rest'        => true,
                 'hierarchical'        => false,

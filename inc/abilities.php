@@ -72,12 +72,12 @@ if (! function_exists('maxboxy_register_abilities') ) {
             'input_schema' => [
                 'type'       => 'object',
                 'properties' => [
-                    'prompt' => [
+                    'panel_id' => [
                         'type'        => 'number',
-                        'description' => __( 'The id of the post to query', 'maxboxy' ),
+                        'description' => __( 'The ID of the post to query. It must belong to one of the MaxBoxy post types, i.e. the ID of a FloatAny or InjectAny post.', 'maxboxy' ),
                     ],
                 ],
-                'required' => [ 'prompt' ],
+                'required' => [ 'panel_id' ],
                 'additionalProperties' => false,
             ],
             'output_schema' => [
@@ -256,6 +256,12 @@ if (! function_exists('maxboxy_register_abilities') ) {
                                            // Esencially, check is it the same result (effect) each time? Idempotent does not check if the returned data is identical each time. Idempotence describes repeated calls’ effects, not whether the returned data is permanently identical.
                 ),
             ),
+            'input_schema' => [
+                'type'       => 'object',
+                'properties' => [],
+                'additionalProperties' => false,
+                'description' => __( 'No input is required.', 'maxboxy' ),
+            ],
             'output_schema' => [
                 'type'  => 'array',
                 'items' => [
@@ -282,18 +288,18 @@ if (! function_exists('maxboxy_register_abilities') ) {
 // This is the callback that runs when the ability is executed.
 if (! function_exists('maxboxy_ability_callback_get_maxboxy_panel_options') ) {
     function maxboxy_ability_callback_get_maxboxy_panel_options($input) {
-        $post_id = isset( $input['prompt'] ) ? absint( $input['prompt'] ) : 0;
+        $id = isset( $input['panel_id'] ) ? absint( $input['panel_id'] ) : 0;
 
-        if ( ! $post_id || ! get_post( $post_id ) ) {
+        if ( ! $id || ! get_post( $id ) ) {
             return array(
                 'post_type' => __( 'The post ID is incorrect.', 'maxboxy' ),
             );
         }
 
         // serialized data from post meta
-        $floatany = get_post_meta( $post_id, '_mb_floatany', true );
+        $floatany = get_post_meta( $id, '_mb_floatany', true );
         $floatany = is_array($floatany) ? $floatany : array();
-        $injectany = get_post_meta( $post_id, '_mb_injectany', true );
+        $injectany = get_post_meta( $id, '_mb_injectany', true );
         $injectany = is_array($injectany) ? $injectany : array();
         $merged_fa_ia = array_merge( (array) $floatany, (array) $injectany );
 
@@ -304,19 +310,19 @@ if (! function_exists('maxboxy_ability_callback_get_maxboxy_panel_options') ) {
         }
 
         // unserialized data from post meta
-        $auto_loading = get_post_meta( $post_id, 'auto_loading', true );
-        $location = get_post_meta( $post_id, 'location', true );
-        $test_mode = get_post_meta( $post_id, 'test_mode', true );
+        $auto_loading = get_post_meta( $id, 'auto_loading', true );
+        $location = get_post_meta( $id, 'location', true );
+        $test_mode = get_post_meta( $id, 'test_mode', true );
 
-        $conversion_options = get_post_meta( $post_id, '_mb_maxboxy_conversion', true );
-        $conditional_options = get_post_meta( $post_id, '_mb_maxboxy_conditionals', true );
+        $conversion_options = get_post_meta( $id, '_mb_maxboxy_conversion', true );
+        $conditional_options = get_post_meta( $id, '_mb_maxboxy_conditionals', true );
         
-        $splitter_info = class_exists('Max_Boxy_Splitter') ? get_post_meta( $post_id, '_mb_maxboxy_splitter_info', true ) : null;
+        $splitter_info = class_exists('Max_Boxy_Splitter') ? get_post_meta( $id, '_mb_maxboxy_splitter_info', true ) : null;
         $splitter_info = $splitter_info !== null ? array(
             'splitter_info' => $splitter_info['is_splitted_from'],
         ) : array();
 
-        $post_type = get_post_type($post_id);
+        $post_type = get_post_type($id);
 
         return array(
             'post_type' => $post_type,

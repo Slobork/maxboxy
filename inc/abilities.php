@@ -73,8 +73,9 @@ if (! function_exists('maxboxy_register_abilities') ) {
                 'type'       => 'object',
                 'properties' => [
                     'panel_id' => [
-                        'type'        => 'number',
-                        'description' => __( 'The ID of the post to query. It must belong to one of the MaxBoxy post types, i.e. the ID of a FloatAny or InjectAny post.', 'maxboxy' ),
+                        'type'        => 'integer',
+                        'minimum'     => 1,
+                        'description' => __( 'The ID of the post to query, must be a positive integer. It must belong to one of the MaxBoxy post types, i.e. the ID of a FloatAny or InjectAny post.', 'maxboxy' ),
                     ],
                 ],
                 'required' => [ 'panel_id' ],
@@ -300,20 +301,22 @@ if (! function_exists('maxboxy_register_abilities') ) {
                 'description' => __( 'No input is required.', 'maxboxy' ),
             ],
             'output_schema' => [
-                'type'  => 'array',
+                'type' => 'array',
                 'items' => [
-                    'type'       => 'object',
+                    'type' => 'object',
                     'properties' => [
-                        'name'       => [ 'type' => 'string' ],
-                        'title'      => [ 'type' => 'string' ],
+                        'name'        => [ 'type' => 'string' ],
+                        'title'       => [ 'type' => 'string' ],
                         'description' => [ 'type' => 'string' ],
-                        'categories' => [
+                        'categories'  => [
                             'type'  => 'array',
                             'items' => [ 'type' => 'string' ],
                         ],
                     ],
                     'required' => [ 'name', 'title', 'description', 'categories' ],
+                    'additionalProperties' => false,
                 ],
+                'description' => __( 'The output is an array of objects, each representing a registered block pattern provided by MaxBoxy.', 'maxboxy' ),
             ],
         ));
 

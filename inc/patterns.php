@@ -645,11 +645,11 @@ if (! defined('ABSPATH')) {
             // CTA 4
             register_block_pattern(
                 'maxboxy/cta-ctam2bc', [
-                'title'         => esc_html__('Message and two buttons with bg image', 'maxboxy'),
+                'title'         => esc_html__('Message and two buttons with wrinkled background image', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action'],
                 'categories'    => ['maxboxy-cta'],
-                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'","dimRatio":50,"customOverlayColor":"#f6f0de","isUserOverlayColor":true,"contentPosition":"bottom center","isDark":false,"sizeSlug":"full","style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
-                <div class="wp-block-cover is-light has-custom-content-position is-position-bottom-center" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background size-full" alt="" src="' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:spacer -->
+                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __DIR__)) .'","dimRatio":50,"customOverlayColor":"#f6f0de","isUserOverlayColor":true,"contentPosition":"bottom center","isDark":false,"sizeSlug":"full","style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover is-light has-custom-content-position is-position-bottom-center" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background size-full" alt="" src="' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __DIR__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:spacer -->
                 <div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
                 <!-- /wp:spacer -->
 
@@ -718,8 +718,8 @@ if (! defined('ABSPATH')) {
                 'title'         => esc_html__('Black Friday offer (cover with background image and gradient in opacity)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Black Friday'],
                 'categories'    => ['maxboxy-cta'],
-                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\",\"dimRatio\":60,\"gradient\":\"cool-to-warm-spectrum\",\"style\":{\"color\":{}}} -->
-                <div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim wp-block-cover__gradient-background has-background-gradient has-cool-to-warm-spectrum-gradient-background\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __FILE__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
+                'content'       => "<!-- wp:cover {\"url\":\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __DIR__)) ."\",\"dimRatio\":60,\"gradient\":\"cool-to-warm-spectrum\",\"style\":{\"color\":{}}} -->
+                <div class=\"wp-block-cover\"><span aria-hidden=\"true\" class=\"wp-block-cover__background has-background-dim-60 has-background-dim wp-block-cover__gradient-background has-background-gradient has-cool-to-warm-spectrum-gradient-background\"></span><img class=\"wp-block-cover__image-background\" alt=\"\" src=\"" .esc_url(plugins_url('/library/img/bg-bottom-highlight.jpeg', __DIR__)) ."\" data-object-fit=\"cover\"/><div class=\"wp-block-cover__inner-container\"><!-- wp:group -->
                 <div class=\"wp-block-group\"><!-- wp:spacer {\"height\":\"3vh\"} -->
                 <div style=\"height:3vh\" aria-hidden=\"true\" class=\"wp-block-spacer\"></div>
                 <!-- /wp:spacer -->
@@ -760,8 +760,8 @@ if (! defined('ABSPATH')) {
             $cta_cocwbi_content = [
                 'title'         => esc_html__('Christmas offer (cover with background image)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'","dimRatio":10,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
-                <div class="wp-block-cover" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url("/library/img/bg-christmas-three.jpeg", __FILE__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"placeholder":"Write title…","style":{"typography":{"textAlign":"center"}}} -->
+                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-christmas-three.jpeg', __DIR__)) .'","dimRatio":10,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}},"layout":{"type":"constrained"}} -->
+                <div class="wp-block-cover" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url('/library/img/bg-christmas-three.jpeg', __DIR__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim-10 has-background-dim"></span><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"placeholder":"Write title…","style":{"typography":{"textAlign":"center"}}} -->
                 <p class="has-text-align-center">HO HO HO!</p>
                 <!-- /wp:paragraph -->
 
@@ -837,8 +837,8 @@ if (! defined('ABSPATH')) {
             $cta_cwawbiatced_content = [
                 'title'         => esc_html__('Cover with a wrinkly background image and two colums (Ebook download)', 'maxboxy'),
                 'keywords'      => ['CTA', 'call to action', 'Christmass'],
-                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'","dimRatio":50,"customOverlayColor":"#f6f0de","isUserOverlayColor":true,"contentPosition":"center center","isDark":false,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}}} -->
-                <div class="wp-block-cover is-light" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __FILE__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
+                'content'       => '<!-- wp:cover {"url":"' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __DIR__)) .'","dimRatio":50,"customOverlayColor":"#f6f0de","isUserOverlayColor":true,"contentPosition":"center center","isDark":false,"style":{"spacing":{"padding":{"top":"2em","bottom":"2em"}}}} -->
+                <div class="wp-block-cover is-light" style="padding-top:2em;padding-bottom:2em"><img class="wp-block-cover__image-background" alt="" src="' .esc_url(plugins_url('/library/img/bg-wrinkly.jpeg', __DIR__)) .'" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-background-dim" style="background-color:#f6f0de"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
                 <div class="wp-block-columns"><!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"placeholder":"Write title…","style":{"typography":{"fontSize":"34px","textAlign":"center"}}} -->
                 <p class="has-text-align-center" style="font-size:34px"><strong><em>Get the FREE e-book</em></strong>!</p>
@@ -857,7 +857,7 @@ if (! defined('ABSPATH')) {
 
                 <!-- wp:column -->
                 <div class="wp-block-column"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"is-style-rounded"} -->
-                <figure class="wp-block-image size-full is-style-rounded"><img src="' .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) .'" alt=""/></figure>
+                <figure class="wp-block-image size-full is-style-rounded"><img src="' .esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __DIR__)) .'" alt=""/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
@@ -1288,7 +1288,7 @@ if (! defined('ABSPATH')) {
                 'categories'    => ['maxboxy-signups'],
                 'content'       => '<!-- wp:cover {"customOverlayColor":"#4fb0e8","isUserOverlayColor":true,"isDark":false,"metadata":{"categories":["maxboxy-signups"],"patternName":"maxboxy/signup-iacbwai","name":"Common newsletter elements - in a cover block with an image"}} -->
                 <div class="wp-block-cover is-light"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#4fb0e8"></span><div class="wp-block-cover__inner-container"><!-- wp:image {"sizeSlug":"large","className":"is-style-default"} -->
-                <figure class="wp-block-image size-large is-style-default"><img src="' .esc_url(plugins_url('/library/img/news-coffee-glasses.jpg', __FILE__)) .'" alt="News and Coffee"/></figure>
+                <figure class="wp-block-image size-large is-style-default"><img src="' .esc_url(plugins_url('/library/img/news-coffee-glasses.jpg', __DIR__)) .'" alt="News and Coffee"/></figure>
                 <!-- /wp:image -->
 
                 <!-- wp:group {"layout":{"type":"constrained"}} -->
@@ -1334,7 +1334,7 @@ if (! defined('ABSPATH')) {
 
                 <!-- wp:column {"verticalAlignment":"center"} -->
                 <div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-rounded"} -->
-                <figure class="wp-block-image aligncenter size-full is-style-rounded"><img src="'.esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) .'" alt="Coffee and Tablet"/></figure>
+                <figure class="wp-block-image aligncenter size-full is-style-rounded"><img src="'.esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __DIR__)) .'" alt="Coffee and Tablet"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column --></div>
                 <!-- /wp:columns --></div></div>
@@ -1354,7 +1354,7 @@ if (! defined('ABSPATH')) {
                 <div class="wp-block-cover fany-mt0 fany-mb0"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#0b6ab7"></span><div class="wp-block-cover__inner-container"><!-- wp:columns -->
                 <div class="wp-block-columns"><!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
                 <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"center","className":"is-style-rounded"} -->
-                <figure class="wp-block-image aligncenter size-full is-style-rounded"><img src="'.esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __FILE__)) .'" alt="Coffee and Tablet"/></figure>
+                <figure class="wp-block-image aligncenter size-full is-style-rounded"><img src="'.esc_url(plugins_url('/library/img/coffee-and-tablet.jpeg', __DIR__)) .'" alt="Coffee and Tablet"/></figure>
                 <!-- /wp:image --></div>
                 <!-- /wp:column -->
 

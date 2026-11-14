@@ -90,145 +90,182 @@ if (! function_exists('maxboxy_register_abilities') ) {
 
                     'type_and_style_options' => [
                         'type' => 'object',
-                            'properties' => [
-                                'panel_popup_style' => [ 'type' => 'string' ],
-                                'zindex' => [ 'type' => 'string' ],
-                                'use_overlay' => [ 'type' => 'string' ],
-                                
-                                // for injectAny
-                                'set_sticky' => [ 'type' => 'string' ],
-                                'box_align' => [ 'type' => 'string' ],
+                        'properties' => [
+                            'panel_popup_style' => [ 'type' => 'string' ],
+                            'zindex' => [ 'type' => 'string' ],
+                            'use_overlay' => [ 'type' => 'string' ],
+                            
+                            // for injectAny
+                            'set_sticky' => [ 'type' => 'string' ],
+                            'box_align' => [ 'type' => 'string' ],
 
-                                'panel_type' => [ 'type' => 'string' ],
-                                'panel_roles' => [ 'type' => 'array', 'items' => [ 'type' => 'string' ] ],
-                                'rotator_on' => [ 'type' => 'string' ],
-                                'rotator_off' => [ 'type' => 'string' ],
-                                'rotator_close_pause' => [ 'type' => 'string' ],
-                                'rotator_repeat' => [ 'type' => 'string' ],
-                                'panel_additional_lable' => [ 'type' => 'string' ],
-                                'add_classes' => [ 'type' => 'string' ],
-                                'panel_popup_bg' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'background-color' => [ 'type' => 'string' ],
-                                        'background-image' => [
-                                            'type' => 'object',
-                                            'properties' => [
-                                                'url' => [ 'type' => 'string' ],
-                                                'id' => [ 'type' => 'string' ],
-                                                'width' => [ 'type' => 'string' ],
-                                                'height' => [ 'type' => 'string' ],
-                                                'thumbnail' => [ 'type' => 'string' ],
-                                                'alt' => [ 'type' => 'string' ],
-                                                'title' => [ 'type' => 'string' ],
-                                                'description' => [ 'type' => 'string' ],
-                                            ],
-                                            'additionalProperties' => false,
+                            'panel_type' => [ 'type' => 'string' ],
+                            'panel_roles' => [ 'type' => 'array', 'items' => [ 'type' => 'string' ] ],
+                            'rotator_on' => [ 'type' => 'string' ],
+                            'rotator_off' => [ 'type' => 'string' ],
+                            'rotator_close_pause' => [ 'type' => 'string' ],
+                            'rotator_repeat' => [ 'type' => 'string' ],
+                            'panel_additional_lable' => [ 'type' => 'string' ],
+                            'add_classes' => [ 'type' => 'string' ],
+                            'panel_popup_bg' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'background-color' => [ 'type' => 'string' ],
+                                    'background-image' => [
+                                        'type' => 'object',
+                                        'properties' => [
+                                            'url' => [ 'type' => 'string' ],
+                                            'id' => [ 'type' => 'string' ],
+                                            'width' => [ 'type' => 'string' ],
+                                            'height' => [ 'type' => 'string' ],
+                                            'thumbnail' => [ 'type' => 'string' ],
+                                            'alt' => [ 'type' => 'string' ],
+                                            'title' => [ 'type' => 'string' ],
+                                            'description' => [ 'type' => 'string' ],
                                         ],
-                                        'background-position' => [ 'type' => 'string' ],
-                                        'background-repeat' => [ 'type' => 'string' ],
-                                        'background-attachment' => [ 'type' => 'string' ],
-                                        'background-size' => [ 'type' => 'string' ],
                                     ],
-                                    'additionalProperties' => false,
+                                    'background-position' => [ 'type' => 'string' ],
+                                    'background-repeat' => [ 'type' => 'string' ],
+                                    'background-attachment' => [ 'type' => 'string' ],
+                                    'background-size' => [ 'type' => 'string' ],
                                 ],
-                                'panel_popup_color' => [ 'type' => 'string' ],
-                                'panel_shut_bg' => [ 'type' => 'string' ],
-                                'panel_shut_color' => [ 'type' => 'string' ],
-                                'size_1' => [
-                                    'type' => 'object',
-                                    'properties' => [ 'width' => [ 'type' => 'string' ], 'unit' => [ 'type' => 'string' ] ],
-                                    'additionalProperties' => false,
-                                ],
-                                'height_100' => [ 'type' => 'string' ],
-                                'size_2' => [
-                                    'type' => 'object',
-                                    'properties' => [ 'width' => [ 'type' => 'string' ], 'unit' => [ 'type' => 'string' ] ],
-                                    'additionalProperties' => false,
-                                ],
-                                'height_100_2' => [ 'type' => 'string' ],
-                                'panel_padding' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
-                                        'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
-                                        'unit' => [ 'type' => 'string' ],
-                                    ],
-                                    'additionalProperties' => false,
-                                ],
-                                'panel_border' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
-                                        'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
-                                        'style' => [ 'type' => 'string' ], 'color' => [ 'type' => 'string' ],
-                                    ],
-                                    'additionalProperties' => false,
-                                ],
-                                'panel_border_radius' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
-                                        'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
-                                        'unit' => [ 'type' => 'string' ],
-                                    ],
-                                    'additionalProperties' => false,
-                                ],
-                                'unset_toggler' => [ 'type' => 'string' ],
-                                'button_open_icon' => [ 'type' => 'string' ],
-                                'button_open_svg' => [ 'type' => 'string' ],
-                                'button_open_img' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'url' => [ 'type' => 'string' ], 'id' => [ 'type' => 'string' ],
-                                        'width' => [ 'type' => 'string' ], 'height' => [ 'type' => 'string' ],
-                                        'thumbnail' => [ 'type' => 'string' ], 'alt' => [ 'type' => 'string' ],
-                                        'title' => [ 'type' => 'string' ], 'description' => [ 'type' => 'string' ],
-                                    ],
-                                    'additionalProperties' => false,
-                                ],
-                                'button_close_icon' => [ 'type' => 'string' ],
-                                'button_close_svg' => [ 'type' => 'string' ],
-                                'button_close_img' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'url' => [ 'type' => 'string' ], 'id' => [ 'type' => 'string' ],
-                                        'width' => [ 'type' => 'string' ], 'height' => [ 'type' => 'string' ],
-                                        'thumbnail' => [ 'type' => 'string' ], 'alt' => [ 'type' => 'string' ],
-                                        'title' => [ 'type' => 'string' ], 'description' => [ 'type' => 'string' ],
-                                    ],
-                                    'additionalProperties' => false,
-                                ],
-                                'closer_size' => [ 'type' => 'string' ],
-                                'toggler_pos' => [ 'type' => 'string' ],
-                                'closer_styling' => [ 'type' => 'array', 'items' => [ 'type' => 'string' ] ],
-                                'trigger_additional_message' => [ 'type' => 'string' ],
-                                'trigger_margin' => [
-                                    'type' => 'object',
-                                    'properties' => [
-                                        'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
-                                        'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
-                                        'unit' => [ 'type' => 'string' ],
-                                    ],
-                                    'additionalProperties' => false,
-                                ],
-                                'trigger_margin_unit_top' => [ 'type' => 'string' ],
-                                'trigger_margin_unit_left' => [ 'type' => 'string' ],
-                                'trigger_margin_unit_right' => [ 'type' => 'string' ],
-                                'trigger_margin_unit_bottom' => [ 'type' => 'string' ],
-                                'eliminate_margin_closer' => [ 'type' => 'string' ],
-                                'trigger_anim' => [ 'type' => 'string' ],
-                                'trigger_anim_echo_interval' => [ 'type' => 'string' ],                            
                             ],
-                            'required' => [ 'panel_type' ],
+                            'panel_popup_color' => [ 'type' => 'string' ],
+                            'panel_shut_bg' => [ 'type' => 'string' ],
+                            'panel_shut_color' => [ 'type' => 'string' ],
+                            'size_1' => [
+                                'type' => 'object',
+                                'properties' => [ 'width' => [ 'type' => 'string' ], 'unit' => [ 'type' => 'string' ] ],
+                            ],
+                            'height_100' => [ 'type' => 'string' ],
+                            'size_2' => [
+                                'type' => 'object',
+                                'properties' => [ 'width' => [ 'type' => 'string' ], 'unit' => [ 'type' => 'string' ] ],
+                            ],
+                            'height_100_2' => [ 'type' => 'string' ],
+                            'panel_padding' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
+                                    'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
+                                    'unit' => [ 'type' => 'string' ],
+                                ],
+                            ],
+                            'panel_border' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
+                                    'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
+                                    'style' => [ 'type' => 'string' ], 'color' => [ 'type' => 'string' ],
+                                ],
+                            ],
+                            'panel_border_radius' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
+                                    'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
+                                    'unit' => [ 'type' => 'string' ],
+                                ],
+                            ],
+                            'unset_toggler' => [ 'type' => 'string' ],
+                            'button_open_icon' => [ 'type' => 'string' ],
+                            'button_open_svg' => [ 'type' => 'string' ],
+                            'button_open_img' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'url' => [ 'type' => 'string' ], 'id' => [ 'type' => 'string' ],
+                                    'width' => [ 'type' => 'string' ], 'height' => [ 'type' => 'string' ],
+                                    'thumbnail' => [ 'type' => 'string' ], 'alt' => [ 'type' => 'string' ],
+                                    'title' => [ 'type' => 'string' ], 'description' => [ 'type' => 'string' ],
+                                ],
+                            ],
+                            'button_close_icon' => [ 'type' => 'string' ],
+                            'button_close_svg' => [ 'type' => 'string' ],
+                            'button_close_img' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'url' => [ 'type' => 'string' ], 'id' => [ 'type' => 'string' ],
+                                    'width' => [ 'type' => 'string' ], 'height' => [ 'type' => 'string' ],
+                                    'thumbnail' => [ 'type' => 'string' ], 'alt' => [ 'type' => 'string' ],
+                                    'title' => [ 'type' => 'string' ], 'description' => [ 'type' => 'string' ],
+                                ],
+                            ],
+                            'closer_size' => [ 'type' => 'string' ],
+                            'toggler_pos' => [ 'type' => 'string' ],
+                            'closer_styling' => [ 'type' => 'array', 'items' => [ 'type' => 'string' ] ],
+                            'trigger_additional_message' => [ 'type' => 'string' ],
+                            'trigger_margin' => [
+                                'type' => 'object',
+                                'properties' => [
+                                    'top' => [ 'type' => 'string' ], 'right' => [ 'type' => 'string' ],
+                                    'bottom' => [ 'type' => 'string' ], 'left' => [ 'type' => 'string' ],
+                                    'unit' => [ 'type' => 'string' ],
+                                ],
+                            ],
+                            'trigger_margin_unit_top' => [ 'type' => 'string' ],
+                            'trigger_margin_unit_left' => [ 'type' => 'string' ],
+                            'trigger_margin_unit_right' => [ 'type' => 'string' ],
+                            'trigger_margin_unit_bottom' => [ 'type' => 'string' ],
+                            'eliminate_margin_closer' => [ 'type' => 'string' ],
+                            'trigger_anim' => [ 'type' => 'string' ],
+                            'trigger_anim_echo_interval' => [ 'type' => 'string' ],                            
                         ],
-
-                    'conversion_options' => [ 'type' => 'object' ],
-                    'conditional_options' => [ 'type' => 'object' ],
-                    'splitter_info' => [ 'type' => 'string' ],
+                        'required' => [ 'panel_type' ],
+                    ],
+                    'conversion_options' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'goal' => [ 'type' => 'string' ],
+                            'goal_form_submit' => [ 'type' => 'string' ],
+                            'goal_click_target_attr' => [ 'type' => 'string' ],
+                            'goal_attr_value' => [ 'type' => 'string' ],
+                            'goal_after_banish' => [ 'type' => ['string', 'boolean', 'null'] ],
+                            'track_loggedin_users' => [ 'type' => ['string', 'boolean', 'null'] ],
+                        ],
+                    ],
+                    'conditional_options' => [
+                        'type' => 'object',
+                        'properties' => [
+                            'set_particular_pages' => [ 'type' => 'string' ],
+                            'post_types_add' => [ 'type' => 'string' ],
+                            'posts_by_id' => [ 'type' => 'string' ],
+                            'by_regex' => [ 'type' => 'string' ],
+                            'all_archives' => [ 'type' => 'string' ],
+                            'all_cats' => [ 'type' => 'string' ],
+                            'all_tags' => [ 'type' => 'string' ],
+                            'all_authors' => [ 'type' => 'string' ],
+                            'all_dates' => [ 'type' => 'string' ],
+                            'all_product_cats' => [ 'type' => 'string' ],
+                            'all_product_tags' => [ 'type' => 'string' ],
+                            'appear_if_elm_present' => [ 'type' => 'string' ],
+                            'appear_if_elm_present_attr' => [ 'type' => 'string' ],
+                            'appear_after_event' => [ 'type' => 'string' ],
+                            'appear_after_time' => [ 'type' => 'string' ],
+                            'appear_after_scroll' => [ 'type' => 'string' ],
+                            'appear_after_elmview_attr' => [ 'type' => 'string' ],
+                            'appear_after_elmview_value' => [ 'type' => 'string' ],
+                            'appear_after_elmview_repeat' => [ 'type' => 'string' ],
+                            'appear_on_pageviews' => [ 'type' => 'string' ],
+                            'pageviews_number' => [ 'type' => 'string' ],
+                            'appear_users' => [ 'type' => 'string' ],
+                            'appear_for_devices' => [ 'type' => 'string' ],
+                            'appear_by_referrer' => [ 'type' => 'string' ],
+                            'appear_for_referrer_host' => [ 'type' => 'string' ],
+                            'appear_for_referrer_url' => [ 'type' => 'string' ],
+                            'appear_for_country' => [ 'type' => 'string' ],
+                            'appear_for_city' => [ 'type' => 'string' ],
+                            'appear_date_start' => [ 'type' => 'string' ],
+                            'appear_time_start' => [ 'type' => 'string' ],
+                            'appear_date_end' => [ 'type' => 'string' ],
+                            'appear_time_end' => [ 'type' => 'string' ],
+                            'recurring_time_start' => [ 'type' => 'string' ],
+                            'recurring_time_end' => [ 'type' => 'string' ],
+                        ],
+                    ],
+                    'splitter_info' => [ 'type' => ['string', 'null'] ],
                 ],
-                //'required' => [ 'location' ],
-                'additionalProperties' => false,
+                'required' => [ 'post_type' ],
+                'description' => __( 'Result is pulled from the various post meta fields: "auto_loading", "location" and "test_mode" are data from each post no matter the type InjectAny or FloatAny, while "post_type" is the generated post type. Further, under the "type_and_style_options" parameter is the data that is pulled from "_mb_injectany" or "_mb_floatany" post meta fields, based on which post type it is for the specified post ID. Also, other parameters are post type independent, "conversion_options" and "conditional_options", are getting the data from the meta fields "_mb_maxboxy_conversion" and "_mb_maxboxy_conditionals" respectively. "splitter_info" parameter contains information received from the "_mb_maxboxy_splitter_info" meta field if the MaxBoxy splitter Addon is active.', 'maxboxy' ),
             ],
             
         ));
@@ -315,7 +352,10 @@ if (! function_exists('maxboxy_ability_callback_get_maxboxy_panel_options') ) {
         $test_mode = get_post_meta( $id, 'test_mode', true );
 
         $conversion_options = get_post_meta( $id, '_mb_maxboxy_conversion', true );
+        $conversion_options = $conversion_options['box_options'] ?? (object) array();
+        
         $conditional_options = get_post_meta( $id, '_mb_maxboxy_conditionals', true );
+        $conditional_options = $conditional_options['box_options'] ?? (object) array();
         
         $splitter_info = class_exists('Max_Boxy_Splitter') ? get_post_meta( $id, '_mb_maxboxy_splitter_info', true ) : null;
         $splitter_info = $splitter_info !== null ? array(
@@ -330,8 +370,8 @@ if (! function_exists('maxboxy_ability_callback_get_maxboxy_panel_options') ) {
             'location' => $location,
             'test_mode' => $test_mode,
             'type_and_style_options' => $merged_fa_ia['box_options'],
-            'conversion_options' => $conversion_options['box_options'] ?? array(),
-            'conditional_options' => $conditional_options['box_options'] ?? array(),
+            'conversion_options' => $conversion_options,
+            'conditional_options' => $conditional_options,
         )+ $splitter_info;
 
     }

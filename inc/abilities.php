@@ -57,7 +57,7 @@ if (! function_exists('maxboxy_register_abilities') ) {
                     'public' => true,
                 ),
                 'annotations'  => array(
-                    'readonly'    => false,
+                    'readonly'    => true,
                     'destructive' => false,
                     'idempotent'  => true, // Idempotent describes what happens if the same ability runs more than once with the same input:
                                            // true — means repeating it has no additional effect after the first run. For example, “set the page title to About” is idempotent: running it again leaves the title as About. 

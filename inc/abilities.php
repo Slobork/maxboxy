@@ -391,7 +391,7 @@ if (! function_exists('maxboxy_ability_callback_patterns_list') ) {
         $output = [];
         
         foreach ( $all_patterns as $pattern ) {
-            if ( strpos( $pattern['name'], 'maxboxy/' ) !== 0 ) {
+            if ( ! str_starts_with( $pattern['name'], 'maxboxy/' ) ) {
                 continue;
             }
 

@@ -3,7 +3,7 @@
  * Plugin Name:         MaxBoxy
  * Description:         Make Conversion Boxes, Popups, Floats and Inject Any Content in a WorsPress way!
  *
- * PHP version  7.4
+ * PHP version  8.0
  *
  * @category Conversion
  * @package  MaxBoxy

@@ -274,7 +274,7 @@ if (! function_exists('maxboxy_register_abilities') ) {
         // Register the ability to list all block patterns.
         wp_register_ability( 'maxboxy/list-patterns', array(
             'label' => __( 'MaxBoxy - List Patterns', 'maxboxy' ),
-            'description' => __( 'Lists all patterns provided by the MaxBoxy (both, provided by the basic and Pro plugin).', 'maxboxy' ),
+            'description' => __( 'Lists MaxBoxy pattern categories by default. Set category to list patterns in that category. Set pattern_name to retrieve one pattern\'s block markup.', 'maxboxy' ),
             'category' => 'maxboxy-ai-tools',
             'execute_callback' => 'maxboxy_ability_callback_patterns_list',
             'permission_callback' => function() {
@@ -296,27 +296,41 @@ if (! function_exists('maxboxy_register_abilities') ) {
             ),
             'input_schema' => [
                 'type'       => 'object',
-                'properties' => [],
+                'properties' => [
+                    'categories' => [
+                        'type'        => 'boolean',
+                        'description' => __( 'Return the available MaxBoxy pattern categories when true. Defaults to true; ignored when category or pattern_name is provided.', 'maxboxy' ),
+                        'default'     => true,
+                    ],
+                    'category' => [
+                        'type'        => 'string',
+                        'description' => __( 'Optional exact category slug. When provided, return all MaxBoxy patterns assigned to this category.', 'maxboxy' ),
+                    ],
+                    'pattern_name' => [
+                        'type'        => 'string',
+                        'description' => __( 'Optional exact pattern name, such as "maxboxy/cookies-1", to return one pattern and its content.', 'maxboxy' ),
+                    ],
+                ],
                 'additionalProperties' => false,
-                'description' => __( 'No input is required.', 'maxboxy' ),
             ],
             'output_schema' => [
-                'type' => 'array',
+                'type'  => 'array',
                 'items' => [
-                    'type' => 'object',
+                    'type'       => [ 'string', 'object' ],
                     'properties' => [
-                        'name'        => [ 'type' => 'string' ],
-                        'title'       => [ 'type' => 'string' ],
+                        'name'       => [ 'type' => 'string' ],
+                        'title'      => [ 'type' => 'string' ],
                         'description' => [ 'type' => 'string' ],
-                        'categories'  => [
+                        'categories' => [
                             'type'  => 'array',
                             'items' => [ 'type' => 'string' ],
                         ],
+                        'content' => [ 'type' => 'string' ],
                     ],
                     'required' => [ 'name', 'title', 'description', 'categories' ],
                     'additionalProperties' => false,
                 ],
-                'description' => __( 'The output is an array of objects, each representing a registered block pattern provided by MaxBoxy.', 'maxboxy' ),
+                'description' => __( 'Returns category slugs by default. When category or pattern_name is provided, returns pattern objects with name, title, description, and categories. A specified pattern_name returns one pattern and its content. An unmatched category or pattern_name returns an error explaining that the input may be misspelled.', 'maxboxy' )
             ],
         ));
 
@@ -383,29 +397,112 @@ if (! function_exists('maxboxy_ability_callback_get_maxboxy_panel_options') ) {
 
 // This is the callback that runs when the ability is executed.
 if (! function_exists('maxboxy_ability_callback_patterns_list') ) {
-    function maxboxy_ability_callback_patterns_list() {
+    function maxboxy_ability_callback_patterns_list( $input = array() ) {
 
+        $input = is_array( $input ) ? $input : array();
+        $list_categories = ! array_key_exists( 'categories', $input ) || ! empty( $input['categories'] );
+        $category = isset( $input['category'] ) && is_string( $input['category'] ) ? trim( $input['category'] ) : '';
+        $pattern_name = isset( $input['pattern_name'] ) && is_string( $input['pattern_name'] ) ? trim( $input['pattern_name'] ) : '';
+ 
         $registry = WP_Block_Patterns_Registry::get_instance();
         $all_patterns = $registry->get_all_registered();
 
-        $output = [];
-        
+        $maxboxy_patterns = array();
         foreach ( $all_patterns as $pattern ) {
-            if ( ! str_starts_with( $pattern['name'], 'maxboxy/' ) ) {
+            $name = isset( $pattern['name'] ) && is_string( $pattern['name'] ) ? $pattern['name'] : '';
+
+            if ( ! str_starts_with( $name, 'maxboxy/' ) ) {
                 continue;
             }
 
-            $output[] = [
-                'name'       => $pattern['name'],
-                'title'      => $pattern['title'],
-                'description' => isset( $pattern['description'] ) ? $pattern['description'] : '',
-                'categories' => isset( $pattern['categories'] ) ? $pattern['categories'] : [],
-            ];
+            $maxboxy_patterns[] = $pattern;
         }
 
-        usort( $output, function ( $a, $b ) {
+        if ( '' === $pattern_name && '' === $category && $list_categories ) {
+            $categories = array();
+
+            foreach ( $maxboxy_patterns as $pattern ) {
+                $pattern_categories = isset( $pattern['categories'] ) && is_array( $pattern['categories'] )
+                    ? $pattern['categories']
+                    : array();
+
+                foreach ( $pattern_categories as $pattern_category ) {
+                    if ( is_string( $pattern_category ) && '' !== $pattern_category ) {
+                        $categories[ $pattern_category ] = true;
+                    }
+                }
+            }
+
+            $output = array_keys( $categories );
+            sort( $output, SORT_NATURAL | SORT_FLAG_CASE );
+
+            return $output;
+        }
+
+        $output = array();
+        foreach ( $maxboxy_patterns as $pattern ) {
+            $name = $pattern['name'];
+
+            if ( '' !== $pattern_name && $name !== $pattern_name ) {
+                continue;
+            }
+
+            $pattern_categories = isset( $pattern['categories'] ) && is_array( $pattern['categories'] )
+                ? array_values( array_filter( $pattern['categories'], 'is_string' ) )
+                : array();
+
+            if ( '' !== $category && ! in_array( $category, $pattern_categories, true ) ) {
+                continue;
+            }
+
+            $item = array(
+                'name'        => $name,
+                'title'       => isset( $pattern['title'] ) ? $pattern['title'] : '',
+                'description' => isset( $pattern['description'] ) ? $pattern['description'] : '',
+                'categories'  => $pattern_categories,
+            );
+
+            if (! empty($pattern_name) && isset( $pattern['content'] ) ) {
+                $item['content'] = $pattern['content'];
+            }
+
+            $output[] = $item;
+        }
+
+        usort( $output, static function ( $a, $b ) {
             return strcmp( $a['name'], $b['name'] );
         } );
+
+        if ( empty( $output ) && '' !== $pattern_name ) {
+            if ( '' !== $category ) {
+                return new WP_Error(
+                    'maxboxy_pattern_not_found',
+                    sprintf(
+                        __( 'No pattern named "%1$s" was found in category "%2$s". The result is empty; check both values for misspellings.', 'maxboxy' ),
+                        $pattern_name,
+                        $category
+                    )
+                );
+            }
+
+            return new WP_Error(
+                'maxboxy_pattern_not_found',
+                sprintf(
+                    __( 'No pattern named "%s" was found. The result is empty; check the pattern name for a misspelling, or list patterns in a category to see valid names.', 'maxboxy' ),
+                    $pattern_name
+                )
+            );
+        }
+
+        if ( empty( $output ) && '' !== $category ) {
+            return new WP_Error(
+                'maxboxy_pattern_category_not_found',
+                sprintf(
+                    __( 'No MaxBoxy patterns were found in category "%s". The result is empty; check the category slug for a misspelling, or request the available categories.', 'maxboxy' ),
+                    $category
+                )
+            );
+        }
 
         return $output;
 

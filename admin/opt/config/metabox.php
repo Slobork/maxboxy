@@ -1296,7 +1296,7 @@ if (! function_exists('maxboxy_metabox_settings')) {
         */
         CSF::createMetabox(
             '_mb_floatany', array(
-                'title'       => esc_html__('Type and style', 'maxboxy'),
+                'title'       => esc_html__('Style', 'maxboxy'),
                 'post_type'   => 'float_any',
                 'context'     => 'side',
                 'priority'    => 'default',
@@ -1327,7 +1327,7 @@ if (! function_exists('maxboxy_metabox_settings')) {
         */
         CSF::createMetabox(
             '_mb_injectany', array(
-                'title'       => esc_html__('Type and style', 'maxboxy'),
+                'title'       => esc_html__('Style', 'maxboxy'),
                 'post_type'   => 'inject_any',
                 'context'     => 'side',
                 'priority'    => 'default',

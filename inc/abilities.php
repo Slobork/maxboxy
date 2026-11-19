@@ -42,13 +42,18 @@ if (! function_exists('maxboxy_register_abilities') ) {
         }
 
         // Register the ability to list all block patterns.
-        wp_register_ability( 'maxboxy/get-maxboxy-panel-options', array(
-            'label' => __( 'MaxBoxy - Get MaxBoxy Panel\'s Options', 'maxboxy' ),
-            'description' => __( 'Enter the ID of the MaxBoxy panel post (either the ID of FloatAny or InjectAny) to get its options.', 'maxboxy' ),
+        wp_register_ability( 'maxboxy/panel-options', array(
+            'label' => __( 'MaxBoxy - Get or Update MaxBoxy Panel Options', 'maxboxy' ),
+            'description' => __( 'Read the options for a FloatAny or InjectAny panel, or update one existing option by providing its group, key, and value.', 'maxboxy' ),
             'category' => 'maxboxy-ai-tools',
             'execute_callback' => 'maxboxy_ability_callback_get_maxboxy_panel_options',
-            'permission_callback' => function() {
-                return current_user_can( 'edit_posts' );
+            'permission_callback' => function( $input ) {
+                $panel_id = isset( $input['panel_id'] ) ? absint( $input['panel_id'] ) : 0;
+                if ( ! $panel_id || ! get_post( $panel_id ) ) {
+                    return new WP_Error( 'maxboxy_invalid_panel', __( 'A valid panel ID is required.', 'maxboxy' ) );
+                }
+
+                return current_user_can( 'edit_post', $panel_id );
             },
             'meta' => array(
                 'public'       => true,
@@ -57,8 +62,8 @@ if (! function_exists('maxboxy_register_abilities') ) {
                     'public' => true,
                 ),
                 'annotations'  => array(
-                    'readonly'    => true,
-                    'destructive' => false,
+                    'readonly'    => false,
+                    'destructive' => true,
                     'idempotent'  => true, // Idempotent describes what happens if the same ability runs more than once with the same input:
                                            // true — means repeating it has no additional effect after the first run. For example, “set the page title to About” is idempotent: running it again leaves the title as About. 
                                            // Esencially, check is it the same result (effect) each time? Idempotent does not check if the returned data is identical each time. Idempotence describes repeated calls’ effects, not whether the returned data is permanently identical.
@@ -77,6 +82,26 @@ if (! function_exists('maxboxy_register_abilities') ) {
                         'minimum'     => 1,
                         'description' => __( 'The ID of the post to query, must be a positive integer. It must belong to one of the MaxBoxy post types, i.e. the ID of a FloatAny or InjectAny post.', 'maxboxy' ),
                     ],
+                    'action' => [
+                        'type'        => 'string',
+                        'enum'        => [ 'read', 'update' ],
+                        'default'     => 'read',
+                        'description' => __( 'Read the panel options (default), or update one existing option.', 'maxboxy' ),
+                    ],
+                    'option_group' => [
+                        'type'        => 'string',
+                        'enum'        => [ '', 'loading_options', 'style_options', 'conversion_options', 'conditional_options' ],
+                        'default'     => '',
+                        'description' => __( 'Leave empty when reading. Required when action is update. Use loading_options for auto_loading, location, or test_mode.', 'maxboxy' ),
+                    ],
+                    'option_key' => [
+                        'type'        => 'string',
+                        'description' => __( 'Existing option key to update. Nested option objects are replaced as a whole. Required when action is update.', 'maxboxy' ),
+                    ],
+                    'option_value' => [
+                        'type'        => [ 'string', 'number', 'integer', 'boolean', 'object', 'array', 'null' ],
+                        'description' => __( 'New value for the option. Use the same shape and value type as the existing option.', 'maxboxy' ),
+                    ],
                 ],
                 'required' => [ 'panel_id' ],
                 'additionalProperties' => false,
@@ -89,7 +114,7 @@ if (! function_exists('maxboxy_register_abilities') ) {
                     'location' => [ 'type' => 'string' ],
                     'test_mode' => [ 'type' => 'string' ],
 
-                    'type_and_style_options' => [
+                    'style_options' => [
                         'type' => 'object',
                         'properties' => [
                             'panel_popup_style' => [ 'type' => 'string' ],
@@ -266,7 +291,7 @@ if (! function_exists('maxboxy_register_abilities') ) {
                     'splitter_info' => [ 'type' => ['string', 'null'] ],
                 ],
                 'required' => [ 'post_type' ],
-                'description' => __( 'Result is pulled from the various post meta fields: "auto_loading", "location" and "test_mode" are data from each post no matter the type InjectAny or FloatAny, while "post_type" is the generated post type. Further, under the "type_and_style_options" parameter is the data that is pulled from "_mb_injectany" or "_mb_floatany" post meta fields, based on which post type it is for the specified post ID. Also, other parameters are post type independent, "conversion_options" and "conditional_options", are getting the data from the meta fields "_mb_maxboxy_conversion" and "_mb_maxboxy_conditionals" respectively. "splitter_info" parameter contains information received from the "_mb_maxboxy_splitter_info" meta field if the MaxBoxy splitter Addon is active.', 'maxboxy' ),
+                'description' => __( 'Result is pulled from the various post meta fields: "auto_loading", "location" and "test_mode" are data from each post no matter the type InjectAny or FloatAny, while "post_type" is the generated post type. Further, under the "style_options" parameter is the data that is pulled from "_mb_injectany" or "_mb_floatany" post meta fields, based on which post type it is for the specified post ID. Also, other parameters are post type independent, "conversion_options" and "conditional_options", are getting the data from the meta fields "_mb_maxboxy_conversion" and "_mb_maxboxy_conditionals" respectively. "splitter_info" parameter contains information received from the "_mb_maxboxy_splitter_info" meta field if the MaxBoxy splitter Addon is active.', 'maxboxy' ),
             ],
             
         ));
@@ -341,56 +366,111 @@ if (! function_exists('maxboxy_register_abilities') ) {
 
 // This is the callback that runs when the ability is executed.
 if (! function_exists('maxboxy_ability_callback_get_maxboxy_panel_options') ) {
-    function maxboxy_ability_callback_get_maxboxy_panel_options($input) {
+    function maxboxy_ability_callback_get_maxboxy_panel_options( $input ) {
+        $input = is_array( $input ) ? $input : array();
         $id = isset( $input['panel_id'] ) ? absint( $input['panel_id'] ) : 0;
+        $post = $id ? get_post( $id ) : null;
 
-        if ( ! $id || ! get_post( $id ) ) {
-            return array(
-                'post_type' => __( 'The post ID is incorrect.', 'maxboxy' ),
-            );
+        if ( ! $post ) {
+            return new WP_Error( 'maxboxy_invalid_panel', __( 'The post ID is invalid.', 'maxboxy' ) );
         }
 
-        // serialized data from post meta
-        $floatany = get_post_meta( $id, '_mb_floatany', true );
-        $floatany = is_array($floatany) ? $floatany : array();
-        $injectany = get_post_meta( $id, '_mb_injectany', true );
-        $injectany = is_array($injectany) ? $injectany : array();
-        $merged_fa_ia = array_merge( (array) $floatany, (array) $injectany );
-
-        if ( ! isset( $merged_fa_ia ) || ! is_array( $merged_fa_ia ) || ! isset( $merged_fa_ia['box_options'] ) || ! is_array( $merged_fa_ia['box_options'] ) ) {
-            return array(
-                'post_type' => __( 'No MaxBoxy options were found for this post ID.', 'maxboxy' ),
-            );
+        $post_type = get_post_type( $id );
+        $post_meta_key = 'inject_any' === $post_type ? '_mb_injectany' : ( 'float_any' === $post_type ? '_mb_floatany' : '' );
+        if ( '' === $post_meta_key ) {
+            return new WP_Error( 'maxboxy_invalid_panel_type', __( 'The post must be a FloatAny or InjectAny panel.', 'maxboxy' ) );
         }
 
-        // unserialized data from post meta
-        $auto_loading = get_post_meta( $id, 'auto_loading', true );
-        $location = get_post_meta( $id, 'location', true );
-        $test_mode = get_post_meta( $id, 'test_mode', true );
+        $action = isset( $input['action'] ) && is_string( $input['action'] ) ? $input['action'] : 'read';
+        if ( ! in_array( $action, array( 'read', 'update' ), true ) ) {
+            return new WP_Error( 'maxboxy_invalid_action', __( 'Action must be "read" or "update".', 'maxboxy' ) );
+        }
 
-        $conversion_options = get_post_meta( $id, '_mb_maxboxy_conversion', true );
-        $conversion_options = $conversion_options['box_options'] ?? (object) array();
-        
-        $conditional_options = get_post_meta( $id, '_mb_maxboxy_conditionals', true );
-        $conditional_options = $conditional_options['box_options'] ?? (object) array();
-        
-        $splitter_info = class_exists('Max_Boxy_Splitter') ? get_post_meta( $id, '_mb_maxboxy_splitter_info', true ) : null;
-        $splitter_info = $splitter_info !== null ? array(
-            'splitter_info' => $splitter_info['is_splitted_from'],
-        ) : array();
+        if ( 'update' === $action ) {
+            foreach ( array( 'option_group', 'option_key', 'option_value' ) as $required_input ) {
+                if ( ! array_key_exists( $required_input, $input ) ) {
+                    return new WP_Error( 'maxboxy_missing_update_input', __( 'Updating an option requires option_group, option_key, and option_value.', 'maxboxy' ) );
+                }
+            }
 
-        $post_type = get_post_type($id);
+            $group = is_string( $input['option_group'] ) ? $input['option_group'] : '';
+            $key = is_string( $input['option_key'] ) ? $input['option_key'] : '';
 
-        return array(
+            if ( '' === $key ) {
+                return new WP_Error( 'maxboxy_invalid_option_key', __( 'A non-empty option_key is required.', 'maxboxy' ) );
+            }
+
+            if ( 'loading_options' === $group ) {
+                $allowed_loading_options = array( 'auto_loading', 'location', 'test_mode' );
+                if ( ! in_array( $key, $allowed_loading_options, true ) ) {
+                    return new WP_Error( 'maxboxy_invalid_option_key', __( 'That post option cannot be updated.', 'maxboxy' ) );
+                }
+
+                $new_value = $input['option_value'];
+                $existing_values = get_post_meta( $id, $key, false );
+                if ( ! empty( $existing_values ) && get_post_meta( $id, $key, true ) === $new_value ) {
+                    // The requested value is already stored; WordPress returns false for no-op updates.
+                } elseif ( false === update_post_meta( $id, $key, $new_value ) ) {
+                    return new WP_Error( 'maxboxy_option_update_failed', __( 'The panel option could not be updated.', 'maxboxy' ) );
+                }
+            } elseif ( in_array( $group, array( 'style_options', 'conversion_options', 'conditional_options' ), true ) ) {
+                if ( 'style_options' === $group ) {
+                    $meta_key = $post_meta_key;
+                } elseif ( 'conversion_options' === $group ) {
+                    $meta_key = '_mb_maxboxy_conversion';
+                } else {
+                    $meta_key = '_mb_maxboxy_conditionals';
+                }
+
+                $stored = get_post_meta( $id, $meta_key, true );
+                if ( ! is_array( $stored ) || ! isset( $stored['box_options'] ) || ! is_array( $stored['box_options'] ) ) {
+                    return new WP_Error( 'maxboxy_options_not_found', __( 'The requested option group was not found for this panel.', 'maxboxy' ) );
+                }
+                if ( ! array_key_exists( $key, $stored['box_options'] ) ) {
+                    return new WP_Error( 'maxboxy_invalid_option_key', __( 'Only existing options in the selected group can be updated.', 'maxboxy' ) );
+                }
+
+                $stored['box_options'][ $key ] = $input['option_value'];
+                if ( false === update_post_meta( $id, $meta_key, $stored ) ) {
+                    $latest = get_post_meta( $id, $meta_key, true );
+                    if ( ! is_array( $latest ) || ! isset( $latest['box_options'] ) || ! is_array( $latest['box_options'] ) || ! array_key_exists( $key, $latest['box_options'] ) || $latest['box_options'][ $key ] !== $input['option_value'] ) {
+                        return new WP_Error( 'maxboxy_option_update_failed', __( 'The panel option could not be updated.', 'maxboxy' ) );
+                    }
+                }
+            } else {
+                return new WP_Error( 'maxboxy_invalid_option_group', __( 'Select a supported option group.', 'maxboxy' ) );
+            }
+        }
+
+        $panel_options = get_post_meta( $id, $post_meta_key, true );
+        $panel_options = is_array( $panel_options ) ? $panel_options : array();
+        if ( ! isset( $panel_options['box_options'] ) || ! is_array( $panel_options['box_options'] ) ) {
+            return new WP_Error( 'maxboxy_options_not_found', __( 'No MaxBoxy panel options were found for this post ID.', 'maxboxy' ) );
+        }
+
+        $conversion_meta = get_post_meta( $id, '_mb_maxboxy_conversion', true );
+        $conditional_meta = get_post_meta( $id, '_mb_maxboxy_conditionals', true );
+        $conversion_options = is_array( $conversion_meta ) && isset( $conversion_meta['box_options'] ) && is_array( $conversion_meta['box_options'] ) ? $conversion_meta['box_options'] : array();
+        $conditional_options = is_array( $conditional_meta ) && isset( $conditional_meta['box_options'] ) && is_array( $conditional_meta['box_options'] ) ? $conditional_meta['box_options'] : array();
+
+        $result = array(
             'post_type' => $post_type,
-            'auto_loading' => $auto_loading,
-            'location' => $location,
-            'test_mode' => $test_mode,
-            'type_and_style_options' => $merged_fa_ia['box_options'],
+            'auto_loading' => get_post_meta( $id, 'auto_loading', true ),
+            'location' => get_post_meta( $id, 'location', true ),
+            'test_mode' => get_post_meta( $id, 'test_mode', true ),
+            'style_options' => $panel_options['box_options'],
             'conversion_options' => $conversion_options,
             'conditional_options' => $conditional_options,
-        )+ $splitter_info;
+        );
 
+        if ( class_exists( 'Max_Boxy_Splitter' ) ) {
+            $splitter_meta = get_post_meta( $id, '_mb_maxboxy_splitter_info', true );
+            if ( is_array( $splitter_meta ) && isset( $splitter_meta['is_splitted_from'] ) ) {
+                $result['splitter_info'] = $splitter_meta['is_splitted_from'];
+            }
+        }
+
+        return $result;
     }
 }
 
